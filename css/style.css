@@ -61,7 +61,20 @@ button:hover { border-color: var(--accent); }
 .dim { color: var(--muted); }
 .info { margin: 0; font-size: 12px; color: var(--muted); }
 .info b { color: var(--text); }
-footer { padding: 8px 16px; font-size: 11px; color: var(--muted); }
+footer { padding: 8px 16px; font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+footer span { flex: 1; min-width: 0; }
+#btnLang { flex: none; font-size: 12px; padding: 4px 9px; white-space: nowrap; }
+
+#langDlg {
+  background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px;
+  padding: 16px 18px 18px; width: min(340px, calc(100% - 32px)); box-shadow: 0 10px 40px #000c;
+}
+#langDlg::backdrop { background: #0009; }
+#langDlg h3 { margin: 0 24px 12px 0; font-size: 15px; color: var(--accent); }
+#langDlg .close { position: absolute; right: 8px; top: 8px; border: 0; background: none; font-size: 18px; padding: 2px 8px; }
+#langList { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+#langList button { padding: 8px 4px; }
+#langList button.current { border-color: var(--accent); color: var(--accent); }
 
 #cats { flex: 1; overflow-y: auto; min-height: 0; margin: 0 -8px 8px; padding: 0 8px; }
 .cat { border-bottom: 1px solid var(--line); }

@@ -1,4 +1,4 @@
-# Valheim Seed-Karte
+# Valheim-Map
 
 Zeigt die komplette Valheim-Welt zu einem Seed – ohne Nebel des Krieges – und blendet Orte (POIs) ein.
 Karte und Orte werden direkt im Browser aus dem Seed berechnet (Portierung des Weltgenerators und der
@@ -21,6 +21,9 @@ ein Doppelklick auf `index.html` funktioniert nicht.)
 - **Beispielwelt**: lädt den Seed `Xldpp3L2LG`.
 - Ziehen verschiebt, Mausrad zoomt (bis 0,5 m pro Pixel). Unten stehen Koordinaten, Biom und Höhe unter dem Mauszeiger.
 - Klick auf einen Typnamen in der Liste springt zum nächstgelegenen Ort dieses Typs, erneuter Klick zum übernächsten.
+- **Sprache**: Deutsch, Englisch, Französisch, Italienisch, Portugiesisch, Spanisch, Norwegisch, Schwedisch und
+  Niederländisch. Beim ersten Aufruf entscheidet die Browsersprache; über den Knopf unten in der Seitenleiste lässt
+  sie sich umstellen (wird im `localStorage` gemerkt).
 - Die Adresse (`#seed=…&x=…&z=…&s=…`) lässt sich als Lesezeichen/Link weitergeben.
 
 ## Aufbau
@@ -34,6 +37,7 @@ ein Doppelklick auf `index.html` funktioniert nicht.)
 | `js/worker.js` | rendert Kartenkacheln in Web Workern |
 | `js/app.js` | Kartenansicht, POI-Ebene, Seitenleiste |
 | `js/locations.js` | Katalog: Prefab-Name → Kategorie und Bezeichnung |
+| `lang/<code>.json` | Übersetzungen: Oberfläche, Kategorien, Biome, Ortsnamen (Schlüssel = deutsche Bezeichnung) |
 
 ## Genauigkeit und Grenzen
 
@@ -44,3 +48,13 @@ Die Ortsberechnung wurde gegen einen echten Spielstand (Seed `Xldpp3L2LG`, Versi
   wurden, können deshalb abweichen; sie werden derzeit nicht unterstützt.
 - Nach einem Spiel-Update, das Orte oder Weltgenerator ändert, muss `data/locations-config.json` neu aus den
   Spieldaten erzeugt werden.
+
+## Veröffentlichung
+
+Bei jedem Push auf `main` baut die Pipeline (`.github/workflows/deploy.yml`) die GitHub-Seite, legt ein Release an und
+schiebt den Stand anschließend ins Plesk-Git von valheim-map.de. Die Zugangsdaten dafür stehen lokal in `.env`
+(nicht im Repository) und müssen einmalig als Secrets hinterlegt werden:
+
+```
+gh secret set -f .env
+```

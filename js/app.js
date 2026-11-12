@@ -10,7 +10,62 @@ const WORLD_R = 10500;
 const TILE = 256;
 const K_MIN = -1, K_MAX = 6;          // Kachel-Auflösung: 2^k Meter pro Pixel
 const CACHE_LIMIT = 700;
-const BIOME_DE = ['–', 'Wiesen', 'Sumpf', 'Berge', 'Schwarzwald', 'Ebenen', 'Aschelande', 'Tiefer Norden', 'Ozean', 'Nebellande'];
+// ------------------------------------------------------------------ Sprache
+// Texte liegen in lang/<code>.json; POI-Namen sind dort nach der deutschen Bezeichnung aus locations.js verschlüsselt.
+
+const LANGS = [['de', 'Deutsch'], ['en', 'English'], ['fr', 'Français'], ['it', 'Italiano'], ['pt', 'Português'],
+  ['es', 'Español'], ['no', 'Norsk'], ['sv', 'Svenska'], ['nl', 'Nederlands']];
+const LANG_KEY = 'valheim-map.lang';
+let lang = 'de';
+let L = { ui: {}, cat: {}, biome: [], poi: {} };
+
+function t(key, params) {
+  let s = L.ui[key] ?? key;
+  if (params) for (const k in params) s = s.replace('{' + k + '}', params[k]);
+  return s;
+}
+const locale = () => (lang === 'no' ? 'nb' : lang);
+const catLabel = (c) => L.cat[c.id] || c.label;
+const poiLabel = (de) => L.poi[de] || de;
+
+function detectLang() {
+  const known = (c) => LANGS.some(l => l[0] === c);
+  try { const s = localStorage.getItem(LANG_KEY); if (known(s)) return s; } catch { /* kein Speicher */ }
+  for (const l of navigator.languages || [navigator.language || '']) {
+    let c = String(l).toLowerCase().split('-')[0];
+    if (c === 'nb' || c === 'nn') c = 'no';
+    if (known(c)) return c;
+  }
+  return 'en';
+}
+async function loadLang(code) {
+  try {
+    const res = await fetch(`lang/${code}.json`);
+    if (!res.ok) throw new Error(res.status);
+    L = await res.json();
+    lang = code;
+  } catch { return false; }
+  document.documentElement.lang = locale();
+  document.title = t('title');
+  for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
+  for (const a of ['placeholder', 'title', 'aria-label'])
+    for (const el of document.querySelectorAll(`[data-i18n-${a}]`)) el.setAttribute(a, t(el.getAttribute('data-i18n-' + a)));
+  $('btnLang').textContent = '🌐 ' + L.name;
+  return true;
+}
+/** Sprache umschalten und alles neu beschriften, ohne Auswahl oder Kartenausschnitt zu verlieren. */
+async function setLang(code) {
+  if (!await loadLang(code)) return;
+  try { localStorage.setItem(LANG_KEY, code); } catch { /* kein Speicher */ }
+  for (const p of world.pois) p.label = poiLabel(p.de);
+  buildSidebar(true);
+  renderSaved();
+  showWorldInfo();
+  if (selected) select(selected);
+  if (lastProbeMsg) showProbe(lastProbeMsg);
+  $('tooltip').hidden = true;
+  requestDraw();
+}
 const CAT = new Map(CATEGORIES.map(c => [c.id, c]));
 const EXAMPLE_SEED = 'Xldpp3L2LG';
 
@@ -45,7 +100,7 @@ function startWorkers() {
     const w = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
     const rec = { w, ready: false, busy: false };
     w.onmessage = (e) => onWorkerMessage(rec, e.data);
-    w.onerror = (e) => { $('stLoad').textContent = 'Worker-Fehler: ' + (e.message || e); };
+    w.onerror = (e) => { $('stLoad').textContent = t('workerError') + ': ' + (e.message || e); };
     w.postMessage({ type: 'init', seed: world.seed, epoch });
     workers.push(rec);
   }
@@ -88,7 +143,7 @@ function pump() {
     rec.w.postMessage({ type: 'tile', key: t.key, x0: t.x0, zTop: t.zTop, mpp: t.mpp, size: TILE });
   }
   const open = wanted.filter(t => !tiles.has(t.key)).length;
-  $('stLoad').textContent = open ? `berechne ${open} Kachel${open === 1 ? '' : 'n'}…` : '';
+  $('stLoad').textContent = open ? t(open === 1 ? 'tiles1' : 'tilesN', { n: open }) : '';
 }
 
 // ---------------------------------------------------------------- Zeichnen
@@ -399,11 +454,13 @@ function onHover(px, py, dragging) {
     tip.hidden = true;
   }
 }
+let lastProbeMsg = null;
 function showProbe(m) {
-  if (Math.hypot(m.x, m.z) > WORLD_R) { $('stBiome').textContent = 'außerhalb der Welt'; return; }
+  lastProbeMsg = m;
+  if (Math.hypot(m.x, m.z) > WORLD_R) { $('stBiome').textContent = t('outside'); return; }
   const rel = m.height - 30;
-  const h = rel < 0 ? `Wasser, ${(-rel).toFixed(1)} m tief` : `${rel.toFixed(1)} m über dem Meer`;
-  $('stBiome').textContent = `${BIOME_DE[m.biome]}${m.forest ? ' (Wald)' : ''}  ·  ${h}`;
+  const h = rel < 0 ? t('water', { d: (-rel).toFixed(1) }) : t('above', { h: rel.toFixed(1) });
+  $('stBiome').textContent = `${L.biome[m.biome] || '–'}${m.forest ? ` (${t('forest')})` : ''}  ·  ${h}`;
 }
 
 function onClick(px, py) {
@@ -414,12 +471,12 @@ function select(p) {
   const pop = $('popup');
   if (!p) { pop.hidden = true; requestDraw(); return; }
   const dist = Math.hypot(p.x, p.z);
-  pop.innerHTML = `<button class="close" title="Schließen">×</button>
+  pop.innerHTML = `<button class="close" title="${esc(t('close'))}">×</button>
     <h3>${iconHtml(p.icon, p.c.color)}${esc(p.label)}</h3>
-    <p>${esc(p.c.label)} · <b>${esc(p.prefab)}</b></p>
-    <p>Position: <b>X ${p.x.toFixed(0)}, Z ${p.z.toFixed(0)}</b> (Höhe ${(p.y - 30).toFixed(0)} m)</p>
-    <p>Entfernung zur Weltmitte: <b>${dist.toFixed(0)} m</b></p>
-    <p>Konsole: <code>goto ${p.x.toFixed(0)} ${p.z.toFixed(0)}</code></p>`;
+    <p>${esc(catLabel(p.c))} · <b>${esc(p.prefab)}</b></p>
+    <p>${esc(t('popPos'))}: <b>X ${p.x.toFixed(0)}, Z ${p.z.toFixed(0)}</b> (${esc(t('popHeight', { h: (p.y - 30).toFixed(0) }))})</p>
+    <p>${esc(t('popDist'))}: <b>${dist.toFixed(0)} m</b></p>
+    <p>${esc(t('popConsole'))}: <code>goto ${p.x.toFixed(0)} ${p.z.toFixed(0)}</code></p>`;
   pop.querySelector('.close').onclick = () => select(null);
   pop.hidden = false;
   requestDraw();
@@ -439,7 +496,8 @@ function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<':
 
 // ------------------------------------------------------------ Seitenleiste
 
-function buildSidebar() {
+function buildSidebar(keep) {
+  const openCats = new Set(groups.filter(g => g.el && g.el.classList.contains('open')).map(g => g.cat.id));
   const byCat = new Map();
   for (const p of world.pois) {
     let types = byCat.get(p.cat);
@@ -450,19 +508,21 @@ function buildSidebar() {
     t.pois.push(p);
   }
   groups = CATEGORIES.filter(c => byCat.has(c.id)).map(c => ({
-    cat: c, types: [...byCat.get(c.id).values()].sort((a, b) => a.label.localeCompare(b.label, 'de')),
+    cat: c, types: [...byCat.get(c.id).values()].sort((a, b) => a.label.localeCompare(b.label, locale())),
   }));
-  enabled.clear();
-  for (const g of groups) if (g.cat.on) for (const t of g.types) enabled.add(t.key);
+  if (!keep) {
+    enabled.clear();
+    for (const g of groups) if (g.cat.on) for (const ty of g.types) enabled.add(ty.key);
+  }
 
   const root = $('cats');
   root.innerHTML = '';
   for (const g of groups) {
     const total = g.types.reduce((s, t) => s + t.pois.length, 0);
     const el = document.createElement('div');
-    el.className = 'cat';
+    el.className = keep && openCats.has(g.cat.id) ? 'cat open' : 'cat';
     el.innerHTML = `<div class="cat-head"><input type="checkbox"><span class="dot" style="background:${g.cat.color}"></span>
-      <span class="name">${esc(g.cat.label)}</span><span class="count">${total}</span></div><div class="types"></div>`;
+      <span class="name">${esc(catLabel(g.cat))}</span><span class="count">${total}</span></div><div class="types"></div>`;
     g.el = el;
     g.box = el.querySelector('input');
     g.box.onchange = () => {
@@ -474,24 +534,32 @@ function buildSidebar() {
     };
     el.querySelector('.name').onclick = () => el.classList.toggle('open');
     const list = el.querySelector('.types');
-    for (const t of g.types) {
+    const jump = esc(t('jumpTitle'));
+    for (const ty of g.types) {
       const row = document.createElement('div');
       row.className = 'type';
-      row.innerHTML = `<input type="checkbox">${iconHtml(t.icon, g.cat.color)}<span class="name" title="${esc([...t.prefabs].join(', '))} – klicken, um zum nächsten Ort zu springen">${esc(t.label)}</span><span class="count">${t.pois.length}</span>`;
-      t.row = row;
-      t.box = row.querySelector('input');
-      t.box.onchange = () => { if (t.box.checked) enabled.add(t.key); else enabled.delete(t.key); syncBoxes(); };
-      row.querySelector('.name').onclick = () => jumpTo(t);
+      row.innerHTML = `<input type="checkbox">${iconHtml(ty.icon, g.cat.color)}<span class="name" title="${esc([...ty.prefabs].join(', '))} – ${jump}">${esc(ty.label)}</span><span class="count">${ty.pois.length}</span>`;
+      ty.row = row;
+      ty.box = row.querySelector('input');
+      ty.box.onchange = () => { if (ty.box.checked) enabled.add(ty.key); else enabled.delete(ty.key); syncBoxes(); };
+      row.querySelector('.name').onclick = () => jumpTo(ty);
       list.appendChild(row);
     }
     root.appendChild(el);
   }
-  $('poiTotal').textContent = world.pois.length ? `– ${world.pois.length.toLocaleString('de')}` : '';
-  $('poiHint').innerHTML = world.computed
-    ? `Orte aus dem Seed berechnet (Spielversion ${esc(world.computed)}).`
-    : '';
+  $('poiTotal').textContent = world.pois.length ? `– ${world.pois.length.toLocaleString(locale())}` : '';
+  renderHint();
   applySearch();
   syncBoxes();
+}
+
+/** Hinweiszeile unter der Liste: Berechnung läuft / fehlgeschlagen / fertig. */
+let hintState = null;         // { p } während der Berechnung, { fail } bei Fehler
+function renderHint() {
+  const h = hintState;
+  $('poiHint').textContent = h
+    ? (h.fail !== undefined ? t('calcFail') + ': ' + h.fail : t('calcHint') + (h.p ? ` ${Math.round(h.p * 100)} %` : ''))
+    : world.computed ? t('computed', { v: world.computed }) : '';
 }
 
 function syncBoxes() {
@@ -508,7 +576,7 @@ function applySearch() {
   const q = $('search').value.trim().toLowerCase();
   for (const g of groups) {
     let any = false;
-    const catMatch = q && g.cat.label.toLowerCase().includes(q);
+    const catMatch = q && catLabel(g.cat).toLowerCase().includes(q);
     for (const t of g.types) {
       const m = !q || catMatch || t.label.toLowerCase().includes(q) || [...t.prefabs].some(p => p.toLowerCase().includes(q));
       t.row.classList.toggle('hidden', !m);
@@ -546,7 +614,7 @@ function jumpTo(t) {
 function toPois(locations) {
   return locations.map(l => {
     const c = classify(l.prefab);
-    return { ...l, cat: c.cat, label: c.label, key: c.cat + '|' + c.label, c: CAT.get(c.cat), icon: icons.get(l.prefab) };
+    return { ...l, cat: c.cat, de: c.label, label: poiLabel(c.label), key: c.cat + '|' + c.label, c: CAT.get(c.cat), icon: icons.get(l.prefab) };
   });
 }
 
@@ -568,7 +636,7 @@ function setWorld(w, keepView) {
 }
 
 function showWorldInfo() {
-  $('worldInfo').innerHTML = `${world.name ? `Welt <b>${esc(world.name)}</b> · ` : ''}Seed <b>${esc(world.seedName || '?')}</b> (${world.seed})`;
+  $('worldInfo').innerHTML = `${world.name ? `${esc(t('world'))} <b>${esc(world.name)}</b> · ` : ''}Seed <b>${esc(world.seedName || '?')}</b> (${world.seed})`;
 }
 
 /** Fortschrittsbalken in der Kartenmitte; p = 0..1, null blendet ihn aus. */
@@ -586,16 +654,17 @@ let locWorker = null;
 function computeLocations() {
   const myEpoch = epoch;
   const w = locWorker = new Worker(new URL('./locworker.js', import.meta.url), { type: 'module' });
-  const hint = $('poiHint');
-  hint.textContent = 'Orte werden aus dem Seed berechnet …';
+  hintState = { p: 0 };
+  renderHint();
   showProgress(0);
-  const fail = (msg) => { showProgress(null); hint.textContent = 'Orte konnten nicht berechnet werden: ' + msg; w.terminate(); if (locWorker === w) locWorker = null; };
-  w.onerror = (e) => fail(e.message || 'Worker-Fehler');
+  const fail = (msg) => { showProgress(null); hintState = { fail: msg }; renderHint(); w.terminate(); if (locWorker === w) locWorker = null; };
+  w.onerror = (e) => fail(e.message || t('workerError'));
   w.onmessage = (e) => {
     const m = e.data;
     if (m.epoch !== myEpoch || myEpoch !== epoch) return;
     if (m.type === 'progress') {
-      hint.textContent = `Orte werden aus dem Seed berechnet … ${Math.round(m.p * 100)} %`;
+      hintState = { p: m.p };
+      renderHint();
       showProgress(m.p);
     } else if (m.type === 'error') {
       fail(m.message);
@@ -607,6 +676,7 @@ function computeLocations() {
       world.pois = toPois(locations);
       world.computed = m.gameVersion;
       showProgress(null);
+      hintState = null;
       buildSidebar();
       w.terminate(); locWorker = null;
     }
@@ -648,13 +718,13 @@ function renderSaved() {
   const current = savedSeeds.find(e => e.seed === world.seedName);
   btn.disabled = savedSeeds.length === 0;
   btn.innerHTML = `<span class="dd-label">${current ? seedLabel(current)
-    : savedSeeds.length ? `Gespeicherte Seeds (${savedSeeds.length})` : 'Keine gespeicherten Seeds'}</span>`;
+    : savedSeeds.length ? esc(t('savedCount', { n: savedSeeds.length })) : esc(t('savedNone'))}</span>`;
   list.innerHTML = '';
   for (const e of savedSeeds) {
     const li = document.createElement('li');
     li.setAttribute('role', 'option');
     if (e === current) li.className = 'current';
-    li.innerHTML = `<button type="button" class="pick">${seedLabel(e)}</button><button type="button" class="del" title="Aus der Liste entfernen">×</button>`;
+    li.innerHTML = `<button type="button" class="pick">${seedLabel(e)}</button><button type="button" class="del" title="${esc(t('remove'))}">×</button>`;
     li.querySelector('.pick').onclick = () => { toggleSaved(false); loadSeed(e.seed); };
     li.querySelector('.del').onclick = () => {
       savedSeeds = savedSeeds.filter(x => x !== e);
@@ -679,11 +749,30 @@ $('btnSave').onclick = () => {
   const name = $('nameInput').value.trim();
   const entry = savedSeeds.find(e => e.seed === seed);
   if (entry) entry.name = name; else savedSeeds.push({ seed, name });
-  savedSeeds.sort((a, b) => (a.name || a.seed).localeCompare(b.name || b.seed, 'de'));
-  if (!writeSaved()) alert('Speichern nicht möglich – der Browser erlaubt hier keinen lokalen Speicher.');
+  savedSeeds.sort((a, b) => (a.name || a.seed).localeCompare(b.name || b.seed, locale()));
+  if (!writeSaved()) alert(t('saveFail'));
   if (seed === world.seedName) { world.name = name; showWorldInfo(); renderSaved(); }
   else loadSeed(seed);
 };
+
+// ------------------------------------------------------------ Sprachdialog
+
+$('btnLang').onclick = () => {
+  const list = $('langList');
+  list.innerHTML = '';
+  for (const [code, name] of LANGS) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = name;
+    b.lang = code === 'no' ? 'nb' : code;
+    if (code === lang) { b.className = 'current'; b.setAttribute('aria-current', 'true'); }
+    b.onclick = () => { $('langDlg').close(); setLang(code); };
+    list.appendChild(b);
+  }
+  $('langDlg').showModal();
+};
+$('langClose').onclick = () => $('langDlg').close();
+$('langDlg').addEventListener('click', (e) => { if (e.target === $('langDlg')) $('langDlg').close(); });
 
 // ---------------------------------------------------------------- URL-Hash
 
@@ -704,6 +793,6 @@ function saveHashSoon() {
     view.cx = +params.get('x') || 0; view.cz = +params.get('z') || 0;
     view.scale = Math.max(0.005, Math.min(4, +params.get('s') || 0.04));
   }
-  await loadIconIndex();
+  await Promise.all([loadIconIndex(), loadLang(detectLang()).then(ok => ok || loadLang('de'))]);
   loadSeed(seed || EXAMPLE_SEED, hasView);
 })();

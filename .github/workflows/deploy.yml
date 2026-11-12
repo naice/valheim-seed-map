@@ -19,7 +19,7 @@ jobs:
       - name: Website zusammenstellen
         run: |
           mkdir -p _site
-          cp -r index.html favicon.ico css js data poi-icons _site/
+          cp -r index.html favicon.ico css js data lang poi-icons _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
@@ -63,3 +63,29 @@ jobs:
           --target "$GITHUB_SHA"
           --title "$TAG"
           --generate-notes
+
+  # Nach dem Release denselben Stand ins Plesk-Git von valheim-map.de schieben.
+  # Zugangsdaten: Repository-Secrets PLESK_GIT_URL / _USER / _PASSWORD (lokal in .env, siehe README).
+  plesk:
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      PLESK_GIT_URL: ${{ secrets.PLESK_GIT_URL }}
+      PLESK_GIT_USER: ${{ secrets.PLESK_GIT_USER }}
+      PLESK_GIT_PASSWORD: ${{ secrets.PLESK_GIT_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Nach Plesk pushen
+        run: |
+          if [ -z "$PLESK_GIT_URL" ] || [ -z "$PLESK_GIT_USER" ] || [ -z "$PLESK_GIT_PASSWORD" ]; then
+            echo "::warning::Plesk-Secrets fehlen – Push übersprungen."
+            exit 0
+          fi
+          AUTH=$(printf '%s:%s' "$PLESK_GIT_USER" "$PLESK_GIT_PASSWORD" | base64 -w0)
+          echo "::add-mask::$AUTH"
+          git -c http.extraheader="Authorization: Basic $AUTH" push "$PLESK_GIT_URL" HEAD:refs/heads/main
