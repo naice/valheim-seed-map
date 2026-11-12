@@ -18,9 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Website zusammenstellen
         run: |
-          mkdir -p _site/assets
-          cp -r index.html favicon.ico css js data _site/
-          cp -r assets/icons _site/assets/
+          mkdir -p _site
+          cp -r index.html favicon.ico css js data poi-icons _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

@@ -162,6 +162,59 @@ function poiVisible(p) {
   return enabled.has(p.key);
 }
 
+// ---------------------------------------------------------------- POI-Icons
+// Einfarbige Masken (Form im Alphakanal); werden je Kategorie-Farbe eingefärbt.
+
+const ICON_DIR = 'poi-icons/';
+const icons = new Map();        // Prefab -> { url, img, ready, sprites }
+const iconByUrl = new Map();
+
+async function loadIconIndex() {
+  try {
+    const list = await (await fetch(ICON_DIR + 'pois.json')).json();
+    for (const e of list) {
+      const url = ICON_DIR + e.image;
+      let rec = iconByUrl.get(url);
+      if (!rec) iconByUrl.set(url, rec = { url, img: null, ready: false, sprites: new Map() });
+      icons.set(e.type, rec);
+    }
+  } catch { /* ohne Icons bleiben die Punkte */ }
+}
+function iconReady(rec) {
+  if (!rec) return false;
+  if (!rec.img) {
+    rec.img = new Image();
+    rec.img.onload = () => { rec.ready = true; requestDraw(); };
+    rec.img.src = rec.url;
+  }
+  return rec.ready;
+}
+function tinted(img, color, size) {
+  const c = document.createElement('canvas');
+  c.width = c.height = size;
+  const g = c.getContext('2d');
+  g.drawImage(img, 0, 0, size, size);
+  g.globalCompositeOperation = 'source-in';
+  g.fillStyle = color;
+  g.fillRect(0, 0, size, size);
+  return c;
+}
+/** Eingefärbtes Icon mit dunkler Kontur, je Motiv/Farbe/Größe zwischengespeichert. */
+function iconSprite(rec, color, size, o) {
+  const key = color + '|' + size + '|' + o;
+  let sp = rec.sprites.get(key);
+  if (!sp) {
+    sp = document.createElement('canvas');
+    sp.width = sp.height = size + 2 * o;
+    const g = sp.getContext('2d');
+    const dark = tinted(rec.img, '#0b0e12', size);
+    for (let i = 0; i < 12; i++) g.drawImage(dark, o + Math.cos(i * Math.PI / 6) * o, o + Math.sin(i * Math.PI / 6) * o);
+    g.drawImage(tinted(rec.img, color, size), o, o);
+    rec.sprites.set(key, sp);
+  }
+  return sp;
+}
+
 function drawPois(W, H, S, dpr) {
   visiblePois = [];
   const pad = 20 * dpr;
@@ -174,8 +227,20 @@ function drawPois(W, H, S, dpr) {
   }
   const rSmall = Math.max(2.5, Math.min(6, 3 + view.scale * 6)) * dpr;
   ctx.lineWidth = dpr;
+  const o = Math.max(1, Math.round(1.5 * dpr));
+  const sSmall = Math.round(Math.max(14, Math.min(24, 14 + view.scale * 28)) * dpr);
+  const sBig = Math.round(28 * dpr);
+  const drawIcon = (p, size) => {
+    if (!iconReady(p.icon)) return false;
+    ctx.drawImage(iconSprite(p.icon, p.c.color, size, o), Math.round(p.sx - size / 2) - o, Math.round(p.sy - size / 2) - o);
+    p.r = size / 2;
+    return true;
+  };
   for (const p of visiblePois) {
     if (p.c.big) continue;
+    if (drawIcon(p, sSmall)) continue;
+    p.r = rSmall;
+    ctx.lineWidth = dpr;
     ctx.beginPath();
     ctx.arc(p.sx, p.sy, rSmall, 0, 6.2832);
     ctx.fillStyle = p.c.color;
@@ -189,6 +254,8 @@ function drawPois(W, H, S, dpr) {
   ctx.font = `bold ${11 * dpr}px "Segoe UI", sans-serif`;
   for (const p of visiblePois) {
     if (!p.c.big) continue;
+    if (drawIcon(p, sBig)) continue;
+    p.r = rBig;
     ctx.beginPath();
     ctx.arc(p.sx, p.sy, rBig, 0, 6.2832);
     ctx.fillStyle = p.c.color;
@@ -201,7 +268,7 @@ function drawPois(W, H, S, dpr) {
   }
   if (selected && poiVisible(selected)) {
     ctx.beginPath();
-    ctx.arc(selected.sx, selected.sy, (selected.c.big ? rBig : rSmall) + 5 * dpr, 0, 6.2832);
+    ctx.arc(selected.sx, selected.sy, selected.r + 5 * dpr, 0, 6.2832);
     ctx.lineWidth = 2.5 * dpr; ctx.strokeStyle = '#fff'; ctx.stroke();
   }
   if ($('chkLabels').checked) {
@@ -212,7 +279,7 @@ function drawPois(W, H, S, dpr) {
     const boxes = [];
     const th = 14 * dpr;
     const place = (p) => {
-      const off = (p.c.big ? rBig : rSmall) + 4 * dpr;
+      const off = p.r + 4 * dpr;
       const x0 = p.sx + off, y0 = p.sy - th / 2, x1 = x0 + ctx.measureText(p.label).width;
       for (const b of boxes) if (x0 < b[2] && x1 > b[0] && y0 < b[3] && y0 + th > b[1]) return;
       boxes.push([x0, y0, x1, y0 + th]);
@@ -348,7 +415,7 @@ function select(p) {
   if (!p) { pop.hidden = true; requestDraw(); return; }
   const dist = Math.hypot(p.x, p.z);
   pop.innerHTML = `<button class="close" title="Schließen">×</button>
-    <h3>${esc(p.label)}</h3>
+    <h3>${iconHtml(p.icon, p.c.color)}${esc(p.label)}</h3>
     <p>${esc(p.c.label)} · <b>${esc(p.prefab)}</b></p>
     <p>Position: <b>X ${p.x.toFixed(0)}, Z ${p.z.toFixed(0)}</b> (Höhe ${(p.y - 30).toFixed(0)} m)</p>
     <p>Entfernung zur Weltmitte: <b>${dist.toFixed(0)} m</b></p>
@@ -365,6 +432,9 @@ function positionPopup() {
   pop.style.left = Math.max(4, Math.min(wrap.clientWidth - pop.offsetWidth - 4, x + 16)) + 'px';
   pop.style.top = Math.max(4, Math.min(wrap.clientHeight - pop.offsetHeight - 30, y - 20)) + 'px';
 }
+function iconHtml(rec, color) {
+  return rec ? `<span class="poi-icon" style="-webkit-mask-image:url('${rec.url}');mask-image:url('${rec.url}');color:${color}"></span>` : '';
+}
 function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 
 // ------------------------------------------------------------ Seitenleiste
@@ -375,7 +445,7 @@ function buildSidebar() {
     let types = byCat.get(p.cat);
     if (!types) byCat.set(p.cat, types = new Map());
     let t = types.get(p.key);
-    if (!t) types.set(p.key, t = { key: p.key, label: p.label, prefabs: new Set(), pois: [] });
+    if (!t) types.set(p.key, t = { key: p.key, label: p.label, icon: p.icon, prefabs: new Set(), pois: [] });
     t.prefabs.add(p.prefab);
     t.pois.push(p);
   }
@@ -407,7 +477,7 @@ function buildSidebar() {
     for (const t of g.types) {
       const row = document.createElement('div');
       row.className = 'type';
-      row.innerHTML = `<input type="checkbox"><span class="name" title="${esc([...t.prefabs].join(', '))} – klicken, um zum nächsten Ort zu springen">${esc(t.label)}</span><span class="count">${t.pois.length}</span>`;
+      row.innerHTML = `<input type="checkbox">${iconHtml(t.icon, g.cat.color)}<span class="name" title="${esc([...t.prefabs].join(', '))} – klicken, um zum nächsten Ort zu springen">${esc(t.label)}</span><span class="count">${t.pois.length}</span>`;
       t.row = row;
       t.box = row.querySelector('input');
       t.box.onchange = () => { if (t.box.checked) enabled.add(t.key); else enabled.delete(t.key); syncBoxes(); };
@@ -476,7 +546,7 @@ function jumpTo(t) {
 function toPois(locations) {
   return locations.map(l => {
     const c = classify(l.prefab);
-    return { ...l, cat: c.cat, label: c.label, key: c.cat + '|' + c.label, c: CAT.get(c.cat) };
+    return { ...l, cat: c.cat, label: c.label, key: c.cat + '|' + c.label, c: CAT.get(c.cat), icon: icons.get(l.prefab) };
   });
 }
 
@@ -634,5 +704,6 @@ function saveHashSoon() {
     view.cx = +params.get('x') || 0; view.cz = +params.get('z') || 0;
     view.scale = Math.max(0.005, Math.min(4, +params.get('s') || 0.04));
   }
+  await loadIconIndex();
   loadSeed(seed || EXAMPLE_SEED, hasView);
 })();

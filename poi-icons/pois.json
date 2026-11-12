@@ -1,0 +1,1118 @@
+[
+  {
+    "type": "AbandonedLogCabin02",
+    "name": "Verlassene Blockhütte",
+    "category": "mountain",
+    "image": "icons/AbandonedLogCabin02.png"
+  },
+  {
+    "type": "AbandonedLogCabin03",
+    "name": "Verlassene Blockhütte",
+    "category": "mountain",
+    "image": "icons/AbandonedLogCabin02.png"
+  },
+  {
+    "type": "AbandonedLogCabin04",
+    "name": "Verlassene Blockhütte",
+    "category": "mountain",
+    "image": "icons/AbandonedLogCabin02.png"
+  },
+  {
+    "type": "AncientUpgradeStation",
+    "name": "Antike Werkstation",
+    "category": "resource",
+    "image": "icons/mapicon_upgradestation.png"
+  },
+  {
+    "type": "AshlandRuins",
+    "name": "Aschelande-Ruine",
+    "category": "ashlands",
+    "image": "icons/AshlandRuins.png"
+  },
+  {
+    "type": "BearCave",
+    "name": "Bärenhöhle",
+    "category": "dungeon",
+    "image": "icons/BearCave.png"
+  },
+  {
+    "type": "BigRockClearing",
+    "name": "Lichtung mit Felsen",
+    "category": "resource",
+    "image": "icons/BigRockClearing.png"
+  },
+  {
+    "type": "BogWitch_Camp",
+    "name": "Moorhexe (Händlerin)",
+    "category": "vendor",
+    "image": "icons/mapicon_bogwitch_camp.png"
+  },
+  {
+    "type": "Bonemass",
+    "name": "Knochenmasse",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "CharredFortress",
+    "name": "Verkohlte Festung",
+    "category": "dungeon",
+    "image": "icons/CharredFortress.png"
+  },
+  {
+    "type": "CharredRuins1",
+    "name": "Verkohlte Ruine",
+    "category": "ashlands",
+    "image": "icons/CharredRuins1.png"
+  },
+  {
+    "type": "CharredRuins2",
+    "name": "Verkohlte Ruine",
+    "category": "ashlands",
+    "image": "icons/CharredRuins1.png"
+  },
+  {
+    "type": "CharredRuins3",
+    "name": "Verkohlte Ruine",
+    "category": "ashlands",
+    "image": "icons/CharredRuins1.png"
+  },
+  {
+    "type": "CharredRuins4",
+    "name": "Verkohlte Ruine",
+    "category": "ashlands",
+    "image": "icons/CharredRuins1.png"
+  },
+  {
+    "type": "CharredStone_Spawner",
+    "name": "Verkohlten-Spawner (Monolith)",
+    "category": "ashlands",
+    "image": "icons/CharredStone_Spawner.png"
+  },
+  {
+    "type": "CharredTowerRuins1",
+    "name": "Verkohlte Turmruine",
+    "category": "ashlands",
+    "image": "icons/CharredTowerRuins1.png"
+  },
+  {
+    "type": "CharredTowerRuins1_dvergr",
+    "name": "Verkohlte Turmruine",
+    "category": "ashlands",
+    "image": "icons/CharredTowerRuins1.png"
+  },
+  {
+    "type": "CharredTowerRuins2",
+    "name": "Verkohlte Turmruine",
+    "category": "ashlands",
+    "image": "icons/CharredTowerRuins1.png"
+  },
+  {
+    "type": "CharredTowerRuins3",
+    "name": "Verkohlte Turmruine",
+    "category": "ashlands",
+    "image": "icons/CharredTowerRuins1.png"
+  },
+  {
+    "type": "CombatRuin01",
+    "name": "Kampfruine",
+    "category": "deepnorth",
+    "image": "icons/CombatRuin01.png"
+  },
+  {
+    "type": "Crypt2",
+    "name": "Grabkammer (Schwarzwald)",
+    "category": "dungeon",
+    "image": "icons/Crypt2.png"
+  },
+  {
+    "type": "Crypt3",
+    "name": "Grabkammer (Schwarzwald)",
+    "category": "dungeon",
+    "image": "icons/Crypt2.png"
+  },
+  {
+    "type": "Crypt4",
+    "name": "Grabkammer (Schwarzwald)",
+    "category": "dungeon",
+    "image": "icons/Crypt2.png"
+  },
+  {
+    "type": "DN_Bossroom",
+    "name": "Boss des Tiefen Nordens",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "DN_gammeltrollFrac01",
+    "name": "Gammeltroll-Felsen",
+    "category": "deepnorth",
+    "image": "icons/DN_gammeltrollFrac01.png"
+  },
+  {
+    "type": "DN_gammeltrollFrac02",
+    "name": "Gammeltroll-Felsen",
+    "category": "deepnorth",
+    "image": "icons/DN_gammeltrollFrac01.png"
+  },
+  {
+    "type": "DN_hut01",
+    "name": "Hütte (Norden)",
+    "category": "deepnorth",
+    "image": "icons/DN_hut01.png"
+  },
+  {
+    "type": "Dolmen01",
+    "name": "Dolmen",
+    "category": "meadows",
+    "image": "icons/Dolmen01.png"
+  },
+  {
+    "type": "Dolmen02",
+    "name": "Dolmen",
+    "category": "meadows",
+    "image": "icons/Dolmen01.png"
+  },
+  {
+    "type": "Dolmen03",
+    "name": "Dolmen",
+    "category": "meadows",
+    "image": "icons/Dolmen01.png"
+  },
+  {
+    "type": "Dragonqueen",
+    "name": "Moder",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "DrakeLorestone",
+    "name": "Drachen-Lorestein",
+    "category": "lore",
+    "image": "icons/DrakeLorestone.png"
+  },
+  {
+    "type": "DrakeNest01",
+    "name": "Drachennest (Ei)",
+    "category": "resource",
+    "image": "icons/DrakeNest01.png"
+  },
+  {
+    "type": "Eikthyrnir",
+    "name": "Eikthyr",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "FaderLocation",
+    "name": "Fader",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "FireHole",
+    "name": "Surtling-Geysir",
+    "category": "resource",
+    "image": "icons/FireHole.png"
+  },
+  {
+    "type": "FortressRuins",
+    "name": "Festungsruine",
+    "category": "ashlands",
+    "image": "icons/FortressRuins.png"
+  },
+  {
+    "type": "FrozenShip01_DN",
+    "name": "Eingefrorenes Schiff",
+    "category": "deepnorth",
+    "image": "icons/FrozenShip01_DN.png"
+  },
+  {
+    "type": "FrozenShip02_DN",
+    "name": "Eingefrorenes Schiff",
+    "category": "deepnorth",
+    "image": "icons/FrozenShip01_DN.png"
+  },
+  {
+    "type": "FrozenShip03_DN",
+    "name": "Eingefrorenes Schiff",
+    "category": "deepnorth",
+    "image": "icons/FrozenShip01_DN.png"
+  },
+  {
+    "type": "GDKing",
+    "name": "Der Älteste",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "GoblinCamp2",
+    "name": "Fuling-Dorf",
+    "category": "dungeon",
+    "image": "icons/GoblinCamp2.png"
+  },
+  {
+    "type": "GoblinHut01",
+    "name": "Fuling-Hütte",
+    "category": "plains",
+    "image": "icons/GoblinHut01.png"
+  },
+  {
+    "type": "GoblinHut02",
+    "name": "Fuling-Hütte",
+    "category": "plains",
+    "image": "icons/GoblinHut01.png"
+  },
+  {
+    "type": "GoblinHut03",
+    "name": "Fuling-Hütte",
+    "category": "plains",
+    "image": "icons/GoblinHut01.png"
+  },
+  {
+    "type": "GoblinKing",
+    "name": "Yagluth",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "Grave1",
+    "name": "Gräberfeld",
+    "category": "swamp",
+    "image": "icons/Grave1.png"
+  },
+  {
+    "type": "Greydwarf_camp1",
+    "name": "Grauzwerg-Nest",
+    "category": "forest",
+    "image": "icons/Greydwarf_camp1.png"
+  },
+  {
+    "type": "Hildir_camp",
+    "name": "Hildir (Händlerin)",
+    "category": "vendor",
+    "image": "icons/mapicon_hildir.png"
+  },
+  {
+    "type": "Hildir_cave",
+    "name": "Hildir-Quest: Heulende Höhle",
+    "category": "vendor",
+    "image": "icons/mapicon_hildir2.png"
+  },
+  {
+    "type": "Hildir_crypt",
+    "name": "Hildir-Quest: Schwelendes Grab",
+    "category": "vendor",
+    "image": "icons/mapicon_hildir1.png"
+  },
+  {
+    "type": "Hildir_plainsfortress",
+    "name": "Hildir-Quest: Versiegelter Turm",
+    "category": "vendor",
+    "image": "icons/mapicon_hildir3.png"
+  },
+  {
+    "type": "IcePond1",
+    "name": "Eisteich",
+    "category": "deepnorth",
+    "image": "icons/IcePond1.png"
+  },
+  {
+    "type": "InfestedTree01",
+    "name": "Befallener Baum (Guck)",
+    "category": "resource",
+    "image": "icons/InfestedTree01.png"
+  },
+  {
+    "type": "LeviathanLava",
+    "name": "Lava-Leviathan",
+    "category": "resource",
+    "image": "icons/LeviathanLava.png"
+  },
+  {
+    "type": "LumberCamp",
+    "name": "Holzfällerlager",
+    "category": "plains",
+    "image": "icons/LumberCamp.png"
+  },
+  {
+    "type": "Mistlands_DvergrBossEntrance1",
+    "name": "Die Königin",
+    "category": "boss",
+    "image": "icons/mapicon_boss_colored.png"
+  },
+  {
+    "type": "Mistlands_DvergrTownEntrance1",
+    "name": "Verseuchte Mine",
+    "category": "dungeon",
+    "image": "icons/Mistlands_DvergrTownEntrance1.png"
+  },
+  {
+    "type": "Mistlands_DvergrTownEntrance2",
+    "name": "Verseuchte Mine",
+    "category": "dungeon",
+    "image": "icons/Mistlands_DvergrTownEntrance1.png"
+  },
+  {
+    "type": "Mistlands_Excavation1",
+    "name": "Dvergr-Ausgrabung",
+    "category": "resource",
+    "image": "icons/Mistlands_Excavation1.png"
+  },
+  {
+    "type": "Mistlands_Excavation2",
+    "name": "Dvergr-Ausgrabung",
+    "category": "resource",
+    "image": "icons/Mistlands_Excavation1.png"
+  },
+  {
+    "type": "Mistlands_Excavation3",
+    "name": "Dvergr-Ausgrabung",
+    "category": "resource",
+    "image": "icons/Mistlands_Excavation1.png"
+  },
+  {
+    "type": "Mistlands_Giant1",
+    "name": "Jotun-Überreste",
+    "category": "resource",
+    "image": "icons/Mistlands_Giant1.png"
+  },
+  {
+    "type": "Mistlands_Giant2",
+    "name": "Jotun-Überreste",
+    "category": "resource",
+    "image": "icons/Mistlands_Giant1.png"
+  },
+  {
+    "type": "Mistlands_GuardTower1_new",
+    "name": "Dvergr-Wachturm",
+    "category": "mistlands",
+    "image": "icons/Mistlands_GuardTower1_new.png"
+  },
+  {
+    "type": "Mistlands_GuardTower1_ruined_new",
+    "name": "Dvergr-Wachturm (Ruine)",
+    "category": "mistlands",
+    "image": "icons/Mistlands_GuardTower1_ruined_new.png"
+  },
+  {
+    "type": "Mistlands_GuardTower1_ruined_new2",
+    "name": "Dvergr-Wachturm (Ruine)",
+    "category": "mistlands",
+    "image": "icons/Mistlands_GuardTower1_ruined_new.png"
+  },
+  {
+    "type": "Mistlands_GuardTower2_new",
+    "name": "Dvergr-Wachturm",
+    "category": "mistlands",
+    "image": "icons/Mistlands_GuardTower1_new.png"
+  },
+  {
+    "type": "Mistlands_GuardTower3_new",
+    "name": "Dvergr-Wachturm",
+    "category": "mistlands",
+    "image": "icons/Mistlands_GuardTower1_new.png"
+  },
+  {
+    "type": "Mistlands_GuardTower3_ruined_new",
+    "name": "Dvergr-Wachturm (Ruine)",
+    "category": "mistlands",
+    "image": "icons/Mistlands_GuardTower1_ruined_new.png"
+  },
+  {
+    "type": "Mistlands_Harbour1",
+    "name": "Dvergr-Hafen",
+    "category": "mistlands",
+    "image": "icons/Mistlands_Harbour1.png"
+  },
+  {
+    "type": "Mistlands_Lighthouse1_new",
+    "name": "Dvergr-Leuchtturm",
+    "category": "mistlands",
+    "image": "icons/Mistlands_Lighthouse1_new.png"
+  },
+  {
+    "type": "Mistlands_RoadPost1",
+    "name": "Wegpfosten",
+    "category": "mistlands",
+    "image": "icons/Mistlands_RoadPost1.png"
+  },
+  {
+    "type": "Mistlands_RockSpire1",
+    "name": "Felsnadel",
+    "category": "mistlands",
+    "image": "icons/Mistlands_RockSpire1.png"
+  },
+  {
+    "type": "Mistlands_Statue1",
+    "name": "Statue",
+    "category": "mistlands",
+    "image": "icons/Mistlands_Statue1.png"
+  },
+  {
+    "type": "Mistlands_Statue2",
+    "name": "Statue",
+    "category": "mistlands",
+    "image": "icons/Mistlands_Statue1.png"
+  },
+  {
+    "type": "Mistlands_StatueGroup1",
+    "name": "Statue",
+    "category": "mistlands",
+    "image": "icons/Mistlands_Statue1.png"
+  },
+  {
+    "type": "Mistlands_Swords1",
+    "name": "Riesenschwerter",
+    "category": "resource",
+    "image": "icons/Mistlands_Swords1.png"
+  },
+  {
+    "type": "Mistlands_Swords2",
+    "name": "Riesenschwerter",
+    "category": "resource",
+    "image": "icons/Mistlands_Swords1.png"
+  },
+  {
+    "type": "Mistlands_Swords3",
+    "name": "Riesenschwerter",
+    "category": "resource",
+    "image": "icons/Mistlands_Swords1.png"
+  },
+  {
+    "type": "Mistlands_Viaduct1",
+    "name": "Viadukt",
+    "category": "mistlands",
+    "image": "icons/Mistlands_Viaduct1.png"
+  },
+  {
+    "type": "Mistlands_Viaduct2",
+    "name": "Viadukt",
+    "category": "mistlands",
+    "image": "icons/Mistlands_Viaduct1.png"
+  },
+  {
+    "type": "MorgenHole1",
+    "name": "Fauliges Loch (Morgen)",
+    "category": "dungeon",
+    "image": "icons/MorgenHole1.png"
+  },
+  {
+    "type": "MorgenHole2",
+    "name": "Fauliges Loch (Morgen)",
+    "category": "dungeon",
+    "image": "icons/MorgenHole1.png"
+  },
+  {
+    "type": "MorgenHole3",
+    "name": "Fauliges Loch (Morgen)",
+    "category": "dungeon",
+    "image": "icons/MorgenHole1.png"
+  },
+  {
+    "type": "MorkBorg",
+    "name": "Mörk Borg",
+    "category": "dungeon",
+    "image": "icons/MorkBorg.png"
+  },
+  {
+    "type": "MountainCave02",
+    "name": "Frosthöhle",
+    "category": "dungeon",
+    "image": "icons/MountainCave02.png"
+  },
+  {
+    "type": "MountainGrave01",
+    "name": "Berggrab",
+    "category": "mountain",
+    "image": "icons/MountainGrave01.png"
+  },
+  {
+    "type": "MountainWell1",
+    "name": "Bergbrunnen",
+    "category": "mountain",
+    "image": "icons/MountainWell1.png"
+  },
+  {
+    "type": "NorthMemorialPlace",
+    "name": "Gedenkstätte (Norden)",
+    "category": "lore",
+    "image": "icons/NorthMemorialPlace.png"
+  },
+  {
+    "type": "NorthVillage",
+    "name": "Dorf des Nordens",
+    "category": "deepnorth",
+    "image": "icons/NorthVillage.png"
+  },
+  {
+    "type": "PlaceofMystery1",
+    "name": "Ort der Mysterien",
+    "category": "lore",
+    "image": "icons/mapicon_hildir1.png"
+  },
+  {
+    "type": "PlaceofMystery2",
+    "name": "Ort der Mysterien",
+    "category": "lore",
+    "image": "icons/mapicon_hildir1.png"
+  },
+  {
+    "type": "PlaceofMystery3",
+    "name": "Ort der Mysterien",
+    "category": "lore",
+    "image": "icons/mapicon_hildir1.png"
+  },
+  {
+    "type": "Ruin1",
+    "name": "Ruine",
+    "category": "forest",
+    "image": "icons/Ruin1.png"
+  },
+  {
+    "type": "Ruin2",
+    "name": "Ruine",
+    "category": "forest",
+    "image": "icons/Ruin1.png"
+  },
+  {
+    "type": "Ruin3",
+    "name": "Ruine",
+    "category": "forest",
+    "image": "icons/Ruin1.png"
+  },
+  {
+    "type": "Runestone_Ashlands",
+    "name": "Runenstein (Aschelande)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_BlackForest",
+    "name": "Runenstein (Schwarzwald)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Boars",
+    "name": "Runenstein (Eber)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_DeepNorth",
+    "name": "Runenstein (Tiefer Norden)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Draugr",
+    "name": "Runenstein (Draugr)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Greydwarfs",
+    "name": "Runenstein (Grauzwerge)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Meadows",
+    "name": "Runenstein (Wiesen)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Mistlands",
+    "name": "Runenstein (Nebellande)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Mountains",
+    "name": "Runenstein (Berge)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Plains",
+    "name": "Runenstein (Ebenen)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "Runestone_Swamps",
+    "name": "Runenstein (Sumpf)",
+    "category": "lore",
+    "image": "icons/Runestone_Ashlands.png"
+  },
+  {
+    "type": "ShipSetting01",
+    "name": "Schiffssetzung (Grab)",
+    "category": "meadows",
+    "image": "icons/ShipSetting01.png"
+  },
+  {
+    "type": "ShipSetting02",
+    "name": "Schiffssetzung (Grab)",
+    "category": "meadows",
+    "image": "icons/ShipSetting01.png"
+  },
+  {
+    "type": "ShipSetting03",
+    "name": "Schiffssetzung (Grab)",
+    "category": "meadows",
+    "image": "icons/ShipSetting01.png"
+  },
+  {
+    "type": "ShipWreck01",
+    "name": "Schiffswrack",
+    "category": "ocean",
+    "image": "icons/ShipWreck01.png"
+  },
+  {
+    "type": "ShipWreck01_DN",
+    "name": "Schiffswrack (Norden)",
+    "category": "deepnorth",
+    "image": "icons/ShipWreck01_DN.png"
+  },
+  {
+    "type": "ShipWreck02",
+    "name": "Schiffswrack",
+    "category": "ocean",
+    "image": "icons/ShipWreck01.png"
+  },
+  {
+    "type": "ShipWreck02_DN",
+    "name": "Schiffswrack (Norden)",
+    "category": "deepnorth",
+    "image": "icons/ShipWreck01_DN.png"
+  },
+  {
+    "type": "ShipWreck03",
+    "name": "Schiffswrack",
+    "category": "ocean",
+    "image": "icons/ShipWreck01.png"
+  },
+  {
+    "type": "ShipWreck04",
+    "name": "Schiffswrack",
+    "category": "ocean",
+    "image": "icons/ShipWreck01.png"
+  },
+  {
+    "type": "StartTemple",
+    "name": "Startpunkt (Opfersteine)",
+    "category": "boss",
+    "image": "icons/mapicon_start.png"
+  },
+  {
+    "type": "StoneCircle",
+    "name": "Steinkreis",
+    "category": "meadows",
+    "image": "icons/StoneCircle.png"
+  },
+  {
+    "type": "StoneHenge1",
+    "name": "Stonehenge",
+    "category": "plains",
+    "image": "icons/StoneHenge1.png"
+  },
+  {
+    "type": "StoneHenge2",
+    "name": "Stonehenge",
+    "category": "plains",
+    "image": "icons/StoneHenge1.png"
+  },
+  {
+    "type": "StoneHenge3",
+    "name": "Stonehenge",
+    "category": "plains",
+    "image": "icons/StoneHenge1.png"
+  },
+  {
+    "type": "StoneHenge4",
+    "name": "Stonehenge",
+    "category": "plains",
+    "image": "icons/StoneHenge1.png"
+  },
+  {
+    "type": "StoneHenge5",
+    "name": "Stonehenge",
+    "category": "plains",
+    "image": "icons/StoneHenge1.png"
+  },
+  {
+    "type": "StoneHenge6",
+    "name": "Stonehenge",
+    "category": "plains",
+    "image": "icons/StoneHenge1.png"
+  },
+  {
+    "type": "StoneHouse3",
+    "name": "Steinhaus-Ruine",
+    "category": "forest",
+    "image": "icons/StoneHouse3.png"
+  },
+  {
+    "type": "StoneHouse4",
+    "name": "Steinhaus-Ruine",
+    "category": "forest",
+    "image": "icons/StoneHouse3.png"
+  },
+  {
+    "type": "StoneTower1",
+    "name": "Steinturm (Berge)",
+    "category": "mountain",
+    "image": "icons/StoneTower1.png"
+  },
+  {
+    "type": "StoneTower3",
+    "name": "Steinturm (Berge)",
+    "category": "mountain",
+    "image": "icons/StoneTower1.png"
+  },
+  {
+    "type": "StoneTowerRuins03",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins04",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins05",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins05_leet",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins07",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins07_sunk",
+    "name": "Versunkene Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins07_sunk.png"
+  },
+  {
+    "type": "StoneTowerRuins08",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins08_sunk",
+    "name": "Versunkene Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins07_sunk.png"
+  },
+  {
+    "type": "StoneTowerRuins09",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins09_sunk",
+    "name": "Versunkene Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins07_sunk.png"
+  },
+  {
+    "type": "StoneTowerRuins10",
+    "name": "Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins03.png"
+  },
+  {
+    "type": "StoneTowerRuins10_sunk",
+    "name": "Versunkene Turmruine",
+    "category": "forest",
+    "image": "icons/StoneTowerRuins07_sunk.png"
+  },
+  {
+    "type": "SulfurArch",
+    "name": "Schwefelbogen",
+    "category": "resource",
+    "image": "icons/SulfurArch.png"
+  },
+  {
+    "type": "SunkenCrypt4",
+    "name": "Versunkene Krypta",
+    "category": "dungeon",
+    "image": "icons/SunkenCrypt4.png"
+  },
+  {
+    "type": "SwampHut1",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampHut1_1",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampHut2",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampHut2_1",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampHut3",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampHut3_1",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampHut4",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampHut5",
+    "name": "Sumpfhütte",
+    "category": "swamp",
+    "image": "icons/SwampHut1.png"
+  },
+  {
+    "type": "SwampRuin1",
+    "name": "Sumpfruine (Turm)",
+    "category": "swamp",
+    "image": "icons/SwampRuin1.png"
+  },
+  {
+    "type": "SwampRuin2",
+    "name": "Sumpfruine (Turm)",
+    "category": "swamp",
+    "image": "icons/SwampRuin1.png"
+  },
+  {
+    "type": "SwampWell1",
+    "name": "Sumpfbrunnen",
+    "category": "swamp",
+    "image": "icons/SwampWell1.png"
+  },
+  {
+    "type": "TarPit1",
+    "name": "Teergrube",
+    "category": "resource",
+    "image": "icons/TarPit1.png"
+  },
+  {
+    "type": "TarPit2",
+    "name": "Teergrube",
+    "category": "resource",
+    "image": "icons/TarPit1.png"
+  },
+  {
+    "type": "TarPit3",
+    "name": "Teergrube",
+    "category": "resource",
+    "image": "icons/TarPit1.png"
+  },
+  {
+    "type": "TheHole01",
+    "name": "Das Loch",
+    "category": "dungeon",
+    "image": "icons/TheHole01.png"
+  },
+  {
+    "type": "TrollCave02",
+    "name": "Trollhöhle",
+    "category": "dungeon",
+    "image": "icons/TrollCave02.png"
+  },
+  {
+    "type": "Vendor_BlackForest",
+    "name": "Haldor (Händler)",
+    "category": "vendor",
+    "image": "icons/mapicon_trader.png"
+  },
+  {
+    "type": "VoltureNest",
+    "name": "Geiernest",
+    "category": "resource",
+    "image": "icons/VoltureNest.png"
+  },
+  {
+    "type": "Waymarker01",
+    "name": "Wegmarke (Steinmann)",
+    "category": "mountain",
+    "image": "icons/Waymarker01.png"
+  },
+  {
+    "type": "Waymarker02",
+    "name": "Wegmarke (Steinmann)",
+    "category": "mountain",
+    "image": "icons/Waymarker01.png"
+  },
+  {
+    "type": "WoodFarm1",
+    "name": "Verlassener Hof",
+    "category": "meadows",
+    "image": "icons/WoodFarm1.png"
+  },
+  {
+    "type": "WoodHouse1",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse10",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse11",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse12",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse13",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse2",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse3",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse4",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse5",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse6",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse7",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse8",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodHouse9",
+    "name": "Verlassenes Holzhaus",
+    "category": "meadows",
+    "image": "icons/WoodHouse1.png"
+  },
+  {
+    "type": "WoodVillage1",
+    "name": "Draugr-Dorf",
+    "category": "meadows",
+    "image": "icons/WoodVillage1.png"
+  },
+  {
+    "type": "WoodVillage2",
+    "name": "Draugr-Dorf",
+    "category": "meadows",
+    "image": "icons/WoodVillage1.png"
+  },
+  {
+    "type": "StoneHouse1_heath",
+    "name": "Steinhaus-Ruine",
+    "category": "forest",
+    "image": "icons/StoneHouse3.png"
+  },
+  {
+    "type": "StoneHouse2_heath",
+    "name": "Steinhaus-Ruine",
+    "category": "forest",
+    "image": "icons/StoneHouse3.png"
+  },
+  {
+    "type": "StoneHouse5_heath",
+    "name": "Steinhaus-Ruine",
+    "category": "forest",
+    "image": "icons/StoneHouse3.png"
+  },
+  {
+    "type": "GoblinCamp2_1",
+    "name": "Fuling-Dorf",
+    "category": "dungeon",
+    "image": "icons/GoblinCamp2.png"
+  },
+  {
+    "type": "TarPit1_1",
+    "name": "Teergrube",
+    "category": "resource",
+    "image": "icons/TarPit1.png"
+  },
+  {
+    "type": "TarPit2_1",
+    "name": "Teergrube",
+    "category": "resource",
+    "image": "icons/TarPit1.png"
+  },
+  {
+    "type": "TarPit3_1",
+    "name": "Teergrube",
+    "category": "resource",
+    "image": "icons/TarPit1.png"
+  }
+]

@@ -113,3 +113,9 @@ footer { padding: 8px 16px; font-size: 11px; color: var(--muted); }
 .progress-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; font-size: 13px; font-variant-numeric: tabular-nums; }
 .progress-track { height: 8px; border-radius: 4px; background: var(--panel2); overflow: hidden; }
 #progressBar { height: 100%; width: 0; background: var(--accent); border-radius: 4px; transition: width .15s linear; }
+
+.poi-icon {
+  display: inline-block; flex: none; width: 18px; height: 18px; background-color: currentColor;
+  -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat;
+}
+#popup h3 .poi-icon { width: 20px; height: 20px; margin-right: 6px; vertical-align: -4px; }
