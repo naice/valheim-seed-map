@@ -20,9 +20,15 @@
         <button type="submit">Laden</button>
       </form>
       <div class="row">
-        <button id="btnBundled" type="button" title="Mitgelieferte Welt inkl. aller POIs laden">BjoernoutV1</button>
-        <button id="btnImport" type="button" title="*.fwl2 und *.db2 aus dem Valheim-Weltenordner auswählen">Spielstand importieren…</button>
-        <input id="fileInput" type="file" multiple accept=".fwl,.fwl2,.db2" hidden>
+        <input id="nameInput" type="text" placeholder="Name (optional)" spellcheck="false" autocomplete="off" maxlength="60">
+        <button id="btnSave" type="button" title="Seed (und Namen) in diesem Browser speichern">Speichern</button>
+      </div>
+      <div class="row">
+        <div id="saved" class="dropdown">
+          <button id="savedBtn" type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button>
+          <ul id="savedList" class="dd-list" role="listbox" hidden></ul>
+        </div>
+        <button id="btnExample" type="button" title="Beispiel-Seed Xldpp3L2LG laden">Beispielwelt</button>
       </div>
       <p id="worldInfo" class="info"></p>
     </section>
@@ -36,7 +42,6 @@
         <button id="btnAll" type="button">Alle</button>
         <button id="btnNone" type="button">Keine</button>
         <label><input id="chkLabels" type="checkbox" checked> Namen</label>
-        <label title="Nur Orte zeigen, deren Zone noch nicht besucht wurde"><input id="chkUnvisited" type="checkbox"> nur unbesucht</label>
       </div>
       <div id="cats"></div>
       <p id="poiHint" class="info"></p>
@@ -51,6 +56,10 @@
     <canvas id="map"></canvas>
     <div id="tooltip" hidden></div>
     <div id="popup" hidden></div>
+    <div id="progress" role="progressbar" aria-label="Orte werden berechnet" aria-valuemin="0" aria-valuemax="100" hidden>
+      <div class="progress-head"><span>Orte werden berechnet …</span><span id="progressText">0 %</span></div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+    </div>
     <div id="zoomBtns">
       <button id="zoomIn" type="button" title="Hineinzoomen">+</button>
       <button id="zoomOut" type="button" title="Herauszoomen">−</button>

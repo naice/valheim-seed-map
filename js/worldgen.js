@@ -29,7 +29,7 @@ export function stableHash(str) {
 
 // ---------------------------------------------------------- UnityEngine.Random
 
-class URandom {
+export class URandom {
   init(seed) {
     this.x = seed >>> 0;
     this.y = (Math.imul(this.x, 1812433253) + 1) >>> 0;
@@ -631,18 +631,21 @@ export class WorldGenerator {
 
   getBiomeHeight(biome, wx, wy, preGeneration = false, riverPreDN = true) {
     const mul = preGeneration ? 200 : f(200 * createAshlandsGap(wx, wy) * createDeepNorthGap(wx, wy));
+    this._veg = 1; // mask.a (Color.black) – "vegetation" value used by location placement
     if (lengthF(wx, wy) > 10500) return -400;
     let h;
     switch (biome) {
       case Biome.Swamp: h = this.getMarshHeight(wx, wy); break;
       case Biome.DeepNorth:
-        h = preGeneration ? this.getDeepNorthHeightPregenerate(wx, wy, riverPreDN) : this.getDeepNorthHeight(wx, wy);
+        if (preGeneration) h = this.getDeepNorthHeightPregenerate(wx, wy, riverPreDN);
+        else { h = this.getDeepNorthHeight(wx, wy); this._veg = 0; }
         break;
       case Biome.Mountain: h = this.getSnowMountainHeight(wx, wy); break;
       case Biome.BlackForest: h = this.getForestHeight(wx, wy); break;
       case Biome.Ocean: h = this.getBaseHeight(wx, wy); break;
       case Biome.AshLands:
-        h = preGeneration ? this.getAshlandsHeightPregenerate(wx, wy) : this.getAshlandsHeight(wx, wy, false);
+        if (preGeneration) h = this.getAshlandsHeightPregenerate(wx, wy);
+        else { h = this.getAshlandsHeight(wx, wy, false); this._veg = this._lava; }
         break;
       case Biome.Plains: h = this.getPlainsHeight(wx, wy); break;
       case Biome.Meadows: h = this.getMeadowsHeight(wx, wy); break;
@@ -724,6 +727,9 @@ export class WorldGenerator {
     let stepped = f(h * 400);
     stepped = Math.ceil(stepped);
     stepped = f(stepped / 400);
+    let veg = f(1 - k * 1.2000000476837158);
+    veg = f(veg - (1 - lerpStepF(C.c01, C.c03, k)));
+    this._veg = veg;
     return lerpF(a, stepped, k);
   }
 

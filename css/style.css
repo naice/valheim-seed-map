@@ -39,6 +39,26 @@ button {
 }
 button:hover { border-color: var(--accent); }
 .row.small button { padding: 3px 8px; font-size: 12px; }
+.dropdown { position: relative; flex: 1; min-width: 0; }
+.dd-btn { width: 100%; text-align: left; display: flex; align-items: center; gap: 6px; }
+.dd-btn .dd-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dd-btn::after { content: "▾"; color: var(--muted); }
+.dd-btn:disabled { color: var(--muted); cursor: default; border-color: var(--line); }
+.dd-list {
+  position: absolute; left: 0; top: calc(100% + 3px); z-index: 10; margin: 0; padding: 4px; list-style: none;
+  min-width: 100%; width: max-content; max-width: 287px;
+  background: var(--panel2); border: 1px solid var(--line); border-radius: 5px; max-height: 260px; overflow-y: auto;
+  box-shadow: 0 6px 18px #0008;
+}
+.dd-list li { display: flex; align-items: center; border-radius: 4px; }
+.dd-list li:hover, .dd-list li.current { background: var(--bg); }
+.dd-list .pick {
+  flex: 1; min-width: 0; text-align: left; border: 0; background: none; padding: 5px 6px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.dd-list .del { border: 0; background: none; color: var(--muted); padding: 5px 8px; }
+.dd-list .del:hover { color: #e66; }
+.dim { color: var(--muted); }
 .info { margin: 0; font-size: 12px; color: var(--muted); }
 .info b { color: var(--text); }
 footer { padding: 8px 16px; font-size: 11px; color: var(--muted); }
@@ -84,3 +104,12 @@ footer { padding: 8px 16px; font-size: 11px; color: var(--muted); }
   body { flex-direction: column-reverse; }
   #sidebar { width: 100%; height: 45%; border-right: 0; border-top: 1px solid var(--line); }
 }
+
+#progress {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 4;
+  width: min(340px, calc(100% - 32px)); padding: 12px 14px; pointer-events: none;
+  background: #10141aec; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 22px #000a;
+}
+.progress-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.progress-track { height: 8px; border-radius: 4px; background: var(--panel2); overflow: hidden; }
+#progressBar { height: 100%; width: 0; background: var(--accent); border-radius: 4px; transition: width .15s linear; }

@@ -1,7 +1,8 @@
 # Valheim Seed-Karte
 
 Zeigt die komplette Valheim-Welt zu einem Seed – ohne Nebel des Krieges – und blendet Orte (POIs) ein.
-Die Karte wird direkt im Browser aus dem Seed berechnet (Portierung des Weltgenerators von Valheim 1.0.x).
+Karte und Orte werden direkt im Browser aus dem Seed berechnet (Portierung des Weltgenerators und der
+Ortsplatzierung von Valheim 1.0.21).
 
 ## Starten
 
@@ -14,11 +15,10 @@ ein Doppelklick auf `index.html` funktioniert nicht.)
 
 ## Bedienung
 
-- **Seed eingeben** → „Laden“: Karte für einen beliebigen Seed.
-- **BjoernoutV1**: mitgelieferte Welt inklusive aller 12.345 Orte.
-- **Spielstand importieren…**: `*.fwl2` (Seed) und `*.db2` (Orte) einer Welt auswählen. Die Dateien liegen unter
-  `%USERPROFILE%\AppData\LocalLow\IronGate\Valheim\worlds_local\<Welt>\` bzw. bei Steam-Cloud-Welten unter
-  `<Steam>\userdata\<ID>\892970\remote\worlds\<Welt>\`. Die Dateien bleiben im Browser, es wird nichts hochgeladen.
+- **Seed eingeben** → „Laden“: Karte und alle Orte für einen beliebigen Seed (die Orte erscheinen nach ca. 10 s).
+- **Speichern**: merkt sich den Seed (optional mit Namen) im `localStorage` dieses Browsers; gespeicherte Seeds
+  stehen in der Auswahlliste darunter und lassen sich dort mit × wieder entfernen.
+- **Beispielwelt**: lädt den Seed `Xldpp3L2LG`.
 - Ziehen verschiebt, Mausrad zoomt (bis 0,5 m pro Pixel). Unten stehen Koordinaten, Biom und Höhe unter dem Mauszeiger.
 - Klick auf einen Typnamen in der Liste springt zum nächstgelegenen Ort dieses Typs, erneuter Klick zum übernächsten.
 - Die Adresse (`#seed=…&x=…&z=…&s=…`) lässt sich als Lesezeichen/Link weitergeben.
@@ -28,13 +28,19 @@ ein Doppelklick auf `index.html` funktioniert nicht.)
 | Datei | Inhalt |
 | --- | --- |
 | `js/worldgen.js` | Weltgenerator (Biome, Höhen, Flüsse, Wald-/Nebel-/Lava-Masken) |
+| `js/locgen.js` | Ortsplatzierung: Biom-Sektoren, Alt-Biome, `GenerateLocations` |
+| `js/locworker.js` | berechnet die Orte einer Welt im Hintergrund |
+| `data/locations-config.json` | Ortsdefinitionen und Alt-Biome aus den Spieldaten (Version 1.0.21) |
 | `js/worker.js` | rendert Kartenkacheln in Web Workern |
 | `js/app.js` | Kartenansicht, POI-Ebene, Seitenleiste |
 | `js/locations.js` | Katalog: Prefab-Name → Kategorie und Bezeichnung |
-| `js/save.js` | liest `*.fwl2` / `*.db2` |
-| `data/BjoernoutV1.json` | Orte der mitgelieferten Welt |
 
-## Grenzen
+## Genauigkeit und Grenzen
 
-Orte gibt es bisher nur für Welten, deren Spielstand importiert wurde. Für einen reinen Seed wird die Karte
-berechnet, aber noch keine Orte – dafür müsste zusätzlich die Ortsplatzierung des Spiels nachgebaut werden.
+Die Ortsberechnung wurde gegen einen echten Spielstand (Seed `Xldpp3L2LG`, Version 1.0.21) geprüft: alle 12.345 Orte
+(179 Typen) werden aus dem Seed positionsgenau reproduziert.
+
+- Die Orte einer Welt werden vom Spiel beim Erstellen festgelegt. Welten, die mit einer älteren Spielversion erstellt
+  wurden, können deshalb abweichen; sie werden derzeit nicht unterstützt.
+- Nach einem Spiel-Update, das Orte oder Weltgenerator ändert, muss `data/locations-config.json` neu aus den
+  Spieldaten erzeugt werden.

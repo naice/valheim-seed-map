@@ -1,6 +1,5 @@
 import { stableHash } from './worldgen.js';
 import { CATEGORIES, classify } from './locations.js';
-import { parseFwl, parseDb2 } from './save.js';
 
 const $ = (id) => document.getElementById(id);
 const canvas = $('map');
@@ -13,10 +12,12 @@ const K_MIN = -1, K_MAX = 6;          // Kachel-Auflösung: 2^k Meter pro Pixel
 const CACHE_LIMIT = 700;
 const BIOME_DE = ['–', 'Wiesen', 'Sumpf', 'Berge', 'Schwarzwald', 'Ebenen', 'Aschelande', 'Tiefer Norden', 'Ozean', 'Nebellande'];
 const CAT = new Map(CATEGORIES.map(c => [c.id, c]));
-const BUNDLED = 'data/BjoernoutV1.json';
+const EXAMPLE_SEED = 'Xldpp3L2LG';
 
 const view = { cx: 0, cz: 0, scale: 0.04 };
 let world = { name: '', seedName: '', seed: 0, pois: [] };
+const STORE_KEY = 'valheim-map.seeds';
+let savedSeeds = readSaved();    // [{ seed, name }]
 let epoch = 0;
 let workers = [];
 const tiles = new Map();      // key -> { canvas, used }
@@ -158,9 +159,8 @@ function draw() {
 }
 
 function poiVisible(p) {
-  return enabled.has(p.key) && !(onlyUnvisited && p.placed);
+  return enabled.has(p.key);
 }
-let onlyUnvisited = false;
 
 function drawPois(W, H, S, dpr) {
   visiblePois = [];
@@ -179,7 +179,6 @@ function drawPois(W, H, S, dpr) {
     ctx.beginPath();
     ctx.arc(p.sx, p.sy, rSmall, 0, 6.2832);
     ctx.fillStyle = p.c.color;
-    ctx.globalAlpha = p.placed ? 0.55 : 1;
     ctx.fill();
     ctx.globalAlpha = 1;
     ctx.strokeStyle = '#000c';
@@ -353,7 +352,6 @@ function select(p) {
     <p>${esc(p.c.label)} · <b>${esc(p.prefab)}</b></p>
     <p>Position: <b>X ${p.x.toFixed(0)}, Z ${p.z.toFixed(0)}</b> (Höhe ${(p.y - 30).toFixed(0)} m)</p>
     <p>Entfernung zur Weltmitte: <b>${dist.toFixed(0)} m</b></p>
-    <p>${p.placed ? 'Zone wurde bereits besucht' : 'Noch nicht besucht'}</p>
     <p>Konsole: <code>goto ${p.x.toFixed(0)} ${p.z.toFixed(0)}</code></p>`;
   pop.querySelector('.close').onclick = () => select(null);
   pop.hidden = false;
@@ -419,8 +417,9 @@ function buildSidebar() {
     root.appendChild(el);
   }
   $('poiTotal').textContent = world.pois.length ? `– ${world.pois.length.toLocaleString('de')}` : '';
-  $('poiHint').innerHTML = world.pois.length ? '' :
-    'Für diesen Seed sind noch keine Orte bekannt. Importiere den Spielstand (<b>*.fwl2</b> und <b>*.db2</b>), um alle Orte der Welt zu sehen.';
+  $('poiHint').innerHTML = world.computed
+    ? `Orte aus dem Seed berechnet (Spielversion ${esc(world.computed)}).`
+    : '';
   applySearch();
   syncBoxes();
 }
@@ -453,7 +452,6 @@ $('search').addEventListener('input', applySearch);
 $('btnAll').onclick = () => { for (const g of groups) for (const t of g.types) if (!t.row.classList.contains('hidden')) enabled.add(t.key); syncBoxes(); };
 $('btnNone').onclick = () => { for (const g of groups) for (const t of g.types) if (!t.row.classList.contains('hidden')) enabled.delete(t.key); syncBoxes(); };
 $('chkLabels').onchange = requestDraw;
-$('chkUnvisited').onchange = (e) => { onlyUnvisited = e.target.checked; requestDraw(); };
 
 /** Springt zum nächstgelegenen Ort dieses Typs; erneutes Klicken geht zum übernächsten usw. */
 function jumpTo(t) {
@@ -475,61 +473,147 @@ function jumpTo(t) {
 
 // --------------------------------------------------------------- Welt laden
 
+function toPois(locations) {
+  return locations.map(l => {
+    const c = classify(l.prefab);
+    return { ...l, cat: c.cat, label: c.label, key: c.cat + '|' + c.label, c: CAT.get(c.cat) };
+  });
+}
+
 function setWorld(w, keepView) {
   world = {
     name: w.name || '', seedName: w.seedName || '', seed: w.seed | 0,
-    pois: (w.locations || []).map(l => {
-      const c = classify(l.prefab);
-      return { ...l, cat: c.cat, label: c.label, key: c.cat + '|' + c.label, c: CAT.get(c.cat) };
-    }),
+    pois: [], computed: '',
   };
   selected = null; $('popup').hidden = true;
   $('seedInput').value = world.seedName;
-  $('worldInfo').innerHTML = `${world.name ? `Welt <b>${esc(world.name)}</b> · ` : ''}Seed <b>${esc(world.seedName || '?')}</b> (${world.seed})`;
+  $('nameInput').value = world.name;
+  renderSaved();
+  showWorldInfo();
   buildSidebar();
   startWorkers();
   if (!keepView) home();
+  if (locWorker) { locWorker.terminate(); locWorker = null; }
+  computeLocations();
 }
 
-async function loadBundled(keepView) {
-  try {
-    const d = await (await fetch(BUNDLED)).json();
-    const locations = [];
-    for (let i = 0; i < d.locs.length; i += 5) {
-      locations.push({ prefab: d.prefabs[d.locs[i]], x: d.locs[i + 1], y: d.locs[i + 2], z: d.locs[i + 3], placed: !!d.locs[i + 4] });
+function showWorldInfo() {
+  $('worldInfo').innerHTML = `${world.name ? `Welt <b>${esc(world.name)}</b> · ` : ''}Seed <b>${esc(world.seedName || '?')}</b> (${world.seed})`;
+}
+
+/** Fortschrittsbalken in der Kartenmitte; p = 0..1, null blendet ihn aus. */
+function showProgress(p) {
+  const box = $('progress');
+  box.hidden = p === null;
+  if (p === null) return;
+  const pct = Math.round(p * 100);
+  $('progressBar').style.width = pct + '%';
+  $('progressText').textContent = pct + ' %';
+  box.setAttribute('aria-valuenow', pct);
+}
+
+let locWorker = null;
+function computeLocations() {
+  const myEpoch = epoch;
+  const w = locWorker = new Worker(new URL('./locworker.js', import.meta.url), { type: 'module' });
+  const hint = $('poiHint');
+  hint.textContent = 'Orte werden aus dem Seed berechnet …';
+  showProgress(0);
+  const fail = (msg) => { showProgress(null); hint.textContent = 'Orte konnten nicht berechnet werden: ' + msg; w.terminate(); if (locWorker === w) locWorker = null; };
+  w.onerror = (e) => fail(e.message || 'Worker-Fehler');
+  w.onmessage = (e) => {
+    const m = e.data;
+    if (m.epoch !== myEpoch || myEpoch !== epoch) return;
+    if (m.type === 'progress') {
+      hint.textContent = `Orte werden aus dem Seed berechnet … ${Math.round(m.p * 100)} %`;
+      showProgress(m.p);
+    } else if (m.type === 'error') {
+      fail(m.message);
+    } else if (m.type === 'done') {
+      const locations = [];
+      for (let i = 0; i < m.data.length; i += 4) {
+        locations.push({ prefab: m.prefabs[m.data[i]], x: m.data[i + 1], y: m.data[i + 2], z: m.data[i + 3] });
+      }
+      world.pois = toPois(locations);
+      world.computed = m.gameVersion;
+      showProgress(null);
+      buildSidebar();
+      w.terminate(); locWorker = null;
     }
-    setWorld({ name: d.name, seedName: d.seedName, seed: d.seed, locations }, keepView);
-  } catch (err) {
-    $('worldInfo').textContent = 'Mitgelieferte Welt konnte nicht geladen werden: ' + err.message;
-  }
+  };
+  w.postMessage({ seed: world.seed, epoch: myEpoch });
 }
 
 $('seedForm').addEventListener('submit', (e) => {
   e.preventDefault();
   const s = $('seedInput').value.trim();
   if (!s) return;
-  if (s === bundledSeedName) { loadBundled(); return; }
-  setWorld({ seedName: s, seed: stableHash(s) });
+  loadSeed(s);
 });
-$('btnBundled').onclick = () => loadBundled();
-$('btnImport').onclick = () => $('fileInput').click();
-$('fileInput').addEventListener('change', async (e) => {
-  const files = [...e.target.files];
-  e.target.value = '';
+$('btnExample').onclick = () => loadSeed(EXAMPLE_SEED);
+
+function loadSeed(seedName, keepView) {
+  const entry = savedSeeds.find(e => e.seed === seedName);
+  setWorld({ name: entry ? entry.name : '', seedName, seed: stableHash(seedName) }, keepView);
+}
+
+// ------------------------------------------------------- Gespeicherte Seeds
+
+function readSaved() {
   try {
-    const fwl = files.find(f => /\.fwl2?$/i.test(f.name));
-    const db = files.find(f => /\.db2$/i.test(f.name));
-    if (!fwl && !db) throw new Error('Bitte eine *.fwl2- und die zugehörige *.db2-Datei auswählen.');
-    let meta = { name: world.name, seedName: world.seedName, seed: world.seed };
-    if (fwl) meta = parseFwl(await fwl.arrayBuffer());
-    let locations = [];
-    if (db) locations = (await parseDb2(await db.arrayBuffer())).locations;
-    setWorld({ ...meta, locations }, !fwl);
-    if (!db) $('poiHint').innerHTML = 'Nur die Welt-Metadaten wurden geladen. Wähle zusätzlich die <b>*.db2</b>-Datei aus, um die Orte zu sehen.';
-  } catch (err) {
-    alert('Import fehlgeschlagen: ' + err.message);
+    const list = JSON.parse(localStorage.getItem(STORE_KEY) || '[]');
+    return Array.isArray(list) ? list.filter(e => e && typeof e.seed === 'string' && e.seed)
+      .map(e => ({ seed: e.seed, name: typeof e.name === 'string' ? e.name : '' })) : [];
+  } catch { return []; }
+}
+function writeSaved() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(savedSeeds)); return true; } catch { return false; }
+}
+/** "Name (SEED)" mit gedimmtem Seed – ohne Namen nur der Seed in normaler Schrift. */
+function seedLabel(e) {
+  return e.name ? `${esc(e.name)} <span class="dim">(${esc(e.seed)})</span>` : esc(e.seed);
+}
+function renderSaved() {
+  const btn = $('savedBtn'), list = $('savedList');
+  const current = savedSeeds.find(e => e.seed === world.seedName);
+  btn.disabled = savedSeeds.length === 0;
+  btn.innerHTML = `<span class="dd-label">${current ? seedLabel(current)
+    : savedSeeds.length ? `Gespeicherte Seeds (${savedSeeds.length})` : 'Keine gespeicherten Seeds'}</span>`;
+  list.innerHTML = '';
+  for (const e of savedSeeds) {
+    const li = document.createElement('li');
+    li.setAttribute('role', 'option');
+    if (e === current) li.className = 'current';
+    li.innerHTML = `<button type="button" class="pick">${seedLabel(e)}</button><button type="button" class="del" title="Aus der Liste entfernen">×</button>`;
+    li.querySelector('.pick').onclick = () => { toggleSaved(false); loadSeed(e.seed); };
+    li.querySelector('.del').onclick = () => {
+      savedSeeds = savedSeeds.filter(x => x !== e);
+      writeSaved();
+      renderSaved();
+      if (!savedSeeds.length) toggleSaved(false);
+    };
+    list.appendChild(li);
   }
-});
+}
+function toggleSaved(open) {
+  $('savedList').hidden = !open;
+  $('savedBtn').setAttribute('aria-expanded', String(open));
+}
+$('savedBtn').onclick = () => toggleSaved($('savedList').hidden);
+document.addEventListener('pointerdown', (e) => { if (!$('saved').contains(e.target)) toggleSaved(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleSaved(false); });
+
+$('btnSave').onclick = () => {
+  const seed = $('seedInput').value.trim();
+  if (!seed) { $('seedInput').focus(); return; }
+  const name = $('nameInput').value.trim();
+  const entry = savedSeeds.find(e => e.seed === seed);
+  if (entry) entry.name = name; else savedSeeds.push({ seed, name });
+  savedSeeds.sort((a, b) => (a.name || a.seed).localeCompare(b.name || b.seed, 'de'));
+  if (!writeSaved()) alert('Speichern nicht möglich – der Browser erlaubt hier keinen lokalen Speicher.');
+  if (seed === world.seedName) { world.name = name; showWorldInfo(); renderSaved(); }
+  else loadSeed(seed);
+};
 
 // ---------------------------------------------------------------- URL-Hash
 
@@ -542,7 +626,6 @@ function saveHashSoon() {
   }, 400);
 }
 
-let bundledSeedName = 'Xldpp3L2LG';
 (async function init() {
   const params = new URLSearchParams(location.hash.slice(1));
   const seed = params.get('seed');
@@ -551,6 +634,5 @@ let bundledSeedName = 'Xldpp3L2LG';
     view.cx = +params.get('x') || 0; view.cz = +params.get('z') || 0;
     view.scale = Math.max(0.005, Math.min(4, +params.get('s') || 0.04));
   }
-  if (seed && seed !== bundledSeedName) setWorld({ seedName: seed, seed: stableHash(seed) }, hasView);
-  else await loadBundled(hasView);
+  loadSeed(seed || EXAMPLE_SEED, hasView);
 })();
