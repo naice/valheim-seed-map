@@ -1,0 +1,66 @@
+name: Pages & Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Website zusammenstellen
+        run: |
+          mkdir -p _site/assets
+          cp -r index.html favicon.ico css js data _site/
+          cp -r assets/icons _site/assets/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: ZIP für das Release
+        run: cd _site && zip -r ../valheim-seed-map.zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-zip
+          path: valheim-seed-map.zip
+
+  pages:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+  release:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-zip
+      - name: Release anlegen
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v1.0.${{ github.run_number }}
+        run: >
+          gh release create "$TAG" valheim-seed-map.zip
+          --repo "$GITHUB_REPOSITORY"
+          --target "$GITHUB_SHA"
+          --title "$TAG"
+          --generate-notes
