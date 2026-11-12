@@ -1,0 +1,556 @@
+import { stableHash } from './worldgen.js';
+import { CATEGORIES, classify } from './locations.js';
+import { parseFwl, parseDb2 } from './save.js';
+
+const $ = (id) => document.getElementById(id);
+const canvas = $('map');
+const ctx = canvas.getContext('2d');
+const wrap = $('mapWrap');
+
+const WORLD_R = 10500;
+const TILE = 256;
+const K_MIN = -1, K_MAX = 6;          // Kachel-Auflösung: 2^k Meter pro Pixel
+const CACHE_LIMIT = 700;
+const BIOME_DE = ['–', 'Wiesen', 'Sumpf', 'Berge', 'Schwarzwald', 'Ebenen', 'Aschelande', 'Tiefer Norden', 'Ozean', 'Nebellande'];
+const CAT = new Map(CATEGORIES.map(c => [c.id, c]));
+const BUNDLED = 'data/BjoernoutV1.json';
+
+const view = { cx: 0, cz: 0, scale: 0.04 };
+let world = { name: '', seedName: '', seed: 0, pois: [] };
+let epoch = 0;
+let workers = [];
+const tiles = new Map();      // key -> { canvas, used }
+const pending = new Set();
+let wanted = [];
+let frame = 0;
+let dirty = false;
+const enabled = new Set();    // aktive Typen: "cat|label"
+let groups = [];              // [{cat, types: [{key, label, prefabs:Set, pois:[]}]}]
+let selected = null;
+let hover = null;
+let visiblePois = [];
+const jumpIndex = new Map();
+
+// ------------------------------------------------------------------ Worker
+
+function startWorkers() {
+  for (const w of workers) w.w.terminate();
+  workers = [];
+  pending.clear();
+  tiles.clear();
+  epoch++;
+  const n = Math.min(8, Math.max(2, (navigator.hardwareConcurrency || 4) - 1));
+  for (let i = 0; i < n; i++) {
+    const w = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
+    const rec = { w, ready: false, busy: false };
+    w.onmessage = (e) => onWorkerMessage(rec, e.data);
+    w.onerror = (e) => { $('stLoad').textContent = 'Worker-Fehler: ' + (e.message || e); };
+    w.postMessage({ type: 'init', seed: world.seed, epoch });
+    workers.push(rec);
+  }
+  requestDraw();
+}
+
+function onWorkerMessage(rec, m) {
+  if (m.epoch !== epoch) return;
+  if (m.type === 'ready') {
+    rec.ready = true;
+  } else if (m.type === 'tile') {
+    rec.busy = false;
+    pending.delete(m.key);
+    const c = document.createElement('canvas');
+    c.width = c.height = m.size;
+    c.getContext('2d').putImageData(new ImageData(m.data, m.size, m.size), 0, 0);
+    tiles.set(m.key, { canvas: c, used: frame });
+    if (tiles.size > CACHE_LIMIT) evict();
+  } else if (m.type === 'probe') {
+    if (m.id === probeId) showProbe(m);
+    return;
+  }
+  requestDraw();
+}
+
+function evict() {
+  const arr = [...tiles.entries()].filter(([k]) => !k.startsWith(K_MAX + '/')).sort((a, b) => a[1].used - b[1].used);
+  for (let i = 0; i < arr.length && tiles.size > CACHE_LIMIT * 0.8; i++) tiles.delete(arr[i][0]);
+}
+
+function pump() {
+  let qi = 0;
+  for (const rec of workers) {
+    if (!rec.ready || rec.busy) continue;
+    while (qi < wanted.length && (pending.has(wanted[qi].key) || tiles.has(wanted[qi].key))) qi++;
+    if (qi >= wanted.length) break;
+    const t = wanted[qi++];
+    pending.add(t.key);
+    rec.busy = true;
+    rec.w.postMessage({ type: 'tile', key: t.key, x0: t.x0, zTop: t.zTop, mpp: t.mpp, size: TILE });
+  }
+  const open = wanted.filter(t => !tiles.has(t.key)).length;
+  $('stLoad').textContent = open ? `berechne ${open} Kachel${open === 1 ? '' : 'n'}…` : '';
+}
+
+// ---------------------------------------------------------------- Zeichnen
+
+function requestDraw() {
+  if (!dirty) { dirty = true; requestAnimationFrame(draw); }
+}
+
+function tileInWorld(x0, z0, ws) {
+  const nx = Math.max(x0, Math.min(0, x0 + ws)), nz = Math.max(z0, Math.min(0, z0 + ws));
+  return nx * nx + nz * nz < WORLD_R * WORLD_R;
+}
+
+function draw() {
+  dirty = false;
+  frame++;
+  const dpr = window.devicePixelRatio || 1;
+  const W = Math.round(wrap.clientWidth * dpr), H = Math.round(wrap.clientHeight * dpr);
+  if (canvas.width !== W || canvas.height !== H) { canvas.width = W; canvas.height = H; }
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = '#0d1014';
+  ctx.fillRect(0, 0, W, H);
+
+  const S = view.scale * dpr;
+  const xMin = view.cx - W / 2 / S, xMax = view.cx + W / 2 / S;
+  const zMin = view.cz - H / 2 / S, zMax = view.cz + H / 2 / S;
+  const kWant = Math.max(K_MIN, Math.min(K_MAX, Math.round(Math.log2(1 / S))));
+
+  wanted = [];
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  for (let k = K_MAX; k >= kWant; k--) {
+    const mpp = 2 ** k, ws = TILE * mpp;
+    const tx0 = Math.floor(xMin / ws), tx1 = Math.floor(xMax / ws);
+    const ty0 = Math.floor(zMin / ws), ty1 = Math.floor(zMax / ws);
+    for (let ty = ty0; ty <= ty1; ty++) {
+      for (let tx = tx0; tx <= tx1; tx++) {
+        const x0 = tx * ws, z0 = ty * ws;
+        if (!tileInWorld(x0, z0, ws)) continue;
+        const key = `${k}/${tx}/${ty}`;
+        const t = tiles.get(key);
+        if (t) {
+          t.used = frame;
+          const sx0 = Math.round((x0 - view.cx) * S + W / 2), sx1 = Math.round((x0 + ws - view.cx) * S + W / 2);
+          const sy0 = Math.round((view.cz - (z0 + ws)) * S + H / 2), sy1 = Math.round((view.cz - z0) * S + H / 2);
+          ctx.drawImage(t.canvas, sx0, sy0, sx1 - sx0, sy1 - sy0);
+        } else if (k === kWant || k === K_MAX) {
+          const dx = x0 + ws / 2 - view.cx, dz = z0 + ws / 2 - view.cz;
+          wanted.push({ key, x0, zTop: z0 + ws, mpp, d: (k === K_MAX ? -1 : dx * dx + dz * dz) });
+        }
+      }
+    }
+  }
+  wanted.sort((a, b) => a.d - b.d);
+
+  // Weltrand
+  ctx.strokeStyle = '#ffffff30';
+  ctx.lineWidth = dpr;
+  ctx.beginPath();
+  ctx.arc((0 - view.cx) * S + W / 2, view.cz * S + H / 2, WORLD_R * S, 0, Math.PI * 2);
+  ctx.stroke();
+
+  drawPois(W, H, S, dpr);
+  pump();
+  positionPopup();
+  $('stScale').textContent = `1 px = ${(1 / view.scale).toFixed(view.scale > 0.5 ? 2 : 1)} m`;
+  saveHashSoon();
+}
+
+function poiVisible(p) {
+  return enabled.has(p.key) && !(onlyUnvisited && p.placed);
+}
+let onlyUnvisited = false;
+
+function drawPois(W, H, S, dpr) {
+  visiblePois = [];
+  const pad = 20 * dpr;
+  for (const p of world.pois) {
+    if (!poiVisible(p)) continue;
+    const sx = (p.x - view.cx) * S + W / 2, sy = (view.cz - p.z) * S + H / 2;
+    if (sx < -pad || sy < -pad || sx > W + pad || sy > H + pad) continue;
+    p.sx = sx; p.sy = sy;
+    visiblePois.push(p);
+  }
+  const rSmall = Math.max(2.5, Math.min(6, 3 + view.scale * 6)) * dpr;
+  ctx.lineWidth = dpr;
+  for (const p of visiblePois) {
+    if (p.c.big) continue;
+    ctx.beginPath();
+    ctx.arc(p.sx, p.sy, rSmall, 0, 6.2832);
+    ctx.fillStyle = p.c.color;
+    ctx.globalAlpha = p.placed ? 0.55 : 1;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = '#000c';
+    ctx.stroke();
+  }
+  const rBig = 9 * dpr;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.font = `bold ${11 * dpr}px "Segoe UI", sans-serif`;
+  for (const p of visiblePois) {
+    if (!p.c.big) continue;
+    ctx.beginPath();
+    ctx.arc(p.sx, p.sy, rBig, 0, 6.2832);
+    ctx.fillStyle = p.c.color;
+    ctx.fill();
+    ctx.lineWidth = 2 * dpr;
+    ctx.strokeStyle = '#fff';
+    ctx.stroke();
+    ctx.fillStyle = '#111';
+    ctx.fillText(p.label[0], p.sx, p.sy + dpr * 0.5);
+  }
+  if (selected && poiVisible(selected)) {
+    ctx.beginPath();
+    ctx.arc(selected.sx, selected.sy, (selected.c.big ? rBig : rSmall) + 5 * dpr, 0, 6.2832);
+    ctx.lineWidth = 2.5 * dpr; ctx.strokeStyle = '#fff'; ctx.stroke();
+  }
+  if ($('chkLabels').checked) {
+    const few = visiblePois.length <= 250 && view.scale >= 0.1;
+    ctx.font = `${12 * dpr}px "Segoe UI", sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.lineWidth = 3 * dpr; ctx.strokeStyle = '#000c'; ctx.fillStyle = '#fff'; ctx.lineJoin = 'round';
+    const boxes = [];
+    const th = 14 * dpr;
+    const place = (p) => {
+      const off = (p.c.big ? rBig : rSmall) + 4 * dpr;
+      const x0 = p.sx + off, y0 = p.sy - th / 2, x1 = x0 + ctx.measureText(p.label).width;
+      for (const b of boxes) if (x0 < b[2] && x1 > b[0] && y0 < b[3] && y0 + th > b[1]) return;
+      boxes.push([x0, y0, x1, y0 + th]);
+      ctx.strokeText(p.label, x0, p.sy);
+      ctx.fillText(p.label, x0, p.sy);
+    };
+    if (selected && poiVisible(selected)) place(selected);
+    for (const p of visiblePois) if (p.c.big && p !== selected) place(p);
+    if (few) for (const p of visiblePois) if (!p.c.big && p !== selected) place(p);
+  }
+}
+
+// ------------------------------------------------------------- Interaktion
+
+function screenToWorld(px, py) {
+  return [view.cx + (px - wrap.clientWidth / 2) / view.scale, view.cz - (py - wrap.clientHeight / 2) / view.scale];
+}
+function minScale() { return Math.min(wrap.clientWidth, wrap.clientHeight) / (WORLD_R * 2) / 1.6; }
+function zoomAt(px, py, factor) {
+  const [wx, wz] = screenToWorld(px, py);
+  view.scale = Math.max(minScale(), Math.min(4, view.scale * factor));
+  view.cx = wx - (px - wrap.clientWidth / 2) / view.scale;
+  view.cz = wz + (py - wrap.clientHeight / 2) / view.scale;
+  clampView();
+  requestDraw();
+}
+function clampView() {
+  view.cx = Math.max(-WORLD_R, Math.min(WORLD_R, view.cx));
+  view.cz = Math.max(-WORLD_R, Math.min(WORLD_R, view.cz));
+}
+function home() {
+  view.cx = 0; view.cz = 0;
+  view.scale = Math.min(wrap.clientWidth, wrap.clientHeight) / (WORLD_R * 2.05);
+  requestDraw();
+}
+
+const pointers = new Map();
+let dragMoved = 0, pinchDist = 0;
+canvas.addEventListener('pointerdown', (e) => {
+  canvas.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId, { x: e.offsetX, y: e.offsetY });
+  dragMoved = 0;
+  if (pointers.size === 2) {
+    const [a, b] = [...pointers.values()];
+    pinchDist = Math.hypot(a.x - b.x, a.y - b.y);
+  }
+  canvas.classList.add('drag');
+});
+canvas.addEventListener('pointermove', (e) => {
+  const p = pointers.get(e.pointerId);
+  if (p) {
+    const dx = e.offsetX - p.x, dy = e.offsetY - p.y;
+    p.x = e.offsetX; p.y = e.offsetY;
+    dragMoved += Math.abs(dx) + Math.abs(dy);
+    if (pointers.size === 1) {
+      view.cx -= dx / view.scale; view.cz += dy / view.scale;
+      clampView();
+    } else if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (pinchDist > 0) zoomAt((a.x + b.x) / 2, (a.y + b.y) / 2, d / pinchDist);
+      pinchDist = d;
+    }
+    requestDraw();
+  }
+  onHover(e.offsetX, e.offsetY, !!p);
+});
+function endPointer(e) {
+  const had = pointers.delete(e.pointerId);
+  if (pointers.size === 0) canvas.classList.remove('drag');
+  if (had && e.type === 'pointerup' && dragMoved < 5) onClick(e.offsetX, e.offsetY);
+}
+canvas.addEventListener('pointerup', endPointer);
+canvas.addEventListener('pointercancel', endPointer);
+canvas.addEventListener('pointerleave', () => { $('tooltip').hidden = true; });
+canvas.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const delta = e.deltaMode === 1 ? e.deltaY * 33 : e.deltaY;
+  zoomAt(e.offsetX, e.offsetY, Math.exp(-delta * 0.0016));
+}, { passive: false });
+$('zoomIn').onclick = () => zoomAt(wrap.clientWidth / 2, wrap.clientHeight / 2, 1.6);
+$('zoomOut').onclick = () => zoomAt(wrap.clientWidth / 2, wrap.clientHeight / 2, 1 / 1.6);
+$('zoomHome').onclick = home;
+new ResizeObserver(requestDraw).observe(wrap);
+
+function poiAt(px, py) {
+  const dpr = window.devicePixelRatio || 1;
+  let best = null, bestD = (13 * dpr) ** 2;
+  for (const p of visiblePois) {
+    const d = (p.sx - px * dpr) ** 2 + (p.sy - py * dpr) ** 2;
+    if (d < bestD) { bestD = d; best = p; }
+  }
+  return best;
+}
+
+let probeId = 0, probeTimer = 0, lastProbe = null;
+function onHover(px, py, dragging) {
+  const [wx, wz] = screenToWorld(px, py);
+  $('stPos').textContent = `X ${wx.toFixed(0)}  ·  Z ${wz.toFixed(0)}`;
+  lastProbe = [wx, wz];
+  if (!probeTimer) {
+    probeTimer = setTimeout(() => {
+      probeTimer = 0;
+      const rec = workers.find(w => w.ready);
+      if (rec && lastProbe) rec.w.postMessage({ type: 'probe', id: ++probeId, x: lastProbe[0], z: lastProbe[1] });
+    }, 60);
+  }
+  const tip = $('tooltip');
+  hover = dragging ? null : poiAt(px, py);
+  canvas.style.cursor = hover ? 'pointer' : '';
+  if (hover) {
+    tip.innerHTML = `<b>${esc(hover.label)}</b><br>X ${hover.x.toFixed(0)} · Z ${hover.z.toFixed(0)}`;
+    tip.hidden = false;
+    tip.style.left = Math.min(px + 14, wrap.clientWidth - 200) + 'px';
+    tip.style.top = (py + 14) + 'px';
+  } else {
+    tip.hidden = true;
+  }
+}
+function showProbe(m) {
+  if (Math.hypot(m.x, m.z) > WORLD_R) { $('stBiome').textContent = 'außerhalb der Welt'; return; }
+  const rel = m.height - 30;
+  const h = rel < 0 ? `Wasser, ${(-rel).toFixed(1)} m tief` : `${rel.toFixed(1)} m über dem Meer`;
+  $('stBiome').textContent = `${BIOME_DE[m.biome]}${m.forest ? ' (Wald)' : ''}  ·  ${h}`;
+}
+
+function onClick(px, py) {
+  select(poiAt(px, py));
+}
+function select(p) {
+  selected = p;
+  const pop = $('popup');
+  if (!p) { pop.hidden = true; requestDraw(); return; }
+  const dist = Math.hypot(p.x, p.z);
+  pop.innerHTML = `<button class="close" title="Schließen">×</button>
+    <h3>${esc(p.label)}</h3>
+    <p>${esc(p.c.label)} · <b>${esc(p.prefab)}</b></p>
+    <p>Position: <b>X ${p.x.toFixed(0)}, Z ${p.z.toFixed(0)}</b> (Höhe ${(p.y - 30).toFixed(0)} m)</p>
+    <p>Entfernung zur Weltmitte: <b>${dist.toFixed(0)} m</b></p>
+    <p>${p.placed ? 'Zone wurde bereits besucht' : 'Noch nicht besucht'}</p>
+    <p>Konsole: <code>goto ${p.x.toFixed(0)} ${p.z.toFixed(0)}</code></p>`;
+  pop.querySelector('.close').onclick = () => select(null);
+  pop.hidden = false;
+  requestDraw();
+}
+function positionPopup() {
+  const pop = $('popup');
+  if (!selected || pop.hidden) return;
+  const dpr = window.devicePixelRatio || 1;
+  const x = selected.sx / dpr, y = selected.sy / dpr;
+  pop.style.left = Math.max(4, Math.min(wrap.clientWidth - pop.offsetWidth - 4, x + 16)) + 'px';
+  pop.style.top = Math.max(4, Math.min(wrap.clientHeight - pop.offsetHeight - 30, y - 20)) + 'px';
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+// ------------------------------------------------------------ Seitenleiste
+
+function buildSidebar() {
+  const byCat = new Map();
+  for (const p of world.pois) {
+    let types = byCat.get(p.cat);
+    if (!types) byCat.set(p.cat, types = new Map());
+    let t = types.get(p.key);
+    if (!t) types.set(p.key, t = { key: p.key, label: p.label, prefabs: new Set(), pois: [] });
+    t.prefabs.add(p.prefab);
+    t.pois.push(p);
+  }
+  groups = CATEGORIES.filter(c => byCat.has(c.id)).map(c => ({
+    cat: c, types: [...byCat.get(c.id).values()].sort((a, b) => a.label.localeCompare(b.label, 'de')),
+  }));
+  enabled.clear();
+  for (const g of groups) if (g.cat.on) for (const t of g.types) enabled.add(t.key);
+
+  const root = $('cats');
+  root.innerHTML = '';
+  for (const g of groups) {
+    const total = g.types.reduce((s, t) => s + t.pois.length, 0);
+    const el = document.createElement('div');
+    el.className = 'cat';
+    el.innerHTML = `<div class="cat-head"><input type="checkbox"><span class="dot" style="background:${g.cat.color}"></span>
+      <span class="name">${esc(g.cat.label)}</span><span class="count">${total}</span></div><div class="types"></div>`;
+    g.el = el;
+    g.box = el.querySelector('input');
+    g.box.onchange = () => {
+      for (const t of g.types) {
+        if (t.row.classList.contains('hidden')) continue;
+        if (g.box.checked) enabled.add(t.key); else enabled.delete(t.key);
+      }
+      syncBoxes();
+    };
+    el.querySelector('.name').onclick = () => el.classList.toggle('open');
+    const list = el.querySelector('.types');
+    for (const t of g.types) {
+      const row = document.createElement('div');
+      row.className = 'type';
+      row.innerHTML = `<input type="checkbox"><span class="name" title="${esc([...t.prefabs].join(', '))} – klicken, um zum nächsten Ort zu springen">${esc(t.label)}</span><span class="count">${t.pois.length}</span>`;
+      t.row = row;
+      t.box = row.querySelector('input');
+      t.box.onchange = () => { if (t.box.checked) enabled.add(t.key); else enabled.delete(t.key); syncBoxes(); };
+      row.querySelector('.name').onclick = () => jumpTo(t);
+      list.appendChild(row);
+    }
+    root.appendChild(el);
+  }
+  $('poiTotal').textContent = world.pois.length ? `– ${world.pois.length.toLocaleString('de')}` : '';
+  $('poiHint').innerHTML = world.pois.length ? '' :
+    'Für diesen Seed sind noch keine Orte bekannt. Importiere den Spielstand (<b>*.fwl2</b> und <b>*.db2</b>), um alle Orte der Welt zu sehen.';
+  applySearch();
+  syncBoxes();
+}
+
+function syncBoxes() {
+  for (const g of groups) {
+    let on = 0;
+    for (const t of g.types) { const e = enabled.has(t.key); t.box.checked = e; if (e) on++; }
+    g.box.checked = on === g.types.length;
+    g.box.indeterminate = on > 0 && on < g.types.length;
+  }
+  requestDraw();
+}
+
+function applySearch() {
+  const q = $('search').value.trim().toLowerCase();
+  for (const g of groups) {
+    let any = false;
+    const catMatch = q && g.cat.label.toLowerCase().includes(q);
+    for (const t of g.types) {
+      const m = !q || catMatch || t.label.toLowerCase().includes(q) || [...t.prefabs].some(p => p.toLowerCase().includes(q));
+      t.row.classList.toggle('hidden', !m);
+      any = any || m;
+    }
+    g.el.classList.toggle('hidden', !any);
+    if (q) g.el.classList.toggle('open', any);
+  }
+}
+$('search').addEventListener('input', applySearch);
+$('btnAll').onclick = () => { for (const g of groups) for (const t of g.types) if (!t.row.classList.contains('hidden')) enabled.add(t.key); syncBoxes(); };
+$('btnNone').onclick = () => { for (const g of groups) for (const t of g.types) if (!t.row.classList.contains('hidden')) enabled.delete(t.key); syncBoxes(); };
+$('chkLabels').onchange = requestDraw;
+$('chkUnvisited').onchange = (e) => { onlyUnvisited = e.target.checked; requestDraw(); };
+
+/** Springt zum nächstgelegenen Ort dieses Typs; erneutes Klicken geht zum übernächsten usw. */
+function jumpTo(t) {
+  enabled.add(t.key);
+  syncBoxes();
+  let st = jumpIndex.get(t.key);
+  if (!st || st.epoch !== epoch || Math.hypot(st.cx - view.cx, st.cz - view.cz) > 1) {
+    const ox = view.cx, oz = view.cz;
+    st = { epoch, i: 0, list: [...t.pois].sort((a, b) => Math.hypot(a.x - ox, a.z - oz) - Math.hypot(b.x - ox, b.z - oz)) };
+    jumpIndex.set(t.key, st);
+  } else {
+    st.i = (st.i + 1) % st.list.length;
+  }
+  const p = st.list[st.i];
+  view.cx = st.cx = p.x; view.cz = st.cz = p.z;
+  if (view.scale < 0.35) view.scale = 0.35;
+  select(p);
+}
+
+// --------------------------------------------------------------- Welt laden
+
+function setWorld(w, keepView) {
+  world = {
+    name: w.name || '', seedName: w.seedName || '', seed: w.seed | 0,
+    pois: (w.locations || []).map(l => {
+      const c = classify(l.prefab);
+      return { ...l, cat: c.cat, label: c.label, key: c.cat + '|' + c.label, c: CAT.get(c.cat) };
+    }),
+  };
+  selected = null; $('popup').hidden = true;
+  $('seedInput').value = world.seedName;
+  $('worldInfo').innerHTML = `${world.name ? `Welt <b>${esc(world.name)}</b> · ` : ''}Seed <b>${esc(world.seedName || '?')}</b> (${world.seed})`;
+  buildSidebar();
+  startWorkers();
+  if (!keepView) home();
+}
+
+async function loadBundled(keepView) {
+  try {
+    const d = await (await fetch(BUNDLED)).json();
+    const locations = [];
+    for (let i = 0; i < d.locs.length; i += 5) {
+      locations.push({ prefab: d.prefabs[d.locs[i]], x: d.locs[i + 1], y: d.locs[i + 2], z: d.locs[i + 3], placed: !!d.locs[i + 4] });
+    }
+    setWorld({ name: d.name, seedName: d.seedName, seed: d.seed, locations }, keepView);
+  } catch (err) {
+    $('worldInfo').textContent = 'Mitgelieferte Welt konnte nicht geladen werden: ' + err.message;
+  }
+}
+
+$('seedForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const s = $('seedInput').value.trim();
+  if (!s) return;
+  if (s === bundledSeedName) { loadBundled(); return; }
+  setWorld({ seedName: s, seed: stableHash(s) });
+});
+$('btnBundled').onclick = () => loadBundled();
+$('btnImport').onclick = () => $('fileInput').click();
+$('fileInput').addEventListener('change', async (e) => {
+  const files = [...e.target.files];
+  e.target.value = '';
+  try {
+    const fwl = files.find(f => /\.fwl2?$/i.test(f.name));
+    const db = files.find(f => /\.db2$/i.test(f.name));
+    if (!fwl && !db) throw new Error('Bitte eine *.fwl2- und die zugehörige *.db2-Datei auswählen.');
+    let meta = { name: world.name, seedName: world.seedName, seed: world.seed };
+    if (fwl) meta = parseFwl(await fwl.arrayBuffer());
+    let locations = [];
+    if (db) locations = (await parseDb2(await db.arrayBuffer())).locations;
+    setWorld({ ...meta, locations }, !fwl);
+    if (!db) $('poiHint').innerHTML = 'Nur die Welt-Metadaten wurden geladen. Wähle zusätzlich die <b>*.db2</b>-Datei aus, um die Orte zu sehen.';
+  } catch (err) {
+    alert('Import fehlgeschlagen: ' + err.message);
+  }
+});
+
+// ---------------------------------------------------------------- URL-Hash
+
+let hashTimer = 0;
+function saveHashSoon() {
+  clearTimeout(hashTimer);
+  hashTimer = setTimeout(() => {
+    const h = `#seed=${encodeURIComponent(world.seedName)}&x=${view.cx.toFixed(0)}&z=${view.cz.toFixed(0)}&s=${view.scale.toFixed(4)}`;
+    history.replaceState(null, '', h);
+  }, 400);
+}
+
+let bundledSeedName = 'Xldpp3L2LG';
+(async function init() {
+  const params = new URLSearchParams(location.hash.slice(1));
+  const seed = params.get('seed');
+  const hasView = params.has('x') && params.has('z') && params.has('s');
+  if (hasView) {
+    view.cx = +params.get('x') || 0; view.cz = +params.get('z') || 0;
+    view.scale = Math.max(0.005, Math.min(4, +params.get('s') || 0.04));
+  }
+  if (seed && seed !== bundledSeedName) setWorld({ seedName: seed, seed: stableHash(seed) }, hasView);
+  else await loadBundled(hasView);
+})();
