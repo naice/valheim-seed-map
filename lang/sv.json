@@ -42,7 +42,9 @@
   "remove": "Ta bort från listan",
   "saveFail": "Det går inte att spara – webbläsaren tillåter inte lokal lagring här.",
   "language": "Språk",
-  "langTitle": "Välj språk"
+  "langTitle": "Välj språk",
+  "donate": "Donera",
+  "donateTitle": "Stöd projektet på Ko-fi"
  },
  "cat": {
   "boss": "Bossar och start",

@@ -42,7 +42,9 @@
   "remove": "Remove from list",
   "saveFail": "Cannot save – the browser does not allow local storage here.",
   "language": "Language",
-  "langTitle": "Choose language"
+  "langTitle": "Choose language",
+  "donate": "Donate",
+  "donateTitle": "Support the project on Ko-fi"
  },
  "cat": {
   "boss": "Bosses & Start",

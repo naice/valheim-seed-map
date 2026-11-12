@@ -42,7 +42,9 @@
   "remove": "Aus der Liste entfernen",
   "saveFail": "Speichern nicht möglich – der Browser erlaubt hier keinen lokalen Speicher.",
   "language": "Sprache",
-  "langTitle": "Sprache wählen"
+  "langTitle": "Sprache wählen",
+  "donate": "Spenden",
+  "donateTitle": "Das Projekt auf Ko-fi unterstützen"
  },
  "cat": {
   "boss": "Bosse & Start",

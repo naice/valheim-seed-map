@@ -42,7 +42,9 @@
   "remove": "Rimuovi dall’elenco",
   "saveFail": "Impossibile salvare – il browser non consente l’archiviazione locale qui.",
   "language": "Lingua",
-  "langTitle": "Scegli la lingua"
+  "langTitle": "Scegli la lingua",
+  "donate": "Dona",
+  "donateTitle": "Sostieni il progetto su Ko-fi"
  },
  "cat": {
   "boss": "Boss e partenza",

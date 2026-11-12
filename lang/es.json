@@ -42,7 +42,9 @@
   "remove": "Quitar de la lista",
   "saveFail": "No se puede guardar – el navegador no permite el almacenamiento local aquí.",
   "language": "Idioma",
-  "langTitle": "Elegir idioma"
+  "langTitle": "Elegir idioma",
+  "donate": "Donar",
+  "donateTitle": "Apoyar el proyecto en Ko-fi"
  },
  "cat": {
   "boss": "Jefes e inicio",

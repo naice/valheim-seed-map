@@ -42,7 +42,9 @@
   "remove": "Retirer de la liste",
   "saveFail": "Enregistrement impossible – le navigateur n’autorise pas le stockage local ici.",
   "language": "Langue",
-  "langTitle": "Choisir la langue"
+  "langTitle": "Choisir la langue",
+  "donate": "Faire un don",
+  "donateTitle": "Soutenir le projet sur Ko-fi"
  },
  "cat": {
   "boss": "Boss et départ",

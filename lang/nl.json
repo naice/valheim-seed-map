@@ -42,7 +42,9 @@
   "remove": "Uit de lijst verwijderen",
   "saveFail": "Opslaan niet mogelijk – de browser staat hier geen lokale opslag toe.",
   "language": "Taal",
-  "langTitle": "Taal kiezen"
+  "langTitle": "Taal kiezen",
+  "donate": "Doneren",
+  "donateTitle": "Steun het project op Ko-fi"
  },
  "cat": {
   "boss": "Bazen & start",
