@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Kaart",
+  "seeds": "Beste seeds",
+  "bosses": "Bazen",
+  "traders": "Handelaren",
+  "guides": "Gidsen & FAQ"
+ },
+ "common": {
+  "openMap": "Open op de kaart",
+  "showOnMap": "Toon op de kaart",
+  "meters": "{n} m",
+  "boss": "Baas",
+  "biome": "Bioom",
+  "health": "Gezondheid",
+  "summon": "Offer om op te roepen",
+  "weak": "Zwak tegen",
+  "resist": "Bestand tegen",
+  "immune": "Immuun voor",
+  "drops": "Buit",
+  "power": "Verlatenenkracht",
+  "item": "Voorwerp",
+  "price": "Prijs (munten)",
+  "sellValue": "Verkoopwaarde (munten)",
+  "available": "Beschikbaar",
+  "always": "vanaf het begin",
+  "afterBoss": "na het verslaan van {boss}",
+  "afterChest": "na het terugbrengen van {chest}",
+  "dmg": {
+   "blunt": "Bot",
+   "slash": "Sneden",
+   "pierce": "Doorboring",
+   "fire": "Vuur",
+   "frost": "Vorst",
+   "lightning": "Bliksem",
+   "poison": "Gif",
+   "spirit": "Geest"
+  },
+  "disclaimer": "Valheim-Map is een fanproject en is niet verbonden aan Iron Gate of Coffee Stain. Valheim is een handelsmerk van de respectievelijke eigenaren. Spelgegevens: versie {version}.",
+  "noscript": "De interactieve kaart heeft JavaScript nodig. De gidsen over seeds, bazen en handelaren werken ook zonder."
+ },
+ "about": {
+  "h": "Valheim-Map: je hele wereld op basis van de seed",
+  "p": [
+   "Valheim-Map is een gratis interactieve kaart voor Valheim. Typ de **seed** van je wereld in en de kaart toont de volledige wereld zonder mist: elk bioom, de kustlijn en de exacte positie van bazen, handelaren, kerkers en meer dan 90 andere soorten locaties.",
+   "Er wordt niets geüpload en je hebt geen savebestand nodig. De kaart draait dezelfde wereldgeneratie als het spel, rechtstreeks in je browser. Daardoor kloppen de posities tot op de meter met jouw wereld. Klik op een markering voor de coördinaten en een kant-en-klaar consolecommando om ernaartoe te reizen.",
+   "Met de lijst aan de linkerkant zet je locatietypes aan en uit, zoek je naar een specifieke plek zoals Haldor of de Verzonken crypten en bewaar je seeds waar je later naar terug wilt. De link in de adresbalk bevat altijd de seed en de huidige weergave, zodat je elke plek met je vrienden kunt delen."
+  ],
+  "seedH": "Zo vind je de seed van je wereld",
+  "seedP": "Elke Valheim-wereld wordt gemaakt op basis van een seed, een korte tekst van maximaal tien tekens. Dezelfde seed levert altijd dezelfde wereld op.",
+  "seedSteps": [
+   "Start Valheim, klik op **Start Spel** en kies je personage.",
+   "Selecteer je wereld in de wereldlijst. De seed staat direct naast de naam van de wereld.",
+   "Op een dedicated server staat de seed in het **.fwl**-bestand van de wereld. Laad de wereld één keer in singleplayer of vraag de seed aan de serverbeheerder.",
+   "Typ de seed in het veld linksboven op de kaart en druk op **Laden**. Let op hoofdletters en kleine letters."
+  ],
+  "guidesH": "Gidsen",
+  "faqH": "Veelgestelde vragen",
+  "faq": [
+   {
+    "q": "Klopt de kaart met mijn wereld?",
+    "a": "Ja. Het terrein en alle locaties worden berekend met hetzelfde algoritme dat het spel gebruikt, en de resultaten zijn gecontroleerd aan de hand van echte werelden. De kaart toont waar het spel een locatie plaatst wanneer je het gebied voor het eerst verkent. Wat spelers later veranderen, zoals verwoeste gebouwen, zie je niet."
+   },
+   {
+    "q": "Welke spelversie ondersteunt de kaart?",
+    "a": "De kaart volgt de huidige openbare versie van Valheim, inclusief de Ashlands en het Diepe noorden. Werelden die met een veel oudere versie zijn gemaakt, kunnen afwijken in gebieden die vóór een update al waren verkend."
+   },
+   {
+    "q": "Waarom staan er meerdere markeringen voor Haldor, Hildir en de Bog Witch?",
+    "a": "Het spel bereidt voor elke handelaar maximaal tien mogelijke kampen voor. Het eerste kamp waar je in de buurt komt, wordt het echte kamp. De andere verdwijnen uit je wereld. Je kunt dus gewoon de markering kiezen die het dichtst bij je basis ligt."
+   },
+   {
+    "q": "Moet ik mijn savebestand uploaden?",
+    "a": "Nee. De kaart heeft alleen de seed nodig. De berekening gebeurt op je eigen apparaat en er wordt niets over je wereld naar een server gestuurd."
+   },
+   {
+    "q": "Hoe reis ik naar een locatie die ik op de kaart heb gevonden?",
+    "a": "Klik op de markering. De pop-up toont de coördinaten en een consolecommando. In singleplayer schakel je de console in met de startoptie **-console**. Typ daarna **devcommands** en gebruik het commando **goto**. Speel je zonder cheats, navigeer dan met de coördinaten en de afstand tot het startpunt."
+   },
+   {
+    "q": "Werkt de kaart op een telefoon?",
+    "a": "Ja. De kaart werkt in elke moderne browser, ook op telefoons en tablets. Het berekenen van alle locaties duurt een paar seconden, op oudere apparaten iets langer."
+   },
+   {
+    "q": "Is Valheim-Map gratis?",
+    "a": "Ja, helemaal, en zonder account. Heeft de kaart je een paar uur zeilen bespaard, dan kun je het project steunen met een kleine donatie."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Zorgvuldig uitgekozen seeds, allemaal gecontroleerd met de kaart.",
+  "title": "Beste Valheim-seeds: gecontroleerde lijst met kaartlinks",
+  "desc": "De beste Valheim-seeds voor de huidige versie: makkelijke starts, handelaren naast het startpunt, boss rush en ijzerseeds. Elke seed is opnieuw berekend en opent direct op de interactieve kaart.",
+  "h1": "De beste Valheim-seeds",
+  "intro": [
+   "Een goede seed scheelt uren: een handelaar op loopafstand, de eerste bazen op je startcontinent of een moeras vol crypten aan de overkant van de rivier. Het probleem met de meeste seedlijsten is dat ze van elkaar zijn overgeschreven en nooit zijn gecontroleerd nadat de wereldgeneratie veranderde.",
+   "Deze lijst is anders. We hebben de meest aanbevolen seeds uit de community verzameld en **ze stuk voor stuk opnieuw berekend** met de wereldgenerator van de huidige spelversie. De afstanden hieronder zijn gemeten vanaf het startpunt, en elke seed open je met één klik op de interactieve kaart. Waar een oude aanbeveling niet meer klopt, zeggen we dat erbij of hebben we de seed weggelaten."
+  ],
+  "factsH": "Afstanden vanaf het startpunt",
+  "colPlace": "Plek",
+  "colDist": "Afstand",
+  "howH": "Zo gebruik je een seed",
+  "how": [
+   "Klik in Valheim op **Start Spel**, kies je personage en klik in de wereldlijst op **Nieuw**. Vul een wereldnaam in en typ de seed precies zoals hij hier staat, inclusief hoofdletters en kleine letters. Op een dedicated server maak je de wereld eerst lokaal aan en upload je de wereldbestanden, of je stelt de seed in via de instellingen van je host.",
+   "De afstanden zijn rechte lijnen vanaf de offerstenen. Een handelaar telt maar één keer: het spel bereidt meerdere mogelijke kampen voor, en het eerste dat je nadert wordt het echte. De tabel gebruikt altijd het dichtstbijzijnde kamp."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "De beste allrounder",
+    "text": [
+     "Als je maar één seed probeert, neem dan deze. De eerste vijf bazen liggen allemaal binnen 3,5 km van het startpunt: Eikthyr op 120 m, De Oudere op 1,1 km, Moder op minder dan 1 km, Bottenmassa op 1,9 km en Yagluth op 3,4 km. Bijna geen enkele andere wereld heeft de voortgang zo dicht op elkaar.",
+     "Haldor kampeert op 1,6 km van de offerstenen, vlak bij de minimale afstand die het spel toelaat. Dat maakt de seed ideaal voor een snelle playthrough en voor groepen die bazen willen bevechten in plaats van urenlang te zeilen."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Alles te voet, geen schip nodig",
+    "text": [
+     "Op deze seed ligt bijna alles wat je nodig hebt op de startlandmassa: de eerste vijf bazen, van Eikthyr tot Yagluth, en alle drie de handelaren bereik je zonder ooit een schip te bouwen. Yagluth ligt op maar 3 km van het startpunt, Moder op 1,9 km en De Oudere op 1,8 km.",
+     "Haldor zit op 1,7 km, Hildir op 2,9 km en de Bog Witch op 3,1 km. Een perfecte wereld voor spelers die niet graag zeilen, en voor challenge runs zonder boot tot aan de Mistlanden."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor voor de deur",
+    "text": [
+     "Bij geen enkele seed in onze lijst zit de handelaar dichterbij: Haldor kampeert op maar ongeveer 1.000 m van het startpunt, op de startlandmassa. Je kunt al op je eerste dag naar hem toe lopen en je aankopen vanaf het begin plannen.",
+     "Ook de start is comfortabel. Eikthyr wacht op 170 m van de stenen en De Oudere op 1,2 km, ook te voet bereikbaar. Het Zwarte bos begint op amper meer dan 100 m van het startpunt, dus koper en blik zijn nooit ver weg."
+    ]
+   },
+   "1k7md8": {
+    "title": "De snelste start",
+    "text": [
+     "Eikthyr staat op 60 m van het startpunt, praktisch in het zicht van de offerstenen. De Oudere volgt op maar 650 m, het dichtstbijzijnde altaar van De Oudere van alle seeds die we hebben gecontroleerd. Je kunt de eerste twee bazen verslaan zonder ooit echt van huis te gaan.",
+     "Ook de rest van de vroege game blijft dichtbij: Moder op 2,1 km, Bottenmassa op 2,3 km en Yagluth op 3,1 km. Bottenmassa en Yagluth liggen op de startlandmassa. Alleen Haldor zit met 2,9 km wat verder weg, maar ook hij is te voet bereikbaar."
+    ]
+   },
+   "18mang": {
+    "title": "Handelaren te voet en een korte weg naar het noorden",
+    "text": [
+     "Alle drie de handelaren zitten op de startlandmassa: Haldor op 1,2 km, Hildir op 2,7 km en de Bog Witch op 3,5 km. Hildir op deze afstand is zeldzaam, want haar kampen liggen meestal verder dan 3 km. Het eerste Moeras begint op maar 1 km van het startpunt, met twee Verzonken crypten binnen 1,5 km. IJzer heb je hier dus ongewoon vroeg.",
+     "De community raadt deze seed aan voor het Diepe noorden, en de cijfers kloppen: het noordelijke bioom begint op ongeveer 6,9 km van het startpunt, een volle kilometer dichterbij dan in de meeste werelden. Eikthyr ligt met 800 m wat verder weg dan normaal."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Vijf bazen zonder boot",
+    "text": [
+     "Eikthyr, De Oudere, Bottenmassa, Moder en Yagluth liggen allemaal op de startlandmassa. Moder is het hoogtepunt: haar altaar ligt op maar 1,5 km van het startpunt, en dicht bij de start rijzen grote bergen met zilver op.",
+     "Haldor op 2,1 km en de Bog Witch op 3,2 km zijn ook te voet bereikbaar. Een geweldige seed voor spelers die zich op één plek willen vestigen en het hele spel tot en met de Vlakten vanuit één basis willen spelen."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "Overal korte afstanden",
+    "text": [
+     "Een evenwichtige seed zonder zwakke plek. De Oudere ligt op 1,1 km van het startpunt, Bottenmassa en Moder allebei op 2,3 km en Yagluth op 3,4 km. Haldor kampeert op 1,6 km.",
+     "De community kent deze seed vanwege de lange, bijna ononderbroken strook land die van noord naar zuid loopt. Daardoor is verkennen te voet makkelijk en blijven de zeereizen kort."
+    ]
+   },
+   "Angel": {
+    "title": "Een rustige start voor beginners",
+    "text": [
+     "Eikthyr ligt op 80 m van de offerstenen en De Oudere op precies 1 km. Haldor volgt op 1,5 km, ongeveer zo dichtbij als het spel toelaat. Voor nieuwe spelers betekent dat een korte en duidelijke route door de eerste uren.",
+     "Ook latere doelen blijven binnen bereik: Moder ligt op 2,5 km, Bottenmassa op 2,7 km, en Hildir en de Bog Witch allebei op ongeveer 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder en De Oudere naast de deur",
+    "text": [
+     "Deze seed wordt sinds de 1.0-update geprezen als een van de beste, en de kaart bevestigt de kern daarvan: Eikthyr op 250 m, Moder op 1,3 km en De Oudere op 1,3 km, alle drie op de startlandmassa. Bottenmassa ligt op 2 km.",
+     "Haldor zit op 2,3 km van het startpunt en is te voet bereikbaar. Hildir en de Bog Witch liggen allebei op net geen 3 km, dichterbij dan in de meeste werelden."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "Vroeg zilver: Moder op 1 km van het startpunt",
+    "text": [
+     "Het altaar van Moder ligt op maar 1,1 km van het startpunt en op de startlandmassa. Bergen, zilver en het wolfharnas liggen dus op loopafstand van je eerste basis. Eikthyr staat op 80 m van de stenen en De Oudere op 1,4 km.",
+     "Haldor zit met 1,5 km ook dichtbij, maar hij woont aan de overkant van het water. Je hebt dus een vlot nodig of moet een stukje zwemmen. De seed is al lang populair vanwege de mooie start in de Weiden met veel ruimte om te bouwen."
+    ]
+   },
+   "WorldEater": {
+    "title": "De Oudere binnen 900 m",
+    "text": [
+     "Eikthyr op 230 m en De Oudere op 900 m zorgen voor een heel snelle start richting de bronstijd. Bottenmassa ligt op 2,9 km op de startlandmassa, dus voor de eerste drie bazen heb je geen schip nodig.",
+     "De Bog Witch kampeert op 2,8 km van het startpunt en is te voet bereikbaar, net als Hildir. Moder ligt op 2,5 km aan de overkant van het water."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "De eerste drie bazen op één eiland",
+    "text": [
+     "Eikthyr op 110 m, De Oudere op 1,2 km en Bottenmassa op 2,1 km liggen allemaal op de startlandmassa. Je kunt van de steentijd tot de ijzertijd spelen zonder een schip te bouwen.",
+     "Hildir en de Bog Witch wonen op dezelfde landmassa, iets meer dan 3 km verderop. Yagluth op 3,2 km en Moder op 3,5 km bereik je met een korte vaart."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Compact eiland met een handelaar",
+    "text": [
+     "Deze seed gold vroeger als een moeilijke. In de huidige versie is het een compacte en prettige start: Eikthyr op 140 m, De Oudere op net geen 1 km en Bottenmassa op 2,3 km, allemaal op de startlandmassa.",
+     "Haldor op 1,9 km en Hildir op 2,9 km zijn ook te voet bereikbaar. Alleen voor Moder moet je een langere tocht plannen."
+    ]
+   },
+   "feret2": {
+    "title": "Bottenmassa dichtbij",
+    "text": [
+     "Bottenmassa ligt hier op maar 1,9 km van het startpunt, een van de kortste afstanden die we hebben gevonden. Moder volgt op 2,2 km en Eikthyr op 250 m. Wil je snel aan ijzer en zilver komen, dan is dit een goede keuze.",
+     "Haldor kampeert op 1,5 km van de offerstenen, vlak bij de minimale afstand, maar wel aan de overkant van het water. De seed staat ook bekend om zijn gevarieerde startgebied met veel biomen dicht bij elkaar."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor en Moder in de buurt",
+    "text": [
+     "Haldor zit op 1,5 km van het startpunt, praktisch de minimale afstand, en Moder op maar 1,8 km. De Oudere volgt op 2,2 km.",
+     "Het startgebied is groot en gevarieerd, met Zwarte bos en Bergen dicht bij de Weiden. Een goede seed voor een lange, ontspannen playthrough met een centrale hoofdbasis."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "De klassieker, opnieuw gecontroleerd",
+    "text": [
+     "Dit is waarschijnlijk de bekendste Valheim-seed van allemaal. Hij stond bekend als de speedrunseed met vier bazen vlak bij het startpunt. Een aantal updates van de wereldgeneratie later klopt dat niet meer, maar veel lijsten herhalen de oude bewering nog steeds.",
+     "Wat overblijft is nog steeds prima: Eikthyr op 440 m, Haldor op 1,6 km en Bottenmassa op 2,2 km, allemaal op de startlandmassa. De Oudere ligt op 2,9 km en Yagluth op 3,1 km, aan de overkant van het water. Moder ligt nu echter op meer dan 6 km van het startpunt. Leuk voor de nostalgie, maar de seeds hierboven zijn tegenwoordig beter."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "Alle bazen op volgorde: zo vind je ze, roep je ze op en versla je ze.",
+  "title": "Valheim-bazen: volgorde, locaties, oproepen en tips",
+  "desc": "Alle Valheim-bazen op volgorde, van Eikthyr tot Fader: waar je de altaren vindt, wat je nodig hebt om ze op te roepen, hun zwakke punten en de beste tips voor elk gevecht.",
+  "h1": "Valheim-bazen op volgorde",
+  "intro": [
+   "Het verhaal van Valheim wordt verteld via de bazen, de Verlatenen. Elke baas bewaakt een bioom en laat het voorwerp vallen dat de volgende stap opent: het gewei voor je eerste houweel, de sleutel van de moerascrypten, het vorkbeen waarmee je zilver vindt. Ze op volgorde verslaan is de rode draad van elke playthrough.",
+   "De tabel toont alle bazen van de hoofdlijn met hun bioom, hun gezondheid en de voorwerpen die je moet offeren. Elke baas heeft een eigen pagina met zwakke punten, aanvalspatronen en praktische tips. Elke wereld heeft meerdere altaren per baas. Vul je seed in op de kaart om te zien waar die van jou staan."
+  ],
+  "outro": [
+   "Elke verslagen baas laat een trofee achter. Hang die aan de bijbehorende haak bij de offerstenen om de Verlatenenkracht van de baas vrij te spelen. Je kunt één kracht tegelijk kiezen. Hij werkt 5 minuten en moet daarna 20 minuten opladen.",
+   "In multiplayer worden bazen taaier en slaan ze harder voor elke extra speler in de buurt. Meer spelers maken een gevecht dus niet vanzelf makkelijk."
+  ],
+  "pageTitle": "{boss}: locatie, oproepen en tips",
+  "pageDesc": "Zo versla je {boss} in Valheim: waar je het altaar vindt in het bioom {biome}, wat je moet offeren, zwakke punten, aanvallen en de beste tips en trucs voor het gevecht.",
+  "showOnMap": "Toon de altaren van {boss} op de kaart",
+  "findH": "Zo vind je {boss}",
+  "prepH": "Voorbereiding",
+  "attacksH": "Aanvallen",
+  "tipsH": "Tips en trucs",
+  "rewardH": "Beloning",
+  "list": {
+   "eikthyr": {
+    "lead": "Eikthyr, het bliksemhert, is de eerste baas in Valheim. Hij wacht in de Weiden en is een rustige test van de basis: blokken, ontwijken en zuinig omgaan met je conditie.",
+    "power": "60% minder conditieverbruik bij rennen, springen en zwemmen.",
+    "find": [
+     "Het altaar van Eikthyr staat altijd in de Weiden, meestal op maar een paar honderd meter van het startpunt. De rood gloeiende runensteen bij de offerstenen zet het altaar op je kaart zodra je hem leest.",
+     "Om hem op te roepen leg je **2 Herttrofeeën** op het altaar. Herten laten ongeveer om de twee kills een trofee vallen. Sluip tegen de wind in naar ze toe of jaag erop met een primitieve boog."
+    ],
+    "prep": [
+     "Maak een volledige leren uitrusting en upgrade die één keer als dat lukt.",
+     "Neem een vuurstenen speer, vuurstenen bijl of knots mee, een primitieve boog met ongeveer 50 pijlen en een houten schild.",
+     "Eet voor het gevecht drie verschillende soorten voedsel, bijvoorbeeld gekookt zwijnenvlees, gegrilde nekkerstaart en frambozen of paddenstoelen.",
+     "Ga eerst slapen, zodat je met de bonus Uitgerust vecht. Je conditie herstelt dan merkbaar sneller."
+    ],
+    "attacks": [
+     "**Geweistoot:** hij springt naar voren en zwaait met zijn gewei. Blok de aanval met je schild of stap opzij.",
+     "**Bliksemschicht:** hij steigert en schiet een lijn van bliksem recht vooruit, vooral als er niemand naast hem staat. Ontwijk naar opzij.",
+     "**Bliksemstamp:** hij gaat op zijn achterpoten staan en komt met een klap neer, waarbij hij alles om zich heen raakt. Rol naar achteren zodra hij steigert."
+    ],
+    "tips": [
+     "Houd je ronde schild omhoog en sla direct na elke aanval van hem toe. Bijna alles wat hij doet kun je blokken, zelfs met een simpel houten schild.",
+     "Laat je conditie nooit naar nul zakken. Zonder conditie kun je niet blokken en niet ontwijken, en zo mislukken de meeste eerste pogingen.",
+     "De rotsen en bomen rond het altaar houden zijn bliksem tegen. Gebruik ze als dekking als je liever met de boog vecht.",
+     "Vecht overdag. 's Nachts doen Greydwarfs en andere wezens mee.",
+     "Gaat het gevecht slecht, ren dan weg. Eikthyr verdwijnt niet en de schade die je hebt aangericht blijft een tijdje staan."
+    ],
+    "reward": [
+     "Eikthyr laat **3 stuks Hard gewei** en zijn trofee vallen. Van het gewei maak je het Geweihouweel, je eerste houweel. Daarmee hak je blik en koper in het Zwarte bos en begint de bronstijd.",
+     "Zijn Verlatenenkracht maakt rennen en springen veel goedkoper. De kracht blijft het hele spel nuttig: bij verkennen, vluchten en het sjouwen van erts."
+    ]
+   },
+   "elder": {
+    "lead": "De Oudere is een reusachtige levende boom en de tweede baas. Hij heerst over het Zwarte bos en straft spelers af die hem in het open veld bevechten. Met vuurpijlen en een pilaar om achter te schuilen is hij goed te doen.",
+    "power": "60% meer hak- en mijnschade en 30% sneller gezondheidsherstel.",
+    "find": [
+     "Het altaar van De Oudere staat in het Zwarte bos: een stenen platform met vier hoge pilaren rond een vuurschaal. Rode runenstenen in de Grafkamers en in sommige vervallen stenen torens zetten het dichtstbijzijnde altaar op je kaart.",
+     "Om hem op te roepen verbrand je **3 Oeroude zaden** in de vuurschaal. De zaden krijg je van Brute Greydwarfs en Greydwarf Sjamanen, en altijd van vernietigde Greydwarf-nesten, de paars gloeiende spawners."
+    ],
+    "prep": [
+     "Een bronzen harnas is ideaal. Een trolleren uitrusting is een goed en veel goedkoper alternatief.",
+     "Neem een fijnhouten boog en minstens 100 **vuurpijlen** mee. De Oudere is zwak tegen vuur en het brandeffect blijft doortikken.",
+     "Neem een bronzen beukelaar of gebonden schild mee, en een bijl voor de wortels.",
+     "Brouw een paar flessen licht genezende mede en eet je drie beste gerechten, bijvoorbeeld hertenstoofpot, wortelsoep en koninginnejam.",
+     "Ruim de Greydwarf-nesten rond het altaar op, hak de bomen in de buurt om en bouw een stukje verderop een kleine schuilplaats met een portaal."
+    ],
+    "attacks": [
+     "**Rankenschot:** hij strekt zijn armen en vuurt een salvo ranken af over grote afstand. Ga achter een van de vier pilaren staan. Die kunnen niet kapot.",
+     "**Stamp:** van dichtbij stampt hij op de grond en dat doet zware schade. Houd afstand of rol weg.",
+     "**Wortels:** hij laat om je heen een veld wortels opkomen die iedereen in de buurt geselen. Loop het gebied uit. De wortels verdwijnen na een tijdje, of je hakt ze om met een bijl."
+    ],
+    "tips": [
+     "Speel rond de pilaren: stap naar buiten, schiet twee of drie vuurpijlen en stap terug voordat de ranken aankomen. Met dit simpele ritme win je het gevecht.",
+     "Vecht niet van dichtbij als het niet hoeft. De stamp komt veel harder aan dan al het andere op dit punt in het spel.",
+     "Vallende bomen zijn een echt gevaar. De Oudere maait ze om met zijn ranken en een vallende stam kan je in één klap doden. Als je de arena van tevoren kaalhakt, is dat risico weg.",
+     "Roep hem 's ochtends op. Het gevecht kan een aantal minuten duren en 's nachts wordt het druk in het bos.",
+     "Een kampvuur of vreugdevuur bij de arena houdt je Uitgerust, en het vuur doet hem schade als hij erdoorheen loopt."
+    ],
+    "reward": [
+     "De Oudere laat de **Moerassleutel** en zijn trofee vallen. Met de sleutel open je de Verzonken crypten in het Moeras, de enige goede bron van ijzer.",
+     "Zodra De Oudere is verslagen, verkoopt Haldor ook Ymirvlees en Bliksemstenen, en de Bog Witch verkoopt meer ingrediënten.",
+     "Zijn Verlatenenkracht maakt houthakken en mijnen een stuk sneller. Ideaal voor grote bouwprojecten en mijntochten."
+    ]
+   },
+   "bonemass": {
+    "lead": "Bottenmassa is een enorme klomp botten en slijm in het Moeras en de derde baas. Veel spelers lopen hier eerst vast, omdat zwaarden en pijlen hem nauwelijks deren. Met een strijdknots en gifbestendigheid wordt het een heel ander gevecht.",
+    "power": "25% minder fysieke schade (bot, sneden, doorboring). Blokken kost geen conditie en levert zelfs wat op.",
+    "find": [
+     "Het altaar van Bottenmassa is een reusachtige schedel die in het Moeras ligt. Rode runenstenen in de Verzonken crypten zetten de dichtstbijzijnde op je kaart.",
+     "Om hem op te roepen gooi je **10 Versleten botten** in de schedel. Je vindt ze in de Verzonken crypten, in kisten en in de modderige restanten die je toch al doorspit voor ijzer."
+    ],
+    "prep": [
+     "Neem een **IJzeren strijdknots** mee, zo ver mogelijk geüpgraded. Bottenmassa is zwak tegen botte schade en bestand tegen sneden, doorboring en vuur. De Hertenbreker of een IJzeren moker werken ook.",
+     "Brouw **gifbestendigheidsmede** en neem minstens drie of vier flessen per speler mee. Zonder die mede is zijn gifwolk binnen een paar seconden dodelijk.",
+     "Draag een geüpgraded ijzeren harnas of de Root-set, en neem een gebonden schild of beter mee.",
+     "Neem gemiddeld genezende mede en conditiemede mee, en eet worstjes, rapenstoofpot en vergelijkbaar voedsel van moerasniveau.",
+     "Maak de grond rond de schedel vlak met een schoffel, zodat je niet tot je knieën in het water vecht. Daar bijten Leeches en tijdens het zwemmen herstelt je conditie niet.",
+     "Bouw in de buurt een kleine overdekte schuilplaats met een bed, vuur en portaal, het liefst op een verhoging."
+    ],
+    "attacks": [
+     "**Vuistslag:** een brede zwaai die verder reikt dan je denkt en botte schade en gifschade doet. Blok of pareer hem met een stevig schild.",
+     "**Gifwolk:** hij leunt achterover en braakt een grote wolk uit die blijft hangen. Ren er direct uit en wacht tot hij is opgelost.",
+     "**Oproepen:** hij scheurt een klomp van zichzelf af en gooit die weg. Waar de klomp neerkomt, verschijnen skeletten en blobs. Dood ze snel, voordat ze je omsingelen."
+    ],
+    "tips": [
+     "Drink gifbestendigheidsmede **voordat** je hem oproept en neem een nieuwe zodra het icoontje begint te knipperen. De mede werkt 10 minuten.",
+     "De oproepanimatie is je beste kans: hij staat een paar seconden stil terwijl hij gooit.",
+     "Als je zijn vuistslag pareert, raakt hij niet uit balans, maar je bent wel volledig beschermd. Sla daarna twee of drie keer en ga weer achteruit.",
+     "Vorstpijlen zijn de enige pijlen die tegen hem de moeite waard zijn. Heb je al obsidiaan en bevriezingsklieren, dan kun je hem er veilig van afstand mee bevechten.",
+     "Gebruik de kracht van Eikthyr om snel uit de gifwolk te komen, of die van De Oudere voor het extra herstel.",
+     "De gebiedsaanval van de Hertenbreker raakt Bottenmassa en de opgeroepen vijanden tegelijk."
+    ],
+    "reward": [
+     "Bottenmassa laat het **Vorkbeen** en zijn trofee vallen. Met het Vorkbeen uitgerust spoor je verborgen zilveren aders op in de Bergen, begraven schatten in de Weiden en modderige restanten in het Moeras.",
+     "Zijn Verlatenenkracht is de beste verdedigende kracht in het spel. Veel spelers houden hem aan voor elk later baasgevecht."
+    ]
+   },
+   "moder": {
+    "lead": "Moder is de drakenmoeder van de Bergen en de vierde baas. Ze valt aan vanuit de lucht en op de grond, en haar vorstadem bevriest iedereen die erin staat. Een goede boog en bescherming tegen vorst beslissen dit gevecht.",
+    "power": "Altijd wind mee tijdens het zeilen, 300 extra draagcapaciteit, 10% sneller bewegen en 50% vorstbestendigheid.",
+    "find": [
+     "Het altaar van Moder ligt op een bergtop, meestal op een breed, vlak plateau. Rode runenstenen in stenen ruïnes in de Bergen en in Frost Caves zetten het op je kaart.",
+     "Om haar op te roepen leg je **3 Drakeneieren** op het altaar. De eieren liggen in nesten in de Bergen. Elk ei weegt 200 en kan niet mee door een portaal. Je draagt ze dus één voor één, of met drie spelers in één keer."
+    ],
+    "prep": [
+     "Draag het wolfharnas: het borststuk en de cape beschermen je tegen bevriezing. Zonder heb je de hele tocht **vorstbestendigheidsmede** nodig.",
+     "Neem de beste boog mee die je hebt, het liefst de Draugensnijder, en 150 pijlen of meer. Moder is zwak tegen vuur, dus **vuurpijlen** zijn goedkoop en sterk. Obsidiaanpijlen en gifpijlen zijn ook goed. Vorstpijlen doen niets.",
+     "Neem een zilveren zwaard of een ander geüpgraded slagwapen mee voor de fases op de grond.",
+     "Pak gemiddeld genezende mede en conditiemede in, en eet voedsel met veel gezondheid, zoals serpentstoofpot, worstjes en rapenstoofpot.",
+     "Maak het plateau vrij van wolven, ijsdraken en golems voordat je begint, en zet onder de top een portaal met een kleine schuilplaats neer."
+    ],
+    "attacks": [
+     "**IJssalvo (in de lucht):** ze vliegt over je heen en schiet een lijn ijsprojectielen die uiteenspatten in kristallen. Blijf zijwaarts rennen.",
+     "**Vorstadem (op de grond):** een brede kegel van vorst recht vooruit die je enorm vertraagt. Ga naast haar staan zodra ze haar kop laat zakken.",
+     "**Beet en klauwen:** van dichtbij bijt ze en haalt ze uit. Beide kun je blokken met een goed schild."
+    ],
+    "tips": [
+     "Schiet op haar wanneer ze in de lucht hangt of aan het landen is. Ze vliegt langzaam en voorspelbaar, dus de meeste pijlen raken.",
+     "Loop naar haar flank zodra ze landt. De adem raakt alleen wat voor haar staat, en vanaf de zijkant kun je vrij aanvallen.",
+     "Word je geraakt door vorst, dan ben je traag en makkelijk opnieuw te raken. Blok dan liever dan dat je wegrent.",
+     "De ijskristallen van haar salvo kun je kapotslaan. In het open veld bieden ze ook wat dekking.",
+     "De kracht van Bottenmassa maakt de fases van dichtbij veel veiliger. Met de boog helpt de kracht van Eikthyr je om in beweging te blijven.",
+     "Draag de eieren vóór het gevecht naar boven en laat ze bij het altaar liggen. Ze verdwijnen niet."
+    ],
+    "reward": [
+     "Moder laat **10 Drakentranen** en haar trofee vallen. Met de tranen bouw je de Ambachtstafel. Die speelt de windmolen, de hoogoven en het spinnewiel vrij, en daarmee de uitrusting van de Vlakten.",
+     "Na haar nederlaag verkoopt Haldor Wider Pockets, een extra rij in je inventaris, en de Bog Witch breidt haar aanbod uit met een aantal voorwerpen.",
+     "Haar Verlatenenkracht geeft je op elke vaart wind mee en veel extra draagcapaciteit. Het is de favoriet van iedereen die zeilt en erts sjouwt."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, de gevallen koning van de Loeders, is de vijfde baas. Alleen zijn bovenlijf kruipt nog over de Vlakten, maar zijn vuur en meteoren maken dit een van de dodelijkste gevechten in het spel. Vuurbestendigheid is hier geen optie maar een must.",
+    "power": "10% meer schade, 50% bliksembestendigheid en 25 extra niveaus in Farming.",
+    "find": [
+     "Het altaar van Yagluth staat in de Vlakten: een kring van enorme stenen vingers die uit de grond steken. Rode runenstenen bij steencirkels in de Vlakten zetten het op je kaart. Ze zijn zeldzaam, dus de kaart bespaart je hier een lange zoektocht.",
+     "Om hem op te roepen leg je **5 Loedertotems** op het altaar. In de meeste Loederdorpen vind je één totem, en Loederberserkers laten er soms een vallen. Totems kunnen mee door een portaal."
+    ],
+    "prep": [
+     "Brouw **gerstewijn van de vuurbestendigheid** en neem er meerdere per speler mee. Hij werkt 10 minuten en moet het hele gevecht actief zijn.",
+     "Draag een volledig geüpgraded gevoerd harnas. Het wolfharnas is het minimum.",
+     "Neem een Zwartmetalen zwaard, het Stekelvarken of Vorstner mee. Yagluth is sterk bestand tegen doorboring, dus speren, atgeirs en de meeste pijlen zijn een slechte keuze.",
+     "Wil je van afstand vechten, gebruik dan vorstpijlen en reken op een lang gevecht.",
+     "Neem gemiddeld genezende mede en conditiemede mee, en eet het beste voedsel van de Vlakten: hossenvleespastei, bloedworst, viswraps.",
+     "Ruim eerst alle Loeders, lox en doodsmuggen rond het altaar op en zet op veilige afstand een portaal neer."
+    ],
+    "attacks": [
+     "**Vuuradem:** hij heft zijn hoofd op en zwaait een lange vuurstraal achter je aan. Ren zijwaarts of stap achter een van de stenen vingers.",
+     "**Vuistklap:** zijn vuist gloeit blauw, daarna slaat hij op de grond en volgt er een grote explosie. Maak dat je wegkomt zodra je de gloed ziet.",
+     "**Meteoren:** zijn hand gloeit oranje en er regenen een paar seconden lang meteoren op jouw positie. Blijf in één richting rennen tot het ophoudt."
+    ],
+    "tips": [
+     "Elke aanval wordt aangekondigd door een duidelijke gloed. Leer de drie signalen en het gevecht wordt rustig: aanvallen, gloed zien, wegwezen, herhalen.",
+     "Val aan van achteren of van opzij, en maar twee of drie klappen per keer. Hebzucht is hier de grootste doodsoorzaak.",
+     "De stenen vingers houden zijn vuuradem tegen, maar meteoren gaan eroverheen. Ga tijdens de meteorenregen niet achter een pilaar staan uitrusten.",
+     "Als je in brand staat, raak je in paniek en verspil je conditie. Met gerstewijn actief wordt vuurschade ongeveer gehalveerd en vergeeft het gevecht je veel meer.",
+     "Activeer de kracht van Bottenmassa wanneer je van dichtbij gaat vechten. Drink op tijd nieuwe gerstewijn en niet pas als hij is uitgewerkt.",
+     "Yagluth is traag. Moet je genezen of eten, loop dan gewoon bij hem weg."
+    ],
+    "reward": [
+     "Yagluth laat **3 Torn Spirits** en zijn trofee vallen. Met een Torn Spirit bouw je de Wisp Fountain. Die verzamelt wisps, en die heb je nodig voor het Wisplight dat de mist in de Mistlanden verdrijft.",
+     "Na zijn nederlaag verkoopt Haldor het Egg, waarmee je kippen kunt fokken, en de Bog Witch verkoopt het kruid van de Vlakten.",
+     "Zijn Verlatenenkracht verhoogt al je schade met een tiende. Een sterke keuze voor de Mistlanden en de latere bazen."
+    ]
+   },
+   "queen": {
+    "lead": "The Queen is de moeder van de Seekers en de zesde baas. Ze leeft diep in de Infested Citadel in de Mistlanden en vecht nooit alleen: haar broed komt voortdurend om je heen uit. Een goede voorbereiding en controle over haar broed beslissen het gevecht.",
+    "power": "Eitr herstelt twee keer zo snel, sluipen kost geen conditie en je krijgt 50% gifbestendigheid.",
+    "find": [
+     "The Queen wordt niet opgeroepen. Ze wacht in de **Infested Citadel**, een enorm verzegeld gebouw in de Mistlanden. Rode runenstenen in de Infested Mines zetten de citadel op je kaart.",
+     "De deur gaat alleen open met de **Sealbreaker**. Die maak je aan de Galdr Table van **9 Sealbreaker Fragments**, die je in de Infested Mines vindt. Wil je later opnieuw tegen haar vechten, leg dan 3 Seeker Soldier Trophies op het altaar binnen."
+    ],
+    "prep": [
+     "Draag een geüpgraded Carapace-harnas als je van dichtbij vecht, of de Eitr-weave Robe als je met magie vecht.",
+     "Ze is bestand tegen doorboring. Gebruik wapens met sneden of botte schade, zoals Mistwalker, Krom of de Demolisher. Bogen en speren doen weinig.",
+     "Magie is hier erg sterk: de Staff of Embers ruimt haar broed op, de Staff of Protection beschermt de groep en de Dead Raiser leidt vijanden af.",
+     "Drink **gifbestendigheidsmede** voordat je naar binnen gaat en neem Major Healing Mead, conditiemede en Eitr Mead mee.",
+     "Eet het beste voedsel van de Mistlanden. Voor magiegebruikers is minstens één gerecht met Eitr verplicht.",
+     "In de citadel hangt geen mist, maar neem je Wisplight mee voor de weg ernaartoe. Met een Feather Cape kun je veilig van de bovenste verdiepingen springen.",
+     "Je kunt in de citadel bouwen. Een werkbank, een portaal vlak buiten de deur en een paar stenen muren als dekking helpen enorm."
+    ],
+    "attacks": [
+     "**Uithaal en stormloop:** brede zwaaien met haar voorpoten en een kruipende charge. Ontwijk naar opzij of blok met een sterk schild.",
+     "**Beet:** een uitval recht vooruit met zware doorboring en gifschade. Ga niet voor haar kop staan.",
+     "**Grondsteek:** ze richt zich op en steekt met alle vier haar armen in de grond, waarbij ze alles om zich heen raakt. Ga achteruit zodra ze omhoogkomt.",
+     "**Spuug:** meerdere gifprojectielen die ontploffen en Seeker Broods loslaten.",
+     "**Roep:** ze krijst en roept Seekers en broed op.",
+     "**Ingraven:** ze graaft zich in en duikt ergens anders in de hal weer op."
+    ],
+    "tips": [
+     "Blijf het broed doden. Een dozijn kleine Seekers doet meer schade dan The Queen zelf. Gebiedsaanvallen zoals die van de Demolisher of de Staff of Embers zijn ideaal.",
+     "Gebruik de trappen en de bovenverdiepingen van de citadel. In open ruimte is ze snel, maar op de hellingen traag. Dat geeft je tijd om te genezen en conditie terug te krijgen.",
+     "Al haar aanvallen van dichtbij gooien je naar achteren. Zorg dat je niet met je rug naar een muur of rand staat.",
+     "In een groep houdt één speler met een scutum haar aandacht vast, terwijl de anderen het broed opruimen en van achteren aanvallen.",
+     "De kracht van Bottenmassa is uitstekend voor gevechten van dichtbij. Magiegebruikers nemen bij de rematch haar eigen kracht mee, of die van Yagluth voor meer schade.",
+     "Als je doodgaat, ligt je grafsteen in de hal. Met een portaal vlak buiten de deur ben je zo weer bij je spullen."
+    ],
+    "reward": [
+     "The Queen laat **5 Majestic Carapaces** en haar trofee vallen. Met het pantser bouw je de Artisan Press, die je nodig hebt voor de uitrusting en de schepen waarmee je de Ashlands bereikt.",
+     "Na haar nederlaag verkoopt Haldor Deeper Pockets, nog een extra rij in je inventaris, en de Bog Witch verkoopt het kruid van de Mistlanden.",
+     "Haar Verlatenenkracht verdubbelt het herstel van Eitr. Voor magiebuilds is dit de beste kracht in het spel."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, de ondode draak van de Ashlands, is de zevende baas. Hij heeft geen zwakke plek, twee keer zoveel gezondheid als The Queen en zet zijn arena vol groen vuur. Dit gevecht vraagt om de beste uitrusting die de Ashlands te bieden hebben, en je moet constant blijven bewegen.",
+    "power": "Adrenaline bouwt twee keer zo snel op, je raakt veel minder snel uit balans en je krijgt 50% vuurbestendigheid.",
+    "find": [
+     "Het altaar van Fader staat in een grote ronde arena in de Ashlands. Rode runenstenen in Charred Fortresses zetten het op je kaart.",
+     "Om hem op te roepen heb je **3 Bells** nodig. Elke Bell smeed je aan de Black Forge van **3 Bell Fragments**, en die fragmenten liggen in de kisten van Charred Fortresses. Breek de poort van het fort open met een Battering Ram, maak het fort leeg en plunder de toren. Zet de drie Bells in de arena en activeer het altaar."
+    ],
+    "prep": [
+     "Draag een volledig geüpgraded vlammetalen harnas, of de Ask-set als je liever lichte bepantsering draagt.",
+     "Fader is immuun voor vuur en geest en bestand tegen doorboring. Gebruik wapens met sneden of botte schade, het liefst met vorst- of bliksemschade erbij.",
+     "Drink **gerstewijn van de vuurbestendigheid** en neem tijdens het gevecht op tijd een nieuwe.",
+     "Neem Major Healing Mead en Lingering Stamina Mead mee, en vul alle drie je voedselslots met het beste eten van de Ashlands.",
+     "Maak de omgeving van de arena grondig schoon. Charred, Morgens en Asksvin die komen binnenlopen, maken er een chaos van.",
+     "Bouw buiten de arena een portaal en een kleine stenen schuilplaats. In de Ashlands spawnen constant vijanden, dus bescherm het portaal met muren."
+    ],
+    "attacks": [
+     "**Beet en klauwen:** brede, zeer zware aanvallen van dichtbij, recht voor hem. Blok met een sterk schild of blijf bij zijn flank.",
+     "**Draai:** hij draait om zijn as en raakt alles om zich heen. Stap achteruit zodra hij begint te draaien.",
+     "**Vlammenadem:** een lijn van vuur die brandende grond achterlaat. Je kunt hem niet blokken. Stap zijwaarts uit de lijn.",
+     "**Scheur:** hij slaat op de grond en er loopt een scheur naar je toe, die uitbarst in stekels en een plas groen vuur achterlaat.",
+     "**Vuurmuur:** een ring van vlammen sluit zich om je heen. Ga er meteen uit.",
+     "**Meteoren:** hij richt zich op en er regenen meteoren neer over de hele arena.",
+     "**Oproepen:** hij spuugt bollen uit die veranderen in Charred Warriors en Charred Marksmen."
+    ],
+    "tips": [
+     "Blijf naast of achter hem. Bijna alle gevaarlijke aanvallen zijn naar voren gericht.",
+     "Ga nooit in groen vuur staan. De plassen blijven lang liggen en maken de arena langzaam kleiner, dus lok hem naar een schoon deel van de arena.",
+     "Blijf de hele tijd bewegen. De meeste van zijn gebiedsaanvallen mikken op de plek waar je staat op het moment dat hij ze inzet.",
+     "Dood de opgeroepen Charred snel, of ga zo staan dat Faders eigen aanvallen ze raken.",
+     "Met de kracht van Bottenmassa en een scutum overleef je zijn aanvallen van dichtbij. Probeer de adem en de scheur niet te blokken.",
+     "Verdeel in een groep de rollen: één speler houdt zijn aandacht vast, één pakt de opgeroepen vijanden aan en de rest doet schade."
+    ],
+    "reward": [
+     "Fader laat **5 Kindled Ribs** en zijn trofee vallen. De ribben heb je nodig voor de Eternal Pyre en openen de weg naar de laatste crafting-tier vóór het Diepe noorden.",
+     "Na zijn nederlaag verkoopt de Bog Witch het kruid van de Ashlands.",
+     "Zijn Verlatenenkracht bouwt Adrenaline twee keer zo snel op en zorgt dat je veel minder snel uit balans raakt. Een sterke keuze voor agressieve builds die van dichtbij vechten."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir en de Bog Witch: locaties, koopwaar en prijzen.",
+  "title": "Valheim-handelaren: locaties, koopwaar en prijzen",
+  "desc": "Alle Valheim-handelaren in één overzicht: waar je Haldor, Hildir en de Bog Witch vindt, wat ze verkopen, wat het kost en welke kostbaarheden je voor munten kunt verkopen.",
+  "h1": "Valheim-handelaren",
+  "intro": [
+   "In Valheim wonen drie handelaren, en in elke wereld zitten ze ergens anders verstopt. Haldor verkoopt handige uitrusting in het Zwarte bos, Hildir verkoopt kleding in de Weiden en stuurt je op een queeste, en de Bog Witch verkoopt in het Moeras ingrediënten om mee te koken en te brouwen.",
+   "Zonder hulp kan het tientallen uren duren om ze te vinden. Vul je seed in op de kaart en je ziet in één keer elk mogelijk kamp. Alle prijzen op deze pagina's komen rechtstreeks uit de spelgegevens."
+  ],
+  "sellH": "Wat je kunt verkopen",
+  "sellP": [
+   "Munten zijn het enige betaalmiddel en je krijgt ze door kostbaarheden te verkopen. Alle drie de handelaren kopen dezelfde voorwerpen voor dezelfde prijzen. Munten, robijnen en amber vind je in Grafkamers, Trollengrotten, Verzonken crypten en Loederdorpen."
+  ],
+  "outro": [
+   "Het kamp van elke handelaar is beschermd. Vijanden kunnen er niet in, dus een handelaarskamp is ook een veilige plek voor een portaal."
+  ],
+  "pageTitle": "{trader}: locatie, koopwaar en prijzen",
+  "pageDesc": "Waar je {trader} vindt in Valheim en wat er te koop is: alle {n} artikelen met prijzen, voorwaarden om ze vrij te spelen en tips. Vind het kamp in het bioom {biome} van jouw wereld met de seedkaart.",
+  "showOnMap": "Toon {trader} op de kaart",
+  "findH": "Waar vind je {trader}",
+  "waresH": "Wat {trader} verkoopt",
+  "tipsH": "Tips",
+  "list": {
+   "haldor": {
+    "teaser": "uitrusting, vissen en meer inventarisruimte",
+    "lead": "Haldor is een dwergenhandelaar die met zijn lox Halstein in het Zwarte bos kampeert. Hij verkoopt een paar van de nuttigste voorwerpen in het spel, met als topper de riem Megingjord, waarmee je 150 meer gewicht kunt dragen.",
+    "find": [
+     "Het kamp van Haldor ligt altijd in het Zwarte bos. Het spel bereidt per wereld maximaal tien mogelijke kampen voor, meestal op meer dan 1.500 meter van het midden van de kaart. Het eerste waar je in de buurt komt, wordt het echte kamp en alle andere verdwijnen.",
+     "Kom je binnen een paar honderd meter, dan verschijnt er een buidelicoon op je kaart. Het kamp is omgeven door een beschermende koepel die vijanden buiten houdt. Binnen de koepel kun je niet bouwen, maar een portaal vlak erbuiten werkt prima."
+    ],
+    "waresP": [
+     "Een deel van zijn aanbod is pas beschikbaar nadat je bepaalde bazen hebt verslagen. De prijzen zijn in munten."
+    ],
+    "tips": [
+     "Koop eerst **Megingjord**. 150 extra draagcapaciteit helpt bij alles, van mijnen tot naar huis zeilen met ijzer.",
+     "Het **Dvergerdiadeem** is een hoofdlamp waarmee je je handen vrij houdt. Erg handig in crypten en grotten, maar het neemt wel de plek van je helm in.",
+     "**Wider Pockets** en **Deeper Pockets** geven je inventaris elk een permanente extra rij. Ze zijn duur, maar elke munt waard.",
+     "**Ymirvlees** heb je nodig voor de IJzeren moker, Vorstner en andere sterke voorwerpen. **Bliksemstenen** heb je nodig voor de Vernietiger.",
+     "Uit een **Egg** komt een kip als je het warm houdt. Met twee kippen kun je zelf eieren en kippenvlees kweken, dus je hoeft er maar twee te kopen.",
+     "De **Hengel** werkt alleen met aas. Het simpele aas dat Haldor verkoopt, is de basis voor elk speciaal aas in het spel.",
+     "Spaar voordat je gaat: met ongeveer 2.000 munten kun je in één bezoek de riem, het diadeem en de hengel betalen."
+    ]
+   },
+   "hildir": {
+    "teaser": "kleding, kapper en een queeste in drie delen",
+    "lead": "Hildir is de zus van Haldor. Ze verkoopt kleding, hoeden en feestartikelen in de Weiden. Het grootste deel van haar voorraad is gestolen, en ze vraagt je om drie kisten terug te halen uit drie speciale kerkers.",
+    "find": [
+     "Het kamp van Hildir ligt in de Weiden, maar ver van het startpunt, meestal op minstens 3.000 meter van het midden van de kaart. Net als bij Haldor zijn er maximaal tien mogelijke kampen, en het eerste dat je nadert wordt het echte.",
+     "Als je in de buurt komt, verschijnt er een shirticoon op je kaart. In haar kamp staat een kaarttafel. Als je die leest, komt de dichtstbijzijnde van haar queestekerkers op je kaart te staan."
+    ],
+    "waresP": [
+     "In het begin verkoopt ze maar een handvol artikelen. Met elke kist die je terugbrengt, speel je een nieuw deel van haar aanbod vrij."
+    ],
+    "tips": [
+     "De **Brass Chest** ligt in een Smouldering Tomb in het Zwarte bos, de **Silver Chest** in een Howling Cavern in de Bergen en de **Bronze Chest** in een Sealed Tower in de Vlakten. Elke kist wordt bewaakt door een minibaas.",
+     "De kisten kunnen niet mee door een portaal en ze zijn zwaar. Plan de terugweg te voet, met een kar of per schip voordat je naar binnen gaat.",
+     "De queestekerkers worden in deze volgorde moeilijker. Brenna in de tombe doet vuurschade, Geirrhafa in de grot doet vorstschade, en de twee Loederbroers Zil en Thungr in de toren vechten samen.",
+     "Alle queestekerkers staan ook op de kaart. Zet de markeringen voor de queeste van Hildir aan om de kerkers te vinden die het dichtst bij haar kamp liggen.",
+     "Met de **Barber Kit** bouw je een Barber Station, waar je je haar en baard op elk moment kunt veranderen.",
+     "Haar kleding is vooral voor de sier, maar is licht en maakt je niet trager. De **Harvest**-outfits zijn populair bij het boeren.",
+     "De **Iron Pit** is een decoratieve vuurkuil, en vuurwerk heeft een vreugdevuur nodig om af te gaan."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "ingrediënten voor feestmalen, mede en de boerderij",
+    "lead": "De Bog Witch woont met haar reus Kvastur in een scheve hut in het Moeras. Ze verkoopt ingrediënten die je nergens anders krijgt: kruiden voor de grote feestmalen, spullen voor nieuwe soorten mede en nuttige dingen voor je boerderij.",
+    "find": [
+     "Het kamp van de Bog Witch ligt in het Moeras. Ook hier bereidt het spel maximaal tien mogelijke kampen voor, en het eerste waar je in de buurt komt, blijft in je wereld.",
+     "Als je dichtbij bent, verschijnt er een ketelicoon op je kaart. Haar kamp is beschermd tegen vijanden en dat maakt het een welkome veilige plek in het Moeras. Neem voor de weg ernaartoe toch gifbestendigheidsmede mee."
+    ],
+    "waresP": [
+     "De meeste van haar kruiden komen pas beschikbaar nadat je de baas van het bijbehorende bioom hebt verslagen. Veel artikelen worden per bundel verkocht. De tabel toont de prijs per bundel."
+    ],
+    "tips": [
+     "De **kruiden** zijn het belangrijkste ingrediënt van de feestmalen. Een feestmaal dat op tafel staat, voedt de hele groep met een van de sterkste gerechten van zijn tier en is goed voor veel porties.",
+     "Met de **Serving Tray** kun je een bereid feestmaal dragen en ergens anders neerzetten, bijvoorbeeld vlak voor een baasgevecht.",
+     "De **Scythe Handle** heb je nodig voor de zeis, waarmee je hele akkers in één zwaai oogst. Een van de beste aankopen voor wie veel boert.",
+     "**Candle Wicks** heb je nodig voor kaarsen, en met **Ivy Seeds** laat je klimop tegen je gebouwen groeien.",
+     "Fresh Seaweed, Cured Squirrel Hamstring, Powdered Dragon Eggshells en Pungent Pebbles zijn ingrediënten voor de nieuwere soorten mede. Die verbeteren vaardigheden zoals zwemmen en rennen of beschermen tegen bliksem.",
+     "Toadstools en Fragrant Bundles komen beschikbaar na Moder. Je gebruikt ze voor de Berserkir Mead en voor een mede die negatieve effecten van je afhaalt.",
+     "Vergeleken met Haldor is haar koopwaar goedkoop. Een paar honderd munten zijn genoeg voor een eerste bezoek."
+    ]
+   }
+  }
+ }
+}

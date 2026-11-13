@@ -1,0 +1,236 @@
+[
+ {
+  "id": "eikthyr",
+  "prefab": "Eikthyrnir",
+  "name": "enemy_eikthyr",
+  "biome": "biome_meadows",
+  "health": 500,
+  "trophy": "TrophyEikthyr",
+  "summon": [
+   {
+    "prefab": "TrophyDeer",
+    "item": "item_trophy_deer",
+    "n": 2
+   }
+  ],
+  "drops": [
+   {
+    "prefab": "HardAntler",
+    "item": "item_hardantler",
+    "n": 3
+   },
+   {
+    "prefab": "TrophyEikthyr",
+    "item": "item_trophy_eikthyr"
+   }
+  ],
+  "weak": [],
+  "resist": [],
+  "immune": []
+ },
+ {
+  "id": "elder",
+  "prefab": "GDKing",
+  "name": "enemy_gdking",
+  "biome": "biome_blackforest",
+  "health": 2500,
+  "trophy": "TrophyTheElder",
+  "summon": [
+   {
+    "prefab": "AncientSeed",
+    "item": "item_ancientseed",
+    "n": 3
+   }
+  ],
+  "drops": [
+   {
+    "prefab": "CryptKey",
+    "item": "item_cryptkey"
+   },
+   {
+    "prefab": "TrophyTheElder",
+    "item": "item_trophy_elder"
+   }
+  ],
+  "weak": [
+   "fire"
+  ],
+  "resist": [],
+  "immune": [
+   "poison",
+   "spirit"
+  ]
+ },
+ {
+  "id": "bonemass",
+  "prefab": "Bonemass",
+  "name": "enemy_bonemass",
+  "biome": "biome_swamp",
+  "health": 5000,
+  "trophy": "TrophyBonemass",
+  "summon": [
+   {
+    "prefab": "WitheredBone",
+    "item": "item_witheredbone",
+    "n": 10
+   }
+  ],
+  "drops": [
+   {
+    "prefab": "Wishbone",
+    "item": "item_wishbone"
+   },
+   {
+    "prefab": "TrophyBonemass",
+    "item": "item_trophy_bonemass"
+   }
+  ],
+  "weak": [
+   "blunt",
+   "frost"
+  ],
+  "resist": [
+   "pierce",
+   "slash",
+   "fire"
+  ],
+  "immune": [
+   "poison"
+  ]
+ },
+ {
+  "id": "moder",
+  "prefab": "Dragonqueen",
+  "name": "enemy_dragon",
+  "biome": "biome_mountain",
+  "health": 7500,
+  "trophy": "TrophyDragonQueen",
+  "summon": [
+   {
+    "prefab": "DragonEgg",
+    "item": "item_dragonegg",
+    "n": 3
+   }
+  ],
+  "drops": [
+   {
+    "prefab": "DragonTear",
+    "item": "item_dragontear",
+    "n": 10
+   },
+   {
+    "prefab": "TrophyDragonQueen",
+    "item": "item_trophy_dragonqueen"
+   }
+  ],
+  "weak": [
+   "fire"
+  ],
+  "resist": [],
+  "immune": [
+   "frost",
+   "spirit"
+  ]
+ },
+ {
+  "id": "yagluth",
+  "prefab": "GoblinKing",
+  "name": "enemy_goblinking",
+  "biome": "biome_plains",
+  "health": 10000,
+  "trophy": "TrophyGoblinKing",
+  "summon": [
+   {
+    "prefab": "GoblinTotem",
+    "item": "item_goblintotem",
+    "n": 5
+   }
+  ],
+  "drops": [
+   {
+    "prefab": "YagluthDrop",
+    "item": "item_yagluththing",
+    "n": 3
+   },
+   {
+    "prefab": "TrophyGoblinKing",
+    "item": "item_trophy_goblinking"
+   }
+  ],
+  "weak": [],
+  "resist": [
+   "pierce",
+   "fire"
+  ],
+  "immune": [
+   "poison"
+  ]
+ },
+ {
+  "id": "queen",
+  "prefab": "Mistlands_DvergrBossEntrance1",
+  "name": "enemy_seekerqueen",
+  "biome": "biome_mistlands",
+  "health": 12500,
+  "trophy": "TrophySeekerQueen",
+  "summon": [
+   {
+    "prefab": "DvergrKey",
+    "item": "item_dvergrkey",
+    "n": 1
+   }
+  ],
+  "drops": [
+   {
+    "prefab": "QueenDrop",
+    "item": "item_seekerqueen_drop",
+    "n": 5
+   },
+   {
+    "prefab": "TrophySeekerQueen",
+    "item": "item_trophy_seekerqueen"
+   }
+  ],
+  "weak": [],
+  "resist": [
+   "pierce"
+  ],
+  "immune": [
+   "spirit"
+  ]
+ },
+ {
+  "id": "fader",
+  "prefab": "FaderLocation",
+  "name": "enemy_fader",
+  "biome": "biome_ashlands",
+  "health": 25000,
+  "trophy": "TrophyFader",
+  "summon": [
+   {
+    "prefab": "Bell",
+    "item": "item_bell",
+    "n": 3
+   }
+  ],
+  "drops": [
+   {
+    "prefab": "FaderDrop",
+    "item": "item_fader_drop",
+    "n": 5
+   },
+   {
+    "prefab": "TrophyFader",
+    "item": "item_trophy_fader"
+   }
+  ],
+  "weak": [],
+  "resist": [
+   "pierce"
+  ],
+  "immune": [
+   "fire",
+   "spirit"
+  ]
+ }
+]

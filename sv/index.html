@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="sv" data-lang="sv" data-game-version="1.0.21">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valheim Map – Interaktiv seed-karta med alla platser</title>
+  <meta name="description" content="Gratis interaktiv Valheim-karta: ange en seed och se hela världen utan dimma – bossar, handelsmän (Haldor, Hildir, Myrhäxan), dungeons, kryptor, tjärgropar och över 90 andra platstyper. Körs direkt i webbläsaren.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#14181d">
+  <link rel="canonical" href="https://valheim-map.de/sv/">
+  <link rel="alternate" hreflang="en" href="https://valheim-map.de/">
+  <link rel="alternate" hreflang="de" href="https://valheim-map.de/de/">
+  <link rel="alternate" hreflang="fr" href="https://valheim-map.de/fr/">
+  <link rel="alternate" hreflang="it" href="https://valheim-map.de/it/">
+  <link rel="alternate" hreflang="pt" href="https://valheim-map.de/pt/">
+  <link rel="alternate" hreflang="es" href="https://valheim-map.de/es/">
+  <link rel="alternate" hreflang="nb" href="https://valheim-map.de/no/">
+  <link rel="alternate" hreflang="sv" href="https://valheim-map.de/sv/">
+  <link rel="alternate" hreflang="nl" href="https://valheim-map.de/nl/">
+  <link rel="alternate" hreflang="x-default" href="https://valheim-map.de/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Valheim-Map">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:url" content="https://valheim-map.de/sv/">
+  <meta property="og:title" content="Valheim Map – Interaktiv seed-karta med alla platser">
+  <meta property="og:description" content="Gratis interaktiv Valheim-karta: ange en seed och se hela världen utan dimma – bossar, handelsmän (Haldor, Hildir, Myrhäxan), dungeons, kryptor, tjärgropar och över 90 andra platstyper. Körs direkt i webbläsaren.">
+  <meta property="og:image" content="https://valheim-map.de/poi-icons/site/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valheim Map – Interaktiv seed-karta med alla platser">
+  <meta name="twitter:description" content="Gratis interaktiv Valheim-karta: ange en seed och se hela världen utan dimma – bossar, handelsmän (Haldor, Hildir, Myrhäxan), dungeons, kryptor, tjärgropar och över 90 andra platstyper. Körs direkt i webbläsaren.">
+  <meta name="twitter:image" content="https://valheim-map.de/poi-icons/site/og-image.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Valheim-Map","alternateName":["Valheim Map","Valheim Seed Map","Valheim World Generator Map"],"url":"https://valheim-map.de/sv/","description":"Gratis interaktiv Valheim-karta: ange en seed och se hela världen utan dimma – bossar, handelsmän (Haldor, Hildir, Myrhäxan), dungeons, kryptor, tjärgropar och över 90 andra platstyper. Körs direkt i webbläsaren.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"sv","image":"https://valheim-map.de/poi-icons/site/og-image.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"about":{"@type":"VideoGame","name":"Valheim"}}</script>
+  <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="../poi-icons/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../poi-icons/site/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../poi-icons/site/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/content.css">
+</head>
+<body class="map-page">
+  <header class="site-head">
+    <h1><a class="brand" href="../sv/"><img src="../poi-icons/site/favicon-32.png" alt="" width="24" height="24"> Valheim-Map</a></h1>
+    <nav>
+        <a href="../sv/" aria-current="page">Karta</a>
+        <a href="../sv/seeds/">Bästa seeds</a>
+        <a href="../sv/bosses/">Bossar</a>
+        <a href="../sv/traders/">Handlare</a>
+        <a href="../sv/faq/">FAQ</a>
+    </nav>
+    <div class="tools"><a id="btnDonate" class="tool" href="https://ko-fi.com/emmuss" target="_blank" rel="noopener" title="Stöd projektet på Ko-fi"><span class="heart">♥</span> Donera</a><button id="btnLang" class="tool" type="button" title="Välj språk" aria-haspopup="dialog">🌐 Svenska</button></div>
+  </header>
+  <div id="app">
+    <aside id="sidebar">
+
+      <section>
+        <h2>Värld</h2>
+        <form id="seedForm" class="row">
+          <input id="seedInput" type="text" placeholder="Seed, t.ex. Xldpp3L2LG" spellcheck="false" autocomplete="off">
+          <button type="submit">Ladda</button>
+        </form>
+        <div class="row">
+          <input id="nameInput" type="text" placeholder="Namn (valfritt)" spellcheck="false" autocomplete="off" maxlength="60">
+          <button id="btnSave" type="button" title="Spara seeden (och namnet) i den här webbläsaren">Spara</button>
+        </div>
+        <div class="row">
+          <div id="saved" class="dropdown">
+            <button id="savedBtn" type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button>
+            <ul id="savedList" class="dd-list" role="listbox" hidden></ul>
+          </div>
+          <button id="btnExample" type="button" title="Ladda exempel-seeden Xldpp3L2LG">Exempelvärld</button>
+        </div>
+        <p id="worldInfo" class="info"></p>
+      </section>
+
+      <section class="grow">
+        <h2>Platser (POI) <span id="poiTotal" class="muted"></span></h2>
+        <div class="row">
+          <input id="search" type="search" placeholder="Sök, t.ex. handelsman, krypta…">
+        </div>
+        <div class="row small">
+          <button id="btnAll" type="button">Alla</button>
+          <button id="btnNone" type="button">Inga</button>
+          <label><input id="chkLabels" type="checkbox" checked> Namn</label>
+        </div>
+        <div id="cats"></div>
+        <p id="poiHint" class="info"></p>
+      </section>
+
+      <footer>
+        <span>Dra = flytta · Mushjul = zooma · Klicka på ett namn i listan för att hoppa till närmaste plats</span>
+      </footer>
+    </aside>
+
+    <main id="mapWrap">
+      <canvas id="map"></canvas>
+      <div id="tooltip" hidden></div>
+      <div id="popup" hidden></div>
+      <div id="progress" role="progressbar" aria-label="Beräknar platser …" aria-valuemin="0" aria-valuemax="100" hidden>
+        <div class="progress-head"><span>Beräknar platser …</span><span id="progressText">0 %</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+      <div id="zoomBtns">
+        <button id="zoomIn" type="button" title="Zooma in">+</button>
+        <button id="zoomOut" type="button" title="Zooma ut">−</button>
+        <button id="zoomHome" type="button" title="Hela världen">⌂</button>
+      </div>
+      <div id="status">
+        <span id="stPos">–</span>
+        <span id="stBiome"></span>
+        <span id="stScale"></span>
+        <span id="stLoad"></span>
+      </div>
+    </main>
+  </div>
+
+  <noscript><p class="noscript">Den interaktiva kartan kräver JavaScript. Guiderna om seeds, bossar och handlare fungerar utan.</p></noscript>
+
+  <dialog id="langDlg" aria-labelledby="langHead">
+    <button id="langClose" type="button" class="close" title="Stäng">×</button>
+    <h3 id="langHead">Välj språk</h3>
+    <div id="langList"></div>
+  </dialog>
+
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

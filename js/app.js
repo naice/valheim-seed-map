@@ -2,6 +2,7 @@ import { stableHash } from './worldgen.js';
 import { CATEGORIES, classify } from './locations.js';
 
 const $ = (id) => document.getElementById(id);
+const ROOT = new URL('../', import.meta.url);   // Wurzel der Website – die Seite selbst liegt je Sprache in einem Unterordner
 const canvas = $('map');
 const ctx = canvas.getContext('2d');
 const wrap = $('mapWrap');
@@ -11,7 +12,8 @@ const TILE = 256;
 const K_MIN = -1, K_MAX = 6;          // Kachel-Auflösung: 2^k Meter pro Pixel
 const CACHE_LIMIT = 700;
 // ------------------------------------------------------------------ Sprache
-// Texte liegen in lang/<code>.json; POI-Namen sind dort nach der deutschen Bezeichnung aus locations.js verschlüsselt.
+// Jede Sprache hat ihre eigene Adresse (/, /de/, /fr/ …); die festen Texte stehen schon in der Seite.
+// Die dynamischen Texte liegen in lang/<code>.json; POI-Namen sind dort nach der deutschen Bezeichnung aus locations.js verschlüsselt.
 
 const LANGS = [['de', 'Deutsch'], ['en', 'English'], ['fr', 'Français'], ['it', 'Italiano'], ['pt', 'Português'],
   ['es', 'Español'], ['no', 'Norsk'], ['sv', 'Svenska'], ['nl', 'Nederlands']];
@@ -28,45 +30,23 @@ const locale = () => (lang === 'no' ? 'nb' : lang);
 const catLabel = (c) => L.cat[c.id] || c.label;
 const poiLabel = (de) => L.poi[de] || de;
 
-function detectLang() {
-  const known = (c) => LANGS.some(l => l[0] === c);
-  try { const s = localStorage.getItem(LANG_KEY); if (known(s)) return s; } catch { /* kein Speicher */ }
-  for (const l of navigator.languages || [navigator.language || '']) {
-    let c = String(l).toLowerCase().split('-')[0];
-    if (c === 'nb' || c === 'nn') c = 'no';
-    if (known(c)) return c;
-  }
-  return 'en';
-}
 async function loadLang(code) {
   try {
-    const res = await fetch(`lang/${code}.json`);
+    const res = await fetch(new URL(`lang/${code}.json`, ROOT));
     if (!res.ok) throw new Error(res.status);
     L = await res.json();
     lang = code;
+    return true;
   } catch { return false; }
-  document.documentElement.lang = locale();
-  document.title = t('pageTitle');
-  for (const [sel, key] of [['meta[name="description"]', 'metaDesc'], ['meta[property="og:description"]', 'metaDesc'], ['meta[property="og:title"]', 'pageTitle']])
-    document.querySelector(sel)?.setAttribute('content', t(key));
-  for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
-  for (const a of ['placeholder', 'title', 'aria-label'])
-    for (const el of document.querySelectorAll(`[data-i18n-${a}]`)) el.setAttribute(a, t(el.getAttribute('data-i18n-' + a)));
-  $('btnLang').textContent = '🌐 ' + L.name;
-  return true;
 }
-/** Sprache umschalten und alles neu beschriften, ohne Auswahl oder Kartenausschnitt zu verlieren. */
-async function setLang(code) {
-  if (!await loadLang(code)) return;
+function pageLang() {
+  const c = document.documentElement.dataset.lang;
+  return LANGS.some(l => l[0] === c) ? c : 'en';
+}
+/** Wechselt auf die Seite der gewählten Sprache; Seed und Kartenausschnitt wandern im Hash mit. */
+function setLang(code) {
   try { localStorage.setItem(LANG_KEY, code); } catch { /* kein Speicher */ }
-  for (const p of world.pois) p.label = poiLabel(p.de);
-  buildSidebar(true);
-  renderSaved();
-  showWorldInfo();
-  if (selected) select(selected);
-  if (lastProbeMsg) showProbe(lastProbeMsg);
-  $('tooltip').hidden = true;
-  requestDraw();
+  if (code !== lang) location.href = new URL(code === 'en' ? './' : code + '/', ROOT).href + viewHash();
 }
 const CAT = new Map(CATEGORIES.map(c => [c.id, c]));
 const EXAMPLE_SEED = 'Xldpp3L2LG';
@@ -222,7 +202,7 @@ function poiVisible(p) {
 // ---------------------------------------------------------------- POI-Icons
 // Einfarbige Masken (Form im Alphakanal); werden je Kategorie-Farbe eingefärbt.
 
-const ICON_DIR = 'poi-icons/';
+const ICON_DIR = new URL('poi-icons/', ROOT).href;
 const icons = new Map();        // Prefab -> { url, img, ready, sprites }
 const iconByUrl = new Map();
 
@@ -564,6 +544,20 @@ function renderHint() {
     : world.computed ? t('computed', { v: world.computed }) : '';
 }
 
+/** Adresse mit "&show=Prefab1,Prefab2": nur diese Ortstypen einblenden (Links aus den Ratgeberseiten). */
+let focusPrefabs = null;
+function applyFocus() {
+  const want = focusPrefabs;
+  focusPrefabs = null;
+  if (!want) return;
+  const hit = groups.flatMap(g => g.types).filter(ty => [...ty.prefabs].some(p => want.has(p)));
+  if (!hit.length) return;
+  enabled.clear();
+  for (const ty of hit) enabled.add(ty.key);
+  for (const g of groups) g.el.classList.toggle('open', g.types.some(ty => enabled.has(ty.key)));
+  syncBoxes();
+}
+
 function syncBoxes() {
   for (const g of groups) {
     let on = 0;
@@ -652,9 +646,65 @@ function showProgress(p) {
   box.setAttribute('aria-valuenow', pct);
 }
 
+// ---- Zwischenspeicher der berechneten Orte (IndexedDB) ----
+// Die Orte hängen nur von Seed und Spielversion ab. Damit beim Hin- und Herwechseln zwischen den Seiten nicht jedes
+// Mal neu gerechnet wird, bleiben die zuletzt geöffneten Welten im Browser gespeichert (je Welt rund 200 KB).
+const LOC_STORE = 'locations', LOC_KEEP = 12;
+const LOC_REV = 1;   // erhöhen, wenn sich die Ortsberechnung ändert, ohne dass die Spielversion wechselt
+const locKey = (seed) => `${document.documentElement.dataset.gameVersion || '?'}|${LOC_REV}|${seed}`;
+function locDb() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open('valheim-map', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore(LOC_STORE, { keyPath: 'key' }).createIndex('t', 't');
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+async function locCacheGet(seed) {
+  try {
+    const db = await locDb();
+    return await new Promise((res) => {
+      const q = db.transaction(LOC_STORE).objectStore(LOC_STORE).get(locKey(seed));
+      q.onsuccess = () => res(q.result || null);
+      q.onerror = () => res(null);
+    });
+  } catch { return null; }   // z. B. privates Fenster: dann wird eben gerechnet
+}
+async function locCachePut(seed, m) {
+  try {
+    const db = await locDb();
+    const store = db.transaction(LOC_STORE, 'readwrite').objectStore(LOC_STORE);
+    store.put({ key: locKey(seed), t: Date.now(), prefabs: m.prefabs, data: m.data, gameVersion: m.gameVersion });
+    const idx = store.index('t'), cnt = idx.count();
+    cnt.onsuccess = () => {
+      let drop = cnt.result - LOC_KEEP;        // älteste Einträge entfernen
+      if (drop > 0) idx.openKeyCursor().onsuccess = (e) => {
+        const c = e.target.result;
+        if (c && drop-- > 0) { store.delete(c.primaryKey); c.continue(); }
+      };
+    };
+  } catch { /* ohne Speicher geht es auch */ }
+}
+
+function applyLocations(m) {
+  const locations = [];
+  for (let i = 0; i < m.data.length; i += 4) {
+    locations.push({ prefab: m.prefabs[m.data[i]], x: m.data[i + 1], y: m.data[i + 2], z: m.data[i + 3] });
+  }
+  world.pois = toPois(locations);
+  world.computed = m.gameVersion;
+  showProgress(null);
+  hintState = null;
+  buildSidebar();
+  applyFocus();
+}
+
 let locWorker = null;
-function computeLocations() {
-  const myEpoch = epoch;
+async function computeLocations() {
+  const myEpoch = epoch, seed = world.seed;
+  const cached = await locCacheGet(seed);
+  if (myEpoch !== epoch) return;
+  if (cached) { applyLocations(cached); return; }
   const w = locWorker = new Worker(new URL('./locworker.js', import.meta.url), { type: 'module' });
   hintState = { p: 0 };
   renderHint();
@@ -663,6 +713,7 @@ function computeLocations() {
   w.onerror = (e) => fail(e.message || t('workerError'));
   w.onmessage = (e) => {
     const m = e.data;
+    if (m.type === 'done') locCachePut(seed, m);   // auch speichern, wenn inzwischen eine andere Welt geladen wurde
     if (m.epoch !== myEpoch || myEpoch !== epoch) return;
     if (m.type === 'progress') {
       hintState = { p: m.p };
@@ -671,19 +722,11 @@ function computeLocations() {
     } else if (m.type === 'error') {
       fail(m.message);
     } else if (m.type === 'done') {
-      const locations = [];
-      for (let i = 0; i < m.data.length; i += 4) {
-        locations.push({ prefab: m.prefabs[m.data[i]], x: m.data[i + 1], y: m.data[i + 2], z: m.data[i + 3] });
-      }
-      world.pois = toPois(locations);
-      world.computed = m.gameVersion;
-      showProgress(null);
-      hintState = null;
-      buildSidebar();
+      applyLocations(m);
       w.terminate(); locWorker = null;
     }
   };
-  w.postMessage({ seed: world.seed, epoch: myEpoch });
+  w.postMessage({ seed, epoch: myEpoch });
 }
 
 $('seedForm').addEventListener('submit', (e) => {
@@ -779,22 +822,23 @@ $('langDlg').addEventListener('click', (e) => { if (e.target === $('langDlg')) $
 // ---------------------------------------------------------------- URL-Hash
 
 let hashTimer = 0;
+function viewHash() {
+  return `#seed=${encodeURIComponent(world.seedName)}&x=${view.cx.toFixed(0)}&z=${view.cz.toFixed(0)}&s=${view.scale.toFixed(4)}`;
+}
 function saveHashSoon() {
   clearTimeout(hashTimer);
-  hashTimer = setTimeout(() => {
-    const h = `#seed=${encodeURIComponent(world.seedName)}&x=${view.cx.toFixed(0)}&z=${view.cz.toFixed(0)}&s=${view.scale.toFixed(4)}`;
-    history.replaceState(null, '', h);
-  }, 400);
+  hashTimer = setTimeout(() => history.replaceState(null, '', viewHash()), 400);
 }
 
 (async function init() {
   const params = new URLSearchParams(location.hash.slice(1));
   const seed = params.get('seed');
+  if (params.get('show')) focusPrefabs = new Set(params.get('show').split(','));
   const hasView = params.has('x') && params.has('z') && params.has('s');
   if (hasView) {
     view.cx = +params.get('x') || 0; view.cz = +params.get('z') || 0;
     view.scale = Math.max(0.005, Math.min(4, +params.get('s') || 0.04));
   }
-  await Promise.all([loadIconIndex(), loadLang(detectLang()).then(ok => ok || loadLang('de'))]);
+  await Promise.all([loadIconIndex(), loadLang(pageLang()).then(ok => ok || loadLang('en'))]);
   loadSeed(seed || EXAMPLE_SEED, hasView);
 })();

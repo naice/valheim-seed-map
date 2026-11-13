@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Kart",
+  "seeds": "Beste seeds",
+  "bosses": "Bosser",
+  "traders": "Kremmere",
+  "guides": "Guider og FAQ"
+ },
+ "common": {
+  "openMap": "Åpne på kartet",
+  "showOnMap": "Vis på kartet",
+  "meters": "{n} m",
+  "boss": "Boss",
+  "biome": "Biom",
+  "health": "Helse",
+  "summon": "Offergave",
+  "weak": "Svak mot",
+  "resist": "Motstandsdyktig mot",
+  "immune": "Immun mot",
+  "drops": "Slipper",
+  "power": "De Fortaptes Kraft",
+  "item": "Gjenstand",
+  "price": "Pris (mynter)",
+  "sellValue": "Selges for (mynter)",
+  "available": "Tilgjengelig",
+  "always": "fra starten",
+  "afterBoss": "etter at {boss} er beseiret",
+  "afterChest": "etter at du har levert {chest}",
+  "dmg": {
+   "blunt": "Slag",
+   "slash": "Kutt",
+   "pierce": "Spidd",
+   "fire": "Brann",
+   "frost": "Frost",
+   "lightning": "Lyn",
+   "poison": "Gift",
+   "spirit": "Ånd"
+  },
+  "disclaimer": "Valheim-Map er et fanprosjekt og har ingen tilknytning til Iron Gate eller Coffee Stain. Valheim er et varemerke som tilhører sine respektive eiere. Spilldata: versjon {version}.",
+  "noscript": "Det interaktive kartet trenger JavaScript. Guidene for seeds, bosser og kremmere fungerer uten."
+ },
+ "about": {
+  "h": "Valheim-Map: hele verdenen din ut fra seeden",
+  "p": [
+   "Valheim-Map er et gratis interaktivt kart for Valheim. Skriv inn **seeden** til verdenen din, så viser kartet hele verdenen uten tåke: alle biomer, kystlinjen og den nøyaktige plasseringen av bosser, kremmere, grotter og krypter og over 90 andre typer steder.",
+   "Ingenting lastes opp, og du trenger ingen lagringsfil. Kartet kjører den samme verdensgenereringen som spillet rett i nettleseren din, så posisjonene stemmer med verdenen din på meteren. Klikk på en markør for å få koordinatene og en ferdig konsollkommando som tar deg dit.",
+   "Bruk listen til venstre for å slå typer steder av og på, søk etter et bestemt sted som Haldor eller Sunkne Krypter, og lagre seeds du vil komme tilbake til. Lenken i adressefeltet inneholder alltid seeden og det gjeldende utsnittet, så du kan dele et hvilket som helst sted med vennene dine."
+  ],
+  "seedH": "Slik finner du seeden til verdenen din",
+  "seedP": "Hver Valheim-verden lages ut fra en seed, en kort tekst på opptil ti tegn. Samme seed gir alltid samme verden.",
+  "seedSteps": [
+   "Start Valheim og klikk på **Start spill**, og velg deretter figuren din.",
+   "Velg verdenen din i verdenslisten. Seeden står rett ved siden av verdensnavnet.",
+   "På en dedikert server ligger seeden i verdenens **.fwl**-fil. Last verdenen én gang i enspiller, eller spør serveradministratoren.",
+   "Skriv seeden inn i feltet øverst til venstre på kartet og trykk på **Last inn**. Det er forskjell på store og små bokstaver."
+  ],
+  "guidesH": "Guider",
+  "faqH": "Ofte stilte spørsmål",
+  "faq": [
+   {
+    "q": "Stemmer kartet med verdenen min?",
+    "a": "Ja. Terrenget og alle steder beregnes med den samme algoritmen som spillet bruker, og resultatene er kontrollert mot ekte verdener. Kartet viser hvor spillet plasserer et sted første gang du utforsker området. Ting spillere endrer senere, for eksempel ødelagte bygninger, vises ikke."
+   },
+   {
+    "q": "Hvilken spillversjon støtter kartet?",
+    "a": "Kartet følger den gjeldende offentlige versjonen av Valheim, inkludert Askelandet og Norddjupet. Verdener som ble opprettet med en mye eldre versjon, kan avvike i områder som ble utforsket før en oppdatering."
+   },
+   {
+    "q": "Hvorfor er det flere markører for Haldor, Hildir og Sumpheksa?",
+    "a": "Spillet forbereder opptil ti mulige leirer for hver kremmer. Den første leiren du kommer i nærheten av, blir den ekte, og de andre forsvinner fra verdenen din. Du kan altså bare velge den markøren som ligger nærmest basen din."
+   },
+   {
+    "q": "Må jeg laste opp lagringsfilen min?",
+    "a": "Nei. Seeden er alt kartet trenger. Beregningen skjer på enheten din, og ingenting om verdenen din sendes til en server."
+   },
+   {
+    "q": "Hvordan kommer jeg meg til et sted jeg fant på kartet?",
+    "a": "Klikk på markøren. Popup-vinduet viser koordinatene og en konsollkommando. I enspiller kan du aktivere konsollen med oppstartsvalget **-console**, skrive **devcommands** og deretter bruke kommandoen **goto**. Uten juks bruker du koordinatene og avstanden fra startpunktet til å navigere."
+   },
+   {
+    "q": "Fungerer kartet på mobil?",
+    "a": "Ja. Kartet fungerer i alle moderne nettlesere, også på mobil og nettbrett. Det tar noen sekunder å beregne alle stedene, og litt lenger på eldre enheter."
+   },
+   {
+    "q": "Er Valheim-Map gratis?",
+    "a": "Ja, helt gratis, og uten konto. Hvis kartet sparte deg for noen timer med seiling, kan du støtte prosjektet med en liten donasjon."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Håndplukkede seeds, alle kontrollert med kartet.",
+  "title": "Beste Valheim-seeds: kontrollert liste med kartlenker",
+  "desc": "De beste Valheim-seedene for gjeldende versjon: enkle starter, kremmere rett ved startpunktet, boss rush og jernseeds. Hver seed er beregnet på nytt og åpnes direkte på det interaktive kartet.",
+  "h1": "De beste Valheim-seedene",
+  "intro": [
+   "En god seed sparer deg for mange timer: en kremmer i gangavstand, de første bossene på startkontinentet, eller en sump full av krypter rett over elva. Problemet med de fleste seedlister er at de er kopiert fra hverandre og aldri ble sjekket etter at verdensgenereringen ble endret.",
+   "Denne listen er annerledes. Vi har samlet de mest anbefalte seedene fra fellesskapet og **beregnet hver eneste en på nytt** med verdensgeneratoren i den gjeldende spillversjonen. Avstandene nedenfor er målt fra startpunktet, og hver seed åpnes på det interaktive kartet med ett klikk. Der en gammel anbefaling ikke lenger stemmer, sier vi fra eller har utelatt seeden."
+  ],
+  "factsH": "Avstander fra startpunktet",
+  "colPlace": "Sted",
+  "colDist": "Avstand",
+  "howH": "Slik bruker du en seed",
+  "how": [
+   "Klikk på **Start spill** i Valheim, velg figuren din og deretter **Ny** i verdenslisten. Skriv inn et verdensnavn og skriv seeden nøyaktig slik den står her, med store og små bokstaver. På en dedikert server oppretter du først verdenen lokalt og laster opp verdensfilene, eller du angir seeden i innstillingene hos serververten din.",
+   "Avstandene er rette linjer fra offersteinene. En kremmer teller bare én gang: spillet forbereder flere mulige leirer, og den første du nærmer deg, blir den ekte. Tabellen bruker alltid den nærmeste."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "Den beste allrounderen",
+    "text": [
+     "Hvis du bare skal prøve én seed, så ta denne. De fem første bossene ligger alle innenfor 3,5 km fra startpunktet: Eikthyr er 120 m unna, Den Eldste 1,1 km, Moder under 1 km, Beinmassen 1,9 km og Yagluth 3,4 km. Knapt noen annen verden har progresjonen pakket så tett.",
+     "Haldor har leir 1,6 km fra offersteinene, nær minsteavstanden spillet tillater. Det gjør seeden ideell for en rask gjennomspilling og for grupper som heller vil kjempe mot bosser enn å seile i timevis."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Alt til fots, ikke behov for skip",
+    "text": [
+     "På denne seeden har landmassen du starter på nesten alt du trenger: de fem første bossene fra Eikthyr til Yagluth og alle tre kremmerne kan nås uten at du noen gang bygger et skip. Yagluth er bare 3 km fra startpunktet, Moder 1,9 km og Den Eldste 1,8 km.",
+     "Haldor er 1,7 km unna, Hildir 2,9 km og Sumpheksa 3,1 km. En perfekt verden for spillere som ikke liker å seile, og for utfordringer uten båt frem til Tåkeheim."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor rett utenfor døra",
+    "text": [
+     "Ingen seed på listen vår har kremmeren nærmere: Haldor har leir bare rundt 1 000 m fra startpunktet, på landmassen du starter på. Du kan gå til ham allerede første dag og planlegge innkjøpene dine helt fra begynnelsen.",
+     "Starten er også behagelig. Eikthyr venter 170 m fra steinene og Den Eldste 1,2 km unna, også han innen gangavstand. Svartskogen begynner knapt mer enn 100 m fra startpunktet, så kobber og tinn er aldri langt unna."
+    ]
+   },
+   "1k7md8": {
+    "title": "Den raskeste starten",
+    "text": [
+     "Eikthyr står 60 m fra startpunktet, praktisk talt innen synsvidde av offersteinene. Den Eldste følger på bare 650 m, som er det nærmeste alteret til Den Eldste blant alle seedene vi har sjekket. Du kan slå de to første bossene uten å forlate hjemmet.",
+     "Resten av den tidlige delen av spillet er også i nærheten: Moder på 2,1 km, Beinmassen på 2,3 km og Yagluth på 3,1 km. Beinmassen og Yagluth ligger på landmassen du starter på. Bare Haldor er litt lenger unna med 2,9 km, men også han kan nås til fots."
+    ]
+   },
+   "18mang": {
+    "title": "Kremmere til fots og kort vei nordover",
+    "text": [
+     "Alle tre kremmerne er på landmassen du starter på: Haldor på 1,2 km, Hildir på 2,7 km og Sumpheksa på 3,5 km. Hildir på denne avstanden er sjeldent, siden leirene hennes vanligvis ligger mer enn 3 km unna. Den første Sumpen begynner bare 1 km fra startpunktet, med to Sunkne Krypter innenfor 1,5 km, så jernet kommer uvanlig tidlig.",
+     "Fellesskapet anbefaler denne seeden for Norddjupet, og tallene er enige: det nordlige biomet begynner rundt 6,9 km fra startpunktet, en hel kilometer nærmere enn i de fleste verdener. Eikthyr er litt lenger unna enn vanlig med 800 m."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Fem bosser uten båt",
+    "text": [
+     "Eikthyr, Den Eldste, Beinmassen, Moder og Yagluth er alle på landmassen du starter på. Moder er høydepunktet: alteret hennes er bare 1,5 km fra startpunktet, og store fjell med sølv reiser seg like ved starten.",
+     "Haldor på 2,1 km og Sumpheksa på 3,2 km kan også nås til fots. En flott seed for spillere som vil slå seg ned på ett sted og ta hele spillet frem til Sletta fra én og samme base."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "Korte avstander hele veien",
+    "text": [
+     "En balansert seed uten svake punkter. Den Eldste er 1,1 km fra startpunktet, Beinmassen og Moder begge 2,3 km og Yagluth 3,4 km. Haldor har leir 1,6 km unna.",
+     "Fellesskapet kjenner denne seeden for den lange, nesten sammenhengende landstripen som går fra nord til sør. Det gjør det lett å utforske til fots og holder sjøreisene korte."
+    ]
+   },
+   "Angel": {
+    "title": "En myk start for nybegynnere",
+    "text": [
+     "Eikthyr er 80 m fra offersteinene og Den Eldste nøyaktig 1 km. Haldor følger på 1,5 km, omtrent så nær som spillet tillater. For nye spillere betyr det en kort og oversiktlig vei gjennom de første timene.",
+     "Senere mål er også innen rekkevidde: Moder er 2,5 km unna, Beinmassen 2,7 km, og Hildir og Sumpheksa begge rundt 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder og Den Eldste som naboer",
+    "text": [
+     "Denne seeden har blitt hyllet som en av de beste siden 1.0-oppdateringen, og kartet bekrefter kjernen i det: Eikthyr på 250 m, Moder på 1,3 km og Den Eldste på 1,3 km, alle tre på landmassen du starter på. Beinmassen er 2 km unna.",
+     "Haldor er 2,3 km fra startpunktet og kan nås til fots. Hildir og Sumpheksa ligger begge like under 3 km unna, nærmere enn i de fleste verdener."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "Tidlig sølv: Moder 1 km fra startpunktet",
+    "text": [
+     "Alteret til Moder er bare 1,1 km fra startpunktet og på landmassen du starter på. Det betyr at fjell, sølv og ulveskinnsrustning er i gangavstand fra den første basen din. Eikthyr står 80 m fra steinene og Den Eldste 1,4 km unna.",
+     "Haldor er også nær med 1,5 km, men han holder til på andre siden av vannet, så du trenger en flåte eller en kort svømmetur. Seeden har lenge vært populær for den vakre starten på Enga med god plass til å bygge."
+    ]
+   },
+   "WorldEater": {
+    "title": "Den Eldste innen 900 m",
+    "text": [
+     "Eikthyr på 230 m og Den Eldste på 900 m gir en veldig rask start på bronsealderen. Beinmassen er 2,9 km unna på landmassen du starter på, så de tre første bossene krever ikke skip.",
+     "Sumpheksa har leir 2,8 km fra startpunktet og kan nås til fots, det samme gjelder Hildir. Moder er 2,5 km unna på andre siden av vannet."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "De tre første bossene på én øy",
+    "text": [
+     "Eikthyr på 110 m, Den Eldste på 1,2 km og Beinmassen på 2,1 km er alle på landmassen du starter på. Du kan spille fra steinalderen til jernalderen uten å bygge et skip.",
+     "Hildir og Sumpheksa bor på samme landmasse, litt over 3 km unna. Yagluth på 3,2 km og Moder på 3,5 km er en kort seilas unna."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Kompakt øy med kremmer",
+    "text": [
+     "Denne seeden ble tidligere regnet som vanskelig. I den gjeldende versjonen er den en kompakt og behagelig start: Eikthyr på 140 m, Den Eldste like under 1 km og Beinmassen på 2,3 km, alle på landmassen du starter på.",
+     "Haldor på 1,9 km og Hildir på 2,9 km kan også nås til fots. Bare for Moder må du planlegge en lengre tur."
+    ]
+   },
+   "feret2": {
+    "title": "Beinmassen like ved",
+    "text": [
+     "Beinmassen er bare 1,9 km fra startpunktet her, en av de korteste avstandene vi har funnet. Moder følger på 2,2 km og Eikthyr på 250 m. Vil du raskt til jern og sølv, er dette et godt valg.",
+     "Haldor har leir 1,5 km fra offersteinene, nær minsteavstanden, men på andre siden av vannet. Seeden er også kjent for det varierte startområdet med mange biomer tett på hverandre."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor og Moder i nærheten",
+    "text": [
+     "Haldor er 1,5 km fra startpunktet, praktisk talt minsteavstanden, og Moder bare 1,8 km. Den Eldste følger på 2,2 km.",
+     "Startområdet er stort og variert, med Svartskog og Fjell tett på Enga. En god seed for en lang, avslappet gjennomspilling med en sentral hovedbase."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "Klassikeren, sjekket på nytt",
+    "text": [
+     "Dette er trolig den mest kjente Valheim-seeden av alle. Den var kjent som speedrun-seeden med fire bosser nær startpunktet. Flere oppdateringer av verdensgenereringen senere stemmer ikke det lenger, men mange lister gjentar fortsatt den gamle påstanden.",
+     "Det som står igjen, er fortsatt brukbart: Eikthyr på 440 m, Haldor på 1,6 km og Beinmassen på 2,2 km, alle på landmassen du starter på. Den Eldste er 2,9 km og Yagluth 3,1 km unna på andre siden av vannet. Moder er derimot nå mer enn 6 km fra startpunktet. Fint for nostalgien, men seedene lenger opp er bedre i dag."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "Alle bossene i rekkefølge: slik finner, påkaller og slår du dem.",
+  "title": "Valheim-bosser: rekkefølge, plassering, påkalling og tips",
+  "desc": "Alle Valheim-bossene i rekkefølge, fra Eikthyr til Fader: hvor du finner altrene, hva du trenger for å påkalle dem, svakheter og de beste tipsene til hver kamp.",
+  "h1": "Valheim-bossene i rekkefølge",
+  "intro": [
+   "Historien i Valheim fortelles gjennom bossene, De Forviste. Hver av dem vokter et biom, og hver av dem slipper gjenstanden som åpner neste steg: geviret til hakka du utvinner malm med, nøkkelen til kryptene i Sumpen, ønskebeinet som finner sølv. Å slå dem i rekkefølge er ryggraden i enhver gjennomspilling.",
+   "Tabellen viser alle bossene i hovedprogresjonen med biom, helse og gjenstandene du må ofre. Hver boss har sin egen side med svakheter, angrepsmønstre og praktiske tips. Hver verden har flere altre per boss. Skriv inn seeden din på kartet for å se hvor dine ligger."
+  ],
+  "outro": [
+   "Hver beseiret boss etterlater seg et trofé. Heng det på trofékroken ved offersteinene for å låse opp bossens kraft, De Fortaptes Kraft. Du kan ha én kraft valgt om gangen. Den varer i 5 minutter og trenger deretter 20 minutter på å lade opp.",
+   "I flerspiller blir bossene seigere og slår hardere for hver ekstra spiller i nærheten, så flere spillere gjør ikke kampen til en lek."
+  ],
+  "pageTitle": "{boss}: plassering, påkalling og tips",
+  "pageDesc": "Slik slår du {boss} i Valheim: hvor du finner alteret i biomet {biome}, offergavene, svakheter, angrep og de beste tipsene og triksene til kampen.",
+  "showOnMap": "Vis altrene til {boss} på kartet",
+  "findH": "Slik finner du {boss}",
+  "prepH": "Forberedelser",
+  "attacksH": "Angrep",
+  "tipsH": "Tips og triks",
+  "rewardH": "Belønning",
+  "list": {
+   "eikthyr": {
+    "lead": "Eikthyr, lynhjorten, er den første bossen i Valheim. Han venter på Enga og er en mild test av det grunnleggende: blokkering, unnviking og å holde styr på utholdenheten.",
+    "power": "60 % mindre utholdenhetsbruk ved løping, hopping og svømming.",
+    "find": [
+     "Alteret til Eikthyr står alltid på Enga, som regel bare noen hundre meter fra startpunktet. Den rødglødende runesteinen ved offersteinene markerer alteret på kartet ditt så snart du leser den.",
+     "For å påkalle ham legger du **2 hjortetroféer** på alteret. Hjort slipper et trofé omtrent annenhver gang du feller en. Snik deg innpå dem mot vinden, eller jakt på dem med en grov bue."
+    ],
+    "prep": [
+     "Lag et fullt sett med lærrustning, og oppgrader det én gang hvis du kan.",
+     "Ta med flintspyd, flintøks eller klubbe, en grov bue med rundt 50 piler og et treskjold.",
+     "Spis tre forskjellige matretter før kampen, for eksempel grillet svinekjøtt, grillet nøkkhale og bringebær eller sopp.",
+     "Sov først, så du kjemper med Uthvilt-bonusen. Den gjør at utholdenheten kommer merkbart raskere tilbake."
+    ],
+    "attacks": [
+     "**Gevirstøt:** han kaster seg frem og svinger geviret. Blokker med skjoldet eller ta et steg til siden.",
+     "**Lynstråle:** han steiler og skyter en linje med lyn rett frem, mest når ingen står inntil ham. Unnvik sidelengs.",
+     "**Lyntramp:** han reiser seg på bakbeina og slår ned i bakken, og treffer alt rundt seg. Rull bakover når han steiler."
+    ],
+    "tips": [
+     "Hold treskjoldet oppe og angrip rett etter hvert av angrepene hans. Nesten alt han gjør kan blokkeres, selv med et enkelt treskjold.",
+     "La aldri utholdenheten gå helt tom. Uten utholdenhet kan du verken blokkere eller unnvike, og det er slik de fleste første forsøk ryker.",
+     "Steinene og trærne rundt alteret stopper lynet hans. Bruk dem som dekning hvis du foretrekker buen.",
+     "Kjemp om dagen. Om natta blander grådverger og andre skapninger seg inn.",
+     "Hvis kampen går dårlig, så løp. Eikthyr forsvinner ikke, og han beholder skaden du har påført ham en stund."
+    ],
+    "reward": [
+     "Eikthyr slipper **3 harde gevir** og trofeet sitt. Av gevirene lager du gevirhakka, din første hakke, som lar deg utvinne tinn og kobber i Svartskogen og starte bronsealderen.",
+     "Kraften hans gjør løping og hopping mye billigere. Den er nyttig hele spillet gjennom, til utforsking, flukt og frakting av malm."
+    ]
+   },
+   "elder": {
+    "lead": "Den Eldste er et gigantisk levende tre og den andre bossen. Han hersker over Svartskogen og straffer spillere som møter ham i åpent lende. Med ildpiler og en søyle å gjemme seg bak er han helt overkommelig.",
+    "power": "60 % mer skade ved hogging og hakking og 30 % raskere helseregenerering.",
+    "find": [
+     "Alteret til Den Eldste står i Svartskogen: en steinplattform med fire høye søyler rundt en ildskål. Røde runesteiner i Gravkamrene og i enkelte forfalne steintårn markerer nærmeste alter på kartet ditt.",
+     "For å påkalle ham brenner du **3 eldgamle frø** i ildskålen. Frøene slippes av grådvergskjemper og grådvergssjamaner, og alltid av ødelagte grådvergsbol, de lilla, glødende reirene som grådvergene kommer ut av."
+    ],
+    "prep": [
+     "Bronserustning er ideelt. Trollskinnsrustning er et godt og mye billigere alternativ.",
+     "Ta med en finvedsbue og minst 100 **ildpiler**. Den Eldste er svak mot ild, og brannskaden fortsetter å tikke.",
+     "Ta med en bronsebuklare eller et bundet skjold, og en øks til røttene.",
+     "Brygg noen svake helbredelsesmjøder og spis de tre beste matrettene dine, for eksempel hjortestuing, gulrotsuppe og dronninghonning.",
+     "Rydd grådvergsbol rundt alteret, hogg ned trær i nærheten og bygg et lite ly med en portal et lite stykke unna."
+    ],
+    "attacks": [
+     "**Rankeskudd:** han strekker ut armene og skyter en skur av ranker over lang avstand. Still deg bak en av de fire søylene. De kan ikke ødelegges.",
+     "**Tramp:** på kloss hold tramper han i bakken og gjør stor skade. Hold avstand eller rull unna.",
+     "**Røtter:** han reiser et felt av røtter rundt deg som pisker alle i nærheten. Gå ut av området. Røttene forsvinner etter en stund, eller du kan hogge dem ned med øks."
+    ],
+    "tips": [
+     "Spill rundt søylene: gå ut, skyt to eller tre ildpiler, gå tilbake før rankene kommer. Denne enkle rytmen vinner kampen.",
+     "Ikke gå i nærkamp med mindre du må. Trampet slår mye hardere enn noe annet på dette stadiet i spillet.",
+     "Fallende trær er en reell fare. Den Eldste velter dem med rankene sine, og en fallende stamme kan drepe deg på stedet. Rydder du arenaen på forhånd, slipper du den risikoen.",
+     "Påkall ham om morgenen. Kampen kan ta flere minutter, og om natta blir det trangt i skogen.",
+     "Et leirbål eller bål nær arenaen holder deg Uthvilt, og ilden skader ham hvis han går gjennom det."
+    ],
+    "reward": [
+     "Den Eldste slipper **sumpnøkkelen** og trofeet sitt. Nøkkelen åpner de Sunkne Kryptene i Sumpen, den eneste gode kilden til jern.",
+     "Når Den Eldste er beseiret, får Haldor ymirskjøtt og tordensteiner i sortimentet, og Sumpheksa selger flere ingredienser.",
+     "Kraften hans gjør vedhogst og gruvedrift betydelig raskere. Den er perfekt til store byggeprosjekter og gruveturer."
+    ]
+   },
+   "bonemass": {
+    "lead": "Beinmassen er en enorm klump av bein og slim i Sumpen og den tredje bossen. Mange spillere går på en smell her i starten fordi sverd og piler knapt gjør skade på ham. Med en klubbe og giftmotstand snur kampen fullstendig.",
+    "power": "25 % mindre fysisk skade (slag, kutt, spidd). Blokkering koster ingen utholdenhet og gir til og med litt tilbake.",
+    "find": [
+     "Alteret til Beinmassen er en kjempestor hodeskalle som ligger i Sumpen. Røde runesteiner inne i Sunkne Krypter markerer den nærmeste på kartet ditt.",
+     "For å påkalle ham slipper du **10 visne bein** ned i hodeskallen. Du finner dem i Sunkne Krypter, i kister og i de gjørmete skraphaugene du uansett graver deg gjennom for å finne jern."
+    ],
+    "prep": [
+     "Ta med en **jernklubbe**, oppgradert så langt du klarer. Beinmassen er svak mot slagskade og motstandsdyktig mot kutt, spidd og ild. Bukkbryteren eller en jernslegge fungerer også.",
+     "Brygg **giftmotstandsmjød** og ta med minst tre eller fire per spiller. Uten den dreper giftskyen hans deg på sekunder.",
+     "Bruk oppgradert jernrustning eller rotsettet, og ha med et bundet skjold eller bedre.",
+     "Ta med middels helbredelsesmjød og utholdenhetsmjød, og spis pølser, nepestuing og lignende mat fra Sumpen.",
+     "Jevn ut bakken rundt hodeskallen med et grev, så du slipper å kjempe til knærne i vann, der blodigler biter og utholdenheten ikke kommer tilbake mens du svømmer.",
+     "Bygg et lite ly med tak, seng, bål og portal i nærheten, helst på en forhøyning."
+    ],
+    "attacks": [
+     "**Slag:** et bredt sving som rekker lenger enn det ser ut til, og som gjør slag- og giftskade. Blokker eller parer det med et solid skjold.",
+     "**Giftsky:** han lener seg bakover og spyr ut en stor sky som blir hengende. Løp ut av den med en gang og vent til den forsvinner.",
+     "**Påkalling:** han river løs en klump av seg selv og kaster den. Der den lander, dukker det opp skjeletter og blobber. Drep dem raskt før de omringer deg."
+    ],
+    "tips": [
+     "Drikk giftmotstandsmjød **før** du påkaller ham, og forny den når ikonet begynner å blinke. Den varer i 10 minutter.",
+     "Påkallingsanimasjonen er den beste åpningen din: han står stille i flere sekunder mens han kaster.",
+     "Å parere slaget hans lamslår ham ikke, men det beskytter deg fullt ut. Slå to eller tre ganger etterpå, og trekk deg så unna.",
+     "Frostpiler er de eneste pilene det er verdt å bruke mot ham. Har du allerede lavaglass og iskjertler, gjør de det mulig å ta kampen trygt på avstand.",
+     "Bruk Eikthyrs kraft for å komme deg raskt ut av giftskyen, eller kraften til Den Eldste for den ekstra regenereringen.",
+     "Områdeangrepet til Bukkbryteren treffer Beinmassen og de påkalte fiendene samtidig."
+    ],
+    "reward": [
+     "Beinmassen slipper **ønskebeinet** og trofeet sitt. Med ønskebeinet utstyrt sporer du opp skjulte sølvårer i Fjellet, nedgravde skatter på Enga og gjørmete skraphauger i Sumpen.",
+     "Kraften hans er den beste defensive kraften i spillet. Mange spillere beholder den til alle senere bosskamper."
+    ]
+   },
+   "moder": {
+    "lead": "Moder er dragemoren i Fjellet og den fjerde bossen. Hun angriper fra lufta og på bakken, og frostpusten hennes fryser alle som står i den. En god bue og beskyttelse mot frost avgjør denne kampen.",
+    "power": "Alltid medvind når du seiler, 300 mer bærevekt, 10 % raskere bevegelse og 50 % frostmotstand.",
+    "find": [
+     "Alteret til Moder ligger på en fjelltopp, som regel på et bredt, flatt platå. Røde runesteiner i steinruiner i Fjellet og i Frosthuler markerer det på kartet ditt.",
+     "For å påkalle henne legger du **3 drageegg** på alteret. Eggene ligger i reir i Fjellet. Hvert egg veier 200 og kan ikke tas med gjennom en portal, så du bærer dem ett om gangen, eller alle på én tur hvis dere er tre spillere."
+    ],
+    "prep": [
+     "Bruk ulveskinnsrustning: brynjen og kappen beskytter deg mot kulda. Uten dem trenger du **frostmotstandsmjød** hele turen.",
+     "Ta med den beste buen du har, helst Draugtann, og 150 piler eller mer. Moder er svak mot ild, så **ildpiler** er billige og sterke. Lavaglasspiler og giftpiler er også gode. Frostpiler gjør ingenting.",
+     "Ta med et sølvsverd eller et annet oppgradert nærkampvåpen til fasene på bakken.",
+     "Pakk middels helbredelsesmjød og utholdenhetsmjød, og spis mat som gir mye helse, som sjøormstuing, pølser og nepestuing.",
+     "Rydd platået for ulver, draker og steingolemer før du begynner, og sett opp en portal med et lite ly nedenfor toppen."
+    ],
+    "attacks": [
+     "**Isskur (i lufta):** hun flyr over deg og skyter en rekke isprosjektiler som eksploderer til krystaller. Fortsett å løpe sidelengs.",
+     "**Frostpust (på bakken):** en bred kjegle av frost rett frem som gjør deg veldig treg. Flytt deg til siden av henne så snart hun senker hodet.",
+     "**Bitt og klør:** på kloss hold biter og klorer hun. Begge deler kan blokkeres med et godt skjold."
+    ],
+    "tips": [
+     "Skyt på henne når hun er i lufta eller lander. Flybanen hennes er langsom og forutsigbar, så de fleste pilene treffer.",
+     "Når hun lander, sirkler du rundt til flanken. Pusten treffer bare det som står foran henne, og fra siden kan du angripe fritt.",
+     "Blir du truffet av frost, blir du treg og lett å treffe igjen. Er du frosset, bør du blokkere i stedet for å løpe.",
+     "Iskrystallene fra isskuren kan ødelegges, og de gir litt dekning i det åpne terrenget.",
+     "Kraften til Beinmassen gjør nærkampfasene mye tryggere. Med bue hjelper Eikthyrs kraft deg med å holde deg i bevegelse.",
+     "Bær eggene opp før kampen og la dem ligge ved alteret. De forsvinner ikke."
+    ],
+    "reward": [
+     "Moder slipper **10 dragetårer** og trofeet sitt. Av tårene bygger du håndverksbenken, som låser opp vindmølla, sjaktovnen og rokken, og dermed utstyret fra Sletta.",
+     "Når hun er beseiret, selger Haldor Wider Pockets, en ekstra rad i inventaret, og Sumpheksa får flere varer i sortimentet.",
+     "Kraften hennes gir deg medvind på hver seilas og mye ekstra bærevekt. Den er favoritten til alle som seiler og frakter malm."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, den falne kongen av fælingene, er den femte bossen. Bare overkroppen hans kryper over Sletta, men ilden og meteorene hans gjør ham til en av de dødeligste kampene i spillet. Ildmotstand er ikke valgfritt her.",
+    "power": "10 % mer skade, 50 % lynmotstand og 25 ekstra nivåer i Jordbruk.",
+    "find": [
+     "Alteret til Yagluth står på Sletta: en ring av enorme steinfingre som stikker opp av bakken. Røde runesteiner ved steinsirkler på Sletta markerer det på kartet ditt. De er sjeldne, så her sparer kartet deg for lang leting.",
+     "For å påkalle ham legger du **5 fælingtotemer** på alteret. Du finner ett totem i de fleste fælinglandsbyer, og fælingberserker slipper av og til ett. Totemene kan tas med gjennom portaler."
+    ],
+    "prep": [
+     "Brygg **ildmotstandsbyggvin** og ta med flere per spiller. Den varer i 10 minutter og må være aktiv hele kampen.",
+     "Bruk fullt oppgradert polstret rustning. Ulveskinnsrustning er minimum.",
+     "Ta med et svartmetallsverd, Pinnsvinet eller Frostner. Yagluth har sterk motstand mot spiddskade, så spyd, atgeirer og de fleste piler er dårlige valg.",
+     "Vil du kjempe på avstand, bruker du frostpiler og regner med en lang kamp.",
+     "Ta med middels helbredelsesmjød og utholdenhetsmjød, og spis den beste maten fra Sletta: loxepai, blodpudding, fiskewraps.",
+     "Rydd først vekk alle fælinger, loxer og dødsmygg rundt alteret, og sett en portal på trygg avstand."
+    ],
+    "attacks": [
+     "**Ildpust:** han løfter hodet og sveiper en lang ildstråle etter deg. Løp sidelengs eller gå bak en av steinfingrene.",
+     "**Knyttneveslag:** neven hans lyser blått, så slår han i bakken og utløser en stor eksplosjon. Kom deg unna så snart du ser lyset.",
+     "**Meteorer:** hånden hans lyser oransje, og meteorer regner ned der du står i flere sekunder. Fortsett å løpe i én retning til det stopper."
+    ],
+    "tips": [
+     "Hvert angrep varsles med et tydelig lys. Lær deg de tre signalene, så blir kampen rolig: angrip, se lyset, flytt deg, gjenta.",
+     "Angrip bakfra eller fra siden, og bare to eller tre slag om gangen. Det er grådighet som tar livet av spillere her.",
+     "Steinfingrene blokkerer ildpusten hans, men meteorene går over dem. Ikke hvil bak en finger under meteorregnet.",
+     "Når du brenner, får du lett panikk og sløser med utholdenheten. Med byggvin aktiv blir ildskaden omtrent halvert, og kampen tilgir mye.",
+     "Aktiver kraften til Beinmassen når du starter nærkampfasen. Forny byggvinen tidlig, ikke når den går ut.",
+     "Yagluth er treg. Må du helbrede deg eller spise, går du bare vekk fra ham."
+    ],
+    "reward": [
+     "Yagluth slipper **3 revne sjeler** og trofeet sitt. Med en revnet sjel bygger du lyktemannsfontenen. Den samler lyktemenn, som du trenger til Lyktemann-gjenstanden som fjerner tåka i Tåkeheim.",
+     "Når han er beseiret, selger Haldor egg så du kan ale opp høner, og Sumpheksa får krydderet fra Sletta i sortimentet.",
+     "Kraften hans øker all skaden din med en tidel. Den er et sterkt valg til Tåkeheim og senere bosser."
+    ]
+   },
+   "queen": {
+    "lead": "Dronninga er moren til speiderne og den sjette bossen. Hun bor dypt inne i Fordervet Høyborg i Tåkeheim og kjemper aldri alene: yngelen hennes klekkes rundt deg hele tiden. Gode forberedelser og kontroll på yngelen avgjør kampen.",
+    "power": "Eiter regenereres dobbelt så raskt, sniking koster ingen utholdenhet, og du får 50 % giftmotstand.",
+    "find": [
+     "Dronninga påkalles ikke. Hun venter inne i **Fordervet Høyborg**, en enorm forseglet bygning i Tåkeheim. Røde runesteiner i Fordervede Gruver markerer høyborgen på kartet ditt.",
+     "Døra åpnes bare med **seglbryteren**. Du lager den ved galderbordet av **9 seglbryterbiter**, som du finner i Fordervede Gruver. Vil du kjempe mot henne igjen senere, legger du 3 speidersoldatstroféer på alteret der inne."
+    ],
+    "prep": [
+     "Bruk oppgradert skallrustning til nærkamp, eller eitervævskutten hvis du kjemper med magi.",
+     "Hun er motstandsdyktig mot spiddskade. Bruk kutt- eller slagvåpen som Tåkevandrer, Krom eller Knuser. Buer og spyd gjør lite.",
+     "Magi er veldig sterkt her: Glødestaven rydder yngelen, Skjoldstaven beskytter gruppa, og Dødsmaneren distraherer fiendene.",
+     "Drikk **giftmotstandsmjød** før du går inn, og ta med sterk helbredelsesmjød, utholdenhetsmjød og eitermjød.",
+     "Spis den beste maten fra Tåkeheim. For magibrukere er minst én matrett som gir eiter et must.",
+     "Høyborgen er fri for tåke, men ta med Lyktemann til veien dit. Med en fjærkappe kan du trygt hoppe ned fra de øvre etasjene.",
+     "Du kan bygge inne i høyborgen. En sløydbenk, en portal rett utenfor døra og noen steinvegger som dekning hjelper mye."
+    ],
+    "attacks": [
+     "**Hugg og stormløp:** brede sving med forbeina og et krypende stormangrep. Unnvik sidelengs eller blokker med et sterkt skjold.",
+     "**Bitt:** et utfall rett frem med kraftig spidd- og giftskade. Ikke stå foran hodet hennes.",
+     "**Bakkestikk:** hun reiser seg og stikker i bakken med alle fire armene, og treffer alt rundt seg. Trekk deg unna når hun reiser seg.",
+     "**Spytt:** flere giftprosjektiler som eksploderer og slipper ut speideryngel.",
+     "**Rop:** hun skriker og tilkaller speidere og yngel.",
+     "**Graving:** hun graver seg ned i bakken og dukker opp et annet sted i hallen."
+    ],
+    "tips": [
+     "Drep yngelen hele tiden. Et dusin små speidere gjør mer skade enn Dronninga selv. Områdeangrep som Knuser eller Glødestaven er ideelle.",
+     "Bruk trappene og de øvre etasjene i høyborgen. Hun er rask i åpent lende, men treg i rampene, og det gir deg tid til å helbrede deg og hente inn utholdenhet.",
+     "Alle nærkampangrepene hennes kaster deg bakover. Ikke stå med ryggen mot vegger og kanter.",
+     "I gruppe holder én spiller med stort skjold på oppmerksomheten hennes, mens de andre tar seg av yngelen og angriper bakfra.",
+     "Kraften til Beinmassen er glimrende til nærkamp. Magibrukere tar med Dronningas egen kraft i omkampen, eller Yagluths for mer skade.",
+     "Hvis du dør, ligger gravsteinen din inne i hallen. En portal rett utenfor døra gjør turen tilbake til liket kort."
+    ],
+    "reward": [
+     "Dronninga slipper **5 majestetiske skall** og trofeet sitt. Med skallet bygger du håndverkspressa, som du trenger til utstyret og skipene som tar deg til Askelandet.",
+     "Når hun er beseiret, selger Haldor Deeper Pockets, enda en rad i inventaret, og Sumpheksa får krydderet fra Tåkeheim i sortimentet.",
+     "Kraften hennes dobler eiterregenereringen. For magibygg er det den beste kraften i spillet."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, den vandøde dragen i Askelandet, er den sjuende bossen. Han har ingen svakhet, dobbelt så mye helse som Dronninga, og fyller arenaen sin med grønn ild. Denne kampen krever det beste utstyret Askelandet har å by på, og at du er i bevegelse hele tiden.",
+    "power": "Adrenalin bygges opp dobbelt så raskt, du blir mye vanskeligere å lamslå, og du får 50 % ildmotstand.",
+    "find": [
+     "Alteret til Fader står i en stor, rund arena i Askelandet. Røde runesteiner inne i Kullgjorte Festninger markerer det på kartet ditt.",
+     "For å påkalle ham trenger du **3 klokker**. Hver klokke smis av **3 klokkeskår** i svartsmia, og skårene ligger i kistene i Kullgjorte Festninger. Knus festningsportene med en rambukk, rens festningen og tøm tårnet. Sett de tre klokkene på plass i arenaen og aktiver alteret."
+    ],
+    "prep": [
+     "Bruk fullt oppgradert flammetallrustning, eller Asks sett hvis du foretrekker lett rustning.",
+     "Fader er immun mot ild og ånd og motstandsdyktig mot spidd. Bruk kutt- eller slagvåpen, helst med frost- eller lynskade.",
+     "Drikk **ildmotstandsbyggvin** og forny den underveis i kampen.",
+     "Ta med sterk helbredelsesmjød og varende utholdenhetsmjød, og spis den beste maten fra Askelandet i alle tre plassene.",
+     "Rydd omgivelsene rundt arenaen grundig. Kullgjorte, Morgener og Asksvin som vandrer inn, gjør kampen kaotisk.",
+     "Bygg en portal og et lite ly av stein utenfor arenaen. I Askelandet dukker det opp fiender hele tiden, så beskytt portalen med vegger."
+    ],
+    "attacks": [
+     "**Bitt og klør:** brede, svært tunge nærkampangrep foran ham. Blokker med et sterkt skjold eller hold deg ved flanken hans.",
+     "**Spinn:** han snur seg på stedet og treffer alt rundt seg. Gå bakover når han begynner å snu seg.",
+     "**Flammepust:** en linje med ild som etterlater brennende bakke. Den kan ikke blokkeres. Gå sidelengs ut av linjen.",
+     "**Sprekk:** han slår i bakken, og en revne løper mot deg, bryter ut i pigger og etterlater en pøl med grønn ild.",
+     "**Ildvegg:** en ring av flammer lukker seg rundt deg. Kom deg ut med en gang.",
+     "**Meteorer:** han steiler, og meteorer regner ned over hele arenaen.",
+     "**Påkalling:** han spytter kuler som blir til Kullgjorte Krigere og Skarpskyttere."
+    ],
+    "tips": [
+     "Hold deg ved siden av eller bak ham. Nesten alle de farlige angrepene peker fremover.",
+     "Stå aldri i grønn ild. Pølene varer lenge og gjør arenaen gradvis mindre, så lokk ham til en ren del av arenaen.",
+     "Vær i bevegelse hele tiden. De fleste områdeangrepene hans sikter på der du står når han starter dem.",
+     "Drep de påkalte Kullgjorte raskt, eller plasser deg slik at Faders egne angrep treffer dem.",
+     "Kraften til Beinmassen og et stort skjold gjør det mulig å overleve nærkampangrepene hans. Ikke prøv å blokkere pusten eller sprekken.",
+     "I gruppe fordeler dere rollene: én spiller holder på oppmerksomheten hans, én tar de påkalte fiendene, og resten gjør skade."
+    ],
+    "reward": [
+     "Fader slipper **5 blussbein** og trofeet sitt. Beina trengs til evighetsbålet og åpner veien til det siste håndverksnivået før Norddjupet.",
+     "Når han er beseiret, selger Sumpheksa krydderet fra Askelandet.",
+     "Kraften hans bygger opp adrenalin dobbelt så raskt og gjør deg mye vanskeligere å lamslå. Den er et sterkt valg for aggressive nærkampbygg."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir og Sumpheksa: plassering, varer og priser.",
+  "title": "Valheim-kremmere: plassering, varer og priser",
+  "desc": "Alle kremmerne i Valheim på ett sted: hvor du finner Haldor, Hildir og Sumpheksa, hva de selger, hva det koster, og hvilke verdisaker du kan selge for mynter.",
+  "h1": "Kremmerne i Valheim",
+  "intro": [
+   "Det bor tre kremmere i Valheim, og hver av dem er gjemt på et nytt sted i hver verden. Haldor selger nyttig utstyr i Svartskogen, Hildir selger klær på Enga og sender deg ut på et oppdrag, og Sumpheksa selger ingredienser til matlaging og brygging i Sumpen.",
+   "Å lete etter dem uten hjelp kan ta titalls timer. Skriv inn seeden din på kartet, så ser du alle mulige leirer med en gang. Alle prisene på disse sidene er hentet direkte fra spilldataene."
+  ],
+  "sellH": "Dette kan du selge",
+  "sellP": [
+   "Mynter er den eneste valutaen, og du får dem ved å selge verdisaker. Alle tre kremmerne kjøper de samme gjenstandene til de samme prisene. Mynter, rubiner og rav finner du i Gravkamre, Trollhuler, Sunkne Krypter og fælinglandsbyer."
+  ],
+  "outro": [
+   "Leiren til hver kremmer er beskyttet. Fiender kommer ikke inn, så en kremmerleir er også et trygt sted for en portal."
+  ],
+  "pageTitle": "{trader}: plassering, varer og priser",
+  "pageDesc": "Hvor du finner {trader} i Valheim og hva som er til salgs: alle {n} varer med priser, opplåsingskrav og tips. Finn leiren i biomet {biome} i verdenen din med seedkartet.",
+  "showOnMap": "Vis {trader} på kartet",
+  "findH": "Her finner du {trader}",
+  "waresH": "Dette selger {trader}",
+  "tipsH": "Tips",
+  "list": {
+   "haldor": {
+    "teaser": "utstyr, fiske og mer plass i inventaret",
+    "lead": "Haldor er en dvergkremmer som har slått leir i Svartskogen sammen med loxen sin, Halstein. Han selger noen av de nyttigste gjenstandene i spillet, først og fremst beltet Megingjord, som lar deg bære 150 mer i vekt.",
+    "find": [
+     "Leiren til Haldor ligger alltid i Svartskogen. Spillet forbereder opptil ti mulige leirer per verden, som regel mer enn 1 500 meter fra midten av kartet. Den første du kommer i nærheten av, blir den ekte leiren, og alle de andre forsvinner.",
+     "Når du er noen hundre meter unna, dukker det opp et sekkeikon på kartet ditt. Leiren er omgitt av en beskyttende boble som holder fiender ute. Du kan ikke bygge inne i den, men en portal rett utenfor bobla fungerer fint."
+    ],
+    "waresP": [
+     "Deler av sortimentet blir først tilgjengelig når du har beseiret bestemte bosser. Prisene er oppgitt i mynter."
+    ],
+    "tips": [
+     "Kjøp **Megingjord** først. 150 ekstra bærevekt hjelper med alt fra gruvedrift til å seile hjem med jern.",
+     "**Dvergdiademet** er en hodelykt som lar deg ha hendene fri. Det er veldig praktisk i krypter og huler, men det opptar hjelmplassen.",
+     "**Wider Pockets** og **Deeper Pockets** gir deg hver sin permanente ekstra rad i inventaret. De er dyre, men verdt hver mynt.",
+     "**Ymirskjøtt** trengs til jernslegga, Frostner og andre sterke gjenstander. **Tordensteiner** trengs til tilintetgjøreren.",
+     "Et **egg** klekkes til en kylling hvis du holder det varmt. To høner er nok til å avle frem din egen forsyning av egg og kyllingkjøtt, så du trenger bare å kjøpe to.",
+     "**Fiskestanga** fungerer bare med agn. Det enkle fiskeagnet Haldor selger, er grunnlaget for alle spesialagn i spillet.",
+     "Spar opp før turen: med rundt 2 000 mynter har du råd til beltet, diademet og fiskestanga på ett besøk."
+    ]
+   },
+   "hildir": {
+    "teaser": "klær, frisør og et oppdrag i tre deler",
+    "lead": "Hildir er søsteren til Haldor. Hun selger klær, hatter og festartikler på Enga. Det meste av varelageret hennes er stjålet, og hun ber deg hente tilbake tre kister fra tre spesielle grotter og tårn.",
+    "find": [
+     "Leiren til Hildir ligger på Enga, men langt fra startpunktet, som regel minst 3 000 meter fra midten av kartet. Som med Haldor finnes det opptil ti mulige leirer, og den første du nærmer deg, blir den ekte.",
+     "Et skjorteikon dukker opp på kartet ditt når du kommer nær. I leiren hennes står Hildirs kartbord. Når du leser det, markeres det nærmeste av oppdragsstedene hennes på kartet ditt."
+    ],
+    "waresP": [
+     "I starten selger hun bare en håndfull varer. Hver kiste du leverer tilbake, låser opp en ny del av sortimentet."
+    ],
+    "tips": [
+     "**Messingkista** ligger i et Ulmende Gravkammer i Svartskogen, **sølvkista** i en Ulende Grotte i Fjellet og **bronsekista** i et Forseglet Tårn på Sletta. Hver av dem voktes av en miniboss.",
+     "Kistene kan ikke tas med gjennom portaler, og de er tunge. Planlegg veien tilbake til fots, med vogn eller med skip før du går inn.",
+     "Oppdragsstedene blir vanskeligere i denne rekkefølgen. Brenna i gravkammeret gjør ildskade, Geirrhafa i grotta gjør frostskade, og de to fælingbrødrene Zil og Thungr i tårnet kjemper sammen.",
+     "Alle oppdragsstedene er også på kartet. Slå på markørene for Hildirs oppdrag for å finne dem som ligger nærmest leiren hennes.",
+     "Med **frisørsettet** bygger du en frisørstasjon, der du kan endre hår og skjegg når du vil.",
+     "Klærne hennes er mest til pynt, men de er lette og gjør deg ikke tregere. **Bonde**-antrekkene er en favoritt til jordbruk.",
+     "**Bålpanna** er et dekorativt ildsted, og fyrverkeri trenger et bål for å skytes opp."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "ingredienser til festmåltid, mjød og jordbruk",
+    "lead": "Sumpheksa bor i ei skjev hytte i Sumpen sammen med kjempen sin, Kvastur. Hun selger ingredienser du ikke får tak i noe annet sted: krydder til de store festmåltidene, varer til nye mjødtyper og nyttige ting til gården din.",
+    "find": [
+     "Leiren til Sumpheksa ligger i Sumpen. Også her forbereder spillet opptil ti mulige leirer, og den første du kommer i nærheten av, blir værende i verdenen din.",
+     "Et kjeleikon dukker opp på kartet ditt når du er i nærheten. Leiren hennes er beskyttet mot fiender, og det gjør den til et kjærkomment fristed i Sumpen. Ta likevel med giftmotstandsmjød til veien dit."
+    ],
+    "waresP": [
+     "De fleste krydderne hennes blir først tilgjengelige når du har beseiret bossen i det tilhørende biomet. Mange varer selges i bunter. Tabellen viser prisen per bunt."
+    ],
+    "tips": [
+     "**Krydderne** er nøkkelingrediensen i festmåltidene. Et festmåltid som settes på et bord, metter hele gruppa med noe av den sterkeste maten på sitt nivå, og det rekker til mange porsjoner.",
+     "Med **serveringsbrettet** kan du bære med deg et ferdig festmåltid og sette det ned et annet sted, for eksempel rett før en bosskamp.",
+     "**Ljåskaftet** trengs til ljåen, som høster hele åkre i ett sving. Det er et av de beste kjøpene for alle som driver mye med jordbruk.",
+     "**Veker** trengs til vokslys, og med **eføyfrø** får du eføy til å klatre oppover bygningene dine.",
+     "Ferskt sjøgress, speket skinkestreng av ekorn, knust drageeggeskall og stinkende småstein er ingredienser i de nyere mjødtypene, som forbedrer ferdigheter som svømming og løping eller beskytter mot lyn.",
+     "Fluesopp og aromatiske bunter blir tilgjengelige etter Moder. De brukes til berserkmjød og til en mjød som renser deg for negative effekter.",
+     "Varene hennes er billige sammenlignet med Haldors. Noen hundre mynter holder til et første besøk."
+    ]
+   }
+  }
+ }
+}

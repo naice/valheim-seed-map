@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Mappa",
+  "seeds": "Migliori seed",
+  "bosses": "Boss",
+  "traders": "Mercanti",
+  "guides": "Guide e FAQ"
+ },
+ "common": {
+  "openMap": "Apri sulla mappa",
+  "showOnMap": "Mostra sulla mappa",
+  "meters": "{n} m",
+  "boss": "Boss",
+  "biome": "Bioma",
+  "health": "Salute",
+  "summon": "Oggetto per l'evocazione",
+  "weak": "Debole a",
+  "resist": "Resistente a",
+  "immune": "Immune a",
+  "drops": "Bottino",
+  "power": "Potere dei Rinnegati",
+  "item": "Oggetto",
+  "price": "Prezzo (monete)",
+  "sellValue": "Valore di vendita (monete)",
+  "available": "Disponibile",
+  "always": "dall'inizio",
+  "afterBoss": "dopo aver sconfitto {boss}",
+  "afterChest": "dopo aver riportato {chest}",
+  "dmg": {
+   "blunt": "Contundente",
+   "slash": "Taglio",
+   "pierce": "Perforazione",
+   "fire": "Fuoco",
+   "frost": "Gelo",
+   "lightning": "Fulmini",
+   "poison": "Veleno",
+   "spirit": "Spirito"
+  },
+  "disclaimer": "Valheim-Map è un progetto amatoriale e non è affiliato a Iron Gate o Coffee Stain. Valheim è un marchio dei rispettivi proprietari. Dati di gioco: versione {version}.",
+  "noscript": "La mappa interattiva richiede JavaScript. Le guide su seed, boss e mercanti funzionano anche senza."
+ },
+ "about": {
+  "h": "Valheim-Map: tutto il tuo mondo a partire dal seed",
+  "p": [
+   "Valheim-Map è una mappa interattiva gratuita per Valheim. Inserisci il **seed** del tuo mondo e la mappa ti mostra il mondo intero senza nebbia: tutti i biomi, la linea costiera e la posizione esatta di boss, mercanti, dungeon e oltre 90 altri tipi di luoghi.",
+   "Non viene caricato nulla e non serve nessun file di salvataggio. La mappa esegue direttamente nel tuo browser la stessa generazione del mondo usata dal gioco, quindi le posizioni corrispondono al tuo mondo al metro. Clicca su un indicatore per vederne le coordinate e avere un comando da console già pronto per raggiungerlo.",
+   "Con l'elenco a sinistra puoi attivare e disattivare i tipi di luoghi, cercare un posto preciso come Haldor o le Cripte sommerse e salvare i seed a cui vuoi tornare. Il link nella barra degli indirizzi contiene sempre il seed e la vista attuale, così puoi condividere qualsiasi punto con i tuoi amici."
+  ],
+  "seedH": "Come trovare il seed del tuo mondo",
+  "seedP": "Ogni mondo di Valheim nasce da un seed, un breve testo lungo al massimo dieci caratteri. Lo stesso seed genera sempre lo stesso mondo.",
+  "seedSteps": [
+   "Avvia Valheim, clicca su **Inizia partita** e scegli il tuo personaggio.",
+   "Seleziona il tuo mondo nell'elenco dei mondi. Il seed è indicato proprio accanto al nome del mondo.",
+   "Su un server dedicato il seed è salvato nel file **.fwl** del mondo. Carica il mondo una volta in giocatore singolo oppure chiedilo all'amministratore del server.",
+   "Scrivi il seed nel campo in alto a sinistra sulla mappa e premi **Carica**. Maiuscole e minuscole contano."
+  ],
+  "guidesH": "Guide",
+  "faqH": "Domande frequenti",
+  "faq": [
+   {
+    "q": "La mappa è precisa per il mio mondo?",
+    "a": "Sì. Il terreno e tutti i luoghi vengono calcolati con lo stesso algoritmo usato dal gioco, e i risultati sono stati confrontati con mondi reali. La mappa mostra dove il gioco piazza un luogo quando esplori la zona per la prima volta. Quello che i giocatori cambiano in seguito, per esempio gli edifici distrutti, non è visibile."
+   },
+   {
+    "q": "Quale versione del gioco supporta la mappa?",
+    "a": "La mappa segue l'attuale versione pubblica di Valheim, comprese le Lande desolate e l'Alto nord. I mondi creati con una versione molto più vecchia possono essere diversi nelle zone esplorate prima di un aggiornamento."
+   },
+   {
+    "q": "Perché ci sono più indicatori per Haldor, Hildir e la Strega della palude?",
+    "a": "Il gioco prepara fino a dieci possibili accampamenti per ogni mercante. Il primo a cui ti avvicini diventa quello vero, e gli altri spariscono dal tuo mondo. Quindi ti basta scegliere l'indicatore più vicino alla tua base."
+   },
+   {
+    "q": "Devo caricare il mio file di salvataggio?",
+    "a": "No. Alla mappa basta il seed. Il calcolo avviene sul tuo dispositivo e nessun dato del tuo mondo viene inviato a un server."
+   },
+   {
+    "q": "Come raggiungo un luogo che ho trovato sulla mappa?",
+    "a": "Clicca sull'indicatore. Il popup mostra le coordinate e un comando da console. In giocatore singolo puoi attivare la console con l'opzione di avvio **-console**, scrivere **devcommands** e poi usare il comando **goto**. Senza trucchi, orientati con le coordinate e con la distanza dal punto di spawn."
+   },
+   {
+    "q": "La mappa funziona sul telefono?",
+    "a": "Sì. La mappa funziona su tutti i browser moderni, anche su telefoni e tablet. Il calcolo di tutti i luoghi richiede qualche secondo, un po' di più sui dispositivi più vecchi."
+   },
+   {
+    "q": "Valheim-Map è gratis?",
+    "a": "Sì, del tutto, e senza bisogno di un account. Se la mappa ti ha risparmiato qualche ora di navigazione, puoi sostenere il progetto con una piccola donazione."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Seed scelti a mano, ognuno verificato con la mappa.",
+  "title": "I migliori seed di Valheim: lista verificata con link alla mappa",
+  "desc": "I migliori seed di Valheim per la versione attuale: partenze facili, mercanti vicino allo spawn, boss rush e seed ricchi di ferro. Ogni seed è stato ricalcolato e si apre direttamente sulla mappa interattiva.",
+  "h1": "I migliori seed di Valheim",
+  "intro": [
+   "Un buon seed fa risparmiare ore: un mercante raggiungibile a piedi, i primi boss sul continente di partenza, oppure una palude piena di cripte appena oltre il fiume. Il problema di quasi tutte le liste di seed è che si copiano a vicenda e non sono mai state ricontrollate dopo i cambiamenti alla generazione del mondo.",
+   "Questa lista è diversa. Abbiamo raccolto i seed più consigliati dalla community e li abbiamo **ricalcolati uno per uno** con il generatore di mondi della versione attuale del gioco. Le distanze qui sotto sono misurate dal punto di spawn, e ogni seed si apre sulla mappa interattiva con un clic. Dove un vecchio consiglio non vale più, lo diciamo oppure abbiamo tolto il seed."
+  ],
+  "factsH": "Distanze dallo spawn",
+  "colPlace": "Luogo",
+  "colDist": "Distanza",
+  "howH": "Come usare un seed",
+  "how": [
+   "In Valheim clicca su **Inizia partita**, scegli il personaggio e poi **Nuovo** nell'elenco dei mondi. Inserisci un nome per il mondo e scrivi il seed esattamente come riportato qui, rispettando maiuscole e minuscole. Su un server dedicato crea prima il mondo in locale e carica i file del mondo, oppure imposta il seed dalle impostazioni del tuo host.",
+   "Le distanze sono in linea d'aria dalle Pietre sacrificali. Ogni mercante conta una volta sola: il gioco prepara più accampamenti possibili, e il primo a cui ti avvicini diventa quello vero. La tabella usa sempre il più vicino."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "Il miglior tuttofare",
+    "text": [
+     "Se vuoi provare un solo seed, scegli questo. I primi cinque boss si trovano tutti entro 3,5 km dal punto di spawn: Eikthyr è a 120 m, l'Antico a 1,1 km, Moder a meno di 1 km, Bonemass a 1,9 km e Yagluth a 3,4 km. Quasi nessun altro mondo ha una progressione così compatta.",
+     "Haldor è accampato a 1,6 km dalle Pietre sacrificali, vicino alla distanza minima consentita dal gioco. Questo rende il seed ideale per una partita veloce e per i gruppi che vogliono affrontare i boss invece di navigare per ore."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Tutto a piedi, senza bisogno di navi",
+    "text": [
+     "In questo seed la terraferma di partenza contiene quasi tutto ciò che ti serve: i primi cinque boss, da Eikthyr a Yagluth, e tutti e tre i mercanti si raggiungono senza mai costruire una nave. Yagluth è ad appena 3 km dallo spawn, Moder a 1,9 km e l'Antico a 1,8 km.",
+     "Haldor è a 1,7 km, Hildir a 2,9 km e la Strega della palude a 3,1 km. Un mondo perfetto per chi non ama navigare e per le sfide senza barca fino alle Lande Nebbiose."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor sulla porta di casa",
+    "text": [
+     "Nessun seed della nostra lista ha il mercante più vicino: Haldor è accampato a soli 1.000 m circa dal punto di spawn, sulla terraferma di partenza. Puoi raggiungerlo a piedi il primo giorno e pianificare gli acquisti fin dall'inizio.",
+     "Anche la partenza è comoda. Eikthyr ti aspetta a 170 m dalle pietre e l'Antico a 1,2 km, anche lui raggiungibile a piedi. La Foresta Nera comincia a poco più di 100 m dallo spawn, quindi rame e stagno non sono mai lontani."
+    ]
+   },
+   "1k7md8": {
+    "title": "La partenza più veloce",
+    "text": [
+     "Eikthyr si trova a 60 m dal punto di spawn, praticamente in vista delle Pietre sacrificali. L'Antico segue a soli 650 m: è l'altare dell'Antico più vicino tra tutti i seed che abbiamo verificato. Puoi sconfiggere i primi due boss senza mai allontanarti da casa.",
+     "Anche il resto della prima parte del gioco resta a portata di mano: Moder a 2,1 km, Bonemass a 2,3 km e Yagluth a 3,1 km. Bonemass e Yagluth sono sulla terraferma di partenza. Solo Haldor è un po' più lontano, a 2,9 km, ma si raggiunge a piedi anche lui."
+    ]
+   },
+   "18mang": {
+    "title": "Mercanti a piedi e poca strada verso nord",
+    "text": [
+     "Tutti e tre i mercanti sono sulla terraferma di partenza: Haldor a 1,2 km, Hildir a 2,7 km e la Strega della palude a 3,5 km. Trovare Hildir a questa distanza è raro, perché di solito i suoi accampamenti sono oltre i 3 km. La prima Palude comincia a solo 1 km dallo spawn, con due Cripte sommerse entro 1,5 km, quindi il ferro arriva insolitamente presto.",
+     "La community consiglia questo seed per l'Alto nord, e i numeri le danno ragione: il bioma settentrionale comincia a circa 6,9 km dallo spawn, un chilometro buono più vicino che nella maggior parte dei mondi. Eikthyr è un po' più lontano del solito, a 800 m."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Cinque boss senza barca",
+    "text": [
+     "Eikthyr, l'Antico, Bonemass, Moder e Yagluth sono tutti sulla terraferma di partenza. Il pezzo forte è Moder: il suo altare è ad appena 1,5 km dallo spawn, e vicino alla partenza si alzano grandi montagne ricche d'argento.",
+     "Anche Haldor a 2,1 km e la Strega della palude a 3,2 km si raggiungono a piedi. Un ottimo seed per chi vuole stabilirsi in un posto solo e giocare tutto fino alle Pianure da un'unica base."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "Distanze brevi ovunque",
+    "text": [
+     "Un seed equilibrato e senza punti deboli. L'Antico è a 1,1 km dallo spawn, Bonemass e Moder entrambi a 2,3 km e Yagluth a 3,4 km. Haldor è accampato a 1,6 km.",
+     "La community conosce questo seed per la sua lunga striscia di terra quasi ininterrotta che corre da nord a sud. Così esplorare a piedi è facile e i viaggi per mare restano brevi."
+    ]
+   },
+   "Angel": {
+    "title": "Una partenza morbida per chi inizia",
+    "text": [
+     "Eikthyr è a 80 m dalle Pietre sacrificali e l'Antico a 1 km esatto. Haldor segue a 1,5 km, più o meno il minimo consentito dal gioco. Per i nuovi giocatori significa un percorso breve e chiaro nelle prime ore.",
+     "Anche gli obiettivi successivi restano a portata di mano: Moder è a 2,5 km, Bonemass a 2,7 km, e Hildir e la Strega della palude entrambe a circa 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder e l'Antico dietro casa",
+    "text": [
+     "Questo seed è lodato come uno dei migliori fin dall'aggiornamento 1.0, e la mappa ne conferma la sostanza: Eikthyr a 250 m, Moder a 1,3 km e l'Antico a 1,3 km, tutti e tre sulla terraferma di partenza. Bonemass è a 2 km.",
+     "Haldor è a 2,3 km dallo spawn e si raggiunge a piedi. Hildir e la Strega della palude sono entrambe a poco meno di 3 km, più vicine che nella maggior parte dei mondi."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "Argento subito: Moder a 1 km dallo spawn",
+    "text": [
+     "L'altare di Moder è a soli 1,1 km dal punto di spawn e sulla terraferma di partenza. Vuol dire che montagne, argento e armatura del lupo sono raggiungibili a piedi dalla tua prima base. Eikthyr si trova a 80 m dalle pietre e l'Antico a 1,4 km.",
+     "Anche Haldor è vicino, a 1,5 km, ma vive al di là dell'acqua, quindi ti serve una zattera o una breve nuotata. Il seed è apprezzato da tempo per la sua partenza panoramica nelle Praterie, con tanto spazio per costruire."
+    ]
+   },
+   "WorldEater": {
+    "title": "L'Antico entro 900 m",
+    "text": [
+     "Eikthyr a 230 m e l'Antico a 900 m garantiscono un ingresso molto rapido nell'età del bronzo. Bonemass è a 2,9 km sulla terraferma di partenza, quindi per i primi tre boss non serve nessuna nave.",
+     "La Strega della palude è accampata a 2,8 km dallo spawn e si raggiunge a piedi, così come Hildir. Moder è a 2,5 km, al di là dell'acqua."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "I primi tre boss su un'unica isola",
+    "text": [
+     "Eikthyr a 110 m, l'Antico a 1,2 km e Bonemass a 2,1 km sono tutti sulla terraferma di partenza. Puoi giocare dall'età della pietra a quella del ferro senza costruire una nave.",
+     "Hildir e la Strega della palude vivono sulla stessa terraferma, a poco più di 3 km. Yagluth a 3,2 km e Moder a 3,5 km sono a un breve viaggio per mare."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Isola compatta con un mercante",
+    "text": [
+     "Un tempo questo seed era considerato difficile. Nella versione attuale è una partenza compatta e piacevole: Eikthyr a 140 m, l'Antico a poco meno di 1 km e Bonemass a 2,3 km, tutti sulla terraferma di partenza.",
+     "Anche Haldor a 1,9 km e Hildir a 2,9 km si raggiungono a piedi. Solo per Moder devi mettere in conto un viaggio più lungo."
+    ]
+   },
+   "feret2": {
+    "title": "Bonemass a due passi",
+    "text": [
+     "Qui Bonemass è a soli 1,9 km dallo spawn, una delle distanze più brevi che abbiamo trovato. Moder segue a 2,2 km ed Eikthyr a 250 m. Se vuoi arrivare in fretta a ferro e argento, è una buona scelta.",
+     "Haldor è accampato a 1,5 km dalle Pietre sacrificali, vicino alla distanza minima, ma al di là dell'acqua. Il seed è noto anche per la sua zona di partenza varia, con molti biomi vicini tra loro."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor e Moder nei dintorni",
+    "text": [
+     "Haldor è a 1,5 km dallo spawn, praticamente la distanza minima, e Moder a soli 1,8 km. L'Antico segue a 2,2 km.",
+     "La zona di partenza è grande e varia, con Foresta Nera e Montagna vicine alle Praterie. Un buon seed per una partita lunga e rilassata con una base principale al centro."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "Il classico, verificato di nuovo",
+    "text": [
+     "Questo è probabilmente il seed di Valheim più famoso in assoluto. Era conosciuto come il seed da speedrun con quattro boss vicino allo spawn. Dopo diversi aggiornamenti alla generazione del mondo non è più così, eppure molte liste ripetono ancora la vecchia affermazione.",
+     "Quello che resta è comunque discreto: Eikthyr a 440 m, Haldor a 1,6 km e Bonemass a 2,2 km, tutti sulla terraferma di partenza. L'Antico è a 2,9 km e Yagluth a 3,1 km, al di là dell'acqua. Moder invece ora è a più di 6 km dallo spawn. Va bene per la nostalgia, ma oggi i seed più in alto sono migliori."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "Tutti i boss in ordine: come trovarli, evocarli e sconfiggerli.",
+  "title": "Boss di Valheim: ordine, posizioni, evocazione e consigli",
+  "desc": "Tutti i boss di Valheim in ordine, da Eikthyr a Fader: dove trovare gli altari, cosa serve per evocarli, i punti deboli e i migliori consigli per ogni scontro.",
+  "h1": "I boss di Valheim in ordine",
+  "intro": [
+   "La storia di Valheim si racconta attraverso i suoi boss, i Rinnegati. Ognuno sorveglia un bioma e ognuno lascia l'oggetto che apre il passo successivo: la piccozza di corna per scavare, la chiave delle cripte della palude, la forcula che trova l'argento. Sconfiggerli in ordine è la spina dorsale di ogni partita.",
+   "La tabella mostra tutti i boss della progressione principale con bioma, salute e oggetti da sacrificare. Ogni boss ha una pagina dedicata con punti deboli, schemi d'attacco e consigli pratici. In ogni mondo ci sono più altari per ciascun boss. Inserisci il tuo seed sulla mappa per vedere dove si trovano i tuoi."
+  ],
+  "outro": [
+   "Ogni boss sconfitto lascia un trofeo. Appendilo al suo gancio alle Pietre sacrificali per sbloccare il Potere dei Rinnegati di quel boss. Puoi avere un solo potere selezionato alla volta. Dura 5 minuti e poi ha bisogno di 20 minuti per ricaricarsi.",
+   "In multigiocatore i boss diventano più resistenti e colpiscono più forte per ogni giocatore in più nelle vicinanze, quindi essere in tanti non rende lo scontro una passeggiata."
+  ],
+  "pageTitle": "{boss}: posizione, evocazione e consigli",
+  "pageDesc": "Come sconfiggere {boss} in Valheim: dove trovare l'altare nel bioma {biome}, gli oggetti per l'evocazione, i punti deboli, gli attacchi e i migliori consigli e trucchi per lo scontro.",
+  "showOnMap": "Mostra sulla mappa gli altari di {boss}",
+  "findH": "Come trovare {boss}",
+  "prepH": "Preparazione",
+  "attacksH": "Attacchi",
+  "tipsH": "Consigli e trucchi",
+  "rewardH": "Ricompensa",
+  "list": {
+   "eikthyr": {
+    "lead": "Eikthyr, il cervo del fulmine, è il primo boss di Valheim. Ti aspetta nelle Praterie ed è una prova leggera sulle basi: parare, schivare e gestire la resistenza.",
+    "power": "60% di resistenza in meno consumata per correre, saltare e nuotare.",
+    "find": [
+     "L'altare di Eikthyr si trova sempre nelle Praterie, di solito a poche centinaia di metri dal punto di spawn. La pietra runica rossa e luminosa alle Pietre sacrificali segna l'altare sulla tua mappa non appena la leggi.",
+     "Per evocarlo, metti **2 Trofei di cervo** sull'altare. I cervi lasciano un trofeo più o meno un'uccisione su due. Avvicinati di soppiatto controvento oppure cacciali con un Arco grezzo."
+    ],
+    "prep": [
+     "Crea un set completo di armatura di cuoio e, se puoi, miglioralo una volta.",
+     "Porta un'Asta di selce, un'Ascia di selce o un Randello, un Arco grezzo con una cinquantina di frecce e uno Scudo di legno.",
+     "Prima dello scontro mangia tre cibi diversi, per esempio Carne di cinghiale cotta, Coda di Neck grigliata e Lamponi o Funghi.",
+     "Prima dormi, così combatti con il bonus Riposato. Accelera parecchio la rigenerazione della resistenza."
+    ],
+    "attacks": [
+     "**Carica con le corna:** scatta in avanti e mena un colpo con le corna. Paralo con lo scudo oppure spostati di lato.",
+     "**Saetta:** si impenna e scaglia una linea di fulmini dritta davanti a sé, soprattutto quando non ha nessuno accanto. Schiva di lato.",
+     "**Pestone elettrico:** si alza sulle zampe posteriori e si abbatte al suolo, colpendo tutto ciò che ha intorno. Rotola all'indietro quando si impenna."
+    ],
+    "tips": [
+     "Tieni lo scudo tondo alzato e attacca subito dopo ogni suo attacco. Quasi tutto quello che fa si può parare, anche con un semplice Scudo di legno.",
+     "Non lasciare mai che la resistenza scenda a zero. Senza resistenza non puoi né parare né schivare, ed è così che fallisce la maggior parte dei primi tentativi.",
+     "Le rocce e gli alberi intorno all'altare fermano i suoi fulmini. Usali come riparo se preferisci l'arco.",
+     "Combatti di giorno. Di notte si uniscono alla festa i Nani grigi e altre creature.",
+     "Se lo scontro si mette male, scappa. Eikthyr non sparisce e per un po' conserva i danni che gli hai inflitto."
+    ],
+    "reward": [
+     "Eikthyr lascia **3 Corna dure** e il suo trofeo. Con le corna crei la Piccozza di corna di cervo, il tuo primo piccone, che ti permette di estrarre stagno e rame nella Foresta Nera e di dare inizio all'età del bronzo.",
+     "Il suo Potere dei Rinnegati rende molto meno faticosi la corsa e il salto. Resta utile per tutta la partita: per esplorare, per scappare e per trasportare minerale."
+    ]
+   },
+   "elder": {
+    "lead": "L'Antico è un gigantesco albero vivente ed è il secondo boss. Domina la Foresta Nera e punisce chi lo affronta allo scoperto. Con le frecce infuocate e un pilastro dietro cui ripararti diventa molto gestibile.",
+    "power": "60% di danni in più quando abbatti alberi e scavi, e rigenerazione della salute più veloce del 30%.",
+    "find": [
+     "L'altare dell'Antico si trova nella Foresta Nera: una piattaforma di pietra con quattro alti pilastri intorno a un braciere. Le pietre runiche rosse nelle Camere funerarie e in alcune torri di pietra in rovina segnano sulla tua mappa l'altare più vicino.",
+     "Per evocarlo, brucia **3 Semi antichi** nel braciere. I semi vengono lasciati dai Nani grigi spietati e dai Nani grigi sciamani, e sempre dai Nidi dei Nani grigi distrutti, i generatori che brillano di viola."
+    ],
+    "prep": [
+     "L'armatura di bronzo è l'ideale. L'armatura di cuoio di troll è una buona alternativa e costa molto meno.",
+     "Porta un Arco di legno pregiato e almeno 100 **frecce infuocate**. L'Antico è debole al fuoco e l'effetto delle fiamme continua a fare danni.",
+     "Prendi un Brocchiero di bronzo o uno Scudo striato e un'ascia per le radici.",
+     "Prepara qualche Idromele salutare e mangia i tuoi tre cibi migliori, per esempio Stufato di cervo, Zuppa di carote e Marmellata della regina.",
+     "Elimina i Nidi dei Nani grigi intorno all'altare, abbatti gli alberi vicini e costruisci un piccolo rifugio con un portale a breve distanza."
+    ],
+    "attacks": [
+     "**Raffica di rampicanti:** allunga le braccia e spara una raffica di rampicanti a lunga distanza. Mettiti dietro uno dei quattro pilastri. Non possono essere distrutti.",
+     "**Pestone:** da vicino calpesta il terreno infliggendo danni pesanti. Tieniti a distanza oppure rotola via.",
+     "**Radici:** fa spuntare intorno a te un campo di radici che frustano chiunque sia vicino. Esci dalla zona. Le radici spariscono dopo un po', oppure puoi abbatterle con un'ascia."
+    ],
+    "tips": [
+     "Gioca intorno ai pilastri: esci, tira due o tre frecce infuocate, rientra prima che arrivino i rampicanti. Con questo ritmo semplice lo scontro è vinto.",
+     "Non combattere in mischia se non sei costretto. Il pestone fa molto più male di qualsiasi altra cosa a questo punto del gioco.",
+     "Gli alberi che cadono sono un pericolo vero. L'Antico li abbatte con i rampicanti, e un tronco in caduta può ucciderti sul colpo. Ripulire l'arena in anticipo elimina il rischio.",
+     "Evocalo di mattina. Lo scontro può durare parecchi minuti e di notte la foresta si affolla.",
+     "Un Fuocarello o un Falò vicino all'arena ti mantiene Riposato, e il fuoco lo danneggia se ci passa sopra."
+    ],
+    "reward": [
+     "L'Antico lascia la **Chiave della cripta** e il suo trofeo. La chiave apre le Cripte sommerse nella Palude, l'unica buona fonte di ferro.",
+     "Dopo la sconfitta dell'Antico, Haldor aggiunge al suo assortimento la Carne di Ymir e le Pietre del tuono, e la Strega della palude vende più ingredienti.",
+     "Il suo Potere dei Rinnegati velocizza parecchio il taglio della legna e l'estrazione. È perfetto per i grandi progetti di costruzione e per le spedizioni minerarie."
+    ]
+   },
+   "bonemass": {
+    "lead": "Bonemass è un enorme ammasso di ossa e melma nella Palude ed è il terzo boss. All'inizio molti giocatori falliscono qui, perché spade e frecce gli fanno appena il solletico. Con una mazza e la resistenza al veleno lo scontro cambia del tutto.",
+    "power": "25% di danni fisici subiti in meno (contundente, taglio, perforazione). Parare non consuma resistenza e anzi ne restituisce un po'.",
+    "find": [
+     "L'altare di Bonemass è un teschio gigante adagiato nella Palude. Le pietre runiche rosse dentro le Cripte sommerse segnano sulla tua mappa quello più vicino.",
+     "Per evocarlo, getta **10 Ossa rinsecchite** nel teschio. Le trovi nelle Cripte sommerse, nei forzieri e nelle Pile di rottami infangati che scavi comunque per il ferro."
+    ],
+    "prep": [
+     "Porta una **Mazza di ferro**, migliorata il più possibile. Bonemass è debole ai danni contundenti e resiste a taglio, perforazione e fuoco. Vanno bene anche lo Spaccacervi o il martello a due mani di ferro (che in gioco si chiama anch'esso Mazza di ferro).",
+     "Prepara l'**Idromele della resistenza al veleno** e portane almeno tre o quattro per giocatore. Senza, la sua nube di veleno uccide in pochi secondi.",
+     "Indossa un'armatura di ferro migliorata oppure il set di radici, e porta uno Scudo striato o di meglio.",
+     "Prendi Idromele molto salutare e Idromele della resistenza, e mangia Salsicce, Stufato di rape e altri cibi del livello della Palude.",
+     "Spiana il terreno intorno al teschio con una Zappa, così non combatti con l'acqua alle ginocchia, dove le Sanguisughe mordono e la resistenza non si rigenera mentre nuoti.",
+     "Costruisci nelle vicinanze un piccolo rifugio coperto con letto, fuoco e portale, meglio se su un terreno rialzato."
+    ],
+    "attacks": [
+     "**Pugno:** un ampio colpo che arriva più lontano di quanto sembri e infligge danni contundenti e da veleno. Bloccalo o paralo con uno scudo solido.",
+     "**Nube di veleno:** si piega all'indietro e vomita una grande nube che resta a lungo. Esci subito e aspetta che si dissolva.",
+     "**Evocazione:** si strappa un pezzo di sé e lo lancia. Dove atterra compaiono Scheletri e Blob. Uccidili in fretta prima che ti circondino."
+    ],
+    "tips": [
+     "Bevi l'Idromele della resistenza al veleno **prima** di evocarlo e rinnovalo quando l'icona comincia a lampeggiare. Dura 10 minuti.",
+     "L'animazione dell'evocazione è la tua occasione migliore: mentre lancia resta fermo per diversi secondi.",
+     "Parare il suo pugno non lo stordisce, ma ti protegge del tutto. Dopo colpiscilo due o tre volte, poi allontanati.",
+     "Le frecce gelate sono le uniche frecce che vale la pena usare contro di lui. Se hai già ossidiana e ghiandole congelate, permettono uno scontro a distanza sicuro.",
+     "Usa il potere di Eikthyr per uscire in fretta dalla nube di veleno, oppure quello dell'Antico per la rigenerazione in più.",
+     "L'attacco ad area dello Spaccacervi colpisce allo stesso tempo Bonemass e i nemici evocati."
+    ],
+    "reward": [
+     "Bonemass lascia la **Forcula** e il suo trofeo. Con la Forcula equipaggiata rilevi i filoni d'argento nascosti in Montagna, i tesori sepolti nelle Praterie e le Pile di rottami infangati nella Palude.",
+     "Il suo Potere dei Rinnegati è il miglior potere difensivo del gioco. Molti giocatori lo tengono per tutti i boss successivi."
+    ]
+   },
+   "moder": {
+    "lead": "Moder è la madre dei draghi della Montagna ed è il quarto boss. Attacca dall'aria e da terra, e il suo soffio gelido congela chiunque ci finisca dentro. Un buon arco e la protezione dal gelo decidono lo scontro.",
+    "power": "Vento sempre in poppa quando navighi, 300 di peso trasportabile in più, movimento più veloce del 10% e 50% di resistenza al gelo.",
+    "find": [
+     "L'altare di Moder si trova sulla cima di una montagna, di solito su un altopiano ampio e pianeggiante. Le pietre runiche rosse nelle rovine di pietra in Montagna e nelle Caverne ghiacciate lo segnano sulla tua mappa.",
+     "Per evocarla, metti **3 Uova di drago** sull'altare. Le uova si trovano nei nidi in Montagna. Ognuna pesa 200 e non può passare da un portale, quindi le porti una alla volta, oppure in un solo viaggio se siete in tre."
+    ],
+    "prep": [
+     "Indossa l'armatura del lupo: la Corazza del lupo e il Mantello di pelliccia di lupo ti proteggono dal congelamento. Senza, ti serve l'**Idromele della resistenza al freddo** per tutta la spedizione.",
+     "Porta il miglior arco che hai, meglio se la Zanna del Non morto, e 150 frecce o più. Moder è debole al fuoco, quindi le **frecce infuocate** sono economiche e potenti. Vanno bene anche le frecce di ossidiana e quelle avvelenate. Le frecce gelate non servono a niente.",
+     "Prendi una Spada d'argento o un'altra arma da mischia migliorata per le fasi a terra.",
+     "Metti nello zaino Idromele molto salutare e Idromele della resistenza, e mangia cibi che danno tanta salute, come Stufato di serpente, Salsicce e Stufato di rape.",
+     "Prima di cominciare ripulisci l'altopiano da Lupi, Draghi e Golem di Pietra, e piazza un portale con un piccolo rifugio sotto la cima."
+    ],
+    "attacks": [
+     "**Raffica di ghiaccio (in volo):** ti sorvola e spara una fila di proiettili di ghiaccio che esplodono in cristalli. Continua a correre di lato.",
+     "**Soffio gelido (a terra):** un ampio cono di gelo dritto davanti a sé che ti rallenta tantissimo. Spostati sul suo fianco non appena abbassa la testa.",
+     "**Morso e artigli:** a distanza ravvicinata morde e colpisce con le zampe. Entrambi gli attacchi si possono parare con un buono scudo."
+    ],
+    "tips": [
+     "Tirale addosso ogni volta che è in volo o sta atterrando. La sua traiettoria è lenta e prevedibile, quindi quasi tutte le frecce vanno a segno.",
+     "Quando atterra, girale intorno fino al fianco. Il soffio colpisce solo ciò che ha davanti, e di lato puoi attaccare liberamente.",
+     "Se il gelo ti colpisce diventi lento e facile da colpire di nuovo. Se sei congelato, para invece di correre.",
+     "I cristalli di ghiaccio della sua raffica si possono distruggere e, allo scoperto, offrono un piccolo riparo.",
+     "Il potere di Bonemass rende molto più sicure le fasi in mischia. Con l'arco, il potere di Eikthyr ti aiuta a restare in movimento.",
+     "Porta su le uova prima dello scontro e lasciale all'altare. Non spariscono."
+    ],
+    "reward": [
+     "Moder lascia **10 Lacrime del drago** e il suo trofeo. Con le lacrime costruisci il Tavolo da artigiano, che sblocca il Mulino, l'Altoforno e la Ruota per filare, e con loro l'equipaggiamento delle Pianure.",
+     "Dopo la sua sconfitta Haldor vende le Tasche più capienti, una fila in più nell'inventario, e la Strega della palude aggiunge diversi oggetti al suo assortimento.",
+     "Il suo Potere dei Rinnegati ti dà vento in poppa in ogni viaggio e tanto peso trasportabile in più. È il preferito di ogni marinaio e di chi trasporta minerale."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, il re caduto dei Fuling, è il quinto boss. Di lui resta solo il busto, che si trascina per le Pianure, ma il suo fuoco e i suoi meteoriti ne fanno uno degli scontri più letali del gioco. Qui la resistenza al fuoco non è facoltativa.",
+    "power": "10% di danni in più, 50% di resistenza ai fulmini e 25 livelli extra di Agricoltura.",
+    "find": [
+     "L'altare di Yagluth si trova nelle Pianure: un cerchio di enormi dita di pietra che spuntano dal terreno. Le pietre runiche rosse nei cerchi di pietre delle Pianure lo segnano sulla tua mappa. Sono rare, quindi qui la mappa ti risparmia una lunga ricerca.",
+     "Per evocarlo, metti **5 Totem dei Fuling** sull'altare. Trovi un totem in quasi tutti i villaggi dei Fuling, e ogni tanto ne lasciano uno i Berserker Fuling. I totem possono passare dai portali."
+    ],
+    "prep": [
+     "Prepara il **Vino d'orzo della resistenza al fuoco** e portane diversi per giocatore. Dura 10 minuti e deve restare attivo per tutto lo scontro.",
+     "Indossa l'armatura imbottita migliorata al massimo. L'armatura del lupo è il minimo.",
+     "Porta una Spada di metallo nero, il Porcospino o Frostner. Yagluth resiste molto ai danni da perforazione, quindi lance, atgeir e quasi tutte le frecce sono scelte scarse.",
+     "Se vuoi combattere a distanza, usa le frecce gelate e preparati a uno scontro lungo.",
+     "Prendi Idromele molto salutare e Idromele della resistenza, e mangia il miglior cibo delle Pianure: Torta di carne di Lox, Pudding di sangue, Involtini di pesce.",
+     "Prima elimina tutti i Fuling, i Lox e le Mortzanzare intorno all'altare e piazza un portale a distanza di sicurezza."
+    ],
+    "attacks": [
+     "**Soffio di fuoco:** alza la testa e ti insegue con un lungo raggio di fuoco. Corri di lato o mettiti dietro una delle dita di pietra.",
+     "**Pugno a terra:** il suo pugno si illumina di blu, poi colpisce il terreno e provoca una grande esplosione. Allontanati non appena vedi il bagliore.",
+     "**Meteoriti:** la sua mano si illumina di arancione e sulla tua posizione piovono meteoriti per diversi secondi. Continua a correre in una direzione finché non smette."
+    ],
+    "tips": [
+     "Ogni attacco è annunciato da un bagliore ben visibile. Impara i tre segnali e lo scontro diventa tranquillo: attacca, guarda il bagliore, spostati, ripeti.",
+     "Attacca da dietro o di lato e solo con due o tre colpi alla volta. Qui è l'avidità a uccidere i giocatori.",
+     "Le dita di pietra bloccano il soffio di fuoco, ma i meteoriti le scavalcano. Non riposarti dietro un pilastro durante la pioggia di meteoriti.",
+     "Quando sei in fiamme ti fai prendere dal panico e sprechi resistenza. Con il vino d'orzo attivo i danni da fuoco sono più o meno dimezzati e lo scontro perdona molto.",
+     "Attiva il potere di Bonemass quando cominci la fase in mischia. Rinnova il vino d'orzo in anticipo, non quando è già finito.",
+     "Yagluth è lento. Se devi curarti o mangiare, ti basta allontanarti da lui."
+    ],
+    "reward": [
+     "Yagluth lascia **3 Spiriti tormentati** e il suo trofeo. Con uno Spirito tormentato costruisci la Fontana del fuoco fatuo. Raccoglie i fuochi fatui, che ti servono per il Fuoco fatuo equipaggiabile, quello che dirada la nebbia nelle Lande Nebbiose.",
+     "Dopo la sua sconfitta Haldor vende le uova per allevare i polli, e la Strega della palude aggiunge la spezia delle Pianure.",
+     "Il suo Potere dei Rinnegati aumenta di un decimo tutti i tuoi danni. È un'ottima scelta per le Lande Nebbiose e per i boss successivi."
+    ]
+   },
+   "queen": {
+    "lead": "La Regina è la madre dei Cercatori ed è il sesto boss. Vive nel cuore della Cittadella infestata, nelle Lande Nebbiose, e non combatte mai da sola: la sua covata si schiude intorno a te in continuazione. Una buona preparazione e il controllo della sua prole decidono lo scontro.",
+    "power": "L'eitr si rigenera il doppio più in fretta, muoversi furtivamente non consuma resistenza e ottieni il 50% di resistenza al veleno.",
+    "find": [
+     "La Regina non si evoca. Ti aspetta dentro la **Cittadella infestata**, un enorme edificio sigillato nelle Lande Nebbiose. Le pietre runiche rosse nelle Miniere infestate segnano la cittadella sulla tua mappa.",
+     "La porta si apre solo con il **Rompisigilli**. Lo crei al Tavolo galdr con **9 Frammenti di rompisigilli**, che trovi nelle Miniere infestate. Per affrontarla di nuovo in seguito, metti 3 Trofei soldato cercatore sull'altare all'interno."
+    ],
+    "prep": [
+     "Indossa l'armatura di carapace migliorata per la mischia, oppure la Veste intrisa di eitr se combatti con la magia.",
+     "Resiste ai danni da perforazione. Usa armi da taglio o contundenti come la Fenditrice della nebbia, Krom o la Devastazione. Archi e lance fanno poco.",
+     "Qui la magia è fortissima: il Bastone di brace spazza via la covata, il Bastone della protezione fa da scudo al gruppo e l'Anima-defunti distrae i nemici.",
+     "Bevi l'**Idromele della resistenza al veleno** prima di entrare, e porta Idromele estremamente salutare, Idromele della resistenza e Idromele dell'eitr.",
+     "Mangia il miglior cibo delle Lande Nebbiose. Per chi usa la magia almeno un cibo da eitr è obbligatorio.",
+     "Nella cittadella non c'è nebbia, ma porta il tuo Fuoco fatuo per il tragitto. Un Mantello di piume ti permette di saltare giù dai piani alti senza rischi.",
+     "Dentro la cittadella puoi costruire. Un Banco di lavoro, un portale subito fuori dalla porta e qualche muro di pietra come riparo aiutano parecchio."
+    ],
+    "attacks": [
+     "**Fendente e carica:** ampi colpi con le zampe anteriori e una carica strisciante. Schiva di lato o para con uno scudo robusto.",
+     "**Morso:** un affondo dritto in avanti con pesanti danni da perforazione e da veleno. Non restare davanti alla sua testa.",
+     "**Affondo a terra:** si impenna e trafigge il terreno con tutte e quattro le braccia, colpendo tutto ciò che ha intorno. Arretra quando si alza.",
+     "**Sputo:** diversi proiettili velenosi che esplodono e liberano Covate di cercatori.",
+     "**Richiamo:** lancia un urlo ed evoca Cercatori e covate.",
+     "**Scavo:** si infila nel terreno e riappare in un altro punto della sala."
+    ],
+    "tips": [
+     "Uccidi la covata senza sosta. Una dozzina di piccoli Cercatori fa più danni della Regina stessa. Gli attacchi ad area come quelli della Devastazione o del Bastone di brace sono l'ideale.",
+     "Sfrutta le scale e i piani alti della cittadella. Allo scoperto è veloce, ma sulle rampe è lenta, e questo ti dà il tempo di curarti e recuperare resistenza.",
+     "Tutti i suoi attacchi in mischia ti scaraventano all'indietro. Non dare le spalle a muri e cornicioni.",
+     "In gruppo, un giocatore con uno scudo torre tiene la sua attenzione mentre gli altri si occupano dei nemici evocati e attaccano da dietro.",
+     "Il potere di Bonemass è eccellente per la mischia. Chi usa la magia porta alla rivincita il potere della Regina stessa, oppure quello di Yagluth per più danni.",
+     "Se muori, la tua tomba resta dentro la sala. Un portale subito fuori dalla porta accorcia la corsa per recuperare gli oggetti."
+    ],
+    "reward": [
+     "La Regina lascia **5 Carapaci maestosi** e il suo trofeo. Con il carapace costruisci la Pressa artigianale, che ti serve per l'equipaggiamento e per le navi che ti portano nelle Lande desolate.",
+     "Dopo la sua sconfitta Haldor vende le Tasche più profonde, un'altra fila nell'inventario, e la Strega della palude aggiunge la spezia delle Lande Nebbiose.",
+     "Il suo Potere dei Rinnegati raddoppia la rigenerazione dell'eitr. Per le build magiche è il miglior potere del gioco."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, il drago non morto delle Lande desolate, è il settimo boss. Non ha punti deboli, ha il doppio della salute della Regina e riempie la sua arena di fuoco verde. Questo scontro richiede il miglior equipaggiamento che le Lande desolate possano offrire e un movimento continuo.",
+    "power": "L'adrenalina si accumula il doppio più in fretta, vieni stordito molto meno facilmente e ottieni il 50% di resistenza al fuoco.",
+    "find": [
+     "L'altare di Fader si trova in una grande arena circolare nelle Lande desolate. Le pietre runiche rosse dentro le Fortezze carbonizzate lo segnano sulla tua mappa.",
+     "Per evocarlo ti servono **3 Campane**. Ogni Campana si forgia con **3 Frammenti di campana** alla Forgia nera, e i frammenti si trovano nei forzieri delle Fortezze carbonizzate. Sfonda i cancelli della fortezza con un Ariete da sfondamento, ripuliscila e saccheggia la torre. Piazza le tre Campane nell'arena e attiva l'altare."
+    ],
+    "prep": [
+     "Indossa l'armatura di fiammetal migliorata al massimo, oppure il set di Ask se preferisci un'armatura leggera.",
+     "Fader è immune a fuoco e spirito e resiste alla perforazione. Usa armi da taglio o contundenti, meglio se con danni da gelo o da fulmini.",
+     "Bevi il **Vino d'orzo della resistenza al fuoco** e rinnovalo durante lo scontro.",
+     "Prendi Idromele estremamente salutare e Idromele della resistenza maggiore, e mangia il miglior cibo delle Lande desolate in tutti e tre gli slot.",
+     "Ripulisci a fondo i dintorni dell'arena. Carbonizzati, Morgen e Cenerali che arrivano per caso rendono lo scontro un caos.",
+     "Costruisci un portale e un piccolo rifugio di pietra fuori dall'arena. Nelle Lande desolate i nemici compaiono di continuo, quindi proteggi il portale con dei muri."
+    ],
+    "attacks": [
+     "**Morso e artigli:** attacchi in mischia ampi e pesantissimi davanti a sé. Para con uno scudo robusto oppure resta sul suo fianco.",
+     "**Giravolta:** ruota su se stesso e colpisce tutto ciò che ha intorno. Arretra quando comincia a girare.",
+     "**Soffio di fiamme:** una linea di fuoco che lascia il terreno in fiamme. Non si può parare. Esci dalla linea spostandoti di lato.",
+     "**Fenditura:** colpisce il terreno e una crepa corre verso di te, esplodendo in spuntoni e lasciando una pozza di fuoco verde.",
+     "**Muro di fuoco:** un anello di fiamme si chiude intorno a te. Esci immediatamente.",
+     "**Meteoriti:** si impenna e i meteoriti piovono su tutta l'arena.",
+     "**Evocazione:** sputa sfere che si trasformano in Guerrieri carbonizzati e Tiratori scelti carbonizzati."
+    ],
+    "tips": [
+     "Resta al suo fianco o alle sue spalle. Quasi tutti gli attacchi pericolosi sono rivolti in avanti.",
+     "Non restare mai nel fuoco verde. Le pozze durano a lungo e pian piano rimpiccioliscono l'arena, quindi attiralo in una zona pulita.",
+     "Muoviti per tutto il tempo. La maggior parte dei suoi attacchi ad area mira al punto in cui ti trovi quando li comincia.",
+     "Uccidi in fretta i Carbonizzati evocati, oppure mettiti in modo che siano gli attacchi di Fader a colpirli.",
+     "Con il potere di Bonemass e uno scudo torre si sopravvive ai suoi attacchi in mischia. Non provare a parare il soffio o la fenditura.",
+     "In gruppo dividetevi i ruoli: un giocatore tiene la sua attenzione, uno si occupa dei nemici evocati, gli altri fanno danni."
+    ],
+    "reward": [
+     "Fader lascia **5 Toraci bruciati** e il suo trofeo. I toraci servono per la Pira eterna e aprono la strada all'ultimo livello di creazione prima dell'Alto nord.",
+     "Dopo la sua sconfitta la Strega della palude vende la spezia delle Lande desolate.",
+     "Il suo Potere dei Rinnegati fa accumulare l'adrenalina il doppio più in fretta e ti rende molto più difficile da stordire. È un'ottima scelta per le build da mischia aggressive."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir e la Strega della palude: posizioni, merci e prezzi.",
+  "title": "Mercanti di Valheim: posizioni, merci e prezzi",
+  "desc": "Tutti i mercanti di Valheim in breve: dove trovare Haldor, Hildir e la Strega della palude, cosa vendono, quanto costa e quali oggetti di valore puoi vendere in cambio di monete.",
+  "h1": "I mercanti di Valheim",
+  "intro": [
+   "In Valheim vivono tre mercanti, e in ogni mondo ognuno si nasconde in un posto diverso. Haldor vende equipaggiamento utile nella Foresta Nera, Hildir vende vestiti nelle Praterie e ti affida una missione, e la Strega della palude vende ingredienti per cucinare e preparare idromele nella Palude.",
+   "Cercarli senza aiuto può richiedere decine di ore. Inserisci il tuo seed sulla mappa e vedrai subito tutti gli accampamenti possibili. Tutti i prezzi di queste pagine sono presi direttamente dai dati di gioco."
+  ],
+  "sellH": "Cosa puoi vendere",
+  "sellP": [
+   "Le monete sono l'unica valuta, e le ottieni vendendo oggetti di valore. Tutti e tre i mercanti comprano gli stessi oggetti agli stessi prezzi. Monete, rubini e ambra si trovano nelle Camere funerarie, nelle Grotte dei troll, nelle Cripte sommerse e nei villaggi dei Fuling."
+  ],
+  "outro": [
+   "L'accampamento di ogni mercante è protetto. I nemici non possono entrare, quindi è anche un posto sicuro per un portale."
+  ],
+  "pageTitle": "{trader}: posizione, merci e prezzi",
+  "pageDesc": "Dove trovare {trader} in Valheim e cosa c'è in vendita: tutte le {n} merci con prezzi, condizioni di sblocco e consigli. Trova l'accampamento nel bioma {biome} del tuo mondo con la mappa dei seed.",
+  "showOnMap": "Mostra {trader} sulla mappa",
+  "findH": "Dove trovare {trader}",
+  "waresH": "Cosa vende {trader}",
+  "tipsH": "Consigli",
+  "list": {
+   "haldor": {
+    "teaser": "equipaggiamento, pesca e più spazio nell'inventario",
+    "lead": "Haldor è un mercante nano accampato nella Foresta Nera con il suo Lox Halstein. Vende alcuni degli oggetti più utili del gioco, primo fra tutti la cintura Megingjord, che ti permette di trasportare 150 di peso in più.",
+    "find": [
+     "L'accampamento di Haldor si trova sempre nella Foresta Nera. Il gioco prepara fino a dieci possibili accampamenti per mondo, di solito a più di 1.500 metri dal centro della mappa. Il primo a cui ti avvicini diventa quello vero, e tutti gli altri spariscono.",
+     "Quando arrivi a poche centinaia di metri, sulla tua mappa compare l'icona di un sacco. L'accampamento è circondato da una bolla protettiva che tiene fuori i nemici. All'interno non si può costruire, ma un portale subito fuori dalla bolla va benissimo."
+    ],
+    "waresP": [
+     "Una parte del suo assortimento è disponibile solo dopo che hai sconfitto certi boss. I prezzi sono in monete."
+    ],
+    "tips": [
+     "Compra per prima cosa **Megingjord**. 150 di peso trasportabile in più aiutano in tutto, dall'estrazione al ritorno a casa in nave con il ferro.",
+     "Il **Diadema di Dverger** è una lampada frontale che ti lascia le mani libere. È comodissimo in cripte e caverne, ma occupa lo slot dell'elmo.",
+     "Le **Tasche più capienti** e le **Tasche più profonde** aggiungono ciascuna una fila permanente al tuo inventario. Costano tanto, ma valgono ogni moneta.",
+     "La **Carne di Ymir** serve per il martello a due mani di ferro (in gioco Mazza di ferro), per Frostner e per altri oggetti potenti. Le **Pietre del tuono** servono per l'Obliteratore.",
+     "Da un **Uovo** nasce un pulcino se lo tieni al caldo. Due galline bastano per avere la tua scorta di uova e carne di pollo, quindi ti basta comprarne due.",
+     "La **Canna da pesca** funziona solo con l'esca. La semplice Esca da pesca venduta da Haldor è la base di tutte le esche speciali del gioco.",
+     "Metti da parte i soldi prima di partire: con circa 2.000 monete puoi permetterti cintura, diadema e canna da pesca in una sola visita."
+    ]
+   },
+   "hildir": {
+    "teaser": "abbigliamento, barbiere e una missione in tre parti",
+    "lead": "Hildir è la sorella di Haldor. Vende vestiti, cappelli e oggetti per le feste nelle Praterie. Quasi tutta la sua merce è stata rubata, e ti chiede di riportarle tre forzieri da tre dungeon speciali.",
+    "find": [
+     "L'accampamento di Hildir si trova nelle Praterie, ma lontano dal punto di spawn, di solito ad almeno 3.000 metri dal centro della mappa. Come per Haldor ci sono fino a dieci accampamenti possibili, e il primo a cui ti avvicini diventa quello vero.",
+     "Quando ti avvicini, sulla tua mappa compare l'icona di una maglia. Nel suo accampamento c'è un tavolo con una mappa. Leggendola, sulla tua mappa viene segnato il più vicino dei dungeon della sua missione."
+    ],
+    "waresP": [
+     "All'inizio vende solo una manciata di oggetti. Ogni forziere che le riporti sblocca un'altra parte del suo assortimento."
+    ],
+    "tips": [
+     "Il **Forziere d'ottone** si trova in una Tomba fumante nella Foresta Nera, il **Forziere d'argento** in una Caverna urlante in Montagna e il **Forziere di bronzo** in una Torre sigillata nelle Pianure. Ognuno è sorvegliato da un mini boss.",
+     "I forzieri non possono passare dai portali e sono pesanti. Prima di entrare organizza il ritorno a piedi, con il carretto o in nave.",
+     "I dungeon della missione diventano più difficili in quest'ordine. Brenna nella tomba infligge danni da fuoco, Geirrhafa nella caverna danni da gelo, e i due fratelli Fuling Zil e Thungr nella torre combattono insieme.",
+     "Anche tutti i dungeon della missione sono sulla mappa. Attiva gli indicatori della missione di Hildir per trovare quelli più vicini al suo accampamento.",
+     "Con il **Kit da barbiere** costruisci il Barbiere, dove puoi cambiare capelli e barba quando vuoi.",
+     "I suoi vestiti sono soprattutto estetici, ma sono leggeri e non ti rallentano. Gli abiti **del raccolto** sono tra i preferiti per coltivare.",
+     "Il **Braciere** è un focolare decorativo, e per lanciare i fuochi d'artificio serve un Falò."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "ingredienti per banchetti, idromele e agricoltura",
+    "lead": "La Strega della palude vive in una capanna sbilenca nella Palude insieme al suo gigantesco Kvastur. Vende ingredienti che non trovi da nessun'altra parte: spezie per i grandi banchetti, ingredienti per nuovi tipi di idromele e cose utili per la tua fattoria.",
+    "find": [
+     "L'accampamento della Strega della palude si trova nella Palude. Anche qui il gioco prepara fino a dieci accampamenti possibili, e il primo a cui ti avvicini resta nel tuo mondo.",
+     "Quando sei vicino, sulla tua mappa compare l'icona di un calderone. Il suo accampamento è protetto dai nemici, il che lo rende un gradito posto sicuro nella Palude. Porta comunque l'Idromele della resistenza al veleno per il tragitto."
+    ],
+    "waresP": [
+     "Quasi tutte le sue spezie diventano disponibili solo dopo che hai sconfitto il boss del bioma corrispondente. Molti oggetti sono venduti in confezioni. La tabella indica il prezzo per confezione."
+    ],
+    "tips": [
+     "Le **spezie** sono l'ingrediente chiave dei banchetti. Un banchetto messo su un tavolo sfama tutto il gruppo con uno dei cibi più forti del suo livello e basta per molte porzioni.",
+     "Il **Vassoio da portata** ti permette di trasportare un banchetto già pronto e di posarlo altrove, per esempio subito prima di uno scontro con un boss.",
+     "Il **Manico di falce** serve per la Falce, che miete interi campi con un solo colpo. È uno dei migliori acquisti per chi coltiva molto.",
+     "Gli **Stoppini** servono per le candele, e dai **Semi di edera** cresce l'edera rampicante sui tuoi edifici.",
+     "Alghe fresche, Tendine di scoiattolo stagionato, Gusci di uova di drago in polvere e Ciottoli pungenti sono ingredienti per i tipi di idromele più recenti, che migliorano abilità come il nuoto e la corsa o proteggono dai fulmini.",
+     "I Funghi velenosi e i Fasci fragranti diventano disponibili dopo Moder. Servono per l'Idromele di berserkir e per un idromele che ti libera dagli effetti negativi.",
+     "Le sue merci costano poco rispetto a quelle di Haldor. Per una prima visita bastano poche centinaia di monete."
+    ]
+   }
+  }
+ }
+}

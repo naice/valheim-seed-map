@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Karta",
+  "seeds": "Bästa seeds",
+  "bosses": "Bossar",
+  "traders": "Handlare",
+  "guides": "Guider och FAQ"
+ },
+ "common": {
+  "openMap": "Öppna på kartan",
+  "showOnMap": "Visa på kartan",
+  "meters": "{n} m",
+  "boss": "Boss",
+  "biome": "Biom",
+  "health": "Hälsa",
+  "summon": "Offergåva",
+  "weak": "Svag mot",
+  "resist": "Resistent mot",
+  "immune": "Immun mot",
+  "drops": "Byte",
+  "power": "Övermänsklig kraft",
+  "item": "Föremål",
+  "price": "Pris (mynt)",
+  "sellValue": "Säljs för (mynt)",
+  "available": "Tillgänglig",
+  "always": "från början",
+  "afterBoss": "när du har besegrat {boss}",
+  "afterChest": "när du har lämnat tillbaka {chest}",
+  "dmg": {
+   "blunt": "Trubbig",
+   "slash": "Skära",
+   "pierce": "Stick",
+   "fire": "Eld",
+   "frost": "Kyla",
+   "lightning": "Elektricitet",
+   "poison": "Gift",
+   "spirit": "Ande"
+  },
+  "disclaimer": "Valheim-Map är ett fanprojekt och har ingen koppling till Iron Gate eller Coffee Stain. Valheim är ett varumärke som tillhör sina respektive ägare. Speldata: version {version}.",
+  "noscript": "Den interaktiva kartan kräver JavaScript. Guiderna om seeds, bossar och handlare fungerar utan."
+ },
+ "about": {
+  "h": "Valheim-Map: hela din värld utifrån ditt seed",
+  "p": [
+   "Valheim-Map är en gratis interaktiv karta för Valheim. Skriv in ditt **seed** så visar kartan hela världen utan dimma: alla biomer, kustlinjen och den exakta positionen för bossar, handlare, grottor och kryptor samt över 90 andra typer av platser.",
+   "Ingenting laddas upp och du behöver ingen sparfil. Kartan kör samma världsgenerering som spelet direkt i din webbläsare, så positionerna stämmer med din värld på metern. Klicka på en markör för att få koordinaterna och ett färdigt konsolkommando som tar dig dit.",
+   "I listan till vänster slår du av och på olika typer av platser, söker efter en viss plats som Haldor eller Sjunkna kryptor och sparar seeds du vill återvända till. Länken i adressfältet innehåller alltid seedet och den aktuella vyn, så du kan dela vilken plats som helst med dina vänner."
+  ],
+  "seedH": "Så hittar du din världs seed",
+  "seedP": "Varje värld i Valheim skapas utifrån ett seed, en kort text på högst tio tecken. Samma seed ger alltid samma värld.",
+  "seedSteps": [
+   "Starta Valheim, klicka på **Starta spelet** och välj din karaktär.",
+   "Markera din värld i världslistan. Seedet står precis bredvid världens namn.",
+   "På en dedikerad server finns seedet i världens **.fwl**-fil. Ladda världen en gång i enspelarläge eller fråga serveradmin.",
+   "Skriv in seedet i fältet uppe till vänster på kartan och tryck på **Ladda**. Stora och små bokstäver spelar roll."
+  ],
+  "guidesH": "Guider",
+  "faqH": "Vanliga frågor",
+  "faq": [
+   {
+    "q": "Stämmer kartan med min värld?",
+    "a": "Ja. Terrängen och alla platser beräknas med samma algoritm som spelet använder, och resultaten har kontrollerats mot riktiga världar. Kartan visar var spelet placerar en plats när du utforskar området för första gången. Sådant som spelare ändrar i efterhand, till exempel förstörda byggnader, syns inte."
+   },
+   {
+    "q": "Vilken spelversion stöder kartan?",
+    "a": "Kartan följer den aktuella publika versionen av Valheim, inklusive Askland och Djupaste Norden. Världar som skapades i en betydligt äldre version kan skilja sig i områden som utforskades före en uppdatering."
+   },
+   {
+    "q": "Varför finns det flera markörer för Haldor, Hildir och Myrhäxan?",
+    "a": "Spelet förbereder upp till tio möjliga läger för varje handlare. Det första lägret du kommer i närheten av blir det riktiga, och de andra försvinner ur din värld. Du kan alltså helt enkelt välja den markör som ligger närmast din bas."
+   },
+   {
+    "q": "Måste jag ladda upp min sparfil?",
+    "a": "Nej. Seedet är allt kartan behöver. Beräkningen görs på din egen enhet, och ingenting om din värld skickas till någon server."
+   },
+   {
+    "q": "Hur tar jag mig till en plats jag har hittat på kartan?",
+    "a": "Klicka på markören. Rutan som dyker upp visar koordinaterna och ett konsolkommando. I enspelarläge aktiverar du konsolen med startalternativet **-console**, skriver **devcommands** och använder sedan kommandot **goto**. Utan fusk navigerar du med hjälp av koordinaterna och avståndet från startpunkten."
+   },
+   {
+    "q": "Fungerar kartan på mobilen?",
+    "a": "Ja. Kartan fungerar i alla moderna webbläsare, även på mobiler och surfplattor. Att beräkna alla platser tar några sekunder, på äldre enheter lite längre."
+   },
+   {
+    "q": "Är Valheim-Map gratis?",
+    "a": "Ja, helt och hållet, och du behöver inget konto. Om kartan har sparat dig några timmars seglande kan du stödja projektet med en liten donation."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Handplockade seeds, alla kontrollerade med kartan.",
+  "title": "Bästa Valheim-seeds: kontrollerad lista med kartlänkar",
+  "desc": "De bästa seedsen till Valheim för den aktuella versionen: enkla starter, handlare nära startpunkten, boss rush och järnseeds. Varje seed har räknats om och öppnas direkt på den interaktiva kartan.",
+  "h1": "De bästa seedsen till Valheim",
+  "intro": [
+   "Ett bra seed sparar timmar: en handlare på gångavstånd, de första bossarna på startkontinenten eller ett träsk fullt av kryptor precis på andra sidan floden. Problemet med de flesta seedlistor är att de har kopierats från varandra och aldrig kontrollerats efter att världsgenereringen ändrades.",
+   "Den här listan är annorlunda. Vi har samlat de mest rekommenderade seedsen från communityt och **räknat om vartenda ett** med världsgeneratorn i den aktuella spelversionen. Avstånden nedan är mätta från startpunkten, och varje seed öppnas på den interaktiva kartan med ett klick. Där en gammal rekommendation inte längre stämmer säger vi det, eller så har vi strukit seedet."
+  ],
+  "factsH": "Avstånd från startpunkten",
+  "colPlace": "Plats",
+  "colDist": "Avstånd",
+  "howH": "Så använder du ett seed",
+  "how": [
+   "Klicka på **Starta spelet** i Valheim, välj din karaktär och sedan **Ny** i världslistan. Ange ett världsnamn och skriv in seedet exakt som det står här, med stora och små bokstäver. På en dedikerad server skapar du först världen lokalt och laddar upp världsfilerna, eller så ställer du in seedet via inställningarna hos din serverleverantör.",
+   "Avstånden är fågelvägen från offerstoderna. En handlare räknas bara en gång: spelet förbereder flera möjliga läger, och det första du närmar dig blir det riktiga. Tabellen använder alltid det närmaste."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "Den bästa allroundern",
+    "text": [
+     "Om du bara testar ett seed, ta det här. De fem första bossarna ligger alla inom 3,5 km från startpunkten: Eiktyr är 120 m bort, Den Uråldrige 1,1 km, Moder under 1 km, Likhögen 1,9 km och Yagluth 3,4 km. Knappt någon annan värld har progressionen så tätt samlad.",
+     "Haldor har sitt läger 1,6 km från offerstoderna, nära det minsta avstånd som spelet tillåter. Det gör seedet idealiskt för en snabb genomspelning och för grupper som vill slåss mot bossar i stället för att segla i timmar."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Allt till fots, inget skepp behövs",
+    "text": [
+     "På det här seedet finns nästan allt du behöver på startlandmassan: de fem första bossarna från Eiktyr till Yagluth och alla tre handlarna går att nå utan att du någonsin bygger ett skepp. Yagluth ligger bara 3 km från startpunkten, Moder 1,9 km och Den Uråldrige 1,8 km.",
+     "Haldor är 1,7 km bort, Hildir 2,9 km och Myrhäxan 3,1 km. En perfekt värld för dig som inte gillar att segla, och för utmaningar utan båt ända fram till Dimmornas Dal."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor runt knuten",
+    "text": [
+     "Inget seed i vår lista har handlaren närmare: Haldor har sitt läger bara omkring 1 000 m från startpunkten, på startlandmassan. Du kan gå till honom redan första dagen och planera dina inköp från allra första början.",
+     "Starten är bekväm också. Eiktyr väntar 170 m från stoderna och Den Uråldrige 1,2 km bort, även han nåbar till fots. Svarta Skogen börjar knappt mer än 100 m från startpunkten, så koppar och tenn är aldrig långt borta."
+    ]
+   },
+   "1k7md8": {
+    "title": "Den snabbaste starten",
+    "text": [
+     "Eiktyr står 60 m från startpunkten, praktiskt taget inom synhåll från offerstoderna. Den Uråldrige följer på bara 650 m, vilket är det närmaste altaret för Den Uråldrige bland alla seeds vi har kontrollerat. Du kan besegra de två första bossarna utan att egentligen lämna hemmet.",
+     "Resten av det tidiga spelet ligger också nära: Moder på 2,1 km, Likhögen på 2,3 km och Yagluth på 3,1 km. Likhögen och Yagluth finns på startlandmassan. Bara Haldor ligger lite längre bort, 2,9 km, men även han går att nå till fots."
+    ]
+   },
+   "18mang": {
+    "title": "Handlare till fots och kort väg norrut",
+    "text": [
+     "Alla tre handlarna finns på startlandmassan: Haldor på 1,2 km, Hildir på 2,7 km och Myrhäxan på 3,5 km. Hildir på det avståndet är ovanligt, eftersom hennes läger oftast ligger mer än 3 km bort. Det första Träsket börjar bara 1 km från startpunkten, med två Sjunkna kryptor inom 1,5 km, så järnet kommer ovanligt tidigt.",
+     "Communityt rekommenderar det här seedet för Djupaste Norden, och siffrorna håller med: den nordliga biomen börjar omkring 6,9 km från startpunkten, en hel kilometer närmare än i de flesta världar. Eiktyr ligger lite längre bort än vanligt, 800 m."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Fem bossar utan båt",
+    "text": [
+     "Eiktyr, Den Uråldrige, Likhögen, Moder och Yagluth finns alla på startlandmassan. Moder är höjdpunkten: hennes altare ligger bara 1,5 km från startpunkten, och stora berg med silver reser sig nära starten.",
+     "Haldor på 2,1 km och Myrhäxan på 3,2 km går också att nå till fots. Ett riktigt bra seed för dig som vill slå dig ner på ett ställe och klara hela spelet fram till Slätten från en enda bas."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "Korta avstånd överallt",
+    "text": [
+     "Ett balanserat seed utan svaga punkter. Den Uråldrige ligger 1,1 km från startpunkten, Likhögen och Moder båda 2,3 km och Yagluth 3,4 km. Haldor har sitt läger 1,6 km bort.",
+     "Communityt känner till det här seedet för dess långa, nästan obrutna landremsa som löper från norr till söder. Det gör det lätt att utforska till fots och håller sjöresorna korta."
+    ]
+   },
+   "Angel": {
+    "title": "En mjuk start för nybörjare",
+    "text": [
+     "Eiktyr ligger 80 m från offerstoderna och Den Uråldrige exakt 1 km. Haldor följer på 1,5 km, ungefär så nära som spelet tillåter. För nya spelare betyder det en kort och tydlig väg genom de första timmarna.",
+     "Senare mål ligger också inom räckhåll: Moder är 2,5 km bort, Likhögen 2,7 km, och Hildir och Myrhäxan båda runt 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder och Den Uråldrige som grannar",
+    "text": [
+     "Det här seedet har hyllats som ett av de bästa sedan 1.0-uppdateringen, och kartan bekräftar kärnan i det: Eiktyr på 250 m, Moder på 1,3 km och Den Uråldrige på 1,3 km, alla tre på startlandmassan. Likhögen är 2 km bort.",
+     "Haldor ligger 2,3 km från startpunkten och går att nå till fots. Hildir och Myrhäxan ligger båda strax under 3 km bort, närmare än i de flesta världar."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "Tidigt silver: Moder 1 km från startpunkten",
+    "text": [
+     "Moders altare ligger bara 1,1 km från startpunkten och på startlandmassan. Det betyder att berg, silver och vargskinnsrustning finns på gångavstånd från din första bas. Eiktyr står 80 m från stoderna och Den Uråldrige 1,4 km bort.",
+     "Haldor är också nära, 1,5 km, men han bor på andra sidan vattnet, så du behöver en flotte eller en kort simtur. Seedet har länge varit populärt för sin natursköna start på Ängen med gott om plats att bygga."
+    ]
+   },
+   "WorldEater": {
+    "title": "Den Uråldrige inom 900 m",
+    "text": [
+     "Eiktyr på 230 m och Den Uråldrige på 900 m ger en mycket snabb start in i bronsåldern. Likhögen är 2,9 km bort på startlandmassan, så de tre första bossarna kräver inget skepp.",
+     "Myrhäxan har sitt läger 2,8 km från startpunkten och går att nå till fots, precis som Hildir. Moder ligger 2,5 km bort på andra sidan vattnet."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "De tre första bossarna på en ö",
+    "text": [
+     "Eiktyr på 110 m, Den Uråldrige på 1,2 km och Likhögen på 2,1 km finns alla på startlandmassan. Du kan spela från stenåldern till järnåldern utan att bygga ett skepp.",
+     "Hildir och Myrhäxan bor på samma landmassa, lite drygt 3 km bort. Yagluth på 3,2 km och Moder på 3,5 km ligger en kort seglats bort."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Kompakt ö med handlare",
+    "text": [
+     "Det här seedet räknades förr som svårt. I den aktuella versionen är det en kompakt och trevlig start: Eiktyr på 140 m, Den Uråldrige strax under 1 km och Likhögen på 2,3 km, alla på startlandmassan.",
+     "Haldor på 1,9 km och Hildir på 2,9 km går också att nå till fots. Bara för Moder behöver du planera en längre resa."
+    ]
+   },
+   "feret2": {
+    "title": "Likhögen nära till hands",
+    "text": [
+     "Likhögen ligger bara 1,9 km från startpunkten här, ett av de kortaste avstånden vi har hittat. Moder följer på 2,2 km och Eiktyr på 250 m. Vill du snabbt komma åt järn och silver är det här ett bra val.",
+     "Haldor har sitt läger 1,5 km från offerstoderna, nära minimiavståndet, men på andra sidan vattnet. Seedet är också känt för sitt omväxlande startområde med många biomer tätt intill varandra."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor och Moder i närheten",
+    "text": [
+     "Haldor ligger 1,5 km från startpunkten, i praktiken minimiavståndet, och Moder bara 1,8 km. Den Uråldrige följer på 2,2 km.",
+     "Startområdet är stort och omväxlande, med Svarta Skogen och Bergen nära Ängen. Ett bra seed för en lång, avslappnad genomspelning med en central huvudbas."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "Klassikern, kontrollerad på nytt",
+    "text": [
+     "Det här är förmodligen det mest kända Valheim-seedet av alla. Det var känt som speedrun-seedet med fyra bossar nära startpunkten. Flera uppdateringar av världsgenereringen senare stämmer det inte längre, och många listor upprepar fortfarande det gamla påståendet.",
+     "Det som finns kvar är ändå hyfsat: Eiktyr på 440 m, Haldor på 1,6 km och Likhögen på 2,2 km, alla på startlandmassan. Den Uråldrige ligger 2,9 km och Yagluth 3,1 km bort på andra sidan vattnet. Moder ligger däremot numera mer än 6 km från startpunkten. Bra för nostalgin, men seedsen längre upp är bättre i dag."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "Alla bossar i ordning: så hittar, frammanar och besegrar du dem.",
+  "title": "Valheims bossar: ordning, platser, frammaning och tips",
+  "desc": "Alla bossar i Valheim i ordning, från Eiktyr till Fader: var altarna finns, vad du behöver för att frammana dem, svagheter och de bästa tipsen för varje strid.",
+  "h1": "Valheims bossar i ordning",
+  "intro": [
+   "Valheims berättelse förs framåt av bossarna, De Bannlysta. Var och en vaktar en biom, och var och en släpper föremålet som öppnar nästa steg: hornkorpen för gruvbrytning, nyckeln till träskets kryptor, önskebenet som hittar silver. Att besegra dem i ordning är ryggraden i varje genomspelning.",
+   "Tabellen visar alla bossar i huvudprogressionen med biom, hälsa och föremålen du måste offra. Varje boss har en egen sida med svagheter, attackmönster och praktiska tips. Varje värld har flera altare per boss. Skriv in ditt seed på kartan för att se var dina ligger."
+  ],
+  "outro": [
+   "Varje besegrad boss lämnar en trofé efter sig. Häng den på sin krok vid offerstoderna för att låsa upp bossens övermänskliga kraft. Du kan ha en kraft vald åt gången. Den varar i 5 minuter och behöver sedan 20 minuter för att laddas upp igen.",
+   "I flerspelarläge blir bossarna tåligare och slår hårdare för varje extra spelare i närheten, så fler spelare gör inte striden trivial."
+  ],
+  "pageTitle": "{boss}: plats, frammaning och tips",
+  "pageDesc": "Så besegrar du {boss} i Valheim: var altaret finns i biomen {biome}, offergåvorna, svagheter, attacker och de bästa tipsen och knepen för striden.",
+  "showOnMap": "Visa altare för {boss} på kartan",
+  "findH": "Så hittar du {boss}",
+  "prepH": "Förberedelser",
+  "attacksH": "Attacker",
+  "tipsH": "Tips och knep",
+  "rewardH": "Belöning",
+  "list": {
+   "eikthyr": {
+    "lead": "Eiktyr, blixthjorten, är den första bossen i Valheim. Han väntar på Ängen och är ett snällt test av grunderna: blockera, undvika och hushålla med uthålligheten.",
+    "power": "60 % lägre uthållighetsförbrukning när du springer, hoppar och simmar.",
+    "find": [
+     "Eiktyrs altare står alltid på Ängen och oftast bara några hundra meter från startpunkten. Den rödglödande runstenen vid offerstoderna markerar altaret på din karta så fort du läser den.",
+     "För att frammana honom lägger du **2 Rådjurshuvud** på altaret. Rådjur släpper ett huvud ungefär varannan gång. Smyg dig på dem i motvind eller jaga dem med en pilbåge."
+    ],
+    "prep": [
+     "Tillverka en hel läderrustning och uppgradera den en gång om du kan.",
+     "Ta med ett flintspetsspjut, en flintyxa eller en klubba, en pilbåge med ungefär 50 pilar och en träsköld.",
+     "Ät tre olika maträtter före striden, till exempel tillrett vildsvinskött, grillad näcksvans och hallon eller svamp.",
+     "Sov först så att du slåss med bonusen Utvilad. Den gör att uthålligheten återhämtas märkbart snabbare."
+    ],
+    "attacks": [
+     "**Hornstöt:** han gör ett utfall och sveper med hornen. Blockera med skölden eller ta ett steg åt sidan.",
+     "**Blixt:** han stegrar sig och skjuter en rad blixtar rakt fram, oftast när ingen står intill honom. Undvik i sidled.",
+     "**Blixtstamp:** han reser sig på bakbenen och slår ner i marken så att allt runt omkring träffas. Rulla bakåt när han stegrar sig."
+    ],
+    "tips": [
+     "Håll skölden uppe och attackera direkt efter var och en av hans attacker. Nästan allt han gör går att blockera, även med en enkel träsköld.",
+     "Låt aldrig uthålligheten sjunka till noll. Utan uthållighet kan du varken blockera eller undvika, och det är så de flesta första försök slutar.",
+     "Stenarna och träden runt altaret stoppar hans blixtar. Använd dem som skydd om du föredrar pilbågen.",
+     "Slåss på dagen. På natten lägger sig grådvärgar och andra varelser i striden.",
+     "Spring om striden går dåligt. Eiktyr försvinner inte, och skadan du har gjort sitter kvar ett tag."
+    ],
+    "reward": [
+     "Eiktyr släpper **3 Hårda hjorthorn** och sin trofé. Av hornen gör du Hornkorpen, din första hacka. Med den bryter du tenn och koppar i Svarta Skogen och inleder bronsåldern.",
+     "Hans övermänskliga kraft gör det mycket billigare att springa och hoppa. Den är användbar genom hela spelet, när du utforskar, flyr och bär malm."
+    ]
+   },
+   "elder": {
+    "lead": "Den Uråldrige är ett jättelikt levande träd och den andra bossen. Han härskar över Svarta Skogen och straffar spelare som möter honom på öppen mark. Med eldpilar och en pelare att gömma sig bakom är han fullt hanterbar.",
+    "power": "60 % mer skada vid trädhuggning och gruvbrytning och 30 % snabbare återhämtning av hälsa.",
+    "find": [
+     "Den Uråldriges altare står i Svarta Skogen: en stenplattform med fyra höga pelare runt en eldskål. Röda runstenar i Gravkammare och i vissa förfallna stentorn markerar det närmaste altaret på din karta.",
+     "För att frammana honom bränner du **3 Uråldriga frön** i eldskålen. Fröna släpps av Grådvärgskämpar och Grådvärgsschamaner och alltid av förstörda Grådvärgssnår, de lilaglödande nästena som spottar ut grådvärgar."
+    ],
+    "prep": [
+     "Bronsrustning är idealiskt. Trolläderrustning är ett bra och mycket billigare alternativ.",
+     "Ta med en ädelträpilbåge och minst 100 **eldpilar**. Den Uråldrige är svag mot eld, och brännskadan fortsätter att ticka.",
+     "Ta med en bronsbucklare eller en förstärkt sköld och en yxa till rötterna.",
+     "Brygg några svagt läkande mjöd och ät dina tre bästa maträtter, till exempel rådjursstuvning, morotssoppa och drottningsylt.",
+     "Rensa bort Grådvärgssnår runt altaret, fäll träden i närheten och bygg ett litet skydd med en portal en bit därifrån."
+    ],
+    "attacks": [
+     "**Rankskott:** han sträcker ut armarna och skjuter en salva rankor över långt avstånd. Ställ dig bakom en av de fyra pelarna. De går inte att förstöra.",
+     "**Stamp:** på nära håll stampar han i marken och gör stor skada. Håll avstånd eller rulla undan.",
+     "**Rötter:** han låter ett fält av rötter skjuta upp runt dig, och de piskar alla i närheten. Gå ut ur området. Rötterna försvinner efter ett tag, eller så hugger du ner dem med en yxa."
+    ],
+    "tips": [
+     "Spela runt pelarna: kliv fram, skjut två eller tre eldpilar och kliv tillbaka innan rankorna kommer. Den enkla rytmen vinner striden.",
+     "Gå inte i närstrid om du inte måste. Stampen slår mycket hårdare än något annat du har mött så här långt.",
+     "Fallande träd är en verklig fara. Den Uråldrige slår omkull dem med sina rankor, och en fallande stam kan döda dig direkt. Röjer du arenan i förväg slipper du den risken.",
+     "Frammana honom på morgonen. Striden kan ta flera minuter, och på natten blir det trångt i skogen.",
+     "En eldgrop eller ett bål nära arenan håller dig Utvilad, och elden skadar honom om han går igenom den."
+    ],
+    "reward": [
+     "Den Uråldrige släpper **Träsknyckeln** och sin trofé. Nyckeln öppnar Sjunkna kryptor i Träsket, den enda bra källan till järn.",
+     "När Den Uråldrige är besegrad börjar Haldor sälja Kött ifrån Ymer och Åskviggar, och Myrhäxan säljer fler ingredienser.",
+     "Hans övermänskliga kraft snabbar upp trädhuggning och gruvbrytning rejält. Den är perfekt för stora byggprojekt och gruvturer."
+    ]
+   },
+   "bonemass": {
+    "lead": "Likhögen är en enorm klump av ben och slem i Träsket och den tredje bossen. Många spelare misslyckas här till en början eftersom svärd och pilar knappt biter på honom. Med en klubba och giftskydd vänder striden helt.",
+    "power": "25 % mindre fysisk skada (trubbig, skära, stick). Att blockera kostar ingen uthållighet och ger till och med lite tillbaka.",
+    "find": [
+     "Likhögens altare är en jättelik skalle som ligger i Träsket. Röda runstenar inne i Sjunkna kryptor markerar det närmaste på din karta.",
+     "För att frammana honom släpper du **10 Förtorkade ben** i skallen. Du hittar dem i Sjunkna kryptor, i kistor och i de leriga avskrädeshögar som du ändå gräver igenom för att få järn."
+    ],
+    "prep": [
+     "Ta med en **järnklubba**, uppgraderad så långt du kan. Likhögen är svag mot trubbig skada och resistent mot skär- och stickskada samt eld. Bockbräckaren eller en järnslägga fungerar också.",
+     "Brygg **giftskyddande mjöd** och ta med minst tre eller fyra per spelare. Utan det dödar hans giftmoln på några sekunder.",
+     "Bär uppgraderad järnrustning eller rotrustningen och ha med en förstärkt sköld eller bättre.",
+     "Ta med läkande mjöd och uppiggande mjöd, och ät korvar, rovstuvning och annan mat på träsknivå.",
+     "Jämna till marken runt skallen med en hacka så att du inte slåss med vatten upp till knäna, där blodiglar biter och uthålligheten inte återhämtas medan du simmar.",
+     "Bygg ett litet skydd med tak, säng, eld och portal i närheten, helst på upphöjd mark."
+    ],
+    "attacks": [
+     "**Slag:** ett brett svep med längre räckvidd än man tror, som gör trubbig skada och giftskada. Blockera eller parera med en stabil sköld.",
+     "**Giftmoln:** han lutar sig bakåt och spyr ut ett stort moln som ligger kvar. Spring ut ur det direkt och vänta tills det har skingrats.",
+     "**Frammaning:** han sliter loss en klump av sig själv och kastar den. Där den landar dyker skelett och blobbar upp. Döda dem snabbt innan de omringar dig."
+    ],
+    "tips": [
+     "Drick giftskyddande mjöd **innan** du frammanar honom och fyll på när ikonen börjar blinka. Det varar i 10 minuter.",
+     "Frammaningsanimationen är din bästa lucka: han står stilla i flera sekunder medan han kastar.",
+     "Att parera hans slag får honom inte att vackla, men det skyddar dig helt. Slå två eller tre gånger efteråt och backa sedan.",
+     "Frostpilar är de enda pilarna som är värda att använda mot honom. Har du redan obsidian och köldkörtlar går det att ta striden säkert på avstånd.",
+     "Använd Eiktyrs kraft för att snabbt ta dig ur giftmolnet, eller Den Uråldriges för den extra återhämtningen.",
+     "Bockbräckarens områdesattack träffar Likhögen och hans frammanade hantlangare samtidigt."
+    ],
+    "reward": [
+     "Likhögen släpper **Önskebenet** och sin trofé. Med Önskebenet utrustat känner du av dolda silverådror i Bergen, nedgrävda skatter på Ängen och leriga avskrädeshögar i Träsket.",
+     "Hans övermänskliga kraft är spelets bästa defensiva kraft. Många spelare behåller den till alla senare bosstrider."
+    ]
+   },
+   "moder": {
+    "lead": "Moder är Bergens drakmoder och den fjärde bossen. Hon anfaller både från luften och på marken, och hennes frostandedräkt fryser alla som står i den. En bra pilbåge och köldskydd avgör den här striden.",
+    "power": "Alltid medvind när du seglar, 300 mer i bärvikt, 10 % snabbare förflyttning och 50 % köldtålighet.",
+    "find": [
+     "Moders altare ligger på en bergstopp, oftast på en bred och platt platå. Röda runstenar i stenruiner i Bergen och i Frost grottor markerar det på din karta.",
+     "För att frammana henne lägger du **3 Drakägg** på altaret. Äggen ligger i bon i Bergen. Vart och ett väger 200 och kan inte tas genom en portal, så du bär dem ett i taget, eller alla på en vända om ni är tre spelare."
+    ],
+    "prep": [
+     "Bär vargskinnsrustning: brynjan och manteln skyddar dig mot att förfrysa. Utan dem behöver du **köldskyddande mjöd** under hela turen.",
+     "Ta med den bästa pilbåge du har, helst Draug-pilbågen, och 150 pilar eller fler. Moder är svag mot eld, så **eldpilar** är billiga och starka. Obsidianpilar och giftpilar är också bra. Frostpilar gör ingenting.",
+     "Ta med ett silversvärd eller ett annat uppgraderat närstridsvapen till faserna på marken.",
+     "Packa läkande mjöd och uppiggande mjöd, och ät mat som ger mycket hälsa, till exempel ormsoppa, korvar och rovstuvning.",
+     "Rensa platån på vargar, drakar och stengolemar innan du börjar, och ställ en portal med ett litet skydd nedanför toppen."
+    ],
+    "attacks": [
+     "**Issalva (i luften):** hon flyger över dig och skjuter en rad isprojektiler som exploderar till kristaller. Fortsätt springa i sidled.",
+     "**Frostandedräkt (på marken):** en bred kon av frost rakt fram som saktar ner dig rejält. Flytta dig till hennes sida så fort hon sänker huvudet.",
+     "**Bett och klor:** på nära håll biter hon och river. Båda går att blockera med en bra sköld."
+    ],
+    "tips": [
+     "Skjut på henne varje gång hon är i luften eller landar. Hennes flygbana är långsam och förutsägbar, så de flesta pilar träffar.",
+     "När hon landar cirklar du runt till hennes flank. Andedräkten träffar bara det som är framför henne, och från sidan kan du anfalla fritt.",
+     "Träffas du av frost blir du långsam och lätt att träffa igen. Blockera i stället för att springa när du är nedkyld.",
+     "Iskristallerna från hennes salva går att förstöra, och de ger lite skydd på den öppna platån.",
+     "Likhögens kraft gör närstridsfaserna mycket säkrare. Med pilbåge hjälper Eiktyrs kraft dig att hålla dig i rörelse.",
+     "Bär upp äggen före striden och låt dem ligga vid altaret. De försvinner inte."
+    ],
+    "reward": [
+     "Moder släpper **10 Draktårar** och sin trofé. Av tårarna bygger du Hantverkarbordet, som låser upp väderkvarnen, smältverket och spinnrocken, och därmed Slättens utrustning.",
+     "När hon är besegrad säljer Haldor Wider Pockets, en extra rad i packningen, och Myrhäxan utökar sitt sortiment med flera varor.",
+     "Hennes övermänskliga kraft ger dig medvind på varje resa och mycket extra bärvikt. Den är favoriten hos alla som seglar och fraktar malm."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, Fulingarnas fallna kung, är den femte bossen. Bara hans överkropp kryper fram över Slätten, men hans eld och meteorer gör honom till en av spelets dödligaste strider. Eldskydd är inget val här, det är ett måste.",
+    "power": "10 % mer skada, 50 % resistens mot elektricitet och 25 extra nivåer i Jordbruk.",
+    "find": [
+     "Yagluths altare står på Slätten: en ring av enorma stenfingrar som sticker upp ur marken. Röda runstenar vid stencirklar på Slätten markerar det på din karta. De är sällsynta, så här sparar kartan dig ett långt letande.",
+     "För att frammana honom lägger du **5 Kung Fuls statyetter** på altaret. Det finns en statyett i de flesta fulingbyar, och Fulingkämpar släpper ibland en. Statyetterna kan tas genom portaler."
+    ],
+    "prep": [
+     "Brygg **Kornvin med eldskydd** och ta med flera per spelare. Det varar i 10 minuter och måste vara aktivt under hela striden.",
+     "Bär fullt uppgraderad vadderad rustning. Vargskinnsrustning är ett minimum.",
+     "Ta med ett svärd av svartmetall, Piggsvin eller Frostner. Yagluth är mycket resistent mot stickskada, så spjut, atgeirer och de flesta pilar är dåliga val.",
+     "Vill du slåss på avstånd använder du frostpilar och räknar med en lång strid.",
+     "Ta med läkande mjöd och uppiggande mjöd, och ät Slättens bästa mat: oxödlepaj, blodpudding, fiskknyten.",
+     "Rensa först bort alla fulingar, oxödlor och mördarmyggor runt altaret och ställ en portal på säkert avstånd."
+    ],
+    "attacks": [
+     "**Eldandedräkt:** han lyfter huvudet och sveper en lång eldstråle efter dig. Spring i sidled eller ställ dig bakom ett av stenfingrarna.",
+     "**Knytnävsslag:** hans näve glöder blått, sedan slår han i marken och orsakar en stor explosion. Flytta dig så fort du ser glöden.",
+     "**Meteorer:** hans hand glöder orange och meteorer regnar över din position i flera sekunder. Fortsätt springa åt samma håll tills det slutar."
+    ],
+    "tips": [
+     "Varje attack förvarnas med en tydlig glöd. Lär dig de tre signalerna så blir striden lugn: anfall, se glöden, flytta dig, upprepa.",
+     "Anfall bakifrån eller från sidan och bara två eller tre slag åt gången. Det är girighet som dödar spelare här.",
+     "Stenfingrarna stoppar hans eldandedräkt, men meteorerna går över dem. Vila inte bakom en pelare under meteorregnet.",
+     "När du brinner får du lätt panik och slösar uthållighet. Med kornvinet aktivt halveras eldskadan ungefär, och striden blir förlåtande.",
+     "Aktivera Likhögens kraft när du går in i närstridsfasen. Fyll på kornvinet i god tid, inte när det tar slut.",
+     "Yagluth är långsam. Behöver du läka dig eller äta går du bara ifrån honom."
+    ],
+    "reward": [
+     "Yagluth släpper **3 Plågade andar** och sin trofé. Av en Plågad ande bygger du Irrblossfontänen. Den samlar irrbloss, som du behöver till det Lysande irrbloss som skingrar dimman i Dimmornas Dal.",
+     "När han är besegrad säljer Haldor ägg så att du kan föda upp höns, och Myrhäxan börjar sälja Slättens krydda.",
+     "Hans övermänskliga kraft höjer all din skada med en tiondel. Den är ett starkt val för Dimmornas Dal och senare bossar."
+    ]
+   },
+   "queen": {
+    "lead": "Drottningen är Sökarnas moder och den sjätte bossen. Hon bor djupt inne i den Invaderade citadellen i Dimmornas Dal och slåss aldrig ensam: hennes yngel kläcks runt dig hela tiden. Goda förberedelser och kontroll över ynglen avgör striden.",
+    "power": "Eter återhämtas dubbelt så snabbt, smygande kostar ingen uthållighet och du får 50 % gifttålighet.",
+    "find": [
+     "Drottningen frammanas inte. Hon väntar inne i den **Invaderade citadellen**, en enorm förseglad byggnad i Dimmornas Dal. Röda runstenar i de Invaderade gruvorna markerar citadellen på din karta.",
+     "Dörren öppnas bara med **Sigillbrytaren**. Du tillverkar den vid Galderbordet av **9 Sigillbrytarfragment**, som du hittar i de Invaderade gruvorna. Vill du möta henne igen senare lägger du 3 Sökarsoldattroféer på altaret där inne."
+    ],
+    "prep": [
+     "Bär uppgraderad Dimvandrarrustning för närstrid, eller Etervävarens dräkt om du slåss med magi.",
+     "Hon är resistent mot stickskada. Använd skärande eller trubbiga vapen som Dimtunga, Krom eller Enhärjarsläggan. Pilbågar och spjut gör inte mycket.",
+     "Magi är mycket starkt här: Glödgestaven rensar bort hennes yngel, Väktarstaven skyddar gruppen och Gravskändarens skalle distraherar fiender.",
+     "Drick **giftskyddande mjöd** innan du går in, och ta med kraftigt läkande mjöd, uppiggande mjöd och etermjöd.",
+     "Ät den bästa maten från Dimmornas Dal. För dig som använder magi är minst en maträtt som ger eter ett måste.",
+     "Citadellen är fri från dimma, men ta med ditt Lysande irrbloss för vägen dit. Med en Fjäderkappa kan du hoppa ner från de övre våningarna utan fara.",
+     "Du kan bygga inne i citadellen. En arbetsbänk, en portal precis utanför dörren och några stenväggar som skydd hjälper mycket."
+    ],
+    "attacks": [
+     "**Hugg och rusning:** breda svep med frambenen och en krypande stormning. Undvik i sidled eller blockera med en stark sköld.",
+     "**Bett:** ett utfall rakt fram med kraftig stickskada och giftskada. Stå inte framför hennes huvud.",
+     "**Markstöt:** hon reser sig och hugger alla fyra armarna i marken så att allt runt omkring träffas. Backa när hon reser sig.",
+     "**Spott:** flera giftprojektiler som exploderar och släpper ut Yngel.",
+     "**Rop:** hon skriker och kallar på Sökare och yngel.",
+     "**Nedgrävning:** hon gräver ner sig i marken och dyker upp någon annanstans i salen."
+    ],
+    "tips": [
+     "Döda ynglen hela tiden. Ett dussin små Sökare gör mer skada än Drottningen själv. Områdesattacker som Enhärjarsläggan eller Glödgestaven är idealiska.",
+     "Använd citadellens trappor och övre våningar. Hon är snabb på öppna ytor men långsam i ramperna, vilket ger dig tid att läka dig och återfå uthållighet.",
+     "Alla hennes närstridsattacker kastar dig bakåt. Stå inte med ryggen mot väggar och kanter.",
+     "I grupp håller en spelare med hög sköld hennes uppmärksamhet medan de andra tar hand om ynglen och anfaller bakifrån.",
+     "Likhögens kraft är utmärkt i närstrid. Magiker tar med sig hennes egen kraft till returmatchen, eller Yagluths för mer skada.",
+     "Om du dör ligger din gravsten inne i salen. Med en portal precis utanför dörren blir gravloppet kort."
+    ],
+    "reward": [
+     "Drottningen släpper **5 Majestätiska ryggsköldar** och sin trofé. Av ryggskölden bygger du Hantverkspressen, som du behöver till utrustningen och skeppen som tar dig till Askland.",
+     "När hon är besegrad säljer Haldor Deeper Pockets, ännu en rad i packningen, och Myrhäxan börjar sälja kryddan från Dimmornas Dal.",
+     "Hennes övermänskliga kraft fördubblar återhämtningen av eter. För magibyggen är den spelets bästa kraft."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, Asklands odöda drake, är den sjunde bossen. Han har ingen svaghet, dubbelt så mycket hälsa som Drottningen och fyller sin arena med grön eld. Den här striden kräver den bästa utrustning Askland har att erbjuda och att du rör dig hela tiden.",
+    "power": "Adrenalin byggs upp dubbelt så snabbt, du vacklar mycket mer sällan och du får 50 % eldtålighet.",
+    "find": [
+     "Faders altare står i en stor rund arena i Askland. Röda runstenar inne i De förkolnades Borg markerar det på din karta.",
+     "För att frammana honom behöver du **3 Klockor**. Varje Klocka smids av **3 Klockskärvor** vid den Svarta smedjan, och skärvorna ligger i kistorna i De förkolnades Borg. Slå in borgportarna med en murbräcka, rensa borgen och plundra tornet. Placera de tre Klockorna i arenan och aktivera altaret."
+    ],
+    "prep": [
+     "Bär fullt uppgraderad eldmetallrustning, eller Ask-rustningen om du föredrar lätt rustning.",
+     "Fader är immun mot eld och ande och resistent mot stickskada. Använd skärande eller trubbiga vapen, helst med köld- eller elektricitetsskada.",
+     "Drick **Kornvin med eldskydd** och fyll på under striden.",
+     "Ta med kraftigt läkande mjöd och långvarigt uppiggande mjöd, och ät Asklands bästa mat på alla tre platserna.",
+     "Rensa omgivningarna runt arenan ordentligt. Svedda, Morgen och Asksvin som vandrar in gör striden kaotisk.",
+     "Bygg en portal och ett litet skydd av sten utanför arenan. I Askland dyker det upp fiender hela tiden, så skydda portalen med väggar."
+    ],
+    "attacks": [
+     "**Bett och klor:** breda och mycket tunga närstridsattacker framför honom. Blockera med en stark sköld eller håll dig vid hans flank.",
+     "**Snurr:** han vänder sig på stället och träffar allt runt omkring. Ta ett steg bakåt när han börjar vrida sig.",
+     "**Eldandedräkt:** en eldlinje som lämnar brinnande mark efter sig. Den går inte att blockera. Gå i sidled ut ur linjen.",
+     "**Spricka:** han slår i marken och en spricka löper mot dig, bryter ut i taggar och lämnar en pöl av grön eld.",
+     "**Eldvägg:** en ring av lågor sluter sig runt dig. Lämna den omedelbart.",
+     "**Meteorer:** han stegrar sig och meteorer regnar ner över arenan.",
+     "**Frammaning:** han spottar klot som förvandlas till Svedda krigare och Svedda skyttar."
+    ],
+    "tips": [
+     "Håll dig vid hans sida eller bakom honom. Nästan alla farliga attacker är riktade framåt.",
+     "Stå aldrig i grön eld. Pölarna ligger kvar länge och krymper sakta arenan, så locka honom till en ren del av arenan.",
+     "Rör dig hela tiden. De flesta av hans områdesattacker siktar på platsen där du står när han påbörjar dem.",
+     "Döda de frammanade Svedda snabbt, eller ställ dig så att Faders egna attacker träffar dem.",
+     "Med Likhögens kraft och en hög sköld går hans närstridsattacker att överleva. Försök inte blockera andedräkten eller sprickan.",
+     "I grupp delar ni upp rollerna: en spelare håller hans uppmärksamhet, en tar hand om de frammanade fienderna och resten gör skada."
+    ],
+    "reward": [
+     "Fader släpper **5 Kindled Ribs** och sin trofé. Revbenen behövs till Eternal Pyre och öppnar vägen till den sista tillverkningsnivån före Djupaste Norden.",
+     "När han är besegrad säljer Myrhäxan Asklands krydda.",
+     "Hans övermänskliga kraft bygger upp adrenalin dubbelt så snabbt och gör att du vacklar mycket mer sällan. Den är ett starkt val för aggressiva närstridsbyggen."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir och Myrhäxan: platser, varor och priser.",
+  "title": "Valheims handlare: platser, varor och priser",
+  "desc": "Alla handlare i Valheim i överblick: var du hittar Haldor, Hildir och Myrhäxan, vad de säljer, vad det kostar och vilka värdesaker du kan sälja för mynt.",
+  "h1": "Valheims handlare",
+  "intro": [
+   "Det finns tre handlare i Valheim, och var och en gömmer sig på olika ställen i varje värld. Haldor säljer användbar utrustning i Svarta Skogen, Hildir säljer kläder på Ängen och skickar ut dig på ett uppdrag, och Myrhäxan säljer ingredienser till matlagning och bryggning i Träsket.",
+   "Att leta efter dem utan hjälp kan ta tiotals timmar. Skriv in ditt seed på kartan så ser du alla möjliga läger på en gång. Alla priser på de här sidorna är hämtade direkt från speldatan."
+  ],
+  "sellH": "Det här kan du sälja",
+  "sellP": [
+   "Mynt är den enda valutan, och du får dem genom att sälja värdesaker. Alla tre handlarna köper samma föremål till samma priser. Mynt, rubiner och bärnsten hittar du i Gravkammare, Trollgrottor, Sjunkna kryptor och fulingbyar."
+  ],
+  "outro": [
+   "Varje handlares läger är skyddat. Fiender kan inte ta sig in, så ett handlarläger är också en säker plats för en portal."
+  ],
+  "pageTitle": "{trader}: plats, varor och priser",
+  "pageDesc": "Var du hittar {trader} i Valheim och vad som finns till salu: alla {n} varor med priser, upplåsningsvillkor och tips. Hitta lägret i biomen {biome} i din värld med seedkartan.",
+  "showOnMap": "Visa {trader} på kartan",
+  "findH": "Var du hittar {trader}",
+  "waresH": "Det här säljer {trader}",
+  "tipsH": "Tips",
+  "list": {
+   "haldor": {
+    "teaser": "utrustning, fiske och mer plats i packningen",
+    "lead": "Haldor är en dvärg och handlare som har slagit läger i Svarta Skogen med sin oxödla Halstein. Han säljer några av spelets mest användbara föremål, framför allt bältet Megingjord som låter dig bära 150 mer i vikt.",
+    "find": [
+     "Haldors läger ligger alltid i Svarta Skogen. Spelet förbereder upp till tio möjliga läger per värld, oftast mer än 1 500 meter från kartans mitt. Det första du kommer i närheten av blir det riktiga lägret, och alla de andra försvinner.",
+     "När du är inom några hundra meter dyker en säckikon upp på din karta. Lägret omges av en skyddande bubbla som håller fiender ute. Det går inte att bygga inuti den, men en portal precis utanför bubblan fungerar bra."
+    ],
+    "waresP": [
+     "En del av hans sortiment blir tillgängligt först när du har besegrat vissa bossar. Priserna anges i mynt."
+    ],
+    "tips": [
+     "Köp **Megingjord** först. 150 extra i bärvikt hjälper till med allt, från gruvbrytning till att segla hem med järn.",
+     "**Dvärgadiademet** är en pannlampa som lämnar händerna fria. Det är väldigt praktiskt i kryptor och grottor, men det tar upp hjälmplatsen.",
+     "**Wider Pockets** och **Deeper Pockets** ger dig var sin permanent extra rad i packningen. De är dyra men värda vartenda mynt.",
+     "**Kött ifrån Ymer** behövs till Järnsläggan, Frostner och andra starka föremål. **Åskviggar** behövs till Transmutatorn.",
+     "Ett **Ägg** kläcks till en kyckling om du håller det varmt. Två hönor räcker för att föda upp ett eget förråd av ägg och kycklingkött, så du behöver bara köpa två.",
+     "**Fiskespöet** fungerar bara med bete. Det enkla fiskbetet som Haldor säljer är grunden till alla specialbeten i spelet.",
+     "Spara ihop före resan: med ungefär 2 000 mynt har du råd med bältet, diademet och fiskespöet på ett och samma besök."
+    ]
+   },
+   "hildir": {
+    "teaser": "kläder, frisör och ett uppdrag i tre delar",
+    "lead": "Hildir är Haldors syster. Hon säljer kläder, hattar och festartiklar på Ängen. Det mesta av hennes lager har blivit stulet, och hon ber dig hämta tillbaka tre kistor från tre speciella grottor och gravar.",
+    "find": [
+     "Hildirs läger ligger på Ängen, men långt från startpunkten, oftast minst 3 000 meter från kartans mitt. Precis som med Haldor finns det upp till tio möjliga läger, och det första du närmar dig blir det riktiga.",
+     "En skjortikon dyker upp på din karta när du kommer nära. I hennes läger står ett kartbord. När du läser det markeras den närmaste av hennes uppdragsplatser på din karta."
+    ],
+    "waresP": [
+     "Till en början säljer hon bara en handfull varor. Varje kista du lämnar tillbaka låser upp ytterligare en del av sortimentet."
+    ],
+    "tips": [
+     "**Mässingskistan** ligger i en Glödande grav i Svarta Skogen, **Silverkistan** i en Vindpinad kula i Bergen och **Bronskistan** i ett Förseglat torn på Slätten. Var och en vaktas av en miniboss.",
+     "Kistorna kan inte tas genom portaler och de är tunga. Planera vägen tillbaka till fots, med vagn eller med skepp innan du går in.",
+     "Uppdragsplatserna blir svårare i den här ordningen. Brenna i graven gör eldskada, Geirrhafa i kulan gör köldskada, och de två fulingbröderna Zil och Thungr i tornet slåss tillsammans.",
+     "Alla uppdragsplatser finns också på kartan. Slå på markörerna för Hildirs uppdrag för att hitta dem som ligger närmast hennes läger.",
+     "Av **Barberarkitet** bygger du en barberarstation, där du kan byta hår och skägg när du vill.",
+     "Hennes kläder är mest för syns skull, men de är lätta och saktar inte ner dig. **Skörde**-plaggen är en favorit när man odlar.",
+     "**Fyrfatet av järn** är en dekorativ eldstad, och fyrverkeripjäser behöver ett bål för att skjutas upp."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "ingredienser till festmåltider, mjöd och odling",
+    "lead": "Myrhäxan bor i en sned stuga i Träsket tillsammans med sin jätte Kvastur. Hon säljer ingredienser som du inte kan få tag på någon annanstans: kryddor till de stora festmåltiderna, varor till nya mjödsorter och nyttiga saker till gården.",
+    "find": [
+     "Myrhäxans läger ligger i Träsket. Även här förbereder spelet upp till tio möjliga läger, och det första du kommer i närheten av blir kvar i din värld.",
+     "En kittelikon dyker upp på din karta när du är nära. Hennes läger är skyddat mot fiender, vilket gör det till en välkommen fristad i Träsket. Ta ändå med giftskyddande mjöd för vägen dit."
+    ],
+    "waresP": [
+     "De flesta av hennes kryddor blir tillgängliga först när du har besegrat bossen i motsvarande biom. Många varor säljs i buntar. Tabellen visar priset per bunt."
+    ],
+    "tips": [
+     "**Kryddorna** är huvudingrediensen i festmåltiderna. En festmåltid som ställs på ett bord mättar hela gruppen med en av de starkaste maträtterna på sin nivå, och den räcker till många portioner.",
+     "Med **Serveringsbrickan** kan du bära en färdig festmåltid och ställa ner den någon annanstans, till exempel precis före en bosstrid.",
+     "**Liehandtaget** behövs till lien, som skördar hela fält i ett svep. Det är ett av de bästa köpen för alla som odlar mycket.",
+     "**Ljusvekar** behövs till ljus, och av **Murgrönefrön** växer det klättrande murgröna på dina byggnader.",
+     "Färskt sjögräs, Härdad ekorrsena, Krossat drakäggskal och Skarpdoftande klumpar är ingredienser till de nyare mjödsorterna, som förbättrar färdigheter som simning och löpning eller skyddar mot elektricitet.",
+     "Flugsvampar och Väldoftande knyten blir tillgängliga efter Moder. De används till bärsärkamjödet och till ett mjöd som håller dig fri från negativa effekter.",
+     "Hennes varor är billiga jämfört med Haldors. Några hundra mynt räcker till ett första besök."
+    ]
+   }
+  }
+ }
+}

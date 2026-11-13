@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Mapa",
+  "seeds": "Melhores sementes",
+  "bosses": "Chefes",
+  "traders": "Comerciantes",
+  "guides": "Guias e FAQ"
+ },
+ "common": {
+  "openMap": "Abrir no mapa",
+  "showOnMap": "Mostrar no mapa",
+  "meters": "{n} m",
+  "boss": "Chefe",
+  "biome": "Bioma",
+  "health": "Vida",
+  "summon": "Item de invocação",
+  "weak": "Fraco contra",
+  "resist": "Resistente a",
+  "immune": "Imune a",
+  "drops": "Deixa cair",
+  "power": "Poder dos Guardiões",
+  "item": "Item",
+  "price": "Preço (moedas)",
+  "sellValue": "Vende-se por (moedas)",
+  "available": "Disponível",
+  "always": "desde o início",
+  "afterBoss": "depois de derrotar {boss}",
+  "afterChest": "depois de devolver {chest}",
+  "dmg": {
+   "blunt": "Embotado",
+   "slash": "Golpear",
+   "pierce": "Perfurar",
+   "fire": "Fogo",
+   "frost": "Geada",
+   "lightning": "Relâmpago",
+   "poison": "Veneno",
+   "spirit": "Espírito"
+  },
+  "disclaimer": "Valheim-Map é um projeto de fãs e não tem qualquer ligação à Iron Gate nem à Coffee Stain. Valheim é uma marca registada dos respetivos proprietários. Dados do jogo: versão {version}.",
+  "noscript": "O mapa interativo precisa de JavaScript. Os guias de sementes, chefes e comerciantes funcionam sem ele."
+ },
+ "about": {
+  "h": "Valheim-Map: o teu mundo inteiro a partir da semente",
+  "p": [
+   "Valheim-Map é um mapa interativo gratuito para Valheim. Escreve a **semente** (seed) do teu mundo e o mapa mostra o mundo completo, sem névoa: todos os biomas, a linha da costa e a posição exata de chefes, comerciantes, masmorras e mais de 90 outros tipos de locais.",
+   "Nada é enviado e não precisas do teu save. O mapa executa no teu navegador a mesma geração de mundo que o jogo usa, por isso as posições coincidem com o teu mundo ao metro. Clica num marcador para veres as coordenadas e um comando de console já pronto para viajares até lá.",
+   "Usa a lista à esquerda para ligar e desligar tipos de locais, procura um lugar específico, como Haldor ou as Criptas afundadas, e guarda as sementes a que queres voltar. O link na barra de endereço contém sempre a semente e a vista atual, por isso podes partilhar qualquer ponto com os teus amigos."
+  ],
+  "seedH": "Como encontrar a semente do teu mundo",
+  "seedP": "Cada mundo de Valheim é criado a partir de uma semente, um texto curto com um máximo de dez caracteres. A mesma semente gera sempre o mesmo mundo.",
+  "seedSteps": [
+   "Abre o Valheim, clica em **Começar o jogo** e escolhe a tua personagem.",
+   "Na lista de mundos, seleciona o teu mundo. A semente aparece mesmo ao lado do nome do mundo.",
+   "Num servidor dedicado, a semente está guardada no **.fwl** do mundo. Carrega o mundo uma vez em modo de um jogador ou pede a semente ao administrador do servidor.",
+   "Escreve a semente no campo do canto superior esquerdo do mapa e carrega em **Carregar**. Maiúsculas e minúsculas fazem diferença."
+  ],
+  "guidesH": "Guias",
+  "faqH": "Perguntas frequentes",
+  "faq": [
+   {
+    "q": "O mapa é exato para o meu mundo?",
+    "a": "Sim. O terreno e todos os locais são calculados com o mesmo algoritmo que o jogo usa, e os resultados foram comparados com mundos reais. O mapa mostra onde o jogo coloca um local quando exploras a zona pela primeira vez. O que os jogadores alteram depois, como edifícios destruídos, não aparece."
+   },
+   {
+    "q": "Que versão do jogo é que o mapa suporta?",
+    "a": "O mapa acompanha a versão pública atual de Valheim, incluindo as Terras Cinzentas e o Norte profundo. Mundos criados com uma versão muito mais antiga podem ser diferentes nas zonas que foram exploradas antes de uma atualização."
+   },
+   {
+    "q": "Porque é que há vários marcadores para Haldor, Hildir e a Bruxa do Pântano?",
+    "a": "O jogo prepara até dez acampamentos possíveis para cada comerciante. O primeiro de que te aproximas passa a ser o verdadeiro, e os outros desaparecem do teu mundo. Por isso, basta escolheres o marcador mais próximo da tua base."
+   },
+   {
+    "q": "Tenho de enviar o meu save?",
+    "a": "Não. O mapa só precisa da semente. O cálculo é feito no teu dispositivo e nada sobre o teu mundo é enviado para um servidor."
+   },
+   {
+    "q": "Como viajo até um local que encontrei no mapa?",
+    "a": "Clica no marcador. A janela mostra as coordenadas e um comando de console. Em modo de um jogador, podes ativar o console com a opção de arranque **-console**, escrever **devcommands** e depois usar o comando **goto**. Sem cheats, orienta-te pelas coordenadas e pela distância ao ponto de partida."
+   },
+   {
+    "q": "O mapa funciona no smartphone?",
+    "a": "Sim. O mapa funciona em qualquer navegador moderno, incluindo smartphones e tablets. O cálculo de todos os locais demora alguns segundos, e um pouco mais em dispositivos antigos."
+   },
+   {
+    "q": "O Valheim-Map é gratuito?",
+    "a": "Sim, totalmente, e sem conta. Se o mapa te poupou umas horas de navegação, podes apoiar o projeto com uma pequena doação."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Sementes de mundo escolhidas a dedo, todas verificadas com o mapa.",
+  "title": "Melhores sementes (seeds) de Valheim: lista verificada com links para o mapa",
+  "desc": "As melhores sementes (seeds) de Valheim para a versão atual: inícios fáceis, comerciantes ao lado do ponto de partida, corrida aos chefes e sementes de ferro. Todas foram recalculadas e abrem diretamente no mapa interativo.",
+  "h1": "As melhores sementes de Valheim",
+  "intro": [
+   "Uma boa semente poupa horas: um comerciante a poucos passos, os primeiros chefes no continente inicial ou um pântano cheio de criptas logo do outro lado do rio. O problema da maioria das listas de sementes é que são copiadas umas das outras e nunca foram verificadas depois de a geração de mundo ter mudado.",
+   "Esta lista é diferente. Reunimos as sementes mais recomendadas pela comunidade e **recalculámos cada uma delas** com o gerador de mundo da versão atual do jogo. As distâncias abaixo são medidas a partir do ponto de partida, e cada semente abre no mapa interativo com um clique. Quando uma recomendação antiga já não se confirma, dizemos isso mesmo ou deixámos a semente de fora."
+  ],
+  "factsH": "Distâncias a partir do ponto de partida",
+  "colPlace": "Local",
+  "colDist": "Distância",
+  "howH": "Como usar uma semente",
+  "how": [
+   "No Valheim, clica em **Começar o jogo**, escolhe a tua personagem e depois **Novo** na lista de mundos. Dá um nome ao mundo e escreve a semente exatamente como aparece aqui, respeitando maiúsculas e minúsculas. Num servidor dedicado, cria primeiro o mundo localmente e envia os dados do mundo para o servidor, ou define a semente nas definições do teu serviço de alojamento.",
+   "As distâncias são linhas retas a partir das Pedras de sacrifício. Cada comerciante conta apenas uma vez: o jogo prepara vários acampamentos possíveis, e o primeiro de que te aproximas passa a ser o verdadeiro. A tabela usa sempre o mais próximo."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "A melhor para tudo",
+    "text": [
+     "Se só fores experimentar uma semente, escolhe esta. Os cinco primeiros chefes ficam todos a menos de 3,5 km do ponto de partida: Eikthyr está a 120 m, o Ancião a 1,1 km, Moder a menos de 1 km, Massa Óssea a 1,9 km e Yagluth a 3,4 km. Quase nenhum outro mundo tem a progressão tão concentrada.",
+     "Haldor acampa a 1,6 km das Pedras de sacrifício, perto da distância mínima que o jogo permite. Isso torna a semente ideal para uma aventura rápida e para grupos que querem lutar contra chefes em vez de navegar durante horas."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Tudo a pé, sem precisar de barco",
+    "text": [
+     "Nesta semente, a massa de terra inicial tem quase tudo o que precisas: os cinco primeiros chefes, de Eikthyr a Yagluth, e os três comerciantes ficam ao teu alcance sem nunca construíres um barco. Yagluth está a apenas 3 km do ponto de partida, Moder a 1,9 km e o Ancião a 1,8 km.",
+     "Haldor está a 1,7 km, Hildir a 2,9 km e a Bruxa do Pântano a 3,1 km. Um mundo perfeito para quem não gosta de navegar e para desafios sem barco até às Terras nubladas."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor à porta de casa",
+    "text": [
+     "Nenhuma semente da nossa lista tem o comerciante mais perto: Haldor acampa a apenas cerca de 1000 m do ponto de partida, na massa de terra inicial. Podes ir ter com ele a pé logo no primeiro dia e organizar as tuas compras desde o início.",
+     "O começo também é confortável. Eikthyr espera a 170 m das pedras e o Ancião a 1,2 km, também acessível a pé. A Floresta negra começa a pouco mais de 100 m do ponto de partida, por isso o cobre e o estanho nunca ficam longe."
+    ]
+   },
+   "1k7md8": {
+    "title": "O início mais rápido",
+    "text": [
+     "Eikthyr está a 60 m do ponto de partida, praticamente à vista das Pedras de sacrifício. O Ancião vem logo a seguir, a apenas 650 m, o altar do Ancião mais próximo de todas as sementes que verificámos. Podes derrotar os dois primeiros chefes sem nunca saíres de casa.",
+     "O resto do início do jogo também fica perto: Moder a 2,1 km, Massa Óssea a 2,3 km e Yagluth a 3,1 km. Massa Óssea e Yagluth estão na massa de terra inicial. Só Haldor fica um pouco mais longe, a 2,9 km, mas também se chega lá a pé."
+    ]
+   },
+   "18mang": {
+    "title": "Comerciantes a pé e um caminho curto para norte",
+    "text": [
+     "Os três comerciantes estão na massa de terra inicial: Haldor a 1,2 km, Hildir a 2,7 km e a Bruxa do Pântano a 3,5 km. Hildir a esta distância é raro, porque os acampamentos dela costumam ficar a mais de 3 km. O primeiro Pântano começa a apenas 1 km do ponto de partida, com duas Criptas afundadas a menos de 1,5 km, por isso o ferro chega invulgarmente cedo.",
+     "A comunidade recomenda esta semente para o Norte profundo, e os números confirmam: o bioma do norte começa a cerca de 6,9 km do ponto de partida, um quilómetro inteiro mais perto do que na maioria dos mundos. Eikthyr fica um pouco mais longe do que o habitual, a 800 m."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Cinco chefes sem barco",
+    "text": [
+     "Eikthyr, o Ancião, Massa Óssea, Moder e Yagluth estão todos na massa de terra inicial. Moder é o destaque: o altar dela fica a apenas 1,5 km do ponto de partida, e há grandes montanhas com prata perto do início.",
+     "Haldor, a 2,1 km, e a Bruxa do Pântano, a 3,2 km, também ficam ao alcance a pé. Uma ótima semente para quem quer assentar num só lugar e fazer o jogo todo até à Planície a partir de uma única base."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "Distâncias curtas em todas as direções",
+    "text": [
+     "Uma semente equilibrada e sem pontos fracos. O Ancião está a 1,1 km do ponto de partida, Massa Óssea e Moder ambos a 2,3 km e Yagluth a 3,4 km. Haldor acampa a 1,6 km.",
+     "A comunidade conhece esta semente pela longa faixa de terra, quase contínua, que vai de norte a sul. Isso facilita a exploração a pé e mantém as viagens por mar curtas."
+    ]
+   },
+   "Angel": {
+    "title": "Um início suave para principiantes",
+    "text": [
+     "Eikthyr está a 80 m das Pedras de sacrifício e o Ancião a exatamente 1 km. Haldor vem a seguir, a 1,5 km, mais ou menos o mais perto que o jogo permite. Para novos jogadores, isto significa um caminho curto e claro nas primeiras horas.",
+     "Os objetivos seguintes também ficam ao alcance: Moder está a 2,5 km, Massa Óssea a 2,7 km, e Hildir e a Bruxa do Pântano ambas a cerca de 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder e o Ancião mesmo ao lado",
+    "text": [
+     "Esta semente é elogiada como uma das melhores desde a atualização 1.0, e o mapa confirma o essencial: Eikthyr a 250 m, Moder a 1,3 km e o Ancião a 1,3 km, os três na massa de terra inicial. Massa Óssea está a 2 km.",
+     "Haldor está a 2,3 km do ponto de partida e chega-se lá a pé. Hildir e a Bruxa do Pântano ficam ambas a pouco menos de 3 km, mais perto do que na maioria dos mundos."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "Prata cedo: Moder a 1 km do ponto de partida",
+    "text": [
+     "O altar de Moder fica a apenas 1,1 km do ponto de partida e na massa de terra inicial. Ou seja, montanhas, prata e armadura de lobo ficam a uma caminhada da tua primeira base. Eikthyr está a 80 m das pedras e o Ancião a 1,4 km.",
+     "Haldor também está perto, a 1,5 km, mas vive do outro lado da água, por isso precisas de uma jangada ou de nadar um pouco. A semente é popular há muito tempo pelo início num Prado bonito, com muito espaço para construir."
+    ]
+   },
+   "WorldEater": {
+    "title": "O Ancião a 900 m",
+    "text": [
+     "Eikthyr a 230 m e o Ancião a 900 m garantem uma entrada muito rápida na Idade do Bronze. Massa Óssea está a 2,9 km, na massa de terra inicial, por isso os três primeiros chefes não exigem barco.",
+     "A Bruxa do Pântano acampa a 2,8 km do ponto de partida e chega-se lá a pé, tal como a Hildir. Moder está a 2,5 km, do outro lado da água."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "Os três primeiros chefes numa só ilha",
+    "text": [
+     "Eikthyr a 110 m, o Ancião a 1,2 km e Massa Óssea a 2,1 km estão todos na massa de terra inicial. Podes jogar da Idade da Pedra à Idade do Ferro sem construir um barco.",
+     "Hildir e a Bruxa do Pântano vivem na mesma massa de terra, a pouco mais de 3 km. Yagluth, a 3,2 km, e Moder, a 3,5 km, ficam a uma curta viagem de barco."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Ilha compacta com comerciante",
+    "text": [
+     "Esta semente era considerada difícil. Na versão atual, é um início compacto e agradável: Eikthyr a 140 m, o Ancião a pouco menos de 1 km e Massa Óssea a 2,3 km, todos na massa de terra inicial.",
+     "Haldor, a 1,9 km, e Hildir, a 2,9 km, também ficam ao alcance a pé. Só para Moder é que tens de preparar uma viagem mais longa."
+    ]
+   },
+   "feret2": {
+    "title": "Massa Óssea por perto",
+    "text": [
+     "Aqui, Massa Óssea fica a apenas 1,9 km do ponto de partida, uma das distâncias mais curtas que encontrámos. Moder vem a seguir, a 2,2 km, e Eikthyr a 250 m. Se queres chegar depressa ao ferro e à prata, é uma boa escolha.",
+     "Haldor acampa a 1,5 km das Pedras de sacrifício, perto da distância mínima, mas do outro lado da água. A semente também é conhecida pela região inicial variada, com muitos biomas juntos."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor e Moder por perto",
+    "text": [
+     "Haldor está a 1,5 km do ponto de partida, praticamente a distância mínima, e Moder a apenas 1,8 km. O Ancião vem a seguir, a 2,2 km.",
+     "A região inicial é grande e variada, com Floresta negra e Montanha perto do Prado. Uma boa semente para uma aventura longa e descontraída com uma base principal central."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "O clássico, verificado de novo",
+    "text": [
+     "Esta é provavelmente a semente de Valheim mais famosa de todas. Ficou conhecida como a semente de speedrun, com quatro chefes perto do ponto de partida. Várias atualizações da geração de mundo depois, isso já não é verdade, e muitas listas continuam a repetir a informação antiga.",
+     "O que resta ainda é razoável: Eikthyr a 440 m, Haldor a 1,6 km e Massa Óssea a 2,2 km, todos na massa de terra inicial. O Ancião está a 2,9 km e Yagluth a 3,1 km, do outro lado da água. Moder, no entanto, fica agora a mais de 6 km do ponto de partida. Serve para matar saudades, mas as sementes mais acima são hoje melhores."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "Todos os chefes por ordem: como os encontrar, invocar e derrotar.",
+  "title": "Chefes (bosses) de Valheim: ordem, locais, invocação e dicas",
+  "desc": "Todos os chefes de Valheim por ordem, de Eikthyr a Fader: onde ficam os altares, o que precisas para os invocar, fraquezas e as melhores dicas para cada combate.",
+  "h1": "Chefes de Valheim por ordem",
+  "intro": [
+   "A história de Valheim conta-se através dos seus chefes, os Guardiões. Cada um guarda um bioma e cada um deixa o item que abre o passo seguinte: os chifres para a picareta que te deixa minerar, a chave das criptas do pântano, o osso que encontra prata. Derrotá-los por ordem é a espinha dorsal de qualquer aventura.",
+   "A tabela mostra todos os chefes da progressão principal, com o bioma, a vida e os itens que tens de sacrificar. Cada chefe tem a sua própria página com fraquezas, padrões de ataque e dicas práticas. Cada mundo tem vários altares por chefe. Escreve a tua semente no mapa para veres onde ficam os teus."
+  ],
+  "outro": [
+   "Cada chefe derrotado deixa um troféu. Pendura-o no respetivo gancho nas Pedras de sacrifício para desbloqueares o Poder dos Guardiões desse chefe. Só podes ter um poder selecionado de cada vez. Dura 5 minutos e depois precisa de 20 minutos para recarregar.",
+   "Em multijogador, os chefes ficam mais resistentes e batem com mais força por cada jogador adicional por perto, por isso ter mais jogadores não torna o combate trivial."
+  ],
+  "pageTitle": "{boss}: local, invocação e dicas",
+  "pageDesc": "Como derrotar {boss} em Valheim: onde encontrar o altar no bioma {biome}, os itens de invocação, fraquezas, ataques e as melhores dicas e truques para o combate.",
+  "showOnMap": "{boss}: mostrar os altares no mapa",
+  "findH": "Como encontrar {boss}",
+  "prepH": "Preparação",
+  "attacksH": "Ataques",
+  "tipsH": "Dicas e truques",
+  "rewardH": "Recompensa",
+  "list": {
+   "eikthyr": {
+    "lead": "Eikthyr, o veado dos relâmpagos, é o primeiro chefe de Valheim. Espera por ti no Prado e é um teste suave ao básico: bloquear, desviar e gerir a energia.",
+    "power": "60% menos energia gasta a correr, saltar e nadar.",
+    "find": [
+     "O altar de Eikthyr fica sempre no Prado e, normalmente, a poucas centenas de metros do ponto de partida. A pedra de runa vermelha e brilhante nas Pedras de sacrifício marca o altar no teu mapa assim que a lês.",
+     "Para o invocar, coloca **2 Troféus Veado** no altar. Os veados deixam um troféu mais ou menos a cada duas mortes. Aproxima-te deles sorrateiramente e contra o vento, ou caça-os com um Arco tosco."
+    ],
+    "prep": [
+     "Faz um conjunto completo de armadura de couro e melhora-o uma vez, se puderes.",
+     "Leva uma Lança de sílex, um Machado de sílex ou uma Moca, um Arco tosco com cerca de 50 flechas e um Escudo de madeira.",
+     "Come três alimentos diferentes antes do combate, por exemplo Carne de javali cozida, Cauda de Neck grelhada e Framboesas ou Cogumelos.",
+     "Dorme primeiro para lutares com o efeito Descansado. Acelera bastante a regeneração de energia."
+    ],
+    "attacks": [
+     "**Investida com os chifres:** avança e varre com os chifres. Bloqueia com o escudo ou dá um passo para o lado.",
+     "**Raio:** empina-se e dispara uma linha de relâmpagos em frente, sobretudo quando não há ninguém junto dele. Desvia-te para o lado.",
+     "**Pisão elétrico:** ergue-se nas patas traseiras e bate no chão, atingindo tudo à sua volta. Rebola para trás quando ele se empinar."
+    ],
+    "tips": [
+     "Mantém o escudo redondo levantado e ataca logo a seguir a cada ataque dele. Quase tudo o que ele faz pode ser bloqueado, mesmo com um simples Escudo de madeira.",
+     "Nunca deixes a energia chegar a zero. Sem energia não consegues bloquear nem desviar, e é assim que falha a maioria das primeiras tentativas.",
+     "As rochas e as árvores à volta do altar travam os relâmpagos. Usa-as como cobertura se preferires o arco.",
+     "Luta de dia. À noite, os Anões Cinzentos e outras criaturas juntam-se à festa.",
+     "Se o combate correr mal, foge. Eikthyr não desaparece e mantém durante algum tempo o dano que lhe causaste."
+    ],
+    "reward": [
+     "Eikthyr deixa **3 Chifres duros** e o seu troféu. Com os chifres fazes a Picareta de chifre, a tua primeira picareta, que te permite minerar estanho e cobre na Floresta negra e entrar na Idade do Bronze.",
+     "O seu Poder dos Guardiões torna correr e saltar muito mais barato. Continua a ser útil durante todo o jogo, para explorar, fugir e carregar minério."
+    ]
+   },
+   "elder": {
+    "lead": "O Ancião é uma árvore viva gigante e o segundo chefe. Domina a Floresta negra e castiga quem o enfrenta em campo aberto. Com flechas de fogo e um pilar para te esconderes, é bastante acessível.",
+    "power": "60% mais dano ao cortar árvores e ao minerar, e regeneração de vida 30% mais rápida.",
+    "find": [
+     "O altar do Ancião fica na Floresta negra: uma plataforma de pedra com quatro pilares altos à volta de uma taça de fogo. Pedras de runa vermelhas nas Câmaras de enterro e em algumas torres de pedra em ruínas marcam o altar mais próximo no teu mapa.",
+     "Para o invocar, queima **3 Sementes antigas** na taça de fogo. As sementes caem dos Anões Cinzentos brutos e xamãs e sempre dos Ninhos de Anões Cinzentos destruídos, os geradores com brilho roxo."
+    ],
+    "prep": [
+     "A armadura de bronze é o ideal. A armadura de couro de troll é uma boa alternativa e fica muito mais barata.",
+     "Leva um Arco de boa madeira e pelo menos 100 **Flechas de fogo**. O Ancião é fraco contra o fogo, e o efeito de queimadura continua a causar dano.",
+     "Leva um Broquel de bronze ou um Escudo ligado e um machado para as raízes.",
+     "Prepara alguns Hidroméis de regeneração menor e come os teus três melhores alimentos, por exemplo Ensopado de cervo, Sopa de cenoura e Doce das rainhas.",
+     "Destrói os Ninhos de Anões Cinzentos à volta do altar, corta as árvores próximas e constrói um pequeno abrigo com um portal a pouca distância."
+    ],
+    "attacks": [
+     "**Disparo de lianas:** estica os braços e dispara uma rajada de lianas a longa distância. Fica atrás de um dos quatro pilares. São indestrutíveis.",
+     "**Pisão:** de perto, pisa o chão e causa muito dano. Mantém a distância ou rebola para longe.",
+     "**Raízes:** faz nascer à tua volta um campo de raízes que chicoteiam quem estiver por perto. Sai da zona. As raízes desaparecem ao fim de algum tempo, ou podes cortá-las com um machado."
+    ],
+    "tips": [
+     "Joga à volta dos pilares: sai, dispara duas ou três flechas de fogo e volta a esconder-te antes de as lianas chegarem. Este ritmo simples ganha o combate.",
+     "Não lutes corpo a corpo a não ser que tenhas mesmo de o fazer. O pisão bate muito mais forte do que qualquer outra coisa nesta fase do jogo.",
+     "As árvores a cair são um perigo real. O Ancião derruba-as com as lianas, e um tronco a cair pode matar-te de imediato. Limpar a arena antes do combate elimina esse risco.",
+     "Invoca-o de manhã. O combate pode durar vários minutos, e à noite a floresta enche-se de inimigos.",
+     "Uma Fogueira, pequena ou grande, junto da arena mantém-te Descansado, e o fogo causa-lhe dano se ele passar por cima."
+    ],
+    "reward": [
+     "O Ancião deixa a **Chave da cripta** e o seu troféu. A chave abre as Criptas afundadas no Pântano, a única boa fonte de ferro.",
+     "Depois de derrotares o Ancião, Haldor passa a vender Carne de Ymir e Pedras relâmpago, e a Bruxa do Pântano vende mais ingredientes.",
+     "O seu Poder dos Guardiões acelera bastante o corte de madeira e a mineração. É perfeito para grandes construções e expedições de mineração."
+    ]
+   },
+   "bonemass": {
+    "lead": "Massa Óssea é uma enorme bolha de ossos e lodo que vive no Pântano e é o terceiro chefe. Muitos jogadores falham aqui ao início, porque espadas e flechas mal lhe fazem um arranhão. Com uma clava e resistência ao veneno, o combate muda por completo.",
+    "power": "25% menos dano físico recebido (Embotado, Golpear, Perfurar). Bloquear não gasta energia e até devolve alguma.",
+    "find": [
+     "O altar de Massa Óssea é um crânio gigante caído no Pântano. Pedras de runa vermelhas dentro das Criptas afundadas marcam o mais próximo no teu mapa.",
+     "Para o invocar, deita **10 Ossos secos** dentro do crânio. Encontras os ossos nas Criptas afundadas, em baús e nas Pilhas de sucata enlameada que de qualquer forma vais escavar à procura de ferro."
+    ],
+    "prep": [
+     "Leva uma **Clava de ferro**, melhorada ao máximo que conseguires. Massa Óssea é fraco contra dano Embotado e resiste a Golpear, Perfurar e Fogo. O Quebragamos ou um Martelo de forja de ferro também servem.",
+     "Prepara **Hidromel de resistência ao veneno** e leva pelo menos três ou quatro por jogador. Sem ele, a nuvem de veneno mata em segundos.",
+     "Veste armadura de ferro melhorada ou o conjunto de raiz, e leva um Escudo ligado ou melhor.",
+     "Leva Hidroméis de regeneração média e hidroméis de energia, e come Salsichas, Ensopado de nabos e outra comida do nível do Pântano.",
+     "Nivela o terreno à volta do crânio com uma Enxada para não lutares com água pelos joelhos, onde as Sanguessugas mordem e a energia não regenera enquanto nadas.",
+     "Constrói por perto um pequeno abrigo coberto com cama, fogo e portal, de preferência em terreno elevado."
+    ],
+    "attacks": [
+     "**Murro:** um golpe largo com mais alcance do que parece, que causa dano Embotado e de Veneno. Bloqueia ou apara com um escudo sólido.",
+     "**Nuvem de veneno:** inclina-se para trás e vomita uma grande nuvem que fica no ar. Sai dela de imediato e espera que se dissipe.",
+     "**Invocação:** arranca um pedaço de si próprio e atira-o. No sítio onde cai surgem Esqueletos e Bolhas. Mata-os depressa, antes que te cerquem."
+    ],
+    "tips": [
+     "Bebe o Hidromel de resistência ao veneno **antes** de o invocares e renova-o quando o ícone começar a piscar. Dura 10 minutos.",
+     "A animação de invocação é a tua melhor abertura: ele fica parado vários segundos enquanto atira.",
+     "Aparar o murro não o deixa atordoado, mas protege-te por completo. Depois bate duas ou três vezes e recua.",
+     "As Flechas de gelo são as únicas flechas que vale a pena usar contra ele. Se já tiveres obsidiana e Glândulas de gelo, tornam possível um combate seguro à distância.",
+     "Usa o poder de Eikthyr para saíres depressa da nuvem de veneno, ou o do Ancião pela regeneração extra.",
+     "O ataque em área do Quebragamos atinge Massa Óssea e as criaturas invocadas ao mesmo tempo."
+    ],
+    "reward": [
+     "Massa Óssea deixa o **Osso dos desejos** e o seu troféu. Com o Osso dos desejos equipado, detetas Veias de prata escondidas na Montanha, tesouros enterrados no Prado e Pilhas de sucata enlameada no Pântano.",
+     "O seu Poder dos Guardiões é o melhor poder defensivo do jogo. Muitos jogadores ficam com ele para todos os chefes seguintes."
+    ]
+   },
+   "moder": {
+    "lead": "Moder é a mãe dos dragões da Montanha e o quarto chefe. Ataca do ar e no chão, e o seu sopro gelado congela quem estiver à frente. Um bom arco e proteção contra o frio decidem este combate.",
+    "power": "Vento sempre a favor ao navegar, mais 300 de peso de carga, movimento 10% mais rápido e 50% de resistência a Geada.",
+    "find": [
+     "O altar de Moder fica no topo de uma montanha, normalmente num planalto largo e plano. Pedras de runa vermelhas em ruínas de pedra na Montanha e nas Cavernas de gelo marcam-no no teu mapa.",
+     "Para a invocar, coloca **3 Ovos de Dragão** no altar. Os ovos estão em ninhos na Montanha. Cada um pesa 200 e não passa por portais, por isso tens de os levar um de cada vez, ou numa só viagem com três jogadores."
+    ],
+    "prep": [
+     "Veste a armadura de lobo: o peitoral e a capa protegem-te do frio. Sem ela, precisas de **Hidromel de resistência ao gelo** durante toda a viagem.",
+     "Leva o melhor arco que tiveres, de preferência o Dente de Draugr, e 150 flechas ou mais. Moder é fraca contra o fogo, por isso as **Flechas de fogo** são baratas e fortes. As Setas de Obsidiana e as Flechas venenosas também são boas. As Flechas de gelo não fazem nada.",
+     "Leva uma Espada de prata ou outra arma corpo a corpo melhorada para as fases no chão.",
+     "Leva Hidroméis de regeneração média e hidroméis de energia, e come comida que dê muita vida, como Ensopado de serpente, Salsichas e Ensopado de nabos.",
+     "Limpa o planalto de Lobos, Dragões e Golems de Pedra antes de começares, e monta um portal com um pequeno abrigo abaixo do cume."
+    ],
+    "attacks": [
+     "**Rajada de gelo (no ar):** sobrevoa-te e dispara uma linha de projéteis de gelo que explodem em cristais. Continua a correr para o lado.",
+     "**Sopro gelado (no chão):** um cone largo de gelo em frente que te deixa muito lento. Vai para o lado dela assim que baixar a cabeça.",
+     "**Mordida e garras:** de perto, morde e dá patadas. Ambos os ataques podem ser bloqueados com um bom escudo."
+    ],
+    "tips": [
+     "Dispara sempre que ela estiver no ar ou a pousar. A trajetória de voo é lenta e previsível, por isso a maioria das flechas acerta.",
+     "Quando ela pousar, contorna-a até ao flanco. O sopro só atinge o que está à frente dela, e de lado podes atacar à vontade.",
+     "Se o gelo te atingir, ficas lento e fácil de atingir outra vez. Se estiveres congelado, bloqueia em vez de fugires.",
+     "Os cristais de gelo da rajada podem ser destruídos e servem de pequena cobertura em campo aberto.",
+     "O poder de Massa Óssea torna as fases corpo a corpo muito mais seguras. Com o arco, o poder de Eikthyr ajuda-te a não parar de te mexer.",
+     "Leva os ovos lá para cima antes do combate e deixa-os junto do altar. Não desaparecem."
+    ],
+    "reward": [
+     "Moder deixa **10 Lágrimas de dragão** e o seu troféu. Com as lágrimas constróis a Mesa de artesanato, que desbloqueia o Moinho, o Alto forno e a Roda de fiar, e com eles o equipamento da Planície.",
+     "Depois de a derrotares, Haldor vende Bolsos maiores, uma fila extra no inventário, e a Bruxa do Pântano acrescenta vários itens à sua oferta.",
+     "O seu Poder dos Guardiões dá-te vento a favor em todas as viagens e muito mais peso de carga. É o favorito de qualquer navegador e de quem transporta minério."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, o rei caído dos Fulings, é o quinto chefe. Só a parte de cima do corpo rasteja pela Planície, mas o fogo e os meteoros fazem dele um dos combates mais mortais do jogo. Aqui, a resistência ao fogo não é opcional.",
+    "power": "10% mais dano, 50% de resistência a Relâmpago e 25 níveis extra de Cultivo.",
+    "find": [
+     "O altar de Yagluth fica na Planície: um anel de enormes dedos de pedra que saem do chão. Pedras de runa vermelhas em círculos de pedra na Planície marcam-no no teu mapa. São raras, por isso aqui o mapa poupa-te uma longa procura.",
+     "Para o invocar, coloca **5 Totens Fuling** no altar. Há um totem na maioria das aldeias de Fulings, e os Fulings furiosos por vezes deixam cair um. Os totens passam por portais."
+    ],
+    "prep": [
+     "Prepara **Vinho de cevada resistente ao fogo** e leva vários por jogador. Dura 10 minutos e tem de estar ativo durante todo o combate.",
+     "Veste armadura acolchoada totalmente melhorada. A armadura de lobo é o mínimo.",
+     "Leva uma Espada de metal preto, o Porco-espinho ou a Frostner. Yagluth resiste muito a dano de Perfurar, por isso lanças, atgeirs e a maioria das flechas são más escolhas.",
+     "Se quiseres lutar à distância, usa Flechas de gelo e conta com um combate longo.",
+     "Leva Hidroméis de regeneração média e de energia média, e come a melhor comida da Planície: Torta de carne Lox, Morcela, Wraps de peixe.",
+     "Elimina primeiro todos os Fulings, lox e Mortesquitos à volta do altar e coloca um portal a uma distância segura."
+    ],
+    "attacks": [
+     "**Sopro de fogo:** levanta a cabeça e varre um longo feixe de fogo atrás de ti. Corre para o lado ou esconde-te atrás de um dos dedos de pedra.",
+     "**Murro no chão:** o punho brilha a azul, depois ele esmurra o chão e provoca uma grande explosão. Afasta-te assim que vires o brilho.",
+     "**Meteoros:** a mão brilha a laranja e chovem meteoros sobre a tua posição durante vários segundos. Corre sempre na mesma direção até parar."
+    ],
+    "tips": [
+     "Todos os ataques são anunciados por um brilho bem visível. Aprende os três sinais e o combate fica tranquilo: atacar, ver o brilho, afastar, repetir.",
+     "Ataca por trás ou de lado e só dois ou três golpes de cada vez. Aqui, o que mata os jogadores é a ganância.",
+     "Os dedos de pedra bloqueiam o sopro de fogo, mas os meteoros passam por cima. Não descanses atrás de um pilar durante a chuva de meteoros.",
+     "Estar a arder faz-te entrar em pânico e desperdiçar energia. Com o vinho de cevada ativo, o dano de fogo cai para cerca de metade e o combate perdoa mais erros.",
+     "Ativa o poder de Massa Óssea quando começares a fase corpo a corpo. Renova o vinho de cevada cedo, não quando acabar.",
+     "Yagluth é lento. Se precisares de te curar ou de comer, basta afastares-te dele."
+    ],
+    "reward": [
+     "Yagluth deixa **3 Espíritos dilacerados** e o seu troféu. Com um Espírito dilacerado constróis a Fonte de wisps. Ela junta wisps, de que precisas para a Luz de Wisp, que dissipa a névoa nas Terras nubladas.",
+     "Depois de o derrotares, Haldor vende ovos para criares galinhas, e a Bruxa do Pântano acrescenta a especiaria da Planície.",
+     "O seu Poder dos Guardiões aumenta todo o teu dano em um décimo. É uma escolha forte para as Terras nubladas e para os chefes seguintes."
+    ]
+   },
+   "queen": {
+    "lead": "A Rainha é a mãe dos Buscadores e o sexto chefe. Vive bem no fundo da Cidadela infestada, nas Terras nubladas, e nunca luta sozinha: a sua ninhada está sempre a nascer à tua volta. Uma boa preparação e o controlo das crias decidem o combate.",
+    "power": "O Éter regenera duas vezes mais depressa, andar sorrateiro não gasta energia e ganhas 50% de resistência a Veneno.",
+    "find": [
+     "A Rainha não é invocada. Espera dentro da **Cidadela infestada**, um enorme edifício selado nas Terras nubladas. Pedras de runa vermelhas nas Minas infestadas marcam a cidadela no teu mapa.",
+     "A porta só abre com o **Quebra-selos**. Fabrica-lo na Mesa de encantamentos Galdr com **9 Fragmentos de quebra-selos**, que encontras nas Minas infestadas. Para voltares a enfrentá-la mais tarde, coloca 3 Troféus de soldado buscador no altar lá dentro."
+    ],
+    "prep": [
+     "Veste armadura de carapaça melhorada para o corpo a corpo, ou o Manto de tecido com éter se lutares com magia.",
+     "Ela resiste a dano de Perfurar. Usa armas de Golpear ou de dano Embotado, como o Caminhante da névoa, a Krom ou o Demolidor. Arcos e lanças fazem pouco.",
+     "A magia é muito forte aqui: o Cajado de brasas limpa a ninhada, o Cajado da proteção protege o grupo e o Invocador de mortos distrai os inimigos.",
+     "Bebe **Hidromel de resistência ao veneno** antes de entrares, e leva Hidroméis de cura maior, hidroméis de energia e hidroméis de éter.",
+     "Come a melhor comida das Terras nubladas. Para quem usa magia, pelo menos um alimento de Éter é obrigatório.",
+     "A cidadela não tem névoa, mas leva a tua Luz de Wisp para o caminho até lá. Uma Capa de penas permite-te saltar dos andares de cima em segurança.",
+     "Podes construir dentro da cidadela. Uma Bancada de trabalho, um portal logo à saída da porta e algumas paredes de pedra para cobertura ajudam muito."
+    ],
+    "attacks": [
+     "**Golpes e investida:** golpes largos com as patas da frente e uma carga a rastejar. Desvia-te para o lado ou bloqueia com um escudo forte.",
+     "**Mordida:** um bote em frente com muito dano de Perfurar e de Veneno. Não fiques à frente da cabeça dela.",
+     "**Estocada no chão:** empina-se e crava os quatro braços no chão, atingindo tudo à sua volta. Recua quando ela se levantar.",
+     "**Cuspo:** vários projéteis de veneno que explodem e libertam Buscadores filhotes.",
+     "**Chamamento:** grita e invoca Buscadores e crias.",
+     "**Escavar:** enterra-se no chão e reaparece noutro ponto do salão."
+    ],
+    "tips": [
+     "Mata as crias constantemente. Uma dúzia de pequenos Buscadores faz mais dano do que a própria Rainha. Ataques em área como os do Demolidor ou do Cajado de brasas são ideais.",
+     "Usa as escadas e os andares superiores da cidadela. Ela é rápida em terreno aberto, mas lenta nas rampas, o que te dá tempo para te curares e recuperares energia.",
+     "Todos os ataques corpo a corpo dela te atiram para trás. Não fiques de costas para paredes nem para beiras.",
+     "Em grupo, um jogador com um escudo torre segura a atenção dela enquanto os outros tratam das crias e atacam por trás.",
+     "O poder de Massa Óssea é excelente para o corpo a corpo. Quem usa magia leva o poder da própria Rainha para a desforra, ou o de Yagluth para mais dano.",
+     "Se morreres, o teu túmulo fica dentro do salão. Um portal mesmo à saída da porta encurta o caminho para recuperares as tuas coisas."
+    ],
+    "reward": [
+     "A Rainha deixa **5 Carapaças majestosas** e o seu troféu. Com a carapaça constróis a Prensa artesanal, de que precisas para o equipamento e os navios que te levam às Terras Cinzentas.",
+     "Depois de a derrotares, Haldor vende Bolsos mais fundos, mais uma fila no inventário, e a Bruxa do Pântano acrescenta a especiaria das Terras nubladas.",
+     "O seu Poder dos Guardiões duplica a regeneração de Éter. Para personagens de magia, é o melhor poder do jogo."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, o dragão morto-vivo das Terras Cinzentas, é o sétimo chefe. Não tem fraquezas, tem o dobro da vida da Rainha e enche a arena de fogo verde. Este combate exige o melhor equipamento que as Terras Cinzentas têm para oferecer e movimento constante.",
+    "power": "A Adrenalina acumula duas vezes mais depressa, é muito mais difícil atordoarem-te e ganhas 50% de resistência a Fogo.",
+    "find": [
+     "O altar de Fader fica numa grande arena redonda nas Terras Cinzentas. Pedras de runa vermelhas dentro das Fortalezas carbonizadas marcam-no no teu mapa.",
+     "Para o invocar, precisas de **3 Sinos**. Cada Sino é forjado com **3 Fragmentos de sino** na Forja preta, e os fragmentos estão nos baús das Fortalezas carbonizadas. Derruba os portões da fortaleza com um Aríete, limpa a fortaleza e saqueia a torre. Coloca os três Sinos na arena e ativa o altar."
+    ],
+    "prep": [
+     "Veste armadura de flametal totalmente melhorada, ou o conjunto de Ask se preferires armadura leve.",
+     "Fader é imune a Fogo e Espírito e resiste a Perfurar. Usa armas de Golpear ou de dano Embotado, de preferência com dano de Geada ou Relâmpago.",
+     "Bebe **Vinho de cevada resistente ao fogo** e renova-o durante o combate.",
+     "Leva Hidroméis de cura maior e Hidroméis de vigor prolongado, e come a melhor comida das Terras Cinzentas nos três espaços.",
+     "Limpa bem os arredores da arena. Carbonizados, Morgens e Asksvin que apareçam pelo meio tornam o combate caótico.",
+     "Constrói um portal e um pequeno abrigo de pedra fora da arena. Nas Terras Cinzentas aparecem inimigos sem parar, por isso protege o portal com paredes."
+    ],
+    "attacks": [
+     "**Mordida e garras:** ataques corpo a corpo largos e muito pesados à frente dele. Bloqueia com um escudo forte ou fica no flanco.",
+     "**Rotação:** roda sobre si mesmo e atinge tudo à sua volta. Recua quando ele começar a rodar.",
+     "**Sopro de chamas:** uma linha de fogo que deixa o chão a arder. Não pode ser bloqueado. Sai da linha a andar de lado.",
+     "**Fissura:** bate no chão e uma fenda corre na tua direção, rebenta em espigões e deixa uma poça de fogo verde.",
+     "**Muralha de fogo:** um anel de chamas fecha-se à tua volta. Sai dele imediatamente.",
+     "**Meteoros:** empina-se e chovem meteoros por toda a arena.",
+     "**Invocação:** cospe esferas que se transformam em Guerreiros carbonizados e Arqueiros carbonizados."
+    ],
+    "tips": [
+     "Fica ao lado dele ou atrás. Quase todos os ataques perigosos apontam para a frente.",
+     "Nunca pises o fogo verde. As poças duram muito tempo e vão encolhendo a arena aos poucos, por isso atrai-o para uma parte limpa.",
+     "Não pares de te mexer. A maioria dos ataques em área aponta para o sítio onde estás quando ele os começa.",
+     "Mata depressa os Carbonizados invocados, ou posiciona-te de forma que os ataques do próprio Fader os atinjam.",
+     "O poder de Massa Óssea e um escudo torre permitem-te aguentar os ataques corpo a corpo. Não tentes bloquear o sopro nem a fissura.",
+     "Em grupo, dividam os papéis: um jogador segura a atenção dele, outro trata dos inimigos invocados e os restantes causam dano."
+    ],
+    "reward": [
+     "Fader deixa **5 Costelas incandescentes** e o seu troféu. As costelas são necessárias para a Pira eterna e abrem caminho ao último nível de fabrico antes do Norte profundo.",
+     "Depois de o derrotares, a Bruxa do Pântano vende a especiaria das Terras Cinzentas.",
+     "O seu Poder dos Guardiões acumula Adrenalina duas vezes mais depressa e torna-te muito mais difícil de atordoar. É uma escolha forte para personagens agressivas de corpo a corpo."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir e a Bruxa do Pântano: locais, mercadorias e preços.",
+  "title": "Comerciantes de Valheim: locais, mercadorias e preços",
+  "desc": "Todos os comerciantes de Valheim num relance: onde encontrar Haldor, Hildir e a Bruxa do Pântano, o que vendem, quanto custa e que objetos de valor podes vender por moedas.",
+  "h1": "Comerciantes de Valheim",
+  "intro": [
+   "Em Valheim vivem três comerciantes, e cada um está escondido num lugar diferente em cada mundo. Haldor vende equipamento útil na Floresta negra, Hildir vende roupa no Prado e manda-te numa missão, e a Bruxa do Pântano vende ingredientes para cozinhar e fermentar no Pântano.",
+   "Procurá-los sem ajuda pode levar dezenas de horas. Escreve a tua semente no mapa e vês de uma só vez todos os acampamentos possíveis. Todos os preços nestas páginas vêm diretamente dos dados do jogo."
+  ],
+  "sellH": "O que podes vender",
+  "sellP": [
+   "As Moedas são a única moeda de troca, e consegues obtê-las a vender objetos de valor. Os três comerciantes compram os mesmos itens aos mesmos preços. Encontras Moedas, Rubis e Âmbar nas Câmaras de enterro, nas Cavernas de troll, nas Criptas afundadas e nas aldeias de Fulings."
+  ],
+  "outro": [
+   "O acampamento de cada comerciante está protegido. Os inimigos não conseguem entrar, por isso também é um lugar seguro para um portal."
+  ],
+  "pageTitle": "{trader}: local, mercadorias e preços",
+  "pageDesc": "Onde encontrar {trader} em Valheim e o que está à venda: todas as {n} mercadorias com preços, condições de desbloqueio e dicas. Encontra o acampamento no bioma {biome} do teu mundo com o mapa de sementes.",
+  "showOnMap": "{trader}: mostrar no mapa",
+  "findH": "Onde encontrar {trader}",
+  "waresH": "O que vende {trader}",
+  "tipsH": "Dicas",
+  "list": {
+   "haldor": {
+    "teaser": "equipamento, pesca e mais espaço no inventário",
+    "lead": "Haldor é um comerciante anão que acampa na Floresta negra com o seu lox Halstein. Vende alguns dos itens mais úteis do jogo, sobretudo o cinto Megingjord, que te deixa carregar mais 150 de peso.",
+    "find": [
+     "O acampamento de Haldor fica sempre na Floresta negra. O jogo prepara até dez acampamentos possíveis por mundo, normalmente a mais de 1500 metros do centro do mapa. O primeiro de que te aproximas passa a ser o verdadeiro, e todos os outros desaparecem.",
+     "Quando chegas a poucas centenas de metros, aparece no teu mapa um ícone de saco. O acampamento está rodeado por uma bolha protetora que mantém os inimigos de fora. Não dá para construir lá dentro, mas um portal mesmo junto à bolha funciona bem."
+    ],
+    "waresP": [
+     "Parte da oferta só fica disponível depois de derrotares certos chefes. Os preços estão em moedas."
+    ],
+    "tips": [
+     "Compra primeiro o **Megingjord**. Mais 150 de peso de carga ajuda em tudo, desde minerar até voltar para casa de barco com ferro.",
+     "O **Diadema Dverger** é uma lanterna de cabeça que te deixa as mãos livres. Dá muito jeito em criptas e cavernas, mas ocupa o espaço do capacete.",
+     "**Bolsos maiores** e **Bolsos mais fundos** acrescentam cada um uma fila extra permanente ao teu inventário. São caros, mas valem cada moeda.",
+     "A **Carne de Ymir** é necessária para o Martelo de forja de ferro, a Frostner e outros itens fortes. As **Pedras relâmpago** são necessárias para o Obliterador.",
+     "De um **Ovo** nasce um pintainho se o mantiveres quente. Duas galinhas chegam para criares a tua própria reserva de ovos e de carne de frango, por isso só precisas de comprar dois.",
+     "A **Cana de pesca** só funciona com isco. O isco simples que Haldor vende é a base de todos os iscos especiais do jogo.",
+     "Junta dinheiro antes da viagem: com cerca de 2000 moedas consegues comprar o cinto, o diadema e a cana de pesca numa só visita."
+    ]
+   },
+   "hildir": {
+    "teaser": "roupa, barbearia e uma missão em três partes",
+    "lead": "Hildir é irmã de Haldor. Vende roupa, chapéus e artigos de festa no Prado. A maior parte da mercadoria dela foi roubada, e ela pede-te que tragas de volta três baús de três masmorras especiais.",
+    "find": [
+     "O acampamento de Hildir fica no Prado, mas longe do ponto de partida, normalmente a pelo menos 3000 metros do centro do mapa. Tal como com Haldor, há até dez acampamentos possíveis, e o primeiro de que te aproximas passa a ser o verdadeiro.",
+     "Quando te aproximas, aparece no teu mapa um ícone de camisa. No acampamento há uma mesa de mapa. Ao lê-la, a masmorra de missão mais próxima fica marcada no teu mapa."
+    ],
+    "waresP": [
+     "Ao início, ela só vende meia dúzia de itens. Cada baú que devolves desbloqueia mais uma parte da oferta."
+    ],
+    "tips": [
+     "O **Baú de latão** está numa Tumba fumegante na Floresta negra, o **Baú de prata** numa Caverna uivante na Montanha e o **Baú de bronze** numa Torre selada na Planície. Cada um é guardado por um minichefe.",
+     "Os baús não passam por portais e são pesados. Pensa no regresso a pé, de carrinho ou de barco antes de entrares.",
+     "As masmorras da missão ficam mais difíceis por esta ordem. Brenna, na tumba, causa dano de Fogo, Geirrhafa, na caverna, causa dano de Geada, e os dois irmãos Fuling Zil e Thungr, na torre, lutam juntos.",
+     "Todas as masmorras da missão também estão no mapa. Liga os marcadores da missão de Hildir para encontrares as que ficam mais perto do acampamento dela.",
+     "Com o **Kit de barbearia** constróis uma Barbearia, onde podes mudar o cabelo e a barba quando quiseres.",
+     "A roupa dela é sobretudo para o visual, mas é leve e não te atrasa. Os trajes de **colheita** são dos favoritos para cuidar da horta.",
+     "O **Braseiro de ferro** é um braseiro decorativo, e o fogo de artifício precisa de uma Fogueira grande para ser lançado."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "ingredientes para banquetes, hidroméis e cultivo",
+    "lead": "A Bruxa do Pântano vive numa cabana torta no Pântano com o seu gigante Kvastur. Vende ingredientes que não consegues arranjar em mais lado nenhum: especiarias para os grandes banquetes, itens para novos hidroméis e coisas úteis para a tua horta.",
+    "find": [
+     "O acampamento da Bruxa do Pântano fica no Pântano. Também aqui o jogo prepara até dez acampamentos possíveis, e o primeiro de que te aproximas é o que fica no teu mundo.",
+     "Quando estás perto, aparece no teu mapa um ícone de caldeirão. O acampamento está protegido contra inimigos, o que faz dele um refúgio bem-vindo no Pântano. Mesmo assim, leva Hidromel de resistência ao veneno para o caminho."
+    ],
+    "waresP": [
+     "A maioria das especiarias só fica disponível depois de derrotares o chefe do bioma correspondente. Muitos itens são vendidos em conjuntos. A tabela mostra o preço por conjunto."
+    ],
+    "tips": [
+     "As **especiarias** são o ingrediente principal dos banquetes. Um banquete colocado numa mesa alimenta o grupo inteiro com uma das comidas mais fortes do seu nível e dá para muitas doses.",
+     "A **Bandeja** permite-te transportar um banquete já preparado e pousá-lo noutro lugar, por exemplo mesmo antes de um combate contra um chefe.",
+     "O **Cabo de foice** é necessário para a Foice, que colhe campos inteiros de uma só vez. É uma das melhores compras para quem cultiva muito.",
+     "Os **Pavios de vela** são necessários para as velas, e das **Sementes de hera** nasce hera trepadeira nas tuas construções.",
+     "Algas marinhas frescas, Tendão de esquilo curado, Casca de ovo de dragão em pó e Adubo pungente são ingredientes dos hidroméis mais recentes, que melhoram habilidades como nadar e correr ou protegem contra relâmpagos.",
+     "Amanitas e Punhados perfumados ficam disponíveis depois de Moder. Servem para o Hidromel da fúria e para um hidromel que te limpa de efeitos negativos.",
+     "As mercadorias dela são baratas em comparação com as de Haldor. Algumas centenas de moedas chegam para uma primeira visita."
+    ]
+   }
+  }
+ }
+}

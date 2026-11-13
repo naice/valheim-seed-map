@@ -1,16 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en" data-game-version="1.0.21">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Valheim Map – Interactive Seed Map with All Locations</title>
   <meta name="description" content="Free interactive Valheim map: enter any world seed and see the whole world without fog – bosses, traders (Haldor, Hildir, Bog Witch), dungeons, crypts, tar pits and 90+ other location types. Runs entirely in your browser.">
-  <meta name="keywords" content="valheim map, valheim seed map, valheim world map, valheim map generator, valheim seed viewer, valheim interactive map, valheim karte, valheim locations, haldor, hildir, bog witch">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#14181d">
   <link rel="canonical" href="https://valheim-map.de/">
+  <link rel="alternate" hreflang="en" href="https://valheim-map.de/">
+  <link rel="alternate" hreflang="de" href="https://valheim-map.de/de/">
+  <link rel="alternate" hreflang="fr" href="https://valheim-map.de/fr/">
+  <link rel="alternate" hreflang="it" href="https://valheim-map.de/it/">
+  <link rel="alternate" hreflang="pt" href="https://valheim-map.de/pt/">
+  <link rel="alternate" hreflang="es" href="https://valheim-map.de/es/">
+  <link rel="alternate" hreflang="nb" href="https://valheim-map.de/no/">
+  <link rel="alternate" hreflang="sv" href="https://valheim-map.de/sv/">
+  <link rel="alternate" hreflang="nl" href="https://valheim-map.de/nl/">
+  <link rel="alternate" hreflang="x-default" href="https://valheim-map.de/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Valheim-Map">
+  <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://valheim-map.de/">
   <meta property="og:title" content="Valheim Map – Interactive Seed Map with All Locations">
   <meta property="og:description" content="Free interactive Valheim map: enter any world seed and see the whole world without fog – bosses, traders (Haldor, Hildir, Bog Witch), dungeons, crypts, tar pits and 90+ other location types. Runs entirely in your browser.">
@@ -21,92 +31,115 @@
   <meta name="twitter:title" content="Valheim Map – Interactive Seed Map with All Locations">
   <meta name="twitter:description" content="Free interactive Valheim map: enter any world seed and see the whole world without fog – bosses, traders (Haldor, Hildir, Bog Witch), dungeons, crypts, tar pits and 90+ other location types. Runs entirely in your browser.">
   <meta name="twitter:image" content="https://valheim-map.de/poi-icons/site/og-image.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Valheim-Map","alternateName":["Valheim Map","Valheim Seed Map","Valheim World Generator Map"],"url":"https://valheim-map.de/","description":"Free interactive Valheim map: enter any world seed and see the whole world without fog – bosses, traders (Haldor, Hildir, Bog Witch), dungeons, crypts, tar pits and 90+ other location types. Runs entirely in your browser.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":["en","de","fr","it","pt","es","nb","sv","nl"],"image":"https://valheim-map.de/poi-icons/site/og-image.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"about":{"@type":"VideoGame","name":"Valheim"}}</script>
-  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
-  <link rel="icon" type="image/png" sizes="32x32" href="poi-icons/site/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="poi-icons/site/icon-192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="poi-icons/site/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Valheim-Map","alternateName":["Valheim Map","Valheim Seed Map","Valheim World Generator Map"],"url":"https://valheim-map.de/","description":"Free interactive Valheim map: enter any world seed and see the whole world without fog – bosses, traders (Haldor, Hildir, Bog Witch), dungeons, crypts, tar pits and 90+ other location types. Runs entirely in your browser.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","image":"https://valheim-map.de/poi-icons/site/og-image.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"about":{"@type":"VideoGame","name":"Valheim"}}</script>
+  <script>
+    // Stammseite = Englisch. Wer eine andere Sprache gewählt hat (oder dessen Browser eine andere bevorzugt), wird weitergeleitet.
+    (function () {
+      var known = ["en","de","fr","it","pt","es","no","sv","nl"], c = null;
+      try { c = localStorage.getItem('valheim-map.lang'); } catch (e) {}
+      if (known.indexOf(c) < 0) {
+        c = null;
+        var list = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < list.length && !c; i++) {
+          var x = String(list[i]).toLowerCase().split('-')[0];
+          if (x === 'nb' || x === 'nn') x = 'no';
+          if (known.indexOf(x) >= 0) c = x;
+        }
+      }
+      if (c && c !== 'en') location.replace(c + '/' + location.hash);
+    })();
+  </script>
+  <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="./poi-icons/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./poi-icons/site/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./poi-icons/site/apple-touch-icon.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/content.css">
 </head>
-<body>
-  <aside id="sidebar">
-    <header>
-      <h1 data-i18n="title">Valheim-Map</h1>
-      <p class="sub" data-i18n="sub">The whole world without fog – computed straight from the seed</p>
-    </header>
+<body class="map-page">
+  <header class="site-head">
+    <h1><a class="brand" href="./"><img src="./poi-icons/site/favicon-32.png" alt="" width="24" height="24"> Valheim-Map</a></h1>
+    <nav>
+        <a href="./" aria-current="page">Map</a>
+        <a href="./seeds/">Best seeds</a>
+        <a href="./bosses/">Bosses</a>
+        <a href="./traders/">Traders</a>
+        <a href="./faq/">FAQ</a>
+    </nav>
+    <div class="tools"><a id="btnDonate" class="tool" href="https://ko-fi.com/emmuss" target="_blank" rel="noopener" title="Support the project on Ko-fi"><span class="heart">♥</span> Donate</a><button id="btnLang" class="tool" type="button" title="Choose language" aria-haspopup="dialog">🌐 English</button></div>
+  </header>
+  <div id="app">
+    <aside id="sidebar">
 
-    <section>
-      <h2 data-i18n="world">World</h2>
-      <form id="seedForm" class="row">
-        <input id="seedInput" type="text" placeholder="Seed, e.g. Xldpp3L2LG" data-i18n-placeholder="seedPh" spellcheck="false" autocomplete="off">
-        <button type="submit" data-i18n="load">Load</button>
-      </form>
-      <div class="row">
-        <input id="nameInput" type="text" placeholder="Name (optional)" data-i18n-placeholder="namePh" spellcheck="false" autocomplete="off" maxlength="60">
-        <button id="btnSave" type="button" title="Save the seed (and name) in this browser" data-i18n="save" data-i18n-title="saveTitle">Save</button>
-      </div>
-      <div class="row">
-        <div id="saved" class="dropdown">
-          <button id="savedBtn" type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button>
-          <ul id="savedList" class="dd-list" role="listbox" hidden></ul>
+      <section>
+        <h2>World</h2>
+        <form id="seedForm" class="row">
+          <input id="seedInput" type="text" placeholder="Seed, e.g. Xldpp3L2LG" spellcheck="false" autocomplete="off">
+          <button type="submit">Load</button>
+        </form>
+        <div class="row">
+          <input id="nameInput" type="text" placeholder="Name (optional)" spellcheck="false" autocomplete="off" maxlength="60">
+          <button id="btnSave" type="button" title="Save the seed (and name) in this browser">Save</button>
         </div>
-        <button id="btnExample" type="button" title="Load the example seed Xldpp3L2LG" data-i18n="example" data-i18n-title="exampleTitle">Example world</button>
+        <div class="row">
+          <div id="saved" class="dropdown">
+            <button id="savedBtn" type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button>
+            <ul id="savedList" class="dd-list" role="listbox" hidden></ul>
+          </div>
+          <button id="btnExample" type="button" title="Load the example seed Xldpp3L2LG">Example world</button>
+        </div>
+        <p id="worldInfo" class="info"></p>
+      </section>
+
+      <section class="grow">
+        <h2>Locations (POIs) <span id="poiTotal" class="muted"></span></h2>
+        <div class="row">
+          <input id="search" type="search" placeholder="Search, e.g. trader, crypt…">
+        </div>
+        <div class="row small">
+          <button id="btnAll" type="button">All</button>
+          <button id="btnNone" type="button">None</button>
+          <label><input id="chkLabels" type="checkbox" checked> Names</label>
+        </div>
+        <div id="cats"></div>
+        <p id="poiHint" class="info"></p>
+      </section>
+
+      <footer>
+        <span>Drag = pan · Mouse wheel = zoom · Click a name in the list to jump to the nearest location</span>
+      </footer>
+    </aside>
+
+    <main id="mapWrap">
+      <canvas id="map"></canvas>
+      <div id="tooltip" hidden></div>
+      <div id="popup" hidden></div>
+      <div id="progress" role="progressbar" aria-label="Computing locations …" aria-valuemin="0" aria-valuemax="100" hidden>
+        <div class="progress-head"><span>Computing locations …</span><span id="progressText">0 %</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
       </div>
-      <p id="worldInfo" class="info"></p>
-    </section>
-
-    <section class="grow">
-      <h2><span data-i18n="pois">Locations (POIs)</span> <span id="poiTotal" class="muted"></span></h2>
-      <div class="row">
-        <input id="search" type="search" placeholder="Search, e.g. trader, crypt…" data-i18n-placeholder="searchPh">
+      <div id="zoomBtns">
+        <button id="zoomIn" type="button" title="Zoom in">+</button>
+        <button id="zoomOut" type="button" title="Zoom out">−</button>
+        <button id="zoomHome" type="button" title="Whole world">⌂</button>
       </div>
-      <div class="row small">
-        <button id="btnAll" type="button" data-i18n="all">All</button>
-        <button id="btnNone" type="button" data-i18n="none">None</button>
-        <label><input id="chkLabels" type="checkbox" checked> <span data-i18n="names">Names</span></label>
+      <div id="status">
+        <span id="stPos">–</span>
+        <span id="stBiome"></span>
+        <span id="stScale"></span>
+        <span id="stLoad"></span>
       </div>
-      <div id="cats"></div>
-      <p id="poiHint" class="info"></p>
-    </section>
+    </main>
+  </div>
 
-    <footer>
-      <span data-i18n="footer">Drag = pan · Mouse wheel = zoom · Click a name in the list to jump to the nearest location</span>
-      <a id="btnDonate" class="btn" href="https://ko-fi.com/emmuss" target="_blank" rel="noopener" title="Support the project on Ko-fi" data-i18n-title="donateTitle"><span class="heart">♥</span> <span data-i18n="donate">Donate</span></a>
-      <button id="btnLang" type="button" title="Choose language" data-i18n-title="langTitle" aria-haspopup="dialog">🌐 English</button>
-    </footer>
-  </aside>
-
-  <main id="mapWrap">
-    <canvas id="map"></canvas>
-    <div id="tooltip" hidden></div>
-    <div id="popup" hidden></div>
-    <div id="progress" role="progressbar" aria-label="Computing locations …" data-i18n-aria-label="computing" aria-valuemin="0" aria-valuemax="100" hidden>
-      <div class="progress-head"><span data-i18n="computing">Computing locations …</span><span id="progressText">0 %</span></div>
-      <div class="progress-track"><div id="progressBar"></div></div>
-    </div>
-    <div id="zoomBtns">
-      <button id="zoomIn" type="button" title="Zoom in" data-i18n-title="zoomIn">+</button>
-      <button id="zoomOut" type="button" title="Zoom out" data-i18n-title="zoomOut">−</button>
-      <button id="zoomHome" type="button" title="Whole world" data-i18n-title="zoomHome">⌂</button>
-    </div>
-    <div id="status">
-      <span id="stPos">–</span>
-      <span id="stBiome"></span>
-      <span id="stScale"></span>
-      <span id="stLoad"></span>
-    </div>
-  </main>
-
-  <noscript>
-    <p style="padding:16px">Free interactive Valheim map: enter any world seed and see the whole world without fog – bosses, traders (Haldor, Hildir, Bog Witch), dungeons, crypts, tar pits and 90+ other location types. Runs entirely in your browser. JavaScript is required to render the map.</p>
-  </noscript>
+  <noscript><p class="noscript">The interactive map needs JavaScript. The guides for seeds, bosses and traders work without it.</p></noscript>
 
   <dialog id="langDlg" aria-labelledby="langHead">
-    <button id="langClose" type="button" class="close" title="Close" data-i18n-title="close">×</button>
-    <h3 id="langHead" data-i18n="langTitle">Choose language</h3>
+    <button id="langClose" type="button" class="close" title="Close">×</button>
+    <h3 id="langHead">Choose language</h3>
     <div id="langList"></div>
   </dialog>
 
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>

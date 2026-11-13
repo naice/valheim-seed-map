@@ -1,0 +1,47 @@
+[
+ {
+  "prefab": "AncientGemstoneBlack",
+  "name": "item_ancientgemstone_black",
+  "value": 175
+ },
+ {
+  "prefab": "AncientGemstonePurple",
+  "name": "item_ancientgemstone_purple",
+  "value": 135
+ },
+ {
+  "prefab": "AncientGemstoneOrange",
+  "name": "item_ancientgemstone_orange",
+  "value": 95
+ },
+ {
+  "prefab": "AncientGemstoneGreen",
+  "name": "item_ancientgemstone_green",
+  "value": 55
+ },
+ {
+  "prefab": "SilverNecklace",
+  "name": "item_silvernecklace",
+  "value": 30
+ },
+ {
+  "prefab": "Ruby",
+  "name": "item_ruby",
+  "value": 20
+ },
+ {
+  "prefab": "AmberPearl",
+  "name": "item_amberpearl",
+  "value": 10
+ },
+ {
+  "prefab": "AncientCoin",
+  "name": "item_ancientcoin",
+  "value": 10
+ },
+ {
+  "prefab": "Amber",
+  "name": "item_amber",
+  "value": 5
+ }
+]

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{htmlLang}}" data-lang="{{lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{{head}}
+  <link rel="icon" href="{{root}}favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{root}}poi-icons/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{root}}poi-icons/site/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{root}}poi-icons/site/apple-touch-icon.png">
+  <link rel="stylesheet" href="{{root}}css/content.css">
+</head>
+<body class="doc-page">
+  <header class="site-head">
+    <a class="brand" href="{{home}}"><img src="{{root}}poi-icons/site/favicon-32.png" alt="" width="24" height="24"> Valheim-Map</a>
+    <nav>
+        {{nav}}
+    </nav>
+    {{tools}}
+  </header>
+  <div class="content">
+    <article>
+{{body}}
+    </article>
+    {{footer}}
+  </div>
+  <script>
+    // Sprachwahl merken, damit auch die Karte in dieser Sprache startet.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('[data-setlang]');
+      if (a) try { localStorage.setItem('valheim-map.lang', a.getAttribute('data-setlang')); } catch (err) {}
+    });
+  </script>
+</body>
+</html>

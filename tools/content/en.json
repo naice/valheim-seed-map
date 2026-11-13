@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Map",
+  "seeds": "Best seeds",
+  "bosses": "Bosses",
+  "traders": "Traders",
+  "guides": "Guides & FAQ"
+ },
+ "common": {
+  "openMap": "Open on the map",
+  "showOnMap": "Show on the map",
+  "meters": "{n} m",
+  "boss": "Boss",
+  "biome": "Biome",
+  "health": "Health",
+  "summon": "Summoning item",
+  "weak": "Weak to",
+  "resist": "Resistant to",
+  "immune": "Immune to",
+  "drops": "Drops",
+  "power": "Forsaken power",
+  "item": "Item",
+  "price": "Price (coins)",
+  "sellValue": "Sells for (coins)",
+  "available": "Available",
+  "always": "from the start",
+  "afterBoss": "after defeating {boss}",
+  "afterChest": "after returning {chest}",
+  "dmg": {
+   "blunt": "Blunt",
+   "slash": "Slash",
+   "pierce": "Pierce",
+   "fire": "Fire",
+   "frost": "Frost",
+   "lightning": "Lightning",
+   "poison": "Poison",
+   "spirit": "Spirit"
+  },
+  "disclaimer": "Valheim-Map is a fan project and is not affiliated with Iron Gate or Coffee Stain. Valheim is a trademark of its respective owners. Game data: version {version}.",
+  "noscript": "The interactive map needs JavaScript. The guides for seeds, bosses and traders work without it."
+ },
+ "about": {
+  "h": "Valheim-Map: your whole world from the seed",
+  "p": [
+   "Valheim-Map is a free interactive map for Valheim. Type in the **seed** of your world and the map shows the complete world without fog: every biome, the coastline and the exact position of bosses, traders, dungeons and more than 90 other location types.",
+   "Nothing is uploaded and no save file is needed. The map runs the same world generation as the game directly in your browser, so the positions match your world down to the metre. Click a marker to get its coordinates and a ready-made console command to travel there.",
+   "Use the list on the left to switch location types on and off, search for a specific place such as Haldor or the Sunken Crypts, and save seeds you want to come back to. The link in the address bar always contains the seed and the current view, so you can share any spot with your friends."
+  ],
+  "seedH": "How to find your world seed",
+  "seedP": "Every Valheim world is created from a seed, a short text of up to ten characters. The same seed always produces the same world.",
+  "seedSteps": [
+   "Start Valheim and click **Start game**, then pick your character.",
+   "In the world list, select your world. The seed is shown right next to the world name.",
+   "On a dedicated server, the seed is stored in the world's **.fwl** file. Load the world once in single player or ask the server admin for it.",
+   "Type the seed into the field at the top left of the map and press **Load**. Upper and lower case matter."
+  ],
+  "guidesH": "Guides",
+  "faqH": "Frequently asked questions",
+  "faq": [
+   {
+    "q": "Is the map accurate for my world?",
+    "a": "Yes. The terrain and all locations are calculated with the same algorithm the game uses, and the results were checked against real worlds. The map shows where the game places a location when you first explore the area. Things that players change later, such as destroyed buildings, are not visible."
+   },
+   {
+    "q": "Which game version does the map support?",
+    "a": "The map follows the current public version of Valheim, including the Ashlands and the Deep North. Worlds that were created with a much older version can differ in areas that were explored before an update."
+   },
+   {
+    "q": "Why are there several markers for Haldor, Hildir and the Bog Witch?",
+    "a": "The game prepares up to ten possible camps for each trader. The first camp you get close to becomes the real one, and the others disappear from your world. So you can simply pick the marker that is closest to your base."
+   },
+   {
+    "q": "Do I have to upload my save file?",
+    "a": "No. The seed is all the map needs. The calculation happens on your device, and nothing about your world is sent to a server."
+   },
+   {
+    "q": "How do I travel to a location I found on the map?",
+    "a": "Click the marker. The popup shows the coordinates and a console command. In single player you can enable the console with the launch option **-console**, type **devcommands** and then use the **goto** command. Without cheats, use the coordinates and the distance from the spawn point to navigate."
+   },
+   {
+    "q": "Does the map work on a phone?",
+    "a": "Yes. The map works in every modern browser, including phones and tablets. Calculating all locations takes a few seconds, on older devices a bit longer."
+   },
+   {
+    "q": "Is Valheim-Map free?",
+    "a": "Yes, completely, and without an account. If the map saved you a few hours of sailing, you can support the project with a small donation."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Hand-picked world seeds, each checked with the map.",
+  "title": "Best Valheim Seeds: checked list with map links",
+  "desc": "The best Valheim seeds for the current version: easy starts, traders next to spawn, boss rush and iron seeds. Every seed was recalculated and opens directly on the interactive map.",
+  "h1": "The best Valheim seeds",
+  "intro": [
+   "A good seed saves hours: a trader within walking distance, the first bosses on your starting continent, or a swamp full of crypts just across the river. The problem with most seed lists is that they are copied from each other and were never checked after world generation changed.",
+   "This list is different. We collected the most recommended seeds from the community and **recalculated every single one** with the world generator of the current game version. The distances below are measured from the spawn point, and every seed opens on the interactive map with one click. Where an old recommendation no longer holds, we say so or left the seed out."
+  ],
+  "factsH": "Distances from spawn",
+  "colPlace": "Place",
+  "colDist": "Distance",
+  "howH": "How to use a seed",
+  "how": [
+   "In Valheim, click **Start game**, choose your character and then **New** in the world list. Enter a world name and type the seed exactly as shown here, including upper and lower case. On a dedicated server, create the world locally first and upload the world files, or set the seed through your host's settings.",
+   "The distances are straight lines from the sacrificial stones. A trader counts only once: the game prepares several possible camps, and the first one you approach becomes the real one. The table always uses the nearest one."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "The best all-rounder",
+    "text": [
+     "If you only try one seed, take this one. The first five bosses all lie within 3.5 km of the spawn point: Eikthyr is 120 m away, the Elder 1.1 km, Moder under 1 km, Bonemass 1.9 km and Yagluth 3.4 km. Hardly any other world packs its progression this tightly.",
+     "Haldor camps 1.6 km from the sacrificial stones, close to the minimum distance the game allows. That makes the seed ideal for a quick playthrough and for groups that want to fight bosses instead of sailing for hours."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Everything on foot, no ship needed",
+    "text": [
+     "On this seed the starting landmass holds almost everything you need: the first five bosses from Eikthyr to Yagluth and all three traders can be reached without ever building a ship. Yagluth is just 3 km from spawn, Moder 1.9 km and the Elder 1.8 km.",
+     "Haldor is 1.7 km away, Hildir 2.9 km and the Bog Witch 3.1 km. A perfect world for players who do not enjoy sailing, and for no-boat challenge runs up to the Mistlands."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor on your doorstep",
+    "text": [
+     "No seed in our list has the trader closer: Haldor camps only about 1,000 m from the spawn point, on the starting landmass. You can walk to him on your first day and plan your purchases from the very beginning.",
+     "The start is comfortable as well. Eikthyr waits 170 m from the stones and the Elder 1.2 km away, also reachable on foot. The Black Forest begins barely more than 100 m from spawn, so copper and tin are never far."
+    ]
+   },
+   "1k7md8": {
+    "title": "The fastest start",
+    "text": [
+     "Eikthyr stands 60 m from the spawn point, practically in sight of the sacrificial stones. The Elder follows at only 650 m, which is the closest Elder altar of all seeds we checked. You can beat the first two bosses without ever leaving home.",
+     "The rest of the early game stays close as well: Moder at 2.1 km, Bonemass at 2.3 km and Yagluth at 3.1 km. Bonemass and Yagluth are on the starting landmass. Only Haldor is a bit further out at 2.9 km, but he can be reached on foot too."
+    ]
+   },
+   "18mang": {
+    "title": "Traders on foot and a short way north",
+    "text": [
+     "All three traders are on the starting landmass: Haldor at 1.2 km, Hildir at 2.7 km and the Bog Witch at 3.5 km. Hildir at this distance is rare, as her camps usually lie beyond 3 km. The first Swamp begins only 1 km from spawn, with two Sunken Crypts within 1.5 km, so iron comes unusually early.",
+     "The community recommends this seed for the Deep North, and the numbers agree: the northern biome starts about 6.9 km from spawn, a full kilometre closer than in most worlds. Eikthyr is a bit further away than usual at 800 m."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Five bosses without a boat",
+    "text": [
+     "Eikthyr, the Elder, Bonemass, Moder and Yagluth are all on the starting landmass. Moder is the highlight: her altar is just 1.5 km from spawn, and big mountains with silver rise close to the start.",
+     "Haldor at 2.1 km and the Bog Witch at 3.2 km can also be reached on foot. A great seed for players who want to settle down in one place and do the whole game up to the Plains from a single base."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "Short distances all round",
+    "text": [
+     "A balanced seed without a weak spot. The Elder is 1.1 km from spawn, Bonemass and Moder both 2.3 km and Yagluth 3.4 km. Haldor camps 1.6 km away.",
+     "The community knows this seed for its long, almost unbroken strip of land running from north to south. That makes exploring on foot easy and keeps sea voyages short."
+    ]
+   },
+   "Angel": {
+    "title": "A gentle start for beginners",
+    "text": [
+     "Eikthyr is 80 m from the sacrificial stones and the Elder exactly 1 km. Haldor follows at 1.5 km, about as close as the game allows. For new players this means a short and clear path through the first hours.",
+     "Later goals stay within reach too: Moder is 2.5 km away, Bonemass 2.7 km, and Hildir and the Bog Witch both around 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder and the Elder next door",
+    "text": [
+     "This seed has been praised as one of the best since the 1.0 update, and the map confirms the core of it: Eikthyr at 250 m, Moder at 1.3 km and the Elder at 1.3 km, all three on the starting landmass. Bonemass is 2 km away.",
+     "Haldor is 2.3 km from spawn and can be reached on foot. Hildir and the Bog Witch both lie just under 3 km away, closer than in most worlds."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "Silver early: Moder 1 km from spawn",
+    "text": [
+     "Moder's altar is only 1.1 km from the spawn point and on the starting landmass. That means mountains, silver and wolf armour are within walking distance of your first base. Eikthyr stands 80 m from the stones and the Elder 1.4 km away.",
+     "Haldor is close as well at 1.5 km, but he lives across the water, so you need a raft or a short swim. The seed has long been popular for its scenic Meadows start with plenty of room to build."
+    ]
+   },
+   "WorldEater": {
+    "title": "The Elder within 900 m",
+    "text": [
+     "Eikthyr at 230 m and the Elder at 900 m make for a very fast start into the Bronze Age. Bonemass is 2.9 km away on the starting landmass, so the first three bosses need no ship.",
+     "The Bog Witch camps 2.8 km from spawn and can be reached on foot, as can Hildir. Moder is 2.5 km away across the water."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "The first three bosses on one island",
+    "text": [
+     "Eikthyr at 110 m, the Elder at 1.2 km and Bonemass at 2.1 km are all on the starting landmass. You can play from the Stone Age to the Iron Age without building a ship.",
+     "Hildir and the Bog Witch live on the same landmass, a little over 3 km away. Yagluth at 3.2 km and Moder at 3.5 km are a short voyage away."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Compact island with a trader",
+    "text": [
+     "This seed used to be considered a hard one. In the current version it is a compact and pleasant start: Eikthyr at 140 m, the Elder just under 1 km and Bonemass at 2.3 km, all on the starting landmass.",
+     "Haldor at 1.9 km and Hildir at 2.9 km can be reached on foot as well. Only for Moder do you need to plan a longer trip."
+    ]
+   },
+   "feret2": {
+    "title": "Bonemass close by",
+    "text": [
+     "Bonemass is only 1.9 km from spawn here, one of the shortest distances we found. Moder follows at 2.2 km and Eikthyr at 250 m. If you want to get to iron and silver quickly, this is a good choice.",
+     "Haldor camps 1.5 km from the sacrificial stones, close to the minimum distance, but across the water. The seed is also known for its varied starting region with many biomes close together."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor and Moder nearby",
+    "text": [
+     "Haldor is 1.5 km from spawn, practically the minimum distance, and Moder only 1.8 km. The Elder follows at 2.2 km.",
+     "The starting region is large and varied, with Black Forest and Mountains close to the Meadows. A good seed for a long, relaxed playthrough with a central main base."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "The classic, checked again",
+    "text": [
+     "This is probably the most famous Valheim seed of all. It was known as the speedrun seed with four bosses near spawn. Several world generation updates later, that is no longer true, and many lists still repeat the old claim.",
+     "What remains is still decent: Eikthyr at 440 m, Haldor at 1.6 km and Bonemass at 2.2 km, all on the starting landmass. The Elder is 2.9 km and Yagluth 3.1 km away across the water. Moder, however, is now more than 6 km from spawn. Good for nostalgia, but the seeds further up are better today."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "All bosses in order: how to find, summon and beat them.",
+  "title": "Valheim Bosses: order, locations, summoning and tips",
+  "desc": "All Valheim bosses in order, from Eikthyr to Fader: where to find the altars, what you need to summon them, weaknesses and the best tips for every fight.",
+  "h1": "Valheim bosses in order",
+  "intro": [
+   "Valheim's story is told through its bosses, the Forsaken. Each one guards a biome, and each one drops the item that opens the next step: the antler pickaxe for mining, the key to the swamp crypts, the wishbone that finds silver. Beating them in order is the backbone of every playthrough.",
+   "The table shows all bosses of the main progression with their biome, health and the items you have to sacrifice. Each boss has its own page with weaknesses, attack patterns and practical tips. Every world has several altars per boss. Enter your seed on the map to see where yours are."
+  ],
+  "outro": [
+   "Every defeated boss leaves a trophy. Hang it on its hook at the sacrificial stones to unlock the boss's Forsaken power. You can have one power selected at a time. It lasts 5 minutes and then needs 20 minutes to recharge.",
+   "In multiplayer, bosses get tougher and hit harder for every additional player nearby, so more players do not make a fight trivial."
+  ],
+  "pageTitle": "{boss}: location, summoning and tips",
+  "pageDesc": "How to beat {boss} in Valheim: where to find the altar in the {biome}, the summoning items, weaknesses, attacks and the best tips and tricks for the fight.",
+  "showOnMap": "Show {boss} altars on the map",
+  "findH": "How to find {boss}",
+  "prepH": "Preparation",
+  "attacksH": "Attacks",
+  "tipsH": "Tips and tricks",
+  "rewardH": "Reward",
+  "list": {
+   "eikthyr": {
+    "lead": "Eikthyr, the lightning stag, is the first boss in Valheim. He waits in the Meadows and is a gentle test of the basics: blocking, dodging and managing stamina.",
+    "power": "60 % less stamina used for running, jumping and swimming.",
+    "find": [
+     "Eikthyr's altar always stands in the Meadows and usually only a few hundred metres from the spawn point. The glowing red runestone at the sacrificial stones marks the altar on your map as soon as you read it.",
+     "To summon him, place **2 Deer Trophies** on the altar. Deer drop a trophy roughly every second kill. Sneak up on them against the wind or hunt them with a crude bow."
+    ],
+    "prep": [
+     "Craft a full set of leather armour and upgrade it once if you can.",
+     "Take a flint spear, flint axe or club, a crude bow with about 50 arrows and a wooden shield.",
+     "Eat three different foods before the fight, for example cooked boar meat, cooked neck tail and raspberries or mushrooms.",
+     "Sleep first so you fight with the Rested bonus. It noticeably speeds up stamina regeneration."
+    ],
+    "attacks": [
+     "**Antler ram:** he lunges and swings his antlers. Block it with your shield or step to the side.",
+     "**Lightning bolt:** he rears up and fires a line of lightning straight ahead, mostly when nobody stands next to him. Dodge sideways.",
+     "**Lightning stomp:** he rises on his hind legs and slams down, hitting everything around him. Roll backwards when he rears up."
+    ],
+    "tips": [
+     "Keep the round shield raised and attack right after each of his attacks. Almost everything he does can be blocked, even with a simple wooden shield.",
+     "Never let your stamina drop to zero. Without stamina you can neither block nor dodge, and that is how most first attempts fail.",
+     "The rocks and trees around the altar stop his lightning. Use them as cover if you prefer the bow.",
+     "Fight during the day. At night Greydwarves and other creatures join in.",
+     "If the fight goes badly, run. Eikthyr does not disappear, and he keeps the damage you dealt for a while."
+    ],
+    "reward": [
+     "Eikthyr drops **3 Hard Antlers** and his trophy. The antlers make the Antler Pickaxe, your first pickaxe, which lets you mine tin and copper in the Black Forest and start the Bronze Age.",
+     "His Forsaken power makes running and jumping much cheaper. It stays useful for the whole game, for exploring, fleeing and carrying ore."
+    ]
+   },
+   "elder": {
+    "lead": "The Elder is a giant living tree and the second boss. He rules the Black Forest and punishes players who fight him in the open. With fire arrows and a pillar to hide behind, he is very manageable.",
+    "power": "60 % more chopping and mining damage and 30 % faster health regeneration.",
+    "find": [
+     "The Elder's altar stands in the Black Forest: a stone platform with four tall pillars around a fire bowl. Red runestones in the Burial Chambers and in some ruined stone towers mark the nearest altar on your map.",
+     "To summon him, burn **3 Ancient Seeds** in the fire bowl. Seeds drop from Greydwarf Brutes and Shamans and always from destroyed Greydwarf nests, the purple glowing spawners."
+    ],
+    "prep": [
+     "Bronze armour is ideal. Troll leather armour is a good alternative and much cheaper.",
+     "Bring a finewood bow and at least 100 **fire arrows**. The Elder is weak to fire and the burning effect keeps ticking.",
+     "Take a bronze buckler or banded shield and an axe for the roots.",
+     "Brew a few minor healing meads and eat your best three foods, for example deer stew, carrot soup and queens jam.",
+     "Clear Greydwarf nests around the altar, cut down nearby trees and build a small shelter with a portal a short distance away."
+    ],
+    "attacks": [
+     "**Vine shot:** he stretches out his arms and fires a volley of vines over a long distance. Stand behind one of the four pillars. They cannot be destroyed.",
+     "**Stomp:** up close he stomps the ground for heavy damage. Keep your distance or roll away.",
+     "**Roots:** he raises a field of roots around you that whip anyone nearby. Walk out of the area. The roots disappear after a while, or you can cut them down with an axe."
+    ],
+    "tips": [
+     "Play around the pillars: step out, shoot two or three fire arrows, step back before the vines arrive. This simple rhythm wins the fight.",
+     "Do not fight in melee unless you have to. The stomp hits much harder than anything else at this point of the game.",
+     "Falling trees are a real danger. The Elder knocks them down with his vines, and a falling trunk can kill you outright. Clearing the arena beforehand removes that risk.",
+     "Summon him in the morning. The fight can take several minutes, and at night the forest gets crowded.",
+     "A campfire or bonfire near the arena keeps you Rested and its fire damages him if he walks through it."
+    ],
+    "reward": [
+     "The Elder drops the **Swamp Key** and his trophy. The key opens the Sunken Crypts in the Swamp, the only good source of iron.",
+     "After the Elder is defeated, Haldor adds Ymir Flesh and Thunder Stones to his stock, and the Bog Witch sells more ingredients.",
+     "His Forsaken power speeds up woodcutting and mining considerably. It is perfect for big building projects and mining trips."
+    ]
+   },
+   "bonemass": {
+    "lead": "Bonemass is a huge blob of bones and slime in the Swamp and the third boss. Many players fail here at first because swords and arrows barely scratch him. With a mace and poison resistance, the fight turns around completely.",
+    "power": "25 % less physical damage taken (blunt, slash, pierce). Blocking costs no stamina and even returns some.",
+    "find": [
+     "Bonemass's altar is a giant skull lying in the Swamp. Red runestones inside Sunken Crypts mark the nearest one on your map.",
+     "To summon him, drop **10 Withered Bones** into the skull. You find them in the Sunken Crypts, in chests and in the muddy scrap piles you dig through for iron anyway."
+    ],
+    "prep": [
+     "Bring an **iron mace**, upgraded as far as you can. Bonemass is weak to blunt damage and resists slash, pierce and fire. The Stagbreaker or an iron sledge work as well.",
+     "Brew **poison resistance mead** and take at least three or four per player. Without it his poison cloud kills in seconds.",
+     "Wear upgraded iron armour or the root set, and carry an iron-banded shield or better.",
+     "Take medium healing meads and stamina meads, and eat sausages, turnip stew and similar swamp-tier food.",
+     "Level the ground around the skull with a hoe so you do not fight knee-deep in water, where leeches bite and stamina does not regenerate while swimming.",
+     "Build a small roofed shelter with a bed, fire and portal nearby, ideally on raised ground."
+    ],
+    "attacks": [
+     "**Punch:** a wide swing with more reach than it seems, dealing blunt and poison damage. Block or parry it with a solid shield.",
+     "**Poison cloud:** he leans back and spews a large cloud that lingers. Run out of it at once and wait until it fades.",
+     "**Summon:** he rips off a lump of himself and throws it. Skeletons and blobs spawn where it lands. Kill them quickly before they surround you."
+    ],
+    "tips": [
+     "Drink poison resistance mead **before** you summon him and renew it when the icon starts to blink. It lasts 10 minutes.",
+     "The summoning animation is your best opening: he stands still for several seconds while he throws.",
+     "Parrying his punch staggers nothing, but it protects you fully. Hit two or three times afterwards, then back off.",
+     "Frost arrows are the only arrows worth using on him. If you already have obsidian and freeze glands, they make a safe ranged fight possible.",
+     "Use Eikthyr's power to get out of the poison cloud quickly, or the Elder's for the extra regeneration.",
+     "The Stagbreaker's area attack hits Bonemass and the summoned adds at the same time."
+    ],
+    "reward": [
+     "Bonemass drops the **Wishbone** and his trophy. With the Wishbone equipped, you detect hidden silver veins in the Mountains, buried treasure in the Meadows and muddy scrap piles in the Swamp.",
+     "His Forsaken power is the best defensive power in the game. Many players keep it for every later boss fight."
+    ]
+   },
+   "moder": {
+    "lead": "Moder is the dragon mother of the Mountains and the fourth boss. She attacks from the air and on the ground, and her frost breath freezes anyone standing in it. A good bow and frost protection decide this fight.",
+    "power": "Always a tailwind when sailing, 300 more carry weight, 10 % faster movement and 50 % frost resistance.",
+    "find": [
+     "Moder's altar lies on a mountain top, usually on a wide, flat plateau. Red runestones in stone ruins in the Mountains and in Frost Caves mark it on your map.",
+     "To summon her, place **3 Dragon Eggs** on the altar. The eggs lie in nests in the Mountains. Each one weighs 200 and cannot be taken through a portal, so you carry them one at a time, or with three players in a single trip."
+    ],
+    "prep": [
+     "Wear wolf armour: the chest piece and the cape protect you from freezing. Without it you need **frost resistance mead** for the whole trip.",
+     "Bring the best bow you have, ideally Draugr Fang, and 150 or more arrows. Moder is weak to fire, so **fire arrows** are cheap and strong. Obsidian and poison arrows are good too. Frost arrows do nothing.",
+     "Take a silver sword or another upgraded melee weapon for the phases on the ground.",
+     "Pack medium healing meads and stamina meads, and eat food with a lot of health, such as serpent stew, sausages and turnip stew.",
+     "Clear the plateau of wolves, drakes and golems before you start, and set up a portal with a small shelter below the summit."
+    ],
+    "attacks": [
+     "**Ice volley (in the air):** she flies over you and shoots a line of ice projectiles that explode into crystals. Keep running sideways.",
+     "**Frost breath (on the ground):** a wide cone of frost straight ahead that slows you massively. Move to her side as soon as she lowers her head.",
+     "**Bite and claws:** at close range she bites and swipes. Both can be blocked with a good shield."
+    ],
+    "tips": [
+     "Shoot her whenever she is in the air or landing. Her flight path is slow and predictable, so most arrows hit.",
+     "When she lands, circle to her flank. The breath only hits what is in front of her, and from the side you can attack freely.",
+     "Being hit by frost makes you slow and easy to hit again. If you are frozen, block instead of running.",
+     "The ice crystals from her volley can be destroyed, and they are a small source of obsidian-free cover in the open.",
+     "Bonemass's power makes the melee phases much safer. With the bow, Eikthyr's power helps you keep moving.",
+     "Carry the eggs up before the fight and leave them at the altar. They do not disappear."
+    ],
+    "reward": [
+     "Moder drops **10 Dragon Tears** and her trophy. The tears build the Artisan Table, which unlocks the windmill, blast furnace and spinning wheel, and with them the gear of the Plains.",
+     "After her defeat Haldor sells Wider Pockets, an extra inventory row, and the Bog Witch adds several items to her stock.",
+     "Her Forsaken power gives you a tailwind on every voyage and a lot of extra carry weight. It is the favourite of every sailor and ore hauler."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, the fallen king of the Fulings, is the fifth boss. Only his upper body crawls across the Plains, but his fire and meteors make him one of the deadliest fights in the game. Fire resistance is not optional here.",
+    "power": "10 % more damage, 50 % lightning resistance and 25 extra levels of Farming.",
+    "find": [
+     "Yagluth's altar stands in the Plains: a ring of huge stone fingers reaching out of the ground. Red runestones at stone circles in the Plains mark it on your map. They are rare, so the map saves you a long search here.",
+     "To summon him, place **5 Fuling Totems** on the altar. You find one totem in most Fuling villages, and Fuling Berserkers sometimes drop one. Totems can be taken through portals."
+    ],
+    "prep": [
+     "Brew **fire resistance barley wine** and take several per player. It lasts 10 minutes and has to be active for the entire fight.",
+     "Wear fully upgraded padded armour. Wolf armour is the minimum.",
+     "Bring a blackmetal sword, the Porcupine or Frostner. Yagluth strongly resists pierce damage, so spears, atgeirs and most arrows are poor choices.",
+     "If you want to fight at range, use frost arrows and expect a long fight.",
+     "Take medium healing and stamina meads, and eat the best Plains food: lox meat pie, blood pudding, fish wraps.",
+     "Clear all Fulings, lox and deathsquitos around the altar first and place a portal at a safe distance."
+    ],
+    "attacks": [
+     "**Fire breath:** he raises his head and sweeps a long beam of fire after you. Run sideways or step behind one of the stone fingers.",
+     "**Fist slam:** his fist glows blue, then he punches the ground and causes a large explosion. Move away as soon as you see the glow.",
+     "**Meteors:** his hand glows orange and meteors rain on your position for several seconds. Keep running in one direction until it stops."
+    ],
+    "tips": [
+     "Every attack is announced by a clear glow. Learn the three signals and the fight becomes calm: attack, see the glow, move, repeat.",
+     "Attack from behind or from the side and only two or three hits at a time. Greed is what kills players here.",
+     "The stone fingers block his fire breath, but meteors go over them. Do not rest behind a pillar during the meteor shower.",
+     "Burning makes you panic and waste stamina. With barley wine active, fire damage is roughly halved and the fight is forgiving.",
+     "Activate Bonemass's power when you start the melee phase. Renew the barley wine early, not when it runs out.",
+     "Yagluth is slow. If you need to heal or eat, simply walk away from him."
+    ],
+    "reward": [
+     "Yagluth drops **3 Torn Spirits** and his trophy. A Torn Spirit builds the Wisp Fountain. It collects wisps, which you need for the Wisplight that clears the mist in the Mistlands.",
+     "After his defeat Haldor sells eggs for raising chickens, and the Bog Witch adds the spice of the Plains.",
+     "His Forsaken power raises all your damage by a tenth. It is a strong choice for the Mistlands and later bosses."
+    ]
+   },
+   "queen": {
+    "lead": "The Queen is the mother of the Seekers and the sixth boss. She lives deep inside the Infested Citadel in the Mistlands and never fights alone: her brood hatches around you all the time. Good preparation and control of her spawn decide the fight.",
+    "power": "Eitr regenerates twice as fast, sneaking costs no stamina and you gain 50 % poison resistance.",
+    "find": [
+     "The Queen is not summoned. She waits inside the **Infested Citadel**, a huge sealed building in the Mistlands. Red runestones in the Infested Mines mark the citadel on your map.",
+     "The door only opens with the **Sealbreaker**. You craft it at the Galdr Table from **9 Sealbreaker Fragments**, which you find in the Infested Mines. To fight her again later, place 3 Seeker Soldier Trophies on the altar inside."
+    ],
+    "prep": [
+     "Wear upgraded carapace armour for melee, or the eitr-weave robe if you fight with magic.",
+     "She resists pierce damage. Use slash or blunt weapons such as Mistwalker, Krom or the Demolisher. Bows and spears do little.",
+     "Magic is very strong here: the Staff of Embers clears her brood, the Staff of Protection shields the group and the Dead Raiser distracts enemies.",
+     "Drink **poison resistance mead** before you enter, and take major healing meads, stamina meads and eitr meads.",
+     "Eat the best Mistlands food. For magic users, at least one eitr food is mandatory.",
+     "The citadel is free of mist, but bring your Wisplight for the way there. A Feather Cape lets you jump down from the upper floors safely.",
+     "You can build inside the citadel. A workbench, a portal just outside the door and a few stone walls for cover help a lot."
+    ],
+    "attacks": [
+     "**Slash and rush:** wide swings with her front legs and a crawling charge. Dodge sideways or block with a strong shield.",
+     "**Bite:** a lunge straight ahead with heavy pierce and poison damage. Do not stand in front of her head.",
+     "**Ground stab:** she rears up and stabs the ground with all four arms, hitting everything around her. Back off when she rises.",
+     "**Spit:** several poison projectiles that explode and release Seeker Broods.",
+     "**Call:** she screams and summons Seekers and broods.",
+     "**Burrow:** she digs into the ground and reappears somewhere else in the hall."
+    ],
+    "tips": [
+     "Kill the brood constantly. A dozen small Seekers do more damage than the Queen herself. Area attacks like the Demolisher or the Staff of Embers are ideal.",
+     "Use the stairs and upper floors of the citadel. She is fast in the open but slow on the ramps, which gives you time to heal and regain stamina.",
+     "All her melee attacks throw you back. Keep your back away from walls and ledges.",
+     "In a group, one player with a tower shield holds her attention while the others deal with the adds and attack from behind.",
+     "Bonemass's power is excellent for melee. Magic users take her own power into the rematch, or Yagluth's for more damage.",
+     "If you die, your tombstone lies inside the hall. A portal right outside the door makes the corpse run short."
+    ],
+    "reward": [
+     "The Queen drops **5 Majestic Carapaces** and her trophy. The carapace builds the Artisan Press, which you need for the gear and the ships that take you to the Ashlands.",
+     "After her defeat Haldor sells Deeper Pockets, another inventory row, and the Bog Witch adds the spice of the Mistlands.",
+     "Her Forsaken power doubles eitr regeneration. For magic builds it is the best power in the game."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, the undead dragon of the Ashlands, is the seventh boss. He has no weakness, twice the health of the Queen and fills his arena with green fire. This fight demands the best gear the Ashlands have to offer and constant movement.",
+    "power": "Adrenaline builds twice as fast, you are staggered much less easily and you gain 50 % fire resistance.",
+    "find": [
+     "Fader's altar stands in a large round arena in the Ashlands. Red runestones inside Charred Fortresses mark it on your map.",
+     "To summon him, you need **3 Bells**. Each Bell is forged from **3 Bell Fragments** at the Black Forge, and the fragments lie in the chests of Charred Fortresses. Break the fortress gates with a battering ram, clear the fortress and loot the tower. Place the three Bells in the arena and activate the altar."
+    ],
+    "prep": [
+     "Wear fully upgraded flametal armour, or the Ask set if you prefer light armour.",
+     "Fader is immune to fire and spirit and resists pierce. Use slash or blunt weapons, ideally with frost or lightning damage.",
+     "Drink **fire resistance barley wine** and renew it during the fight.",
+     "Take major healing meads and lingering stamina meads, and eat the best Ashlands food in all three slots.",
+     "Clear the surroundings of the arena thoroughly. Charred, Morgens and Asksvin that wander in make the fight chaotic.",
+     "Build a portal and a small stone shelter outside the arena. The Ashlands spawn enemies constantly, so protect the portal with walls."
+    ],
+    "attacks": [
+     "**Bite and claws:** wide, very heavy melee attacks in front of him. Block with a strong shield or stay at his flank.",
+     "**Spin:** he turns on the spot and hits everything around him. Step back when he starts to turn.",
+     "**Flame breath:** a line of fire that leaves burning ground. It cannot be blocked. Strafe out of the line.",
+     "**Fissure:** he slams the ground and a rift runs towards you, erupting in spikes and leaving a pool of green fire.",
+     "**Wall of fire:** a ring of flames closes around you. Leave it immediately.",
+     "**Meteors:** he rears up and meteors rain down across the arena.",
+     "**Summon:** he spits orbs that turn into Charred warriors and marksmen."
+    ],
+    "tips": [
+     "Stay at his side or behind him. Almost all dangerous attacks point forward.",
+     "Never stand in green fire. The pools last a long time and slowly make the arena smaller, so lure him to a clean part of the arena.",
+     "Keep moving the whole time. Most of his area attacks aim at where you are standing when he starts them.",
+     "Kill the summoned Charred quickly, or position yourself so that Fader's own attacks hit them.",
+     "Bonemass's power and a tower shield make his melee attacks survivable. Do not try to block the breath or the fissure.",
+     "In a group, split the roles: one player keeps his attention, one handles the summoned enemies, the rest deal damage."
+    ],
+    "reward": [
+     "Fader drops **5 Kindled Ribs** and his trophy. The ribs are needed for the Eternal Pyre and open the way to the last crafting tier before the Deep North.",
+     "After his defeat the Bog Witch sells the spice of the Ashlands.",
+     "His Forsaken power builds adrenaline twice as fast and makes you much harder to stagger. It is a strong choice for aggressive melee builds."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir and the Bog Witch: locations, wares and prices.",
+  "title": "Valheim Traders: locations, wares and prices",
+  "desc": "All Valheim traders at a glance: where to find Haldor, Hildir and the Bog Witch, what they sell, what it costs and which valuables you can sell for coins.",
+  "h1": "Valheim traders",
+  "intro": [
+   "Three traders live in Valheim, and each of them is hidden somewhere different in every world. Haldor sells useful gear in the Black Forest, Hildir sells clothes in the Meadows and sends you on a quest, and the Bog Witch sells ingredients for cooking and brewing in the Swamp.",
+   "Searching for them without help can take dozens of hours. Enter your seed on the map and you will see every possible camp at once. All prices on these pages are taken directly from the game data."
+  ],
+  "sellH": "What you can sell",
+  "sellP": [
+   "Coins are the only currency, and you get them by selling valuables. All three traders buy the same items at the same prices. Coins, rubies and amber are found in Burial Chambers, Troll Caves, Sunken Crypts and Fuling villages."
+  ],
+  "outro": [
+   "The camp of every trader is protected. Enemies cannot enter, so a trader camp is also a safe place for a portal."
+  ],
+  "pageTitle": "{trader}: location, wares and prices",
+  "pageDesc": "Where to find {trader} in Valheim and what is for sale: all {n} wares with prices, unlock conditions and tips. Find the camp in the {biome} of your world with the seed map.",
+  "showOnMap": "Show {trader} on the map",
+  "findH": "Where to find {trader}",
+  "waresH": "What {trader} sells",
+  "tipsH": "Tips",
+  "list": {
+   "haldor": {
+    "teaser": "gear, fishing and more inventory space",
+    "lead": "Haldor is a dwarven trader who camps in the Black Forest with his lox Halstein. He sells some of the most useful items in the game, above all the belt Megingjord, which lets you carry 150 more weight.",
+    "find": [
+     "Haldor's camp is always in the Black Forest. The game prepares up to ten possible camps per world, usually more than 1,500 metres from the centre of the map. The first one you get close to becomes the real camp, and all the others disappear.",
+     "When you come within a few hundred metres, a bag icon appears on your map. The camp is surrounded by a protective bubble that keeps enemies out. Building is not possible inside it, but a portal right outside the bubble works well."
+    ],
+    "waresP": [
+     "Part of his stock is only available after you have defeated certain bosses. Prices are in coins."
+    ],
+    "tips": [
+     "Buy **Megingjord** first. 150 extra carry weight helps with everything from mining to sailing home with iron.",
+     "The **Dverger Circlet** is a headlamp that leaves your hands free. It is very handy in crypts and caves, but it takes up the helmet slot.",
+     "**Wider Pockets** and **Deeper Pockets** each add a permanent extra row to your inventory. They are expensive but worth every coin.",
+     "**Ymir Flesh** is needed for the Iron Sledge, the Frostner and other strong items. **Thunder Stones** are needed for the Obliterator.",
+     "An **Egg** hatches into a chicken if you keep it warm. Two hens are enough to breed your own supply of eggs and chicken meat, so you only need to buy two.",
+     "The **Fishing Rod** only works with bait. The simple bait Haldor sells is the base for every special bait in the game.",
+     "Save up before the trip: with about 2,000 coins you can afford the belt, the circlet and the fishing rod in one visit."
+    ]
+   },
+   "hildir": {
+    "teaser": "clothing, hairdresser and a three-part quest",
+    "lead": "Hildir is Haldor's sister. She sells clothes, hats and festive items in the Meadows. Most of her stock was stolen, and she asks you to bring back three chests from three special dungeons.",
+    "find": [
+     "Hildir's camp lies in the Meadows, but far from the spawn point, usually at least 3,000 metres from the centre of the map. As with Haldor, there are up to ten possible camps, and the first one you approach becomes the real one.",
+     "A shirt icon appears on your map when you get close. At her camp stands a map table. Reading it marks the nearest of her quest dungeons on your map."
+    ],
+    "waresP": [
+     "At first she only sells a handful of items. Each chest you return unlocks another part of her stock."
+    ],
+    "tips": [
+     "The **Brass Chest** lies in a Smouldering Tomb in the Black Forest, the **Silver Chest** in a Howling Cavern in the Mountains and the **Bronze Chest** in a Sealed Tower in the Plains. Each one is guarded by a mini boss.",
+     "The chests cannot be taken through portals and they are heavy. Plan the way back on foot, by cart or by ship before you go in.",
+     "The quest dungeons get harder in this order. Brenna in the tomb deals fire damage, Geirrhafa in the cavern deals frost, and the two Fuling brothers Zil and Thungr in the tower fight together.",
+     "All quest dungeons are on the map as well. Switch on the Hildir quest markers to find the ones closest to her camp.",
+     "The **Barber Kit** builds a barber station, where you can change your hair and beard at any time.",
+     "Her clothes are mostly for looks, but they are light and do not slow you down. The **Harvest** outfits are a favourite for farming.",
+     "The **Iron Pit** is a decorative fire pit, and fireworks need a bonfire to launch."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "ingredients for feasts, meads and farming",
+    "lead": "The Bog Witch lives in a crooked hut in the Swamp with her giant Kvastur. She sells ingredients that you cannot get anywhere else: spices for the big feasts, items for new meads and useful things for your farm.",
+    "find": [
+     "The Bog Witch's camp is in the Swamp. Here, too, the game prepares up to ten possible camps, and the first one you get close to stays in your world.",
+     "A cauldron icon appears on your map when you are near. Her camp is protected against enemies, which makes it a welcome safe spot in the Swamp. Still, bring poison resistance mead for the way there."
+    ],
+    "waresP": [
+     "Most of her spices become available only after you have defeated the boss of the matching biome. Many items are sold in bundles. The table shows the price per bundle."
+    ],
+    "tips": [
+     "The **spices** are the key ingredient of the feasts. A feast placed on a table feeds the whole group with one of the strongest foods of its tier, and it lasts for many servings.",
+     "The **Serving Tray** lets you carry a prepared feast and set it down somewhere else, for example right before a boss fight.",
+     "The **Scythe Handle** is needed for the scythe, which harvests whole fields in one swing. It is one of the best purchases for anyone who farms a lot.",
+     "**Candle Wicks** are needed for candles, and **Ivy Seeds** grow climbing ivy on your buildings.",
+     "Fresh Seaweed, Cured Squirrel Hamstring, Powdered Dragon Eggshells and Pungent Pebbles are ingredients for the newer meads, which improve skills such as swimming and running or protect against lightning.",
+     "Toadstools and Fragrant Bundles become available after Moder. They are used for the berserkir mead and for a mead that keeps you clean of negative effects.",
+     "Her wares are cheap compared with Haldor's. A few hundred coins are enough for a first visit."
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="{{htmlLang}}" data-lang="{{lang}}" data-game-version="{{gameVersion}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{{head}}
+  <link rel="icon" href="{{root}}favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{root}}poi-icons/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{root}}poi-icons/site/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{root}}poi-icons/site/apple-touch-icon.png">
+  <link rel="stylesheet" href="{{root}}css/style.css">
+  <link rel="stylesheet" href="{{root}}css/content.css">
+</head>
+<body class="map-page">
+  <header class="site-head">
+    <h1><a class="brand" href="{{home}}"><img src="{{root}}poi-icons/site/favicon-32.png" alt="" width="24" height="24"> Valheim-Map</a></h1>
+    <nav>
+        {{nav}}
+    </nav>
+    {{tools}}
+  </header>
+  <div id="app">
+    <aside id="sidebar">
+
+      <section>
+        <h2>{{t:world}}</h2>
+        <form id="seedForm" class="row">
+          <input id="seedInput" type="text" placeholder="{{t:seedPh}}" spellcheck="false" autocomplete="off">
+          <button type="submit">{{t:load}}</button>
+        </form>
+        <div class="row">
+          <input id="nameInput" type="text" placeholder="{{t:namePh}}" spellcheck="false" autocomplete="off" maxlength="60">
+          <button id="btnSave" type="button" title="{{t:saveTitle}}">{{t:save}}</button>
+        </div>
+        <div class="row">
+          <div id="saved" class="dropdown">
+            <button id="savedBtn" type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button>
+            <ul id="savedList" class="dd-list" role="listbox" hidden></ul>
+          </div>
+          <button id="btnExample" type="button" title="{{t:exampleTitle}}">{{t:example}}</button>
+        </div>
+        <p id="worldInfo" class="info"></p>
+      </section>
+
+      <section class="grow">
+        <h2>{{t:pois}} <span id="poiTotal" class="muted"></span></h2>
+        <div class="row">
+          <input id="search" type="search" placeholder="{{t:searchPh}}">
+        </div>
+        <div class="row small">
+          <button id="btnAll" type="button">{{t:all}}</button>
+          <button id="btnNone" type="button">{{t:none}}</button>
+          <label><input id="chkLabels" type="checkbox" checked> {{t:names}}</label>
+        </div>
+        <div id="cats"></div>
+        <p id="poiHint" class="info"></p>
+      </section>
+
+      <footer>
+        <span>{{t:footer}}</span>
+      </footer>
+    </aside>
+
+    <main id="mapWrap">
+      <canvas id="map"></canvas>
+      <div id="tooltip" hidden></div>
+      <div id="popup" hidden></div>
+      <div id="progress" role="progressbar" aria-label="{{t:computing}}" aria-valuemin="0" aria-valuemax="100" hidden>
+        <div class="progress-head"><span>{{t:computing}}</span><span id="progressText">0 %</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+      <div id="zoomBtns">
+        <button id="zoomIn" type="button" title="{{t:zoomIn}}">+</button>
+        <button id="zoomOut" type="button" title="{{t:zoomOut}}">−</button>
+        <button id="zoomHome" type="button" title="{{t:zoomHome}}">⌂</button>
+      </div>
+      <div id="status">
+        <span id="stPos">–</span>
+        <span id="stBiome"></span>
+        <span id="stScale"></span>
+        <span id="stLoad"></span>
+      </div>
+    </main>
+  </div>
+
+  <noscript><p class="noscript">{{noscript}}</p></noscript>
+
+  <dialog id="langDlg" aria-labelledby="langHead">
+    <button id="langClose" type="button" class="close" title="{{t:close}}">×</button>
+    <h3 id="langHead">{{t:langTitle}}</h3>
+    <div id="langList"></div>
+  </dialog>
+
+  <script type="module" src="{{root}}js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es" data-lang="es" data-game-version="1.0.21">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valheim Map – Mapa interactivo de semillas con todos los lugares</title>
+  <meta name="description" content="Mapa interactivo gratuito de Valheim: introduce una semilla y ve el mundo entero sin niebla – jefes, mercaderes (Haldor, Hildir, Bruja del pantano), mazmorras, criptas, pozos de alquitrán y más de 90 tipos de lugares. Funciona directamente en el navegador.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#14181d">
+  <link rel="canonical" href="https://valheim-map.de/es/">
+  <link rel="alternate" hreflang="en" href="https://valheim-map.de/">
+  <link rel="alternate" hreflang="de" href="https://valheim-map.de/de/">
+  <link rel="alternate" hreflang="fr" href="https://valheim-map.de/fr/">
+  <link rel="alternate" hreflang="it" href="https://valheim-map.de/it/">
+  <link rel="alternate" hreflang="pt" href="https://valheim-map.de/pt/">
+  <link rel="alternate" hreflang="es" href="https://valheim-map.de/es/">
+  <link rel="alternate" hreflang="nb" href="https://valheim-map.de/no/">
+  <link rel="alternate" hreflang="sv" href="https://valheim-map.de/sv/">
+  <link rel="alternate" hreflang="nl" href="https://valheim-map.de/nl/">
+  <link rel="alternate" hreflang="x-default" href="https://valheim-map.de/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Valheim-Map">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://valheim-map.de/es/">
+  <meta property="og:title" content="Valheim Map – Mapa interactivo de semillas con todos los lugares">
+  <meta property="og:description" content="Mapa interactivo gratuito de Valheim: introduce una semilla y ve el mundo entero sin niebla – jefes, mercaderes (Haldor, Hildir, Bruja del pantano), mazmorras, criptas, pozos de alquitrán y más de 90 tipos de lugares. Funciona directamente en el navegador.">
+  <meta property="og:image" content="https://valheim-map.de/poi-icons/site/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valheim Map – Mapa interactivo de semillas con todos los lugares">
+  <meta name="twitter:description" content="Mapa interactivo gratuito de Valheim: introduce una semilla y ve el mundo entero sin niebla – jefes, mercaderes (Haldor, Hildir, Bruja del pantano), mazmorras, criptas, pozos de alquitrán y más de 90 tipos de lugares. Funciona directamente en el navegador.">
+  <meta name="twitter:image" content="https://valheim-map.de/poi-icons/site/og-image.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Valheim-Map","alternateName":["Valheim Map","Valheim Seed Map","Valheim World Generator Map"],"url":"https://valheim-map.de/es/","description":"Mapa interactivo gratuito de Valheim: introduce una semilla y ve el mundo entero sin niebla – jefes, mercaderes (Haldor, Hildir, Bruja del pantano), mazmorras, criptas, pozos de alquitrán y más de 90 tipos de lugares. Funciona directamente en el navegador.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"es","image":"https://valheim-map.de/poi-icons/site/og-image.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"about":{"@type":"VideoGame","name":"Valheim"}}</script>
+  <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="../poi-icons/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../poi-icons/site/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../poi-icons/site/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/content.css">
+</head>
+<body class="map-page">
+  <header class="site-head">
+    <h1><a class="brand" href="../es/"><img src="../poi-icons/site/favicon-32.png" alt="" width="24" height="24"> Valheim-Map</a></h1>
+    <nav>
+        <a href="../es/" aria-current="page">Mapa</a>
+        <a href="../es/seeds/">Mejores semillas</a>
+        <a href="../es/bosses/">Jefes</a>
+        <a href="../es/traders/">Comerciantes</a>
+        <a href="../es/faq/">FAQ</a>
+    </nav>
+    <div class="tools"><a id="btnDonate" class="tool" href="https://ko-fi.com/emmuss" target="_blank" rel="noopener" title="Apoyar el proyecto en Ko-fi"><span class="heart">♥</span> Donar</a><button id="btnLang" class="tool" type="button" title="Elegir idioma" aria-haspopup="dialog">🌐 Español</button></div>
+  </header>
+  <div id="app">
+    <aside id="sidebar">
+
+      <section>
+        <h2>Mundo</h2>
+        <form id="seedForm" class="row">
+          <input id="seedInput" type="text" placeholder="Semilla, p. ej. Xldpp3L2LG" spellcheck="false" autocomplete="off">
+          <button type="submit">Cargar</button>
+        </form>
+        <div class="row">
+          <input id="nameInput" type="text" placeholder="Nombre (opcional)" spellcheck="false" autocomplete="off" maxlength="60">
+          <button id="btnSave" type="button" title="Guardar la semilla (y el nombre) en este navegador">Guardar</button>
+        </div>
+        <div class="row">
+          <div id="saved" class="dropdown">
+            <button id="savedBtn" type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button>
+            <ul id="savedList" class="dd-list" role="listbox" hidden></ul>
+          </div>
+          <button id="btnExample" type="button" title="Cargar la semilla de ejemplo Xldpp3L2LG">Mundo de ejemplo</button>
+        </div>
+        <p id="worldInfo" class="info"></p>
+      </section>
+
+      <section class="grow">
+        <h2>Lugares (PDI) <span id="poiTotal" class="muted"></span></h2>
+        <div class="row">
+          <input id="search" type="search" placeholder="Buscar, p. ej. mercader, cripta…">
+        </div>
+        <div class="row small">
+          <button id="btnAll" type="button">Todos</button>
+          <button id="btnNone" type="button">Ninguno</button>
+          <label><input id="chkLabels" type="checkbox" checked> Nombres</label>
+        </div>
+        <div id="cats"></div>
+        <p id="poiHint" class="info"></p>
+      </section>
+
+      <footer>
+        <span>Arrastrar = mover · Rueda del ratón = zoom · Haz clic en un nombre de la lista para ir al lugar más cercano</span>
+      </footer>
+    </aside>
+
+    <main id="mapWrap">
+      <canvas id="map"></canvas>
+      <div id="tooltip" hidden></div>
+      <div id="popup" hidden></div>
+      <div id="progress" role="progressbar" aria-label="Calculando los lugares …" aria-valuemin="0" aria-valuemax="100" hidden>
+        <div class="progress-head"><span>Calculando los lugares …</span><span id="progressText">0 %</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+      <div id="zoomBtns">
+        <button id="zoomIn" type="button" title="Acercar">+</button>
+        <button id="zoomOut" type="button" title="Alejar">−</button>
+        <button id="zoomHome" type="button" title="Mundo entero">⌂</button>
+      </div>
+      <div id="status">
+        <span id="stPos">–</span>
+        <span id="stBiome"></span>
+        <span id="stScale"></span>
+        <span id="stLoad"></span>
+      </div>
+    </main>
+  </div>
+
+  <noscript><p class="noscript">El mapa interactivo necesita JavaScript. Las guías de semillas, jefes y comerciantes funcionan sin él.</p></noscript>
+
+  <dialog id="langDlg" aria-labelledby="langHead">
+    <button id="langClose" type="button" class="close" title="Cerrar">×</button>
+    <h3 id="langHead">Elegir idioma</h3>
+    <div id="langList"></div>
+  </dialog>
+
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

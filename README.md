@@ -22,8 +22,11 @@ ein Doppelklick auf `index.html` funktioniert nicht.)
 - Ziehen verschiebt, Mausrad zoomt (bis 0,5 m pro Pixel). Unten stehen Koordinaten, Biom und Höhe unter dem Mauszeiger.
 - Klick auf einen Typnamen in der Liste springt zum nächstgelegenen Ort dieses Typs, erneuter Klick zum übernächsten.
 - **Sprache**: Deutsch, Englisch, Französisch, Italienisch, Portugiesisch, Spanisch, Norwegisch, Schwedisch und
-  Niederländisch. Beim ersten Aufruf entscheidet die Browsersprache; über den Knopf unten in der Seitenleiste lässt
+  Niederländisch. Beim ersten Aufruf entscheidet die Browsersprache; über den Knopf oben rechts in der Kopfzeile lässt
   sie sich umstellen (wird im `localStorage` gemerkt).
+- **Orte-Cache**: Die berechneten Orte eines Seeds landen in der IndexedDB des Browsers (`valheim-map`, die letzten
+  12 Welten). Beim erneuten Öffnen desselben Seeds entfällt die Berechnung. Der Schlüssel enthält Spielversion und
+  `LOC_REV` aus `js/app.js` – `LOC_REV` erhöhen, wenn sich die Ortsberechnung ohne Versionswechsel ändert.
 - Die Adresse (`#seed=…&x=…&z=…&s=…`) lässt sich als Lesezeichen/Link weitergeben.
 
 ## Aufbau
@@ -38,6 +41,34 @@ ein Doppelklick auf `index.html` funktioniert nicht.)
 | `js/app.js` | Kartenansicht, POI-Ebene, Seitenleiste |
 | `js/locations.js` | Katalog: Prefab-Name → Kategorie und Bezeichnung |
 | `lang/<code>.json` | Übersetzungen: Oberfläche, Kategorien, Biome, Ortsnamen (Schlüssel = deutsche Bezeichnung) |
+| `tools/build.mjs` | erzeugt alle HTML-Seiten und die `sitemap.xml` (siehe unten) |
+| `tools/templates/` | Vorlagen für die Kartenseite und die Ratgeberseiten |
+| `tools/content/<code>.json` | Texte je Sprache: Erklärtext und FAQ, Seeds, Bosse, Händler |
+| `tools/data/` | Spieldaten: Händlerwaren und Preise, Bosse, Seed-Liste, Namen aus den Spieltexten |
+| `css/content.css` | Gestaltung der Textbereiche und Ratgeberseiten |
+
+## Seiten erzeugen
+
+Alle HTML-Seiten sind erzeugte Dateien und werden mit eingecheckt; beim Ausliefern läuft kein Build. Nach Änderungen
+an Vorlagen, Texten oder Daten:
+
+```
+node tools/build.mjs
+```
+
+| Adresse | Inhalt |
+| --- | --- |
+| `/` | Karte auf Englisch (`x-default`); leitet beim ersten Besuch auf die Browsersprache weiter |
+| `/de/`, `/fr/`, `/it/`, `/pt/`, `/es/`, `/no/`, `/sv/`, `/nl/` | Karte je Sprache |
+| `faq/` | Erklärtext, „So findest du deinen Seed“ und häufige Fragen |
+| `seeds/` | Liste der besten Seeds, jeder Eintrag öffnet die Karte |
+| `bosses/`, `bosses/<boss>/` | Übersicht und eine Seite je Boss |
+| `traders/`, `traders/<händler>/` | Übersicht und eine Seite je Händler mit Waren und Preisen |
+
+Die Ratgeberseiten gibt es in jeder Sprache (`/de/seeds/` usw.), untereinander per `hreflang` verknüpft. Links auf
+die Karte können mit `#seed=…&show=Prefab1,Prefab2` nur bestimmte Ortstypen einblenden.
+
+Die `index.html`-Dateien nicht von Hand ändern, sondern `tools/templates/` bzw. `tools/content/` anpassen.
 
 ## Genauigkeit und Grenzen
 

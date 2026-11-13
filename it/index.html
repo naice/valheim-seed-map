@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it" data-lang="it" data-game-version="1.0.21">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valheim Map – Mappa interattiva dei seed con tutti i luoghi</title>
+  <meta name="description" content="Mappa interattiva gratuita di Valheim: inserisci un seed e guarda tutto il mondo senza nebbia – boss, mercanti (Haldor, Hildir, Strega della palude), dungeon, cripte, pozze di catrame e oltre 90 altri tipi di luoghi. Funziona direttamente nel browser.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#14181d">
+  <link rel="canonical" href="https://valheim-map.de/it/">
+  <link rel="alternate" hreflang="en" href="https://valheim-map.de/">
+  <link rel="alternate" hreflang="de" href="https://valheim-map.de/de/">
+  <link rel="alternate" hreflang="fr" href="https://valheim-map.de/fr/">
+  <link rel="alternate" hreflang="it" href="https://valheim-map.de/it/">
+  <link rel="alternate" hreflang="pt" href="https://valheim-map.de/pt/">
+  <link rel="alternate" hreflang="es" href="https://valheim-map.de/es/">
+  <link rel="alternate" hreflang="nb" href="https://valheim-map.de/no/">
+  <link rel="alternate" hreflang="sv" href="https://valheim-map.de/sv/">
+  <link rel="alternate" hreflang="nl" href="https://valheim-map.de/nl/">
+  <link rel="alternate" hreflang="x-default" href="https://valheim-map.de/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Valheim-Map">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://valheim-map.de/it/">
+  <meta property="og:title" content="Valheim Map – Mappa interattiva dei seed con tutti i luoghi">
+  <meta property="og:description" content="Mappa interattiva gratuita di Valheim: inserisci un seed e guarda tutto il mondo senza nebbia – boss, mercanti (Haldor, Hildir, Strega della palude), dungeon, cripte, pozze di catrame e oltre 90 altri tipi di luoghi. Funziona direttamente nel browser.">
+  <meta property="og:image" content="https://valheim-map.de/poi-icons/site/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valheim Map – Mappa interattiva dei seed con tutti i luoghi">
+  <meta name="twitter:description" content="Mappa interattiva gratuita di Valheim: inserisci un seed e guarda tutto il mondo senza nebbia – boss, mercanti (Haldor, Hildir, Strega della palude), dungeon, cripte, pozze di catrame e oltre 90 altri tipi di luoghi. Funziona direttamente nel browser.">
+  <meta name="twitter:image" content="https://valheim-map.de/poi-icons/site/og-image.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Valheim-Map","alternateName":["Valheim Map","Valheim Seed Map","Valheim World Generator Map"],"url":"https://valheim-map.de/it/","description":"Mappa interattiva gratuita di Valheim: inserisci un seed e guarda tutto il mondo senza nebbia – boss, mercanti (Haldor, Hildir, Strega della palude), dungeon, cripte, pozze di catrame e oltre 90 altri tipi di luoghi. Funziona direttamente nel browser.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"it","image":"https://valheim-map.de/poi-icons/site/og-image.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"about":{"@type":"VideoGame","name":"Valheim"}}</script>
+  <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="../poi-icons/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../poi-icons/site/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../poi-icons/site/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/content.css">
+</head>
+<body class="map-page">
+  <header class="site-head">
+    <h1><a class="brand" href="../it/"><img src="../poi-icons/site/favicon-32.png" alt="" width="24" height="24"> Valheim-Map</a></h1>
+    <nav>
+        <a href="../it/" aria-current="page">Mappa</a>
+        <a href="../it/seeds/">Migliori seed</a>
+        <a href="../it/bosses/">Boss</a>
+        <a href="../it/traders/">Mercanti</a>
+        <a href="../it/faq/">FAQ</a>
+    </nav>
+    <div class="tools"><a id="btnDonate" class="tool" href="https://ko-fi.com/emmuss" target="_blank" rel="noopener" title="Sostieni il progetto su Ko-fi"><span class="heart">♥</span> Dona</a><button id="btnLang" class="tool" type="button" title="Scegli la lingua" aria-haspopup="dialog">🌐 Italiano</button></div>
+  </header>
+  <div id="app">
+    <aside id="sidebar">
+
+      <section>
+        <h2>Mondo</h2>
+        <form id="seedForm" class="row">
+          <input id="seedInput" type="text" placeholder="Seed, ad es. Xldpp3L2LG" spellcheck="false" autocomplete="off">
+          <button type="submit">Carica</button>
+        </form>
+        <div class="row">
+          <input id="nameInput" type="text" placeholder="Nome (facoltativo)" spellcheck="false" autocomplete="off" maxlength="60">
+          <button id="btnSave" type="button" title="Salva il seed (e il nome) in questo browser">Salva</button>
+        </div>
+        <div class="row">
+          <div id="saved" class="dropdown">
+            <button id="savedBtn" type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button>
+            <ul id="savedList" class="dd-list" role="listbox" hidden></ul>
+          </div>
+          <button id="btnExample" type="button" title="Carica il seed di esempio Xldpp3L2LG">Mondo di esempio</button>
+        </div>
+        <p id="worldInfo" class="info"></p>
+      </section>
+
+      <section class="grow">
+        <h2>Luoghi (POI) <span id="poiTotal" class="muted"></span></h2>
+        <div class="row">
+          <input id="search" type="search" placeholder="Cerca, ad es. mercante, cripta…">
+        </div>
+        <div class="row small">
+          <button id="btnAll" type="button">Tutti</button>
+          <button id="btnNone" type="button">Nessuno</button>
+          <label><input id="chkLabels" type="checkbox" checked> Nomi</label>
+        </div>
+        <div id="cats"></div>
+        <p id="poiHint" class="info"></p>
+      </section>
+
+      <footer>
+        <span>Trascina = sposta · Rotellina = zoom · Clicca un nome nell’elenco per andare al luogo più vicino</span>
+      </footer>
+    </aside>
+
+    <main id="mapWrap">
+      <canvas id="map"></canvas>
+      <div id="tooltip" hidden></div>
+      <div id="popup" hidden></div>
+      <div id="progress" role="progressbar" aria-label="Calcolo dei luoghi …" aria-valuemin="0" aria-valuemax="100" hidden>
+        <div class="progress-head"><span>Calcolo dei luoghi …</span><span id="progressText">0 %</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+      <div id="zoomBtns">
+        <button id="zoomIn" type="button" title="Ingrandisci">+</button>
+        <button id="zoomOut" type="button" title="Riduci">−</button>
+        <button id="zoomHome" type="button" title="Tutto il mondo">⌂</button>
+      </div>
+      <div id="status">
+        <span id="stPos">–</span>
+        <span id="stBiome"></span>
+        <span id="stScale"></span>
+        <span id="stLoad"></span>
+      </div>
+    </main>
+  </div>
+
+  <noscript><p class="noscript">La mappa interattiva richiede JavaScript. Le guide su seed, boss e mercanti funzionano anche senza.</p></noscript>
+
+  <dialog id="langDlg" aria-labelledby="langHead">
+    <button id="langClose" type="button" class="close" title="Chiudi">×</button>
+    <h3 id="langHead">Scegli la lingua</h3>
+    <div id="langList"></div>
+  </dialog>
+
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

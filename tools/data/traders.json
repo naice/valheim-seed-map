@@ -1,0 +1,515 @@
+[
+ {
+  "id": "haldor",
+  "prefab": "Vendor_BlackForest",
+  "show": "Vendor_BlackForest",
+  "name": "npc_haldor",
+  "biome": "biome_blackforest",
+  "poiIcon": "mapicon_trader",
+  "items": [
+   {
+    "prefab": "HelmetYule",
+    "name": "item_helmet_yule",
+    "stack": 1,
+    "price": 100,
+    "key": ""
+   },
+   {
+    "prefab": "HelmetDverger",
+    "name": "item_helmet_dverger",
+    "stack": 1,
+    "price": 620,
+    "key": ""
+   },
+   {
+    "prefab": "BeltStrength",
+    "name": "item_beltstrength",
+    "stack": 1,
+    "price": 950,
+    "key": ""
+   },
+   {
+    "prefab": "YmirRemains",
+    "name": "item_ymirremains",
+    "stack": 1,
+    "price": 120,
+    "key": "defeated_gdking"
+   },
+   {
+    "prefab": "FishingRod",
+    "name": "item_fishingrod",
+    "stack": 1,
+    "price": 350,
+    "key": ""
+   },
+   {
+    "prefab": "FishingBait",
+    "name": "item_fishingbait",
+    "stack": 20,
+    "price": 10,
+    "key": ""
+   },
+   {
+    "prefab": "Thunderstone",
+    "name": "item_thunderstone",
+    "stack": 1,
+    "price": 50,
+    "key": "defeated_gdking"
+   },
+   {
+    "prefab": "ChickenEgg",
+    "name": "item_chicken_egg",
+    "stack": 1,
+    "price": 1500,
+    "key": "defeated_goblinking"
+   },
+   {
+    "prefab": "BarrelRings",
+    "name": "item_barrelrings",
+    "stack": 3,
+    "price": 100,
+    "key": ""
+   },
+   {
+    "prefab": null,
+    "name": "hud_extrainvslot1",
+    "stack": 1,
+    "price": 1000,
+    "key": "defeated_dragon"
+   },
+   {
+    "prefab": null,
+    "name": "hud_extrainvslot2",
+    "stack": 1,
+    "price": 2000,
+    "key": "defeated_queen"
+   }
+  ]
+ },
+ {
+  "id": "hildir",
+  "prefab": "Hildir_camp",
+  "show": "Hildir_camp,Hildir_crypt,Hildir_cave,Hildir_plainsfortress",
+  "name": "npc_hildir",
+  "biome": "biome_meadows",
+  "poiIcon": "mapicon_hildir",
+  "items": [
+   {
+    "prefab": "ArmorDress2",
+    "name": "item_chest_dress2",
+    "stack": 1,
+    "price": 450,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "ArmorDress3",
+    "name": "item_chest_dress3",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "ArmorDress5",
+    "name": "item_chest_dress5",
+    "stack": 1,
+    "price": 450,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "ArmorDress6",
+    "name": "item_chest_dress6",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "ArmorDress8",
+    "name": "item_chest_dress8",
+    "stack": 1,
+    "price": 450,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "ArmorDress9",
+    "name": "item_chest_dress9",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "ArmorDress10",
+    "name": "item_chest_dress10",
+    "stack": 1,
+    "price": 250,
+    "key": ""
+   },
+   {
+    "prefab": "ArmorTunic2",
+    "name": "item_chest_tunic2",
+    "stack": 1,
+    "price": 450,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "ArmorTunic3",
+    "name": "item_chest_tunic3",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "ArmorTunic5",
+    "name": "item_chest_tunic5",
+    "stack": 1,
+    "price": 450,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "ArmorTunic6",
+    "name": "item_chest_tunic6",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "ArmorTunic8",
+    "name": "item_chest_tunic8",
+    "stack": 1,
+    "price": 450,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "ArmorTunic9",
+    "name": "item_chest_tunic9",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "ArmorTunic10",
+    "name": "item_chest_tunic10",
+    "stack": 1,
+    "price": 250,
+    "key": ""
+   },
+   {
+    "prefab": "ArmorDress1",
+    "name": "item_chest_dress1",
+    "stack": 1,
+    "price": 350,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "ArmorDress4",
+    "name": "item_chest_dress4",
+    "stack": 1,
+    "price": 350,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "ArmorDress7",
+    "name": "item_chest_dress7",
+    "stack": 1,
+    "price": 350,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "ArmorTunic1",
+    "name": "item_chest_tunic1",
+    "stack": 1,
+    "price": 350,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "ArmorTunic4",
+    "name": "item_chest_tunic4",
+    "stack": 1,
+    "price": 350,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "ArmorTunic7",
+    "name": "item_chest_tunic7",
+    "stack": 1,
+    "price": 350,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "ArmorHarvester1",
+    "name": "item_chest_harvester1",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "ArmorHarvester2",
+    "name": "item_chest_harvester2",
+    "stack": 1,
+    "price": 550,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "HelmetHat1",
+    "name": "item_helmet_hat1",
+    "stack": 1,
+    "price": 200,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "HelmetHat2",
+    "name": "item_helmet_hat2",
+    "stack": 1,
+    "price": 250,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "HelmetHat3",
+    "name": "item_helmet_hat3",
+    "stack": 1,
+    "price": 200,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "HelmetHat4",
+    "name": "item_helmet_hat4",
+    "stack": 1,
+    "price": 250,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "HelmetHat5",
+    "name": "item_helmet_hat5",
+    "stack": 1,
+    "price": 150,
+    "key": ""
+   },
+   {
+    "prefab": "HelmetHat6",
+    "name": "item_helmet_hat6",
+    "stack": 1,
+    "price": 250,
+    "key": "Hildir2"
+   },
+   {
+    "prefab": "HelmetHat7",
+    "name": "item_helmet_hat7",
+    "stack": 1,
+    "price": 300,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "HelmetHat8",
+    "name": "item_helmet_hat8",
+    "stack": 1,
+    "price": 300,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "HelmetHat9",
+    "name": "item_helmet_hat9",
+    "stack": 1,
+    "price": 300,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "HelmetHat10",
+    "name": "item_helmet_hat10",
+    "stack": 1,
+    "price": 150,
+    "key": ""
+   },
+   {
+    "prefab": "HelmetStrawHat",
+    "name": "item_helmet_strawhat",
+    "stack": 1,
+    "price": 300,
+    "key": "Hildir1"
+   },
+   {
+    "prefab": "HelmetSweatBand",
+    "name": "item_helmet_sweatband",
+    "stack": 1,
+    "price": 175,
+    "key": ""
+   },
+   {
+    "prefab": "FireworksRocket_White",
+    "name": "item_fireworkrocket_white",
+    "stack": 1,
+    "price": 50,
+    "key": "Hildir3"
+   },
+   {
+    "prefab": "Sparkler",
+    "name": "item_sparkler",
+    "stack": 1,
+    "price": 150,
+    "key": ""
+   },
+   {
+    "prefab": "Ironpit",
+    "name": "item_ironpit",
+    "stack": 1,
+    "price": 75,
+    "key": ""
+   },
+   {
+    "prefab": "BarberKit",
+    "name": "item_barberkit",
+    "stack": 1,
+    "price": 600,
+    "key": ""
+   }
+  ]
+ },
+ {
+  "id": "bogwitch",
+  "prefab": "BogWitch_Camp",
+  "show": "BogWitch_Camp",
+  "name": "npc_bogwitch",
+  "biome": "biome_swamp",
+  "poiIcon": "mapicon_bogwitch_camp",
+  "items": [
+   {
+    "prefab": "CandleWick",
+    "name": "item_candlewick",
+    "stack": 50,
+    "price": 100,
+    "key": ""
+   },
+   {
+    "prefab": "ScytheHandle",
+    "name": "item_scythehandle",
+    "stack": 1,
+    "price": 200,
+    "key": "defeated_dragon"
+   },
+   {
+    "prefab": "MeadTrollPheromones",
+    "name": "item_mead_trollpheromones",
+    "stack": 5,
+    "price": 110,
+    "key": ""
+   },
+   {
+    "prefab": "MushroomBzerker",
+    "name": "item_mushroom_bzerker",
+    "stack": 1,
+    "price": 85,
+    "key": "defeated_dragon"
+   },
+   {
+    "prefab": "FragrantBundle",
+    "name": "item_fragrantbundle",
+    "stack": 5,
+    "price": 140,
+    "key": "defeated_dragon"
+   },
+   {
+    "prefab": "FreshSeaweed",
+    "name": "item_freshseaweed",
+    "stack": 5,
+    "price": 75,
+    "key": ""
+   },
+   {
+    "prefab": "CuredSquirrelHamstring",
+    "name": "item_curedsquirrelhamstring",
+    "stack": 5,
+    "price": 80,
+    "key": ""
+   },
+   {
+    "prefab": "PowderedDragonEgg",
+    "name": "item_powdereddragonegg",
+    "stack": 5,
+    "price": 120,
+    "key": ""
+   },
+   {
+    "prefab": "PungentPebbles",
+    "name": "item_pungentpebbles",
+    "stack": 5,
+    "price": 125,
+    "key": ""
+   },
+   {
+    "prefab": "VineGreenSeeds",
+    "name": "item_vinegreenseeds",
+    "stack": 3,
+    "price": 65,
+    "key": ""
+   },
+   {
+    "prefab": "Feaster",
+    "name": "item_feaster",
+    "stack": 1,
+    "price": 140,
+    "key": ""
+   },
+   {
+    "prefab": "SpiceForests",
+    "name": "item_spiceforests",
+    "stack": 5,
+    "price": 120,
+    "key": "defeated_gdking"
+   },
+   {
+    "prefab": "SpiceOceans",
+    "name": "item_spiceoceans",
+    "stack": 5,
+    "price": 130,
+    "key": "defeated_serpent"
+   },
+   {
+    "prefab": "SpiceMountains",
+    "name": "item_spicemountains",
+    "stack": 5,
+    "price": 140,
+    "key": "defeated_dragon"
+   },
+   {
+    "prefab": "SpicePlains",
+    "name": "item_spiceplains",
+    "stack": 5,
+    "price": 160,
+    "key": "defeated_goblinking"
+   },
+   {
+    "prefab": "SpiceMistlands",
+    "name": "item_spicemistlands",
+    "stack": 5,
+    "price": 180,
+    "key": "defeated_queen"
+   },
+   {
+    "prefab": "SpiceAshlands",
+    "name": "item_spiceashlands",
+    "stack": 5,
+    "price": 200,
+    "key": "defeated_fader"
+   },
+   {
+    "prefab": "SpiceDeepNorth",
+    "name": "item_spicedeepnorth",
+    "stack": 5,
+    "price": 220,
+    "key": "defeated_frozenking_p3"
+   },
+   {
+    "prefab": "BlobVial",
+    "name": "item_blobvial",
+    "stack": 5,
+    "price": 150,
+    "key": "defeated_gdking"
+   },
+   {
+    "prefab": "HelmetRootCrown",
+    "name": "item_helmet_rootcrown",
+    "stack": 1,
+    "price": 3000,
+    "key": "defeated_writhan"
+   }
+  ]
+ }
+]

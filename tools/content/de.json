@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Karte",
+  "seeds": "Beste Seeds",
+  "bosses": "Bosse",
+  "traders": "Händler",
+  "guides": "Guides & FAQ"
+ },
+ "common": {
+  "openMap": "Auf der Karte öffnen",
+  "showOnMap": "Auf der Karte zeigen",
+  "meters": "{n} m",
+  "boss": "Boss",
+  "biome": "Biom",
+  "health": "Gesundheit",
+  "summon": "Beschwörungsgegenstand",
+  "weak": "Schwach gegen",
+  "resist": "Resistent gegen",
+  "immune": "Immun gegen",
+  "drops": "Beute",
+  "power": "Verlassenen-Kraft",
+  "item": "Gegenstand",
+  "price": "Preis (Münzen)",
+  "sellValue": "Verkaufswert (Münzen)",
+  "available": "Verfügbar",
+  "always": "von Anfang an",
+  "afterBoss": "nach dem Sieg über: {boss}",
+  "afterChest": "nach Rückgabe: {chest}",
+  "dmg": {
+   "blunt": "Hauen",
+   "slash": "Schlitzen",
+   "pierce": "Stechen",
+   "fire": "Feuer",
+   "frost": "Eis",
+   "lightning": "Blitz",
+   "poison": "Gift",
+   "spirit": "Geist"
+  },
+  "disclaimer": "Valheim-Map ist ein Fanprojekt und steht in keiner Verbindung zu Iron Gate oder Coffee Stain. Valheim ist eine Marke der jeweiligen Rechteinhaber. Spieldaten: Version {version}.",
+  "noscript": "Die interaktive Karte braucht JavaScript. Die Guides zu Seeds, Bossen und Händlern funktionieren auch ohne."
+ },
+ "about": {
+  "h": "Valheim-Map: deine ganze Welt aus dem Seed",
+  "p": [
+   "Valheim-Map ist eine kostenlose interaktive Karte für Valheim. Gib den **Seed** deiner Welt ein und die Karte zeigt dir die komplette Welt ohne Nebel: jedes Biom, den Küstenverlauf und die genaue Position von Bossen, Händlern, Dungeons und mehr als 90 weiteren Ortstypen.",
+   "Es wird nichts hochgeladen und du brauchst keinen Spielstand. Die Karte führt dieselbe Weltgenerierung wie das Spiel direkt in deinem Browser aus, deshalb stimmen die Positionen auf den Meter genau mit deiner Welt überein. Klick auf einen Marker und du bekommst die Koordinaten und einen fertigen Konsolenbefehl, mit dem du dorthin reist.",
+   "Über die Liste links schaltest du Ortstypen ein und aus, suchst gezielt nach einem Ort wie Haldor oder den Versunkenen Krypten und speicherst Seeds, zu denen du zurückkehren willst. Der Link in der Adresszeile enthält immer den Seed und den aktuellen Kartenausschnitt, so kannst du jede Stelle mit deinen Freunden teilen."
+  ],
+  "seedH": "So findest du den Seed deiner Welt",
+  "seedP": "Jede Valheim-Welt entsteht aus einem Seed, einem kurzen Text aus bis zu zehn Zeichen. Derselbe Seed ergibt immer dieselbe Welt.",
+  "seedSteps": [
+   "Starte Valheim, klick auf **Spiel starten** und wähle deinen Charakter.",
+   "Wähle in der Weltenliste deine Welt aus. Der Seed steht direkt neben dem Namen der Welt.",
+   "Auf einem dedizierten Server steht der Seed in der **.fwl**-Datei der Welt. Lade die Welt einmal im Einzelspieler oder frag den Server-Admin danach.",
+   "Tipp den Seed in das Feld oben links auf der Karte und drück auf **Laden**. Groß- und Kleinschreibung zählen."
+  ],
+  "guidesH": "Guides",
+  "faqH": "Häufige Fragen",
+  "faq": [
+   {
+    "q": "Stimmt die Karte mit meiner Welt überein?",
+    "a": "Ja. Das Gelände und alle Orte werden mit demselben Algorithmus berechnet, den auch das Spiel benutzt, und die Ergebnisse wurden mit echten Welten abgeglichen. Die Karte zeigt, wo das Spiel einen Ort platziert, wenn du das Gebiet zum ersten Mal erkundest. Was Spieler später verändern, zum Beispiel zerstörte Gebäude, siehst du nicht."
+   },
+   {
+    "q": "Welche Spielversion unterstützt die Karte?",
+    "a": "Die Karte richtet sich nach der aktuellen öffentlichen Version von Valheim, einschließlich der Aschenlande und des Hohen Nordens. Welten, die mit einer deutlich älteren Version erstellt wurden, können in Gebieten abweichen, die schon vor einem Update erkundet wurden."
+   },
+   {
+    "q": "Warum gibt es mehrere Marker für Haldor, Hildir und die Sumpfhexe?",
+    "a": "Das Spiel bereitet für jeden Händler bis zu zehn mögliche Lager vor. Das erste Lager, dem du nahe kommst, wird zum echten, die anderen verschwinden aus deiner Welt. Du kannst dir also einfach den Marker aussuchen, der am nächsten an deiner Basis liegt."
+   },
+   {
+    "q": "Muss ich meinen Spielstand hochladen?",
+    "a": "Nein. Die Karte braucht nur den Seed. Die Berechnung läuft auf deinem Gerät, und über deine Welt wird nichts an einen Server geschickt."
+   },
+   {
+    "q": "Wie komme ich zu einem Ort, den ich auf der Karte gefunden habe?",
+    "a": "Klick auf den Marker. Das Popup zeigt die Koordinaten und einen Konsolenbefehl. Im Einzelspieler aktivierst du die Konsole mit der Startoption **-console**, gibst **devcommands** ein und nutzt dann den Befehl **goto**. Ohne Cheats orientierst du dich an den Koordinaten und der Entfernung zum Startpunkt."
+   },
+   {
+    "q": "Funktioniert die Karte auf dem Handy?",
+    "a": "Ja. Die Karte läuft in jedem modernen Browser, auch auf Handys und Tablets. Die Berechnung aller Orte dauert ein paar Sekunden, auf älteren Geräten etwas länger."
+   },
+   {
+    "q": "Ist Valheim-Map kostenlos?",
+    "a": "Ja, komplett und ohne Konto. Wenn dir die Karte ein paar Stunden Segeln erspart hat, kannst du das Projekt mit einer kleinen Spende unterstützen."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Handverlesene Welt-Seeds, jeder mit der Karte geprüft.",
+  "title": "Beste Valheim-Seeds: geprüfte Liste mit Kartenlinks",
+  "desc": "Die besten Valheim-Seeds für die aktuelle Version: leichte Starts, Händler direkt am Startpunkt, Boss-Rush und Eisen-Seeds. Jeder Seed wurde neu berechnet und öffnet sich direkt auf der interaktiven Karte.",
+  "h1": "Die besten Valheim-Seeds",
+  "intro": [
+   "Ein guter Seed spart Stunden: ein Händler in Laufweite, die ersten Bosse auf deinem Startkontinent oder ein Sumpf voller Krypten gleich hinter dem Fluss. Das Problem der meisten Seed-Listen: Sie sind voneinander abgeschrieben und wurden nie überprüft, nachdem sich die Weltgenerierung geändert hat.",
+   "Diese Liste ist anders. Wir haben die am häufigsten empfohlenen Seeds aus der Community gesammelt und **jeden einzelnen neu berechnet**, mit dem Weltgenerator der aktuellen Spielversion. Die Entfernungen unten sind vom Startpunkt aus gemessen, und jeder Seed öffnet sich mit einem Klick auf der interaktiven Karte. Wo eine alte Empfehlung nicht mehr stimmt, sagen wir das oder haben den Seed weggelassen."
+  ],
+  "factsH": "Entfernungen vom Startpunkt",
+  "colPlace": "Ort",
+  "colDist": "Entfernung",
+  "howH": "So benutzt du einen Seed",
+  "how": [
+   "Klick in Valheim auf **Spiel starten**, wähle deinen Charakter und dann in der Weltenliste **Neu**. Gib einen Weltnamen ein und tipp den Seed genau so ab, wie er hier steht, inklusive Groß- und Kleinschreibung. Für einen dedizierten Server erstellst du die Welt zuerst lokal und lädst die Weltdateien hoch, oder du stellst den Seed in den Einstellungen deines Hosters ein.",
+   "Die Entfernungen sind Luftlinien von den Opfersteinen aus. Ein Händler zählt nur einmal: Das Spiel bereitet mehrere mögliche Lager vor, und das erste, dem du dich näherst, wird zum echten. Die Tabelle nennt immer das nächstgelegene."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "Der beste Allrounder",
+    "text": [
+     "Wenn du nur einen Seed ausprobierst, nimm diesen. Die ersten fünf Bosse liegen alle im Umkreis von 3,5 km um den Startpunkt: Eikthyr ist 120 m entfernt, der Uralte 1,1 km, Moder weniger als 1 km, Knochenwanst 1,9 km und Yagluth 3,4 km. Kaum eine andere Welt packt ihren Fortschritt so dicht zusammen.",
+     "Haldor lagert 1,6 km von den Opfersteinen entfernt, nahe an der Mindestentfernung, die das Spiel erlaubt. Damit ist der Seed ideal für einen schnellen Durchgang und für Gruppen, die lieber gegen Bosse kämpfen, als stundenlang zu segeln."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Alles zu Fuß, ganz ohne Schiff",
+    "text": [
+     "Bei diesem Seed liegt fast alles, was du brauchst, auf der Start-Landmasse: Die ersten fünf Bosse von Eikthyr bis Yagluth und alle drei Händler erreichst du, ohne je ein Schiff zu bauen. Yagluth ist nur 3 km vom Startpunkt entfernt, Moder 1,9 km und der Uralte 1,8 km.",
+     "Haldor ist 1,7 km entfernt, Hildir 2,9 km und die Sumpfhexe 3,1 km. Eine perfekte Welt für alle, die nicht gern segeln, und für Challenge-Runs ohne Boot bis zu den Nebellanden."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor vor der Haustür",
+    "text": [
+     "Bei keinem Seed in unserer Liste ist der Händler näher: Haldor lagert nur etwa 1.000 m vom Startpunkt entfernt, auf der Start-Landmasse. Du kannst schon am ersten Tag zu ihm laufen und deine Einkäufe von Anfang an planen.",
+     "Auch der Start ist bequem. Eikthyr wartet 170 m von den Steinen entfernt und der Uralte 1,2 km, ebenfalls zu Fuß erreichbar. Der Düsterwald beginnt kaum mehr als 100 m vom Startpunkt, Kupfer und Zinn sind also nie weit."
+    ]
+   },
+   "1k7md8": {
+    "title": "Der schnellste Start",
+    "text": [
+     "Eikthyr steht 60 m vom Startpunkt entfernt, praktisch in Sichtweite der Opfersteine. Der Uralte folgt nach nur 650 m. Das ist der nächstgelegene Altar des Uralten unter allen Seeds, die wir geprüft haben. Du kannst die ersten beiden Bosse besiegen, ohne dein Zuhause je richtig zu verlassen.",
+     "Auch der Rest des frühen Spiels bleibt in der Nähe: Moder nach 2,1 km, Knochenwanst nach 2,3 km und Yagluth nach 3,1 km. Knochenwanst und Yagluth liegen auf der Start-Landmasse. Nur Haldor ist mit 2,9 km etwas weiter weg, aber auch ihn erreichst du zu Fuß."
+    ]
+   },
+   "18mang": {
+    "title": "Händler zu Fuß und ein kurzer Weg nach Norden",
+    "text": [
+     "Alle drei Händler sind auf der Start-Landmasse: Haldor nach 1,2 km, Hildir nach 2,7 km und die Sumpfhexe nach 3,5 km. Hildir in dieser Entfernung ist selten, denn ihre Lager liegen normalerweise mehr als 3 km entfernt. Das erste Sumpfland beginnt nur 1 km vom Startpunkt, mit zwei Versunkenen Krypten im Umkreis von 1,5 km. Eisen gibt es hier also ungewöhnlich früh.",
+     "Die Community empfiehlt diesen Seed für den Hohen Norden, und die Zahlen bestätigen das: Das nördliche Biom beginnt etwa 6,9 km vom Startpunkt, einen ganzen Kilometer näher als in den meisten Welten. Eikthyr ist mit 800 m etwas weiter weg als üblich."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Fünf Bosse ohne Boot",
+    "text": [
+     "Eikthyr, der Uralte, Knochenwanst, Moder und Yagluth liegen alle auf der Start-Landmasse. Moder ist das Highlight: Ihr Altar ist nur 1,5 km vom Startpunkt entfernt, und nahe am Start erheben sich große Berge mit Silber.",
+     "Haldor nach 2,1 km und die Sumpfhexe nach 3,2 km erreichst du ebenfalls zu Fuß. Ein toller Seed für alle, die sich an einem Ort niederlassen und das ganze Spiel bis zu den Ebenen von einer einzigen Basis aus spielen wollen."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "Rundum kurze Wege",
+    "text": [
+     "Ein ausgewogener Seed ohne Schwachstelle. Der Uralte ist 1,1 km vom Startpunkt entfernt, Knochenwanst und Moder jeweils 2,3 km und Yagluth 3,4 km. Haldor lagert 1,6 km entfernt.",
+     "Die Community kennt diesen Seed für seinen langen, fast durchgehenden Landstreifen von Norden nach Süden. Das macht das Erkunden zu Fuß leicht und hält die Seereisen kurz."
+    ]
+   },
+   "Angel": {
+    "title": "Ein sanfter Start für Einsteiger",
+    "text": [
+     "Eikthyr ist 80 m von den Opfersteinen entfernt und der Uralte genau 1 km. Haldor folgt nach 1,5 km, ungefähr so nah, wie es das Spiel zulässt. Für neue Spieler heißt das: ein kurzer und klarer Weg durch die ersten Stunden.",
+     "Auch spätere Ziele bleiben in Reichweite: Moder ist 2,5 km entfernt, Knochenwanst 2,7 km, Hildir und die Sumpfhexe jeweils rund 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder und der Uralte gleich nebenan",
+    "text": [
+     "Dieser Seed wird seit dem Update 1.0 als einer der besten gelobt, und die Karte bestätigt den Kern davon: Eikthyr nach 250 m, Moder nach 1,3 km und der Uralte nach 1,3 km, alle drei auf der Start-Landmasse. Knochenwanst ist 2 km entfernt.",
+     "Haldor ist 2,3 km vom Startpunkt entfernt und zu Fuß erreichbar. Hildir und die Sumpfhexe liegen beide knapp unter 3 km entfernt, näher als in den meisten Welten."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "Frühes Silber: Moder 1 km vom Startpunkt",
+    "text": [
+     "Moders Altar ist nur 1,1 km vom Startpunkt entfernt und liegt auf der Start-Landmasse. Gebirge, Silber und Wolfsrüstung sind damit von deiner ersten Basis aus zu Fuß erreichbar. Eikthyr steht 80 m von den Steinen entfernt und der Uralte 1,4 km.",
+     "Haldor ist mit 1,5 km ebenfalls nah, wohnt aber auf der anderen Seite des Wassers. Du brauchst also ein Floß oder musst ein kurzes Stück schwimmen. Der Seed ist seit Langem beliebt für seinen malerischen Start im Grasland mit viel Platz zum Bauen."
+    ]
+   },
+   "WorldEater": {
+    "title": "Der Uralte in 900 m Entfernung",
+    "text": [
+     "Eikthyr nach 230 m und der Uralte nach 900 m sorgen für einen sehr schnellen Start in die Bronzezeit. Knochenwanst ist 2,9 km entfernt und liegt auf der Start-Landmasse, für die ersten drei Bosse brauchst du also kein Schiff.",
+     "Die Sumpfhexe lagert 2,8 km vom Startpunkt entfernt und ist zu Fuß erreichbar, genau wie Hildir. Moder ist 2,5 km entfernt, auf der anderen Seite des Wassers."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "Die ersten drei Bosse auf einer Insel",
+    "text": [
+     "Eikthyr nach 110 m, der Uralte nach 1,2 km und Knochenwanst nach 2,1 km liegen alle auf der Start-Landmasse. Du kannst von der Steinzeit bis in die Eisenzeit spielen, ohne ein Schiff zu bauen.",
+     "Hildir und die Sumpfhexe leben auf derselben Landmasse, etwas mehr als 3 km entfernt. Yagluth mit 3,2 km und Moder mit 3,5 km sind nur eine kurze Seereise entfernt."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Kompakte Insel mit Händler",
+    "text": [
+     "Dieser Seed galt früher als schwer. In der aktuellen Version ist er ein kompakter und angenehmer Start: Eikthyr nach 140 m, der Uralte nach knapp 1 km und Knochenwanst nach 2,3 km, alle auf der Start-Landmasse.",
+     "Haldor nach 1,9 km und Hildir nach 2,9 km erreichst du ebenfalls zu Fuß. Nur für Moder musst du eine längere Reise einplanen."
+    ]
+   },
+   "feret2": {
+    "title": "Knochenwanst ganz in der Nähe",
+    "text": [
+     "Knochenwanst ist hier nur 1,9 km vom Startpunkt entfernt, eine der kürzesten Entfernungen, die wir gefunden haben. Moder folgt nach 2,2 km und Eikthyr nach 250 m. Wenn du schnell an Eisen und Silber kommen willst, ist das eine gute Wahl.",
+     "Haldor lagert 1,5 km von den Opfersteinen entfernt, nahe an der Mindestentfernung, aber auf der anderen Seite des Wassers. Der Seed ist außerdem für seine abwechslungsreiche Startregion mit vielen Biomen auf engem Raum bekannt."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor und Moder in der Nähe",
+    "text": [
+     "Haldor ist 1,5 km vom Startpunkt entfernt, praktisch die Mindestentfernung, und Moder nur 1,8 km. Der Uralte folgt nach 2,2 km.",
+     "Die Startregion ist groß und abwechslungsreich, mit Düsterwald und Gebirge direkt am Grasland. Ein guter Seed für einen langen, entspannten Durchgang mit einer zentralen Hauptbasis."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "Der Klassiker, neu geprüft",
+    "text": [
+     "Das ist wohl der berühmteste Valheim-Seed überhaupt. Er war als Speedrun-Seed mit vier Bossen nahe am Startpunkt bekannt. Mehrere Updates der Weltgenerierung später stimmt das nicht mehr, und trotzdem wiederholen viele Listen die alte Behauptung.",
+     "Was übrig bleibt, ist immer noch ordentlich: Eikthyr nach 440 m, Haldor nach 1,6 km und Knochenwanst nach 2,2 km, alle auf der Start-Landmasse. Der Uralte ist 2,9 km und Yagluth 3,1 km entfernt, beide auf der anderen Seite des Wassers. Moder liegt inzwischen allerdings mehr als 6 km vom Startpunkt entfernt. Gut für die Nostalgie, aber die Seeds weiter oben sind heute besser."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "Alle Bosse der Reihe nach: finden, beschwören und besiegen.",
+  "title": "Valheim-Bosse: Reihenfolge, Fundorte, Beschwörung und Tipps",
+  "desc": "Alle Valheim-Bosse in der richtigen Reihenfolge, von Eikthyr bis Fader: wo die Altäre stehen, was du zum Beschwören brauchst, Schwächen und die besten Tipps für jeden Kampf.",
+  "h1": "Valheim-Bosse in der richtigen Reihenfolge",
+  "intro": [
+   "Valheim erzählt seine Geschichte über die Bosse, die Verlassenen. Jeder bewacht ein Biom, und jeder lässt den Gegenstand fallen, der den nächsten Schritt freischaltet: die Geweihspitzhacke für den Bergbau, den Schlüssel zu den Sumpfkrypten, die Wünschelrute, die Silber aufspürt. Sie der Reihe nach zu besiegen ist das Rückgrat jedes Durchgangs.",
+   "Die Tabelle zeigt alle Bosse des Hauptfortschritts mit Biom, Gesundheit und den Gegenständen, die du opfern musst. Jeder Boss hat eine eigene Seite mit Schwächen, Angriffsmustern und praktischen Tipps. In jeder Welt gibt es pro Boss mehrere Altäre. Gib deinen Seed auf der Karte ein und du siehst, wo deine stehen."
+  ],
+  "outro": [
+   "Jeder besiegte Boss hinterlässt eine Trophäe. Häng sie an ihren Haken bei den Opfersteinen und du schaltest die Verlassenen-Kraft des Bosses frei. Du kannst immer nur eine Kraft ausgewählt haben. Sie hält 5 Minuten und braucht danach 20 Minuten zum Aufladen.",
+   "Im Mehrspieler werden Bosse mit jedem weiteren Spieler in der Nähe zäher und schlagen härter zu. Mehr Spieler machen einen Kampf also nicht zum Selbstläufer."
+  ],
+  "pageTitle": "{boss}: Fundort, Beschwörung und Tipps",
+  "pageDesc": "{boss} in Valheim besiegen: Fundort des Altars im Biom {biome}, die Beschwörungsgegenstände, Schwächen, Angriffe und die besten Tipps und Tricks für den Kampf.",
+  "showOnMap": "Altäre auf der Karte zeigen: {boss}",
+  "findH": "Fundort: {boss}",
+  "prepH": "Vorbereitung",
+  "attacksH": "Angriffe",
+  "tipsH": "Tipps und Tricks",
+  "rewardH": "Belohnung",
+  "list": {
+   "eikthyr": {
+    "lead": "Eikthyr, der Blitzhirsch, ist der erste Boss in Valheim. Er wartet im Grasland und ist ein sanfter Test der Grundlagen: blocken, ausweichen und die Ausdauer im Griff behalten.",
+    "power": "60 % weniger Ausdauerverbrauch beim Sprinten, Springen und Schwimmen.",
+    "find": [
+     "Eikthyrs Altar steht immer im Grasland und meist nur ein paar hundert Meter vom Startpunkt entfernt. Der rot leuchtende Runenstein bei den Opfersteinen markiert den Altar auf deiner Karte, sobald du ihn liest.",
+     "Um ihn zu beschwören, legst du **2 Hirsch-Trophäen** auf den Altar. Hirsche lassen ungefähr bei jedem zweiten Abschuss eine Trophäe fallen. Schleich dich gegen den Wind an oder jag sie mit einem einfachen Bogen."
+    ],
+    "prep": [
+     "Stell dir eine komplette Lederrüstung her und werte sie einmal auf, wenn du kannst.",
+     "Nimm einen Feuersteinspeer, eine Feuersteinaxt oder eine Keule mit, dazu einen Bogen mit etwa 50 Pfeilen und einen Holzschild.",
+     "Iss vor dem Kampf drei verschiedene Speisen, zum Beispiel Gekochtes Wildschweinfleisch, Gegrillten Nixenschwanz und Himbeeren oder Pilze.",
+     "Schlaf vorher, damit du mit dem Bonus Ausgeruht kämpfst. Er beschleunigt die Ausdauerregeneration spürbar."
+    ],
+    "attacks": [
+     "**Geweihstoß:** Er springt vor und schwingt sein Geweih. Block den Angriff mit dem Schild oder geh einen Schritt zur Seite.",
+     "**Blitzstrahl:** Er bäumt sich auf und schießt eine Blitzlinie geradeaus, meistens dann, wenn niemand neben ihm steht. Weich seitlich aus.",
+     "**Blitzstampfer:** Er stellt sich auf die Hinterbeine und schlägt auf den Boden, was alles um ihn herum trifft. Roll nach hinten weg, sobald er sich aufbäumt."
+    ],
+    "tips": [
+     "Halt den Rundschild oben und greif direkt nach jedem seiner Angriffe an. Fast alles, was er macht, lässt sich blocken, sogar mit einem einfachen Holzschild.",
+     "Lass deine Ausdauer nie auf null fallen. Ohne Ausdauer kannst du weder blocken noch ausweichen, und genau daran scheitern die meisten ersten Versuche.",
+     "Die Felsen und Bäume rund um den Altar halten seine Blitze auf. Nutz sie als Deckung, wenn du lieber mit dem Bogen kämpfst.",
+     "Kämpf am Tag. Nachts mischen sich Grauzwerge und andere Kreaturen ein.",
+     "Wenn der Kampf schlecht läuft, lauf weg. Eikthyr verschwindet nicht, und der Schaden, den du ihm zugefügt hast, bleibt eine Weile erhalten."
+    ],
+    "reward": [
+     "Eikthyr lässt **3 Harte Geweihe** und seine Trophäe fallen. Aus den Geweihen baust du die Geweihspitzhacke, deine erste Spitzhacke. Mit ihr baust du im Düsterwald Zinn und Kupfer ab und startest in die Bronzezeit.",
+     "Seine Verlassenen-Kraft macht Sprinten und Springen deutlich günstiger. Sie bleibt das ganze Spiel über nützlich: beim Erkunden, auf der Flucht und beim Erzschleppen."
+    ]
+   },
+   "elder": {
+    "lead": "Der Uralte ist ein riesiger lebender Baum und der zweite Boss. Er herrscht über den Düsterwald und bestraft Spieler, die ihn auf offenem Gelände bekämpfen. Mit Feuerpfeilen und einer Säule als Deckung ist er gut machbar.",
+    "power": "60 % mehr Schaden beim Holzfällen und im Bergbau und 30 % schnellere Gesundheitsregeneration.",
+    "find": [
+     "Der Altar des Uralten steht im Düsterwald: eine Steinplattform mit vier hohen Säulen rund um eine Feuerschale. Rote Runensteine in den Grabkammern und in manchen verfallenen Steintürmen markieren den nächsten Altar auf deiner Karte.",
+     "Um ihn zu beschwören, verbrennst du **3 Uralte Samen** in der Feuerschale. Die Samen bekommst du von Grauzwergen Berserkern und Schamanen und garantiert von zerstörten Grauzwergen-Nestern, den lila leuchtenden Spawnern."
+    ],
+    "prep": [
+     "Eine Bronzerüstung ist ideal. Die Trollleder-Rüstung ist eine gute und viel billigere Alternative.",
+     "Nimm einen Edelholzbogen und mindestens 100 **Feuerpfeile** mit. Der Uralte ist schwach gegen Feuer, und der Brenneffekt richtet weiter Schaden an.",
+     "Pack einen Bronzenen Faustschild oder einen Verstärkten Schild ein und eine Axt für die Wurzeln.",
+     "Brau ein paar Gesunde Mets und iss deine drei besten Speisen, zum Beispiel Hirscheintopf, Karottensuppe und Beerenmarmelade.",
+     "Zerstör die Grauzwergen-Nester rund um den Altar, fäll die Bäume in der Nähe und bau in kurzer Entfernung einen kleinen Unterschlupf mit Portal."
+    ],
+    "attacks": [
+     "**Rankensalve:** Er streckt die Arme aus und feuert eine Salve Ranken über große Entfernung. Stell dich hinter eine der vier Säulen. Sie sind unzerstörbar.",
+     "**Stampfer:** Aus der Nähe stampft er auf den Boden und richtet schweren Schaden an. Halt Abstand oder roll weg.",
+     "**Wurzeln:** Er lässt um dich herum ein Feld aus Wurzeln wachsen, die nach allen in der Nähe schlagen. Geh aus dem Bereich heraus. Die Wurzeln verschwinden nach einer Weile, oder du hackst sie mit der Axt um."
+    ],
+    "tips": [
+     "Spiel um die Säulen herum: raustreten, zwei oder drei Feuerpfeile schießen, zurück in Deckung, bevor die Ranken ankommen. Dieser einfache Rhythmus gewinnt den Kampf.",
+     "Geh nur in den Nahkampf, wenn es sein muss. Der Stampfer trifft viel härter als alles andere zu diesem Zeitpunkt im Spiel.",
+     "Fallende Bäume sind eine echte Gefahr. Der Uralte fällt sie mit seinen Ranken, und ein umstürzender Stamm kann dich sofort töten. Wenn du die Arena vorher freiräumst, bist du das Risiko los.",
+     "Beschwör ihn am Morgen. Der Kampf kann mehrere Minuten dauern, und nachts wird es im Wald voll.",
+     "Ein Lagerfeuer oder Signalfeuer nahe der Arena hält dich Ausgeruht, und das Feuer schadet ihm, wenn er hindurchläuft."
+    ],
+    "reward": [
+     "Der Uralte lässt den **Sumpfigen Schlüssel** und seine Trophäe fallen. Der Schlüssel öffnet die Versunkenen Krypten im Sumpfland, die einzige gute Eisenquelle.",
+     "Sobald der Uralte besiegt ist, nimmt Haldor Ymir-Fleisch und Donnersteine ins Sortiment auf, und die Sumpfhexe verkauft mehr Zutaten.",
+     "Seine Verlassenen-Kraft beschleunigt Holzfällen und Bergbau erheblich. Perfekt für große Bauprojekte und Bergbautouren."
+    ]
+   },
+   "bonemass": {
+    "lead": "Knochenwanst ist ein riesiger Klumpen aus Knochen und Schleim im Sumpfland und der dritte Boss. Viele Spieler scheitern hier zunächst, weil Schwerter und Pfeile ihn kaum ankratzen. Mit einem Streitkolben und Giftwiderstand dreht sich der Kampf komplett.",
+    "power": "25 % weniger erlittener physischer Schaden (Hauen, Schlitzen, Stechen). Blocken kostet keine Ausdauer und gibt sogar etwas zurück.",
+    "find": [
+     "Knochenwansts Altar ist ein riesiger Schädel, der im Sumpfland liegt. Rote Runensteine in den Versunkenen Krypten markieren den nächsten auf deiner Karte.",
+     "Um ihn zu beschwören, wirfst du **10 Verwitterte Knochen** in den Schädel. Du findest sie in den Versunkenen Krypten, in Truhen und in den Schlammigen Schrotthaufen, die du für Eisen sowieso durchwühlst."
+    ],
+    "prep": [
+     "Nimm einen **Eisernen Streitkolben** mit, so weit aufgewertet wie möglich. Knochenwanst ist schwach gegen Hauen und resistent gegen Schlitzen, Stechen und Feuer. Der Hirschbrecher oder ein Eisenhammer funktionieren auch.",
+     "Brau **Met des Giftwiderstands** und nimm mindestens drei oder vier pro Spieler mit. Ohne ihn tötet seine Giftwolke in Sekunden.",
+     "Trag eine aufgewertete Eisenrüstung oder das Wurzel-Set und einen Verstärkten Schild oder besser.",
+     "Nimm Sehr gesunden Met (die mittlere Stufe) und Mittleren Ausdauer-Met mit und iss Würste, Rübeneintopf und ähnliches Essen der Sumpf-Stufe.",
+     "Ebne den Boden um den Schädel mit einer Hacke ein, damit du nicht knietief im Wasser kämpfst. Dort beißen Schlundegel, und beim Schwimmen regeneriert sich keine Ausdauer.",
+     "Bau in der Nähe einen kleinen überdachten Unterschlupf mit Bett, Feuer und Portal, am besten auf erhöhtem Boden."
+    ],
+    "attacks": [
+     "**Hieb:** ein weiter Schwinger mit mehr Reichweite, als man denkt, der Hau- und Giftschaden verursacht. Block oder parier ihn mit einem soliden Schild.",
+     "**Giftwolke:** Er lehnt sich zurück und speit eine große Wolke aus, die in der Luft hängen bleibt. Lauf sofort raus und warte, bis sie sich verzogen hat.",
+     "**Beschwörung:** Er reißt einen Klumpen von sich ab und wirft ihn. Wo er landet, erscheinen Skelette und Schleimlinge. Töte sie schnell, bevor sie dich umzingeln."
+    ],
+    "tips": [
+     "Trink den Met des Giftwiderstands, **bevor** du ihn beschwörst, und erneuere ihn, sobald das Symbol zu blinken beginnt. Er hält 10 Minuten.",
+     "Die Beschwörungsanimation ist deine beste Gelegenheit: Er steht mehrere Sekunden still, während er wirft.",
+     "Wenn du seinen Hieb parierst, taumelt er zwar nicht, aber du bist komplett geschützt. Schlag danach zwei- oder dreimal zu und geh dann wieder auf Abstand.",
+     "Frostpfeile sind die einzigen Pfeile, die sich gegen ihn lohnen. Wenn du schon Obsidian und Gefrorene Drüsen hast, ermöglichen sie einen sicheren Fernkampf.",
+     "Nutz Eikthyrs Kraft, um schnell aus der Giftwolke zu kommen, oder die des Uralten für die zusätzliche Regeneration.",
+     "Der Flächenangriff des Hirschbrechers trifft Knochenwanst und die beschworenen Gegner gleichzeitig."
+    ],
+    "reward": [
+     "Knochenwanst lässt die **Wünschelrute** und seine Trophäe fallen. Mit ausgerüsteter Wünschelrute spürst du versteckte Silberadern im Gebirge, vergrabene Schätze im Grasland und Schlammige Schrotthaufen im Sumpfland auf.",
+     "Seine Verlassenen-Kraft ist die beste Verteidigungskraft im Spiel. Viele Spieler behalten sie für jeden späteren Bosskampf."
+    ]
+   },
+   "moder": {
+    "lead": "Moder ist die Drachenmutter des Gebirges und der vierte Boss. Sie greift aus der Luft und am Boden an, und ihr Frostatem friert jeden ein, der darin steht. Ein guter Bogen und Frostschutz entscheiden diesen Kampf.",
+    "power": "Beim Segeln immer Rückenwind, 300 mehr Traglast, 10 % schnellere Bewegung und 50 % Frostwiderstand.",
+    "find": [
+     "Moders Altar liegt auf einem Berggipfel, meist auf einem weiten, flachen Plateau. Rote Runensteine in Steinruinen im Gebirge und in Frosthöhlen markieren ihn auf deiner Karte.",
+     "Um sie zu beschwören, legst du **3 Dracheneier** auf den Altar. Die Eier liegen in Nestern im Gebirge. Jedes wiegt 200 und lässt sich nicht durch ein Portal mitnehmen. Du trägst sie also einzeln hoch, oder ihr schafft es zu dritt in einem Rutsch."
+    ],
+    "prep": [
+     "Trag die Wolfsrüstung: Wolfsbrustschutz und Wolfsfellumhang schützen dich vor dem Erfrieren. Ohne sie brauchst du für den ganzen Ausflug **Met des Frostwiderstands**.",
+     "Nimm den besten Bogen mit, den du hast, am besten den Draugr-Fangzahn, und 150 oder mehr Pfeile. Moder ist schwach gegen Feuer, deshalb sind **Feuerpfeile** billig und stark. Obsidian- und Giftpfeile sind auch gut. Frostpfeile bringen nichts.",
+     "Pack ein Silberschwert oder eine andere aufgewertete Nahkampfwaffe für die Phasen am Boden ein.",
+     "Nimm Sehr gesunden Met (die mittlere Stufe) und Mittleren Ausdauer-Met mit und iss Speisen mit viel Gesundheit, zum Beispiel Schlangeneintopf, Würste und Rübeneintopf.",
+     "Räum das Plateau vorher von Wölfen, Drachen und Steingolems frei und stell unterhalb des Gipfels ein Portal mit einem kleinen Unterschlupf auf."
+    ],
+    "attacks": [
+     "**Eissalve (in der Luft):** Sie fliegt über dich hinweg und schießt eine Reihe Eisgeschosse, die zu Kristallen zerplatzen. Lauf einfach weiter zur Seite.",
+     "**Frostatem (am Boden):** ein breiter Frostkegel geradeaus, der dich massiv verlangsamt. Geh an ihre Seite, sobald sie den Kopf senkt.",
+     "**Biss und Klauen:** Aus der Nähe beißt sie und schlägt mit den Klauen. Beides lässt sich mit einem guten Schild blocken."
+    ],
+    "tips": [
+     "Schieß auf sie, wann immer sie in der Luft ist oder landet. Ihre Flugbahn ist langsam und berechenbar, deshalb treffen die meisten Pfeile.",
+     "Wenn sie landet, umrunde sie bis an ihre Flanke. Der Atem trifft nur, was vor ihr steht, und von der Seite kannst du ungestört angreifen.",
+     "Ein Frosttreffer macht dich langsam und zu einem leichten Ziel für den nächsten. Wenn du eingefroren bist, block lieber, statt wegzulaufen.",
+     "Die Eiskristalle ihrer Salve lassen sich zerstören. Bis dahin sind sie auf freier Fläche eine kleine Deckung.",
+     "Knochenwansts Kraft macht die Nahkampfphasen viel sicherer. Mit dem Bogen hilft dir Eikthyrs Kraft, in Bewegung zu bleiben.",
+     "Trag die Eier schon vor dem Kampf hoch und lass sie am Altar liegen. Sie verschwinden nicht."
+    ],
+    "reward": [
+     "Moder lässt **10 Drachentränen** und ihre Trophäe fallen. Aus den Tränen baust du den Handwerkstisch. Er schaltet Windmühle, Hochofen und Spinnrad frei und damit die Ausrüstung der Ebenen.",
+     "Nach ihrer Niederlage verkauft Haldor Größere Taschen, eine zusätzliche Inventarreihe, und die Sumpfhexe nimmt mehrere Waren ins Sortiment auf.",
+     "Ihre Verlassenen-Kraft gibt dir auf jeder Fahrt Rückenwind und viel zusätzliche Traglast. Sie ist der Liebling aller Segler und Erzschlepper."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, der gefallene König der Fulinge, ist der fünfte Boss. Nur sein Oberkörper kriecht durch die Ebenen, aber sein Feuer und seine Meteore machen ihn zu einem der tödlichsten Kämpfe im Spiel. Feuerwiderstand ist hier Pflicht.",
+    "power": "10 % mehr Schaden, 50 % Blitzwiderstand und 25 zusätzliche Stufen in Landwirtschaft.",
+    "find": [
+     "Yagluths Altar steht in den Ebenen: ein Ring aus gewaltigen Steinfingern, die aus dem Boden ragen. Rote Runensteine an Steinkreisen in den Ebenen markieren ihn auf deiner Karte. Sie sind selten, die Karte erspart dir hier also eine lange Suche.",
+     "Um ihn zu beschwören, legst du **5 Fuling-Totems** auf den Altar. In den meisten Fuling-Dörfern findest du ein Totem, und Fuling Berserker lassen manchmal eines fallen. Totems kannst du durch Portale mitnehmen."
+    ],
+    "prep": [
+     "Brau **Gerstenwein** (Feuerwiderstand) und nimm mehrere pro Spieler mit. Er hält 10 Minuten und muss den ganzen Kampf über aktiv sein.",
+     "Trag eine voll aufgewertete gepolsterte Rüstung. Die Wolfsrüstung ist das Minimum.",
+     "Nimm ein Schwarzmetall-Schwert, das Stachelschwein oder Frostner mit. Yagluth ist stark resistent gegen Stichschaden, deshalb sind Speere, Atgeire und die meisten Pfeile eine schlechte Wahl.",
+     "Wenn du auf Distanz kämpfen willst, nimm Frostpfeile und stell dich auf einen langen Kampf ein.",
+     "Nimm Sehr gesunden Met (die mittlere Stufe) und Mittleren Ausdauer-Met mit und iss das beste Essen der Ebenen: Lox-Fleischpastete, Blutpudding, Fischhappen.",
+     "Erledige zuerst alle Fulinge, Loxe und Todeskitos rund um den Altar und stell ein Portal in sicherer Entfernung auf."
+    ],
+    "attacks": [
+     "**Feueratem:** Er hebt den Kopf und zieht einen langen Feuerstrahl hinter dir her. Lauf zur Seite oder stell dich hinter einen der Steinfinger.",
+     "**Faustschlag:** Seine Faust leuchtet blau, dann schlägt er auf den Boden und löst eine große Explosion aus. Geh weg, sobald du das Leuchten siehst.",
+     "**Meteore:** Seine Hand leuchtet orange, und mehrere Sekunden lang regnen Meteore auf deine Position. Lauf in eine Richtung weiter, bis es aufhört."
+    ],
+    "tips": [
+     "Jeder Angriff kündigt sich durch ein deutliches Leuchten an. Lern die drei Signale und der Kampf wird ruhig: angreifen, Leuchten sehen, weggehen, wiederholen.",
+     "Greif von hinten oder von der Seite an und immer nur mit zwei oder drei Schlägen. Gier ist es, was Spieler hier umbringt.",
+     "Die Steinfinger halten seinen Feueratem auf, aber Meteore fliegen darüber hinweg. Ruh dich während des Meteorschauers nicht hinter einer Säule aus.",
+     "Wer brennt, gerät in Panik und verschwendet Ausdauer. Mit aktivem Gerstenwein halbiert sich der Feuerschaden ungefähr, und der Kampf verzeiht Fehler.",
+     "Aktiviere Knochenwansts Kraft, wenn du in die Nahkampfphase gehst. Erneuere den Gerstenwein frühzeitig, nicht erst, wenn er ausläuft.",
+     "Yagluth ist langsam. Wenn du dich heilen oder essen musst, geh einfach von ihm weg."
+    ],
+    "reward": [
+     "Yagluth lässt **3 Zwiespältige Geister** und seine Trophäe fallen. Mit einem Zwiespältigen Geist baust du den Irrlichter-Brunnen. Er sammelt Irrlichter, und die brauchst du für das ausrüstbare Irrlicht, das den Nebel in den Nebellanden vertreibt.",
+     "Nach seiner Niederlage verkauft Haldor Eier für die Hühnerzucht, und die Sumpfhexe nimmt das Gewürz der Ebenen auf.",
+     "Seine Verlassenen-Kraft erhöht deinen gesamten Schaden um ein Zehntel. Eine starke Wahl für die Nebellande und spätere Bosse."
+    ]
+   },
+   "queen": {
+    "lead": "Die Königin ist die Mutter der Sucher und der sechste Boss. Sie lebt tief in der Befallenen Hochburg in den Nebellanden und kämpft nie allein: Ihre Brut schlüpft ständig um dich herum. Gute Vorbereitung und die Kontrolle über ihre Brut entscheiden den Kampf.",
+    "power": "Eitr regeneriert sich doppelt so schnell, Schleichen kostet keine Ausdauer und du erhältst 50 % Giftwiderstand.",
+    "find": [
+     "Die Königin wird nicht beschworen. Sie wartet in der **Befallenen Hochburg**, einem riesigen versiegelten Bauwerk in den Nebellanden. Rote Runensteine in den Befallenen Minen markieren die Hochburg auf deiner Karte.",
+     "Die Tür öffnet sich nur mit dem **Siegelbrecher**. Du stellst ihn am Galdr-Tisch aus **9 Siegelbrecherfragmenten** her, die du in den Befallenen Minen findest. Willst du später noch einmal gegen sie kämpfen, legst du 3 Suchersoldaten-Trophäen auf den Altar im Inneren."
+    ],
+    "prep": [
+     "Trag für den Nahkampf eine aufgewertete Chitin-Rüstung oder die Mit Eitr gewobene Robe, wenn du mit Magie kämpfst.",
+     "Sie ist resistent gegen Stichschaden. Nimm Schlitz- oder Hauwaffen wie Nebelbrecher, Krom oder den Zerstörer. Bögen und Speere richten wenig aus.",
+     "Magie ist hier sehr stark: Der Stab der Glut räumt ihre Brut weg, der Stab des Schutzes schirmt die Gruppe ab und der Totenbeschwörer lenkt Gegner ab.",
+     "Trink **Met des Giftwiderstands**, bevor du reingehst, und nimm Sehr gesunden Met in der stärksten Stufe, Ausdauer-Met und Eitr-Met mit.",
+     "Iss das beste Essen der Nebellande. Für Magier ist mindestens eine Eitr-Speise Pflicht.",
+     "In der Hochburg gibt es keinen Nebel, aber nimm dein Irrlicht für den Weg dorthin mit. Mit einem Federumhang springst du gefahrlos aus den oberen Stockwerken.",
+     "In der Hochburg kannst du bauen. Eine Werkbank, ein Portal direkt vor der Tür und ein paar Steinwände als Deckung helfen enorm."
+    ],
+    "attacks": [
+     "**Hieb und Ansturm:** weite Schwinger mit den Vorderbeinen und ein kriechender Sturmangriff. Weich zur Seite aus oder block mit einem starken Schild.",
+     "**Biss:** ein Vorstoß geradeaus mit schwerem Stich- und Giftschaden. Stell dich nicht vor ihren Kopf.",
+     "**Bodenstich:** Sie bäumt sich auf und sticht mit allen vier Armen in den Boden, was alles um sie herum trifft. Geh zurück, wenn sie sich aufrichtet.",
+     "**Spucken:** mehrere Giftgeschosse, die explodieren und Sucherbrut freisetzen.",
+     "**Ruf:** Sie schreit und ruft Sucher und Sucherbrut herbei.",
+     "**Eingraben:** Sie gräbt sich in den Boden und taucht an einer anderen Stelle der Halle wieder auf."
+    ],
+    "tips": [
+     "Töte die Brut ohne Pause. Ein Dutzend kleiner Sucher richtet mehr Schaden an als die Königin selbst. Flächenangriffe wie die des Zerstörers oder des Stabs der Glut sind ideal.",
+     "Nutz die Treppen und oberen Stockwerke der Hochburg. Auf freier Fläche ist sie schnell, auf den Rampen aber langsam. Das gibt dir Zeit, dich zu heilen und Ausdauer zurückzugewinnen.",
+     "Alle ihre Nahkampfangriffe schleudern dich zurück. Halt deinen Rücken von Wänden und Kanten fern.",
+     "In der Gruppe hält ein Spieler mit Turmschild ihre Aufmerksamkeit, während sich die anderen um die Brut kümmern und von hinten angreifen.",
+     "Knochenwansts Kraft ist für den Nahkampf hervorragend. Magier nehmen in den Rückkampf ihre eigene Kraft mit oder die von Yagluth für mehr Schaden.",
+     "Wenn du stirbst, liegt dein Grab in der Halle. Mit einem Portal direkt vor der Tür ist der Weg zurück zur Leiche kurz."
+    ],
+    "reward": [
+     "Die Königin lässt **5 Majestätische Panzer** und ihre Trophäe fallen. Aus dem Panzer baust du die Handwerkspresse. Du brauchst sie für die Ausrüstung und die Schiffe, die dich in die Aschenlande bringen.",
+     "Nach ihrer Niederlage verkauft Haldor Tiefere Taschen, eine weitere Inventarreihe, und die Sumpfhexe nimmt das Gewürz der Nebellande auf.",
+     "Ihre Verlassenen-Kraft verdoppelt die Eitr-Regeneration. Für Magie-Builds ist sie die beste Kraft im Spiel."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, der untote Drache der Aschenlande, ist der siebte Boss. Er hat keine Schwäche, doppelt so viel Gesundheit wie die Königin und füllt seine Arena mit grünem Feuer. Dieser Kampf verlangt die beste Ausrüstung, die die Aschenlande hergeben, und ständige Bewegung.",
+    "power": "Adrenalin baut sich doppelt so schnell auf, du gerätst viel schwerer ins Taumeln und erhältst 50 % Feuerwiderstand.",
+    "find": [
+     "Faders Altar steht in einer großen runden Arena in den Aschenlanden. Rote Runensteine in den Verkohlten Festungen markieren ihn auf deiner Karte.",
+     "Um ihn zu beschwören, brauchst du **3 Glocken**. Jede Glocke wird in der Schwarzschmiede aus **3 Glockenfragmenten** geschmiedet, und die Fragmente liegen in den Truhen der Verkohlten Festungen. Brich die Festungstore mit einem Rammbock auf, räum die Festung leer und plündere den Turm. Stell die drei Glocken in der Arena auf und aktiviere den Altar."
+    ],
+    "prep": [
+     "Trag eine voll aufgewertete Flammenkern-Rüstung oder das Ask-Set, wenn dir leichte Rüstung lieber ist.",
+     "Fader ist immun gegen Feuer und Geist und resistent gegen Stechen. Nimm Schlitz- oder Hauwaffen, am besten mit Eis- oder Blitzschaden.",
+     "Trink **Gerstenwein** (Feuerwiderstand) und erneuere ihn während des Kampfes.",
+     "Nimm Sehr gesunden Met in der stärksten Stufe und Met für längere Ausdauer mit und belege alle drei Essensplätze mit dem besten Essen der Aschenlande.",
+     "Räum die Umgebung der Arena gründlich frei. Verkohlte, Morgen und Asksvin, die hineinlaufen, machen den Kampf chaotisch.",
+     "Bau außerhalb der Arena ein Portal und einen kleinen Unterschlupf aus Stein. In den Aschenlanden erscheinen ständig Gegner, schütz das Portal also mit Mauern."
+    ],
+    "attacks": [
+     "**Biss und Klauen:** weite, sehr schwere Nahkampfangriffe nach vorn. Block mit einem starken Schild oder bleib an seiner Flanke.",
+     "**Drehung:** Er dreht sich auf der Stelle und trifft alles um sich herum. Geh einen Schritt zurück, wenn er sich zu drehen beginnt.",
+     "**Flammenatem:** eine Feuerlinie, die brennenden Boden hinterlässt. Sie lässt sich nicht blocken. Lauf seitlich aus der Linie.",
+     "**Erdspalte:** Er schlägt auf den Boden, und ein Riss läuft auf dich zu, aus dem Stacheln schießen und der eine Lache aus grünem Feuer hinterlässt.",
+     "**Feuerwand:** Ein Flammenring schließt sich um dich. Verlass ihn sofort.",
+     "**Meteore:** Er bäumt sich auf, und über die ganze Arena regnen Meteore.",
+     "**Beschwörung:** Er spuckt Kugeln, aus denen Verkohlte Krieger und Scharfschützen werden."
+    ],
+    "tips": [
+     "Bleib an seiner Seite oder hinter ihm. Fast alle gefährlichen Angriffe gehen nach vorn.",
+     "Stell dich nie in grünes Feuer. Die Lachen halten lange und machen die Arena nach und nach kleiner. Lock ihn also in einen sauberen Teil der Arena.",
+     "Bleib die ganze Zeit in Bewegung. Die meisten seiner Flächenangriffe zielen auf die Stelle, an der du stehst, wenn er sie startet.",
+     "Töte die beschworenen Verkohlten schnell oder stell dich so, dass Faders eigene Angriffe sie treffen.",
+     "Mit Knochenwansts Kraft und einem Turmschild überlebst du seine Nahkampfangriffe. Versuch nicht, den Atem oder die Erdspalte zu blocken.",
+     "In der Gruppe teilt ihr die Rollen auf: Ein Spieler hält seine Aufmerksamkeit, einer kümmert sich um die beschworenen Gegner, der Rest macht Schaden."
+    ],
+    "reward": [
+     "Fader lässt **5 Kokelnde Rippen** und seine Trophäe fallen. Die Rippen brauchst du für den Ewigen Scheiterhaufen. Sie öffnen den Weg zur letzten Handwerksstufe vor dem Hohen Norden.",
+     "Nach seiner Niederlage verkauft die Sumpfhexe das Gewürz der Aschenlande.",
+     "Mit seiner Verlassenen-Kraft baut sich Adrenalin doppelt so schnell auf und du gerätst viel schwerer ins Taumeln. Eine starke Wahl für aggressive Nahkampf-Builds."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir und die Sumpfhexe: Fundorte, Waren und Preise.",
+  "title": "Valheim-Händler: Fundorte, Waren und Preise",
+  "desc": "Alle Valheim-Händler auf einen Blick: wo du Haldor, Hildir und die Sumpfhexe findest, was sie verkaufen, was es kostet und welche Wertsachen du für Münzen verkaufen kannst.",
+  "h1": "Valheim-Händler",
+  "intro": [
+   "In Valheim leben drei Händler, und jeder von ihnen versteckt sich in jeder Welt woanders. Haldor verkauft nützliche Ausrüstung im Düsterwald, Hildir verkauft Kleidung im Grasland und schickt dich auf eine Quest, und die Sumpfhexe verkauft im Sumpfland Zutaten zum Kochen und Brauen.",
+   "Ohne Hilfe kann die Suche nach ihnen Dutzende Stunden dauern. Gib deinen Seed auf der Karte ein und du siehst alle möglichen Lager auf einmal. Alle Preise auf diesen Seiten stammen direkt aus den Spieldaten."
+  ],
+  "sellH": "Was du verkaufen kannst",
+  "sellP": [
+   "Münzen sind die einzige Währung, und du bekommst sie, indem du Wertsachen verkaufst. Alle drei Händler kaufen dieselben Gegenstände zu denselben Preisen. Münzen, Rubine und Bernstein findest du in Grabkammern, Trollhöhlen, Versunkenen Krypten und Fuling-Dörfern."
+  ],
+  "outro": [
+   "Das Lager jedes Händlers ist geschützt. Gegner kommen nicht hinein, deshalb ist ein Händlerlager auch ein sicherer Platz für ein Portal."
+  ],
+  "pageTitle": "{trader}: Fundort, Waren und Preise",
+  "pageDesc": "{trader} in Valheim: Fundort und komplettes Angebot mit allen {n} Waren, Preisen, Freischaltbedingungen und Tipps. Finde das Lager im Biom {biome} deiner Welt mit der Seed-Karte.",
+  "showOnMap": "Auf der Karte zeigen: {trader}",
+  "findH": "Fundort: {trader}",
+  "waresH": "Angebot: {trader}",
+  "tipsH": "Tipps",
+  "list": {
+   "haldor": {
+    "teaser": "Ausrüstung, Angeln und mehr Platz im Inventar",
+    "lead": "Haldor ist ein Zwergenhändler, der mit seinem Lox Halstein im Düsterwald lagert. Er verkauft einige der nützlichsten Gegenstände im Spiel, allen voran den Gürtel Megingiard, mit dem du 150 mehr Gewicht tragen kannst.",
+    "find": [
+     "Haldors Lager liegt immer im Düsterwald. Das Spiel bereitet pro Welt bis zu zehn mögliche Lager vor, meist mehr als 1.500 Meter von der Kartenmitte entfernt. Das erste, dem du nahe kommst, wird zum echten Lager, alle anderen verschwinden.",
+     "Wenn du dich auf ein paar hundert Meter näherst, erscheint ein Beutel-Symbol auf deiner Karte. Das Lager ist von einer Schutzkuppel umgeben, die Gegner draußen hält. Darin kannst du nicht bauen, aber ein Portal direkt außerhalb der Kuppel funktioniert gut."
+    ],
+    "waresP": [
+     "Ein Teil seines Sortiments ist erst verfügbar, nachdem du bestimmte Bosse besiegt hast. Die Preise sind in Münzen angegeben."
+    ],
+    "tips": [
+     "Kauf zuerst **Megingiard**. 150 zusätzliche Traglast helfen bei allem, vom Bergbau bis zur Heimfahrt mit Eisen.",
+     "Der **Dverger-Reif** ist eine Stirnlampe, bei der du die Hände frei hast. In Krypten und Höhlen ist er sehr praktisch, belegt aber den Helmplatz.",
+     "**Größere Taschen** und **Tiefere Taschen** geben dir jeweils dauerhaft eine zusätzliche Inventarreihe. Sie sind teuer, aber jede Münze wert.",
+     "**Ymir-Fleisch** brauchst du für den Eisenhammer, Frostner und andere starke Gegenstände. **Donnersteine** brauchst du für den Vernichter.",
+     "Aus einem **Ei** schlüpft ein Huhn, wenn du es warm hältst. Zwei Hennen reichen, um deinen eigenen Vorrat an Eiern und Hühnerfleisch zu züchten. Du musst also nur zwei kaufen.",
+     "Die **Angelrute** funktioniert nur mit Köder. Der einfache Angelköder, den Haldor verkauft, ist die Basis für jeden Spezialköder im Spiel.",
+     "Spar vor der Reise: Mit etwa 2.000 Münzen kannst du dir den Gürtel, den Reif und die Angelrute bei einem Besuch leisten."
+    ]
+   },
+   "hildir": {
+    "teaser": "Kleidung, Friseur und eine dreiteilige Quest",
+    "lead": "Hildir ist Haldors Schwester. Sie verkauft im Grasland Kleidung, Hüte und festliche Gegenstände. Der Großteil ihrer Ware wurde gestohlen, und sie bittet dich, drei Truhen aus drei besonderen Dungeons zurückzubringen.",
+    "find": [
+     "Hildirs Lager liegt im Grasland, aber weit vom Startpunkt entfernt, meist mindestens 3.000 Meter von der Kartenmitte. Wie bei Haldor gibt es bis zu zehn mögliche Lager, und das erste, dem du dich näherst, wird zum echten.",
+     "Wenn du in die Nähe kommst, erscheint ein Hemd-Symbol auf deiner Karte. In ihrem Lager steht ein Kartentisch. Wenn du ihn liest, wird der nächstgelegene ihrer Quest-Dungeons auf deiner Karte markiert."
+    ],
+    "waresP": [
+     "Anfangs verkauft sie nur eine Handvoll Gegenstände. Jede Truhe, die du zurückbringst, schaltet einen weiteren Teil ihres Sortiments frei."
+    ],
+    "tips": [
+     "Die **Messingtruhe** liegt in einem Schwelenden Grab im Düsterwald, die **Silbertruhe** in einer Heulenden Kaverne im Gebirge und die **Bronzetruhe** in einem Versiegelten Turm in den Ebenen. Jede wird von einem Miniboss bewacht.",
+     "Die Truhen lassen sich nicht durch Portale mitnehmen und sind schwer. Plan den Rückweg zu Fuß, mit dem Karren oder per Schiff, bevor du reingehst.",
+     "Die Quest-Dungeons werden in dieser Reihenfolge schwerer. Brenna im Grab verursacht Feuerschaden, Geirrhafa in der Kaverne Eisschaden, und die beiden Fuling-Brüder Zil und Thungr im Turm kämpfen gemeinsam.",
+     "Alle Quest-Dungeons sind ebenfalls auf der Karte. Schalte die Marker für Hildirs Quest ein und du findest die, die ihrem Lager am nächsten liegen.",
+     "Mit dem **Barbier-Rüstzeug** baust du eine Barbierstelle, an der du Haar und Bart jederzeit ändern kannst.",
+     "Ihre Kleidung ist vor allem fürs Aussehen da, aber sie ist leicht und bremst dich nicht aus. Die **Ernte**-Outfits sind bei der Feldarbeit besonders beliebt.",
+     "Die **Eisenschale** ist eine dekorative Feuerstelle, und Feuerwerk braucht ein Signalfeuer zum Abschießen."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "Zutaten für Festmähler, Met und Landwirtschaft",
+    "lead": "Die Sumpfhexe lebt mit ihrem Riesen Kvastur in einer windschiefen Hütte im Sumpfland. Sie verkauft Zutaten, die du sonst nirgends bekommst: Gewürze für die großen Festmähler, Zutaten für neue Metsorten und Nützliches für deinen Hof.",
+    "find": [
+     "Das Lager der Sumpfhexe liegt im Sumpfland. Auch hier bereitet das Spiel bis zu zehn mögliche Lager vor, und das erste, dem du nahe kommst, bleibt in deiner Welt.",
+     "Wenn du in der Nähe bist, erscheint ein Kessel-Symbol auf deiner Karte. Ihr Lager ist vor Gegnern geschützt und damit ein willkommener sicherer Ort im Sumpfland. Nimm für den Weg dorthin trotzdem Met des Giftwiderstands mit."
+    ],
+    "waresP": [
+     "Die meisten ihrer Gewürze gibt es erst, nachdem du den Boss des passenden Bioms besiegt hast. Viele Waren werden im Bündel verkauft. Die Tabelle zeigt den Preis pro Bündel."
+    ],
+    "tips": [
+     "Die **Gewürze** sind die wichtigste Zutat der Festmähler. Ein Festmahl auf dem Tisch versorgt die ganze Gruppe mit einem der stärksten Essen seiner Stufe und reicht für viele Portionen.",
+     "Mit dem **Serviertablett** kannst du ein fertiges Festmahl tragen und woanders abstellen, zum Beispiel direkt vor einem Bosskampf.",
+     "Den **Sensengriff** brauchst du für die Sense, die ganze Felder mit einem Schwung aberntet. Einer der besten Käufe für alle, die viel Landwirtschaft betreiben.",
+     "**Kerzendochte** brauchst du für Kerzen, und aus **Efeusamen** wächst Efeu, der an deinen Gebäuden emporrankt.",
+     "Frischer Seetang, Getrocknete Eichhörnchensehne, Gemahlene Dracheneierschalen und Streng riechende Steine sind Zutaten für die neueren Metsorten. Sie verbessern Fertigkeiten wie Schwimmen und Sprinten oder schützen vor Blitzen.",
+     "Giftpilze und Duftende Bündel gibt es nach Moder. Du brauchst sie für den Met der Berserkir und für einen Met, der dich von negativen Effekten befreit.",
+     "Verglichen mit Haldors Waren sind ihre günstig. Für einen ersten Besuch reichen ein paar hundert Münzen."
+    ]
+   }
+  }
+ }
+}

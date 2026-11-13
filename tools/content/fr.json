@@ -1,0 +1,569 @@
+{
+ "nav": {
+  "map": "Carte",
+  "seeds": "Meilleures seeds",
+  "bosses": "Boss",
+  "traders": "Marchands",
+  "guides": "Guides et FAQ"
+ },
+ "common": {
+  "openMap": "Ouvrir sur la carte",
+  "showOnMap": "Afficher sur la carte",
+  "meters": "{n} m",
+  "boss": "Boss",
+  "biome": "Biome",
+  "health": "Vie",
+  "summon": "Objet d'invocation",
+  "weak": "Faible contre",
+  "resist": "Résistant à",
+  "immune": "Insensible à",
+  "drops": "Butin",
+  "power": "Pouvoir de Déchu",
+  "item": "Objet",
+  "price": "Prix (piastres)",
+  "sellValue": "Prix de vente (piastres)",
+  "available": "Disponible",
+  "always": "dès le début",
+  "afterBoss": "après avoir vaincu {boss}",
+  "afterChest": "une fois rapporté : {chest}",
+  "dmg": {
+   "blunt": "Contondant",
+   "slash": "Coupant",
+   "pierce": "Perforant",
+   "fire": "Feu",
+   "frost": "Glace",
+   "lightning": "Foudre",
+   "poison": "Poison",
+   "spirit": "Esprit"
+  },
+  "disclaimer": "Valheim-Map est un projet de fans, sans lien avec Iron Gate ni Coffee Stain. Valheim est une marque de ses propriétaires respectifs. Données du jeu : version {version}.",
+  "noscript": "La carte interactive a besoin de JavaScript. Les guides sur les seeds, les boss et les marchands fonctionnent sans."
+ },
+ "about": {
+  "h": "Valheim-Map : tout ton monde à partir de la seed",
+  "p": [
+   "Valheim-Map est une carte interactive gratuite pour Valheim. Saisis la **seed** de ton monde et la carte l'affiche en entier, sans brouillard : tous les biomes, le tracé des côtes et la position exacte des boss, des marchands, des donjons et de plus de 90 autres types de lieux.",
+   "Rien n'est envoyé en ligne et tu n'as pas besoin de ta sauvegarde. La carte exécute la même génération de monde que le jeu, directement dans ton navigateur, donc les positions correspondent à ton monde au mètre près. Clique sur un marqueur pour obtenir ses coordonnées et une commande de console toute prête pour t'y rendre.",
+   "La liste à gauche te permet d'activer ou de masquer les types de lieux, de chercher un endroit précis comme Haldor ou les Cryptes enfouies, et d'enregistrer les seeds auxquelles tu veux revenir. Le lien dans la barre d'adresse contient toujours la seed et la vue actuelle, tu peux donc partager n'importe quel endroit avec tes amis."
+  ],
+  "seedH": "Comment trouver la seed de ton monde",
+  "seedP": "Chaque monde de Valheim est créé à partir d'une seed, un court texte de dix caractères au maximum. La même seed donne toujours le même monde.",
+  "seedSteps": [
+   "Lance Valheim et clique sur **Lancer une partie**, puis choisis ton personnage.",
+   "Dans la liste des mondes, sélectionne le tien. La seed est affichée juste à côté du nom du monde.",
+   "Sur un serveur dédié, la seed est enregistrée dans le fichier **.fwl** du monde. Charge le monde une fois en solo ou demande-la à l'admin du serveur.",
+   "Saisis la seed dans le champ en haut à gauche de la carte et clique sur **Charger**. Les majuscules et les minuscules comptent."
+  ],
+  "guidesH": "Guides",
+  "faqH": "Questions fréquentes",
+  "faq": [
+   {
+    "q": "La carte est-elle exacte pour mon monde ?",
+    "a": "Oui. Le terrain et tous les lieux sont calculés avec le même algorithme que celui du jeu, et les résultats ont été vérifiés sur de vrais mondes. La carte montre où le jeu place un lieu quand tu explores la zone pour la première fois. Ce que les joueurs modifient ensuite, comme des bâtiments détruits, n'apparaît pas."
+   },
+   {
+    "q": "Quelle version du jeu la carte prend-elle en charge ?",
+    "a": "La carte suit la version publique actuelle de Valheim, Terres de cendres et Grand nord compris. Les mondes créés avec une version bien plus ancienne peuvent différer dans les zones explorées avant une mise à jour."
+   },
+   {
+    "q": "Pourquoi y a-t-il plusieurs marqueurs pour Haldor, Hildir et la Sorcière du marécage ?",
+    "a": "Le jeu prépare jusqu'à dix camps possibles pour chaque marchand. Le premier dont tu t'approches devient le vrai, et les autres disparaissent de ton monde. Tu peux donc simplement choisir le marqueur le plus proche de ta base."
+   },
+   {
+    "q": "Dois-je envoyer mon fichier de sauvegarde ?",
+    "a": "Non. La seed suffit à la carte. Le calcul se fait sur ton appareil, et aucune information sur ton monde n'est envoyée à un serveur."
+   },
+   {
+    "q": "Comment me rendre à un lieu trouvé sur la carte ?",
+    "a": "Clique sur le marqueur. La bulle affiche les coordonnées et une commande de console. En solo, tu peux activer la console avec l'option de lancement **-console**, taper **devcommands** puis utiliser la commande **goto**. Sans triche, sers-toi des coordonnées et de la distance par rapport au point d'apparition pour t'orienter."
+   },
+   {
+    "q": "La carte fonctionne-t-elle sur téléphone ?",
+    "a": "Oui. La carte fonctionne dans tous les navigateurs récents, y compris sur téléphone et tablette. Le calcul de tous les lieux prend quelques secondes, un peu plus sur les appareils anciens."
+   },
+   {
+    "q": "Valheim-Map est-il gratuit ?",
+    "a": "Oui, entièrement, et sans compte. Si la carte t'a épargné quelques heures de navigation, tu peux soutenir le projet avec un petit don."
+   }
+  ]
+ },
+ "seeds": {
+  "teaser": "Des seeds triées sur le volet, toutes vérifiées avec la carte.",
+  "title": "Meilleures seeds Valheim : liste vérifiée avec liens vers la carte",
+  "desc": "Les meilleures seeds Valheim pour la version actuelle : départs faciles, marchands à côté du point d'apparition, rush de boss et seeds à fer. Chaque seed a été recalculée et s'ouvre directement sur la carte interactive.",
+  "h1": "Les meilleures seeds de Valheim",
+  "intro": [
+   "Une bonne seed fait gagner des heures : un marchand accessible à pied, les premiers boss sur ton continent de départ, ou des Marécages remplis de cryptes juste de l'autre côté de la rivière. Le problème de la plupart des listes de seeds, c'est qu'elles se recopient entre elles et n'ont jamais été revérifiées après les changements de la génération du monde.",
+   "Cette liste est différente. Nous avons rassemblé les seeds les plus recommandées par la communauté et **recalculé chacune d'elles** avec le générateur de monde de la version actuelle du jeu. Les distances ci-dessous sont mesurées depuis le point d'apparition, et chaque seed s'ouvre sur la carte interactive en un clic. Quand une ancienne recommandation ne tient plus, nous le signalons ou nous avons retiré la seed."
+  ],
+  "factsH": "Distances depuis le point d'apparition",
+  "colPlace": "Lieu",
+  "colDist": "Distance",
+  "howH": "Comment utiliser une seed",
+  "how": [
+   "Dans Valheim, clique sur **Lancer une partie**, choisis ton personnage, puis clique sur **Nouveau** dans la liste des mondes. Donne un nom au monde et saisis la seed exactement comme elle est écrite ici, majuscules et minuscules comprises. Sur un serveur dédié, crée d'abord le monde en local puis envoie les fichiers du monde, ou définis la seed dans les réglages de ton hébergeur.",
+   "Les distances sont mesurées en ligne droite depuis les pierres sacrificielles. Un marchand ne compte qu'une fois : le jeu prépare plusieurs camps possibles, et le premier dont tu t'approches devient le vrai. Le tableau retient toujours le plus proche."
+  ],
+  "items": {
+   "13o00t": {
+    "title": "La meilleure seed polyvalente",
+    "text": [
+     "Si tu ne dois essayer qu'une seule seed, prends celle-ci. Les cinq premiers boss se trouvent tous à moins de 3,5 km du point d'apparition : Eikthyr est à 120 m, l'Aîné à 1,1 km, Moder à moins de 1 km, Masse-d'Os à 1,9 km et Yagluth à 3,4 km. Presque aucun autre monde ne concentre autant sa progression.",
+     "Haldor campe à 1,6 km des pierres sacrificielles, tout près de la distance minimale autorisée par le jeu. La seed est donc idéale pour une partie rapide et pour les groupes qui veulent affronter des boss plutôt que naviguer pendant des heures."
+    ]
+   },
+   "MXNQwUDQGm": {
+    "title": "Tout à pied, sans bateau",
+    "text": [
+     "Sur cette seed, la terre de départ contient presque tout ce qu'il te faut : les cinq premiers boss, d'Eikthyr à Yagluth, et les trois marchands sont accessibles sans jamais construire de bateau. Yagluth n'est qu'à 3 km du point d'apparition, Moder à 1,9 km et l'Aîné à 1,8 km.",
+     "Haldor est à 1,7 km, Hildir à 2,9 km et la Sorcière du marécage à 3,1 km. Un monde parfait pour les joueurs qui n'aiment pas naviguer, et pour les défis sans bateau jusqu'aux Terres brumeuses."
+    ]
+   },
+   "1fp5ex": {
+    "title": "Haldor sur le pas de ta porte",
+    "text": [
+     "Aucune seed de notre liste n'a le marchand plus près : Haldor campe à environ 1 000 m seulement du point d'apparition, sur la terre de départ. Tu peux aller le voir à pied dès ton premier jour et prévoir tes achats dès le tout début.",
+     "Le départ est confortable lui aussi. Eikthyr attend à 170 m des pierres et l'Aîné à 1,2 km, lui aussi accessible à pied. La Forêt noire commence à peine à plus de 100 m du point d'apparition, le cuivre et l'étain ne sont donc jamais loin."
+    ]
+   },
+   "1k7md8": {
+    "title": "Le départ le plus rapide",
+    "text": [
+     "Eikthyr se trouve à 60 m du point d'apparition, pratiquement en vue des pierres sacrificielles. L'Aîné suit à seulement 650 m, ce qui en fait l'autel de l'Aîné le plus proche de toutes les seeds que nous avons vérifiées. Tu peux battre les deux premiers boss sans jamais quitter la maison.",
+     "Le reste du début de partie est tout proche aussi : Moder à 2,1 km, Masse-d'Os à 2,3 km et Yagluth à 3,1 km. Masse-d'Os et Yagluth sont sur la terre de départ. Seul Haldor est un peu plus loin, à 2,9 km, mais lui aussi est accessible à pied."
+    ]
+   },
+   "18mang": {
+    "title": "Marchands à pied et un Nord tout proche",
+    "text": [
+     "Les trois marchands sont sur la terre de départ : Haldor à 1,2 km, Hildir à 2,7 km et la Sorcière du marécage à 3,5 km. Hildir à cette distance, c'est rare, car ses camps se trouvent en général au-delà de 3 km. Les premiers Marécages commencent à seulement 1 km du point d'apparition, avec deux Cryptes enfouies à moins de 1,5 km : le fer arrive donc exceptionnellement tôt.",
+     "La communauté recommande cette seed pour le Grand nord, et les chiffres le confirment : le biome du nord commence à environ 6,9 km du point d'apparition, un bon kilomètre plus près que dans la plupart des mondes. Eikthyr est un peu plus loin que d'habitude, à 800 m."
+    ]
+   },
+   "nDB9WybzUw": {
+    "title": "Cinq boss sans bateau",
+    "text": [
+     "Eikthyr, l'Aîné, Masse-d'Os, Moder et Yagluth sont tous sur la terre de départ. Moder est le point fort : son autel n'est qu'à 1,5 km du point d'apparition, et de grandes montagnes riches en argent se dressent tout près du départ.",
+     "Haldor, à 2,1 km, et la Sorcière du marécage, à 3,2 km, sont aussi accessibles à pied. Une excellente seed pour les joueurs qui veulent s'installer à un seul endroit et faire tout le jeu jusqu'aux Plaines depuis une seule base."
+    ]
+   },
+   "Gz4469MVUb": {
+    "title": "De courtes distances partout",
+    "text": [
+     "Une seed équilibrée, sans point faible. L'Aîné est à 1,1 km du point d'apparition, Masse-d'Os et Moder tous deux à 2,3 km et Yagluth à 3,4 km. Haldor campe à 1,6 km.",
+     "La communauté connaît cette seed pour sa longue bande de terre presque ininterrompue qui s'étend du nord au sud. L'exploration à pied en devient facile et les traversées en mer restent courtes."
+    ]
+   },
+   "Angel": {
+    "title": "Un départ en douceur pour les débutants",
+    "text": [
+     "Eikthyr est à 80 m des pierres sacrificielles et l'Aîné à 1 km tout rond. Haldor suit à 1,5 km, à peu près aussi près que le jeu le permet. Pour les nouveaux joueurs, cela donne un chemin court et clair pendant les premières heures.",
+     "Les objectifs suivants restent à portée eux aussi : Moder est à 2,5 km, Masse-d'Os à 2,7 km, et Hildir comme la Sorcière du marécage à environ 3 km."
+    ]
+   },
+   "vaoxsr": {
+    "title": "Moder et l'Aîné juste à côté",
+    "text": [
+     "Cette seed est citée parmi les meilleures depuis la mise à jour 1.0, et la carte en confirme l'essentiel : Eikthyr à 250 m, Moder à 1,3 km et l'Aîné à 1,3 km, tous les trois sur la terre de départ. Masse-d'Os est à 2 km.",
+     "Haldor est à 2,3 km du point d'apparition et accessible à pied. Hildir et la Sorcière du marécage se trouvent toutes deux à un peu moins de 3 km, plus près que dans la plupart des mondes."
+    ]
+   },
+   "CdjvRssbHZ": {
+    "title": "De l'argent très tôt : Moder à 1 km du point d'apparition",
+    "text": [
+     "L'autel de Moder n'est qu'à 1,1 km du point d'apparition, sur la terre de départ. Montagnes, argent et armure de loup sont donc accessibles à pied depuis ta première base. Eikthyr se trouve à 80 m des pierres et l'Aîné à 1,4 km.",
+     "Haldor est proche lui aussi, à 1,5 km, mais il vit de l'autre côté de l'eau : il te faut un radeau ou une courte traversée à la nage. La seed est appréciée depuis longtemps pour son joli départ dans les Prairies, avec beaucoup de place pour construire."
+    ]
+   },
+   "WorldEater": {
+    "title": "L'Aîné à moins de 900 m",
+    "text": [
+     "Eikthyr à 230 m et l'Aîné à 900 m, c'est une entrée très rapide dans l'âge du bronze. Masse-d'Os est à 2,9 km, sur la terre de départ : les trois premiers boss ne demandent donc aucun bateau.",
+     "La Sorcière du marécage campe à 2,8 km du point d'apparition et elle est accessible à pied, tout comme Hildir. Moder est à 2,5 km, de l'autre côté de l'eau."
+    ]
+   },
+   "jWM4fqFdSm": {
+    "title": "Les trois premiers boss sur une seule île",
+    "text": [
+     "Eikthyr à 110 m, l'Aîné à 1,2 km et Masse-d'Os à 2,1 km sont tous sur la terre de départ. Tu peux jouer de l'âge de pierre à l'âge du fer sans construire de bateau.",
+     "Hildir et la Sorcière du marécage vivent sur la même terre, à un peu plus de 3 km. Yagluth, à 3,2 km, et Moder, à 3,5 km, sont à une courte traversée."
+    ]
+   },
+   "lduTRpBHca": {
+    "title": "Une île compacte avec un marchand",
+    "text": [
+     "Cette seed passait autrefois pour difficile. Dans la version actuelle, c'est un départ compact et agréable : Eikthyr à 140 m, l'Aîné à un peu moins de 1 km et Masse-d'Os à 2,3 km, tous sur la terre de départ.",
+     "Haldor, à 1,9 km, et Hildir, à 2,9 km, sont accessibles à pied également. Il n'y a que pour Moder que tu dois prévoir un voyage plus long."
+    ]
+   },
+   "feret2": {
+    "title": "Masse-d'Os tout près",
+    "text": [
+     "Ici, Masse-d'Os n'est qu'à 1,9 km du point d'apparition, l'une des distances les plus courtes que nous ayons trouvées. Moder suit à 2,2 km et Eikthyr à 250 m. Si tu veux arriver vite au fer et à l'argent, c'est un bon choix.",
+     "Haldor campe à 1,5 km des pierres sacrificielles, près de la distance minimale, mais de l'autre côté de l'eau. La seed est aussi connue pour sa région de départ variée, avec de nombreux biomes proches les uns des autres."
+    ]
+   },
+   "Pirate": {
+    "title": "Haldor et Moder à proximité",
+    "text": [
+     "Haldor est à 1,5 km du point d'apparition, pratiquement la distance minimale, et Moder à seulement 1,8 km. L'Aîné suit à 2,2 km.",
+     "La région de départ est vaste et variée, avec la Forêt noire et la Montagne tout près des Prairies. Une bonne seed pour une longue partie tranquille avec une base principale au centre."
+    ]
+   },
+   "HHcLC5acQt": {
+    "title": "Le classique, revérifié",
+    "text": [
+     "C'est sans doute la seed Valheim la plus célèbre de toutes. Elle était connue comme la seed de speedrun, avec quatre boss près du point d'apparition. Plusieurs mises à jour de la génération du monde plus tard, ce n'est plus vrai, et beaucoup de listes répètent encore l'ancienne affirmation.",
+     "Ce qu'il en reste est encore correct : Eikthyr à 440 m, Haldor à 1,6 km et Masse-d'Os à 2,2 km, tous sur la terre de départ. L'Aîné est à 2,9 km et Yagluth à 3,1 km, de l'autre côté de l'eau. Moder, en revanche, est désormais à plus de 6 km du point d'apparition. Bien pour la nostalgie, mais les seeds plus haut dans la liste sont meilleures aujourd'hui."
+    ]
+   }
+  }
+ },
+ "bosses": {
+  "teaser": "Tous les boss dans l'ordre : comment les trouver, les invoquer et les battre.",
+  "title": "Boss de Valheim : ordre, emplacements, invocation et astuces",
+  "desc": "Tous les boss de Valheim dans l'ordre, d'Eikthyr à Fader : où trouver les autels, ce qu'il faut pour les invoquer, leurs faiblesses et les meilleures astuces pour chaque combat.",
+  "h1": "Les boss de Valheim dans l'ordre",
+  "intro": [
+   "L'histoire de Valheim se raconte à travers ses boss, les Déchus. Chacun garde un biome, et chacun lâche l'objet qui ouvre l'étape suivante : de quoi fabriquer la pioche en bois de cerf pour miner, la clé des cryptes des Marécages, le bréchet qui détecte l'argent. Les battre dans l'ordre, c'est la colonne vertébrale de toute partie.",
+   "Le tableau présente tous les boss de la progression principale avec leur biome, leur vie et les objets à sacrifier. Chaque boss a sa propre page avec ses faiblesses, ses attaques et des conseils pratiques. Chaque monde compte plusieurs autels par boss. Saisis ta seed sur la carte pour voir où se trouvent les tiens."
+  ],
+  "outro": [
+   "Chaque boss vaincu laisse un trophée. Accroche-le à son crochet aux pierres sacrificielles pour débloquer le Pouvoir de Déchu du boss. Tu ne peux avoir qu'un seul pouvoir sélectionné à la fois. Il dure 5 minutes, puis met 20 minutes à se recharger.",
+   "En multijoueur, les boss deviennent plus résistants et frappent plus fort pour chaque joueur supplémentaire à proximité. Être plus nombreux ne rend donc pas un combat trivial."
+  ],
+  "pageTitle": "{boss} : emplacement, invocation et astuces",
+  "pageDesc": "Comment battre {boss} dans Valheim : où trouver l'autel (biome : {biome}), les objets d'invocation, les faiblesses, les attaques et les meilleures astuces pour le combat.",
+  "showOnMap": "{boss} : afficher les autels sur la carte",
+  "findH": "Comment trouver {boss}",
+  "prepH": "Préparation",
+  "attacksH": "Attaques",
+  "tipsH": "Trucs et astuces",
+  "rewardH": "Récompense",
+  "list": {
+   "eikthyr": {
+    "lead": "Eikthyr, le cerf de foudre, est le premier boss de Valheim. Il t'attend dans les Prairies et sert de test en douceur pour les bases : bloquer, esquiver et gérer son endurance.",
+    "power": "60 % d'endurance consommée en moins pour courir, sauter et nager.",
+    "find": [
+     "L'autel d'Eikthyr se trouve toujours dans les Prairies, en général à quelques centaines de mètres seulement du point d'apparition. La pierre runique rouge et lumineuse des pierres sacrificielles marque l'autel sur ta carte dès que tu la lis.",
+     "Pour l'invoquer, dépose **2 Trophées de cerf** sur l'autel. Les cerfs lâchent un trophée environ une fois sur deux. Approche-les discrètement contre le vent ou chasse-les à l'arc."
+    ],
+    "prep": [
+     "Fabrique une armure en cuir complète et améliore-la une fois si tu peux.",
+     "Prends une lance en silex, une hache en silex ou un bâton, un arc avec une cinquantaine de flèches et un bouclier en bois.",
+     "Mange trois aliments différents avant le combat, par exemple de la viande de sanglier cuite, de la queue de Nixe grillée et des framboises ou des champignons.",
+     "Dors avant, pour combattre avec le bonus En forme. Il accélère nettement la régénération de l'endurance."
+    ],
+    "attacks": [
+     "**Coup de bois :** il bondit en avant et balaie avec ses bois. Bloque avec ton bouclier ou fais un pas de côté.",
+     "**Éclair :** il se cabre et tire une ligne de foudre droit devant lui, surtout quand personne n'est à côté de lui. Esquive sur le côté.",
+     "**Piétinement de foudre :** il se dresse sur ses pattes arrière et retombe en frappant tout ce qui l'entoure. Fais une roulade en arrière quand il se cabre."
+    ],
+    "tips": [
+     "Garde ton bouclier rond levé et attaque juste après chacune de ses attaques. Presque tout ce qu'il fait se bloque, même avec un simple bouclier en bois.",
+     "Ne laisse jamais ton endurance tomber à zéro. Sans endurance, tu ne peux ni bloquer ni esquiver, et c'est comme ça que ratent la plupart des premières tentatives.",
+     "Les rochers et les arbres autour de l'autel arrêtent sa foudre. Sers-t'en comme abri si tu préfères l'arc.",
+     "Combats de jour. La nuit, les naingris et d'autres créatures s'en mêlent.",
+     "Si le combat tourne mal, fuis. Eikthyr ne disparaît pas, et il garde un moment les dégâts que tu lui as infligés."
+    ],
+    "reward": [
+     "Eikthyr lâche **3 Bois durs** et son trophée. Les bois servent à fabriquer la Pioche de bois de cerf, ta première pioche, qui te permet de miner l'étain et le cuivre dans la Forêt noire et d'entrer dans l'âge du bronze.",
+     "Son Pouvoir de Déchu rend la course et les sauts bien moins coûteux. Il reste utile pendant tout le jeu, pour explorer, fuir et transporter du minerai."
+    ]
+   },
+   "elder": {
+    "lead": "L'Aîné est un arbre vivant géant et le deuxième boss. Il règne sur la Forêt noire et punit les joueurs qui l'affrontent à découvert. Avec des flèches enflammées et un pilier derrière lequel te cacher, il devient tout à fait gérable.",
+    "power": "60 % de dégâts d'abattage et de minage en plus, et régénération de la vie 30 % plus rapide.",
+    "find": [
+     "L'autel de l'Aîné se trouve dans la Forêt noire : une plateforme de pierre entourée de quatre hauts piliers, avec une vasque à feu au centre. Des pierres runiques rouges dans les Chambres funéraires et dans certaines tours de pierre en ruine marquent l'autel le plus proche sur ta carte.",
+     "Pour l'invoquer, brûle **3 Graines anciennes** dans la vasque. Les Brutes naingris et les Chamans naingris en lâchent parfois, et les Nids de naingris détruits, ces générateurs à la lueur violette, en donnent toujours."
+    ],
+    "prep": [
+     "L'armure de bronze est idéale. L'armure en cuir de troll est une bonne alternative, bien moins chère.",
+     "Prends un Arc de bois noble et au moins 100 **flèches enflammées**. L'Aîné est faible contre le feu, et la brûlure continue de faire des dégâts.",
+     "Prends un Bouclier en bronze ou un Bouclier bandé, et une hache pour les racines.",
+     "Prépare quelques Hydromels revigorants et mange tes trois meilleurs aliments, par exemple du Ragoût de cerf, de la Soupe de carottes et de la Confiture de la reine.",
+     "Détruis les Nids de naingris autour de l'autel, abats les arbres proches et construis un petit abri avec un portail un peu à l'écart."
+    ],
+    "attacks": [
+     "**Tir de lianes :** il tend les bras et tire une salve de lianes à longue distance. Mets-toi derrière l'un des quatre piliers. Ils sont indestructibles.",
+     "**Piétinement :** au corps à corps, il frappe le sol et inflige de lourds dégâts. Garde tes distances ou éloigne-toi d'une roulade.",
+     "**Racines :** il fait surgir autour de toi un champ de racines qui fouettent tous ceux qui sont à portée. Sors de la zone. Les racines disparaissent au bout d'un moment, ou tu peux les couper à la hache."
+    ],
+    "tips": [
+     "Joue autour des piliers : sors, tire deux ou trois flèches enflammées, puis remets-toi à couvert avant l'arrivée des lianes. Ce rythme tout simple suffit à gagner le combat.",
+     "Ne te bats pas au corps à corps si tu peux l'éviter. Le piétinement frappe bien plus fort que tout ce que tu as croisé jusque-là.",
+     "Les chutes d'arbres sont un vrai danger. L'Aîné les abat avec ses lianes, et un tronc qui tombe peut te tuer sur le coup. Dégager l'arène à l'avance supprime ce risque.",
+     "Invoque-le le matin. Le combat peut durer plusieurs minutes, et la nuit, la forêt se remplit.",
+     "Un Feu de camp ou un Feu de joie près de l'arène te garde En forme, et ses flammes le blessent s'il passe dedans."
+    ],
+    "reward": [
+     "L'Aîné lâche la **Clé des cryptes** et son trophée. La clé ouvre les Cryptes enfouies des Marécages, la seule bonne source de fer.",
+     "Une fois l'Aîné vaincu, Haldor ajoute la Chair d'Ymir et les Pierres de tonnerre à son étal, et la Sorcière du marécage vend plus d'ingrédients.",
+     "Son Pouvoir de Déchu accélère nettement l'abattage et le minage. Parfait pour les gros chantiers et les expéditions minières."
+    ]
+   },
+   "bonemass": {
+    "lead": "Masse-d'Os est un énorme amas d'os et de vase dans les Marécages, et le troisième boss. Beaucoup de joueurs échouent ici au début, car les épées et les flèches l'égratignent à peine. Avec une massue et une résistance au poison, le combat change du tout au tout.",
+    "power": "25 % de dégâts physiques subis en moins (contondant, coupant, perforant). Bloquer ne coûte plus d'endurance et t'en rend même un peu.",
+    "find": [
+     "L'autel de Masse-d'Os est un crâne géant posé dans les Marécages. Des pierres runiques rouges à l'intérieur des Cryptes enfouies marquent le plus proche sur ta carte.",
+     "Pour l'invoquer, jette **10 Os atrophiés** dans le crâne. Tu en trouves dans les Cryptes enfouies, dans les coffres et dans les Tas de boue que tu creuses de toute façon pour le fer."
+    ],
+    "prep": [
+     "Prends une **Massue de fer**, améliorée au maximum. Masse-d'Os est faible contre les dégâts contondants et résiste aux dégâts coupants, perforants et de feu. Le Brise-cerf ou une Masse de fer font aussi l'affaire.",
+     "Prépare de l'**Hydromel de résistance au poison** et emportes-en au moins trois ou quatre par joueur. Sans lui, son nuage de poison tue en quelques secondes.",
+     "Porte une armure de fer améliorée ou l'ensemble de racines, et un Bouclier bandé ou mieux.",
+     "Prends des Hydromels très revigorants et des hydromels d'endurance, et mange des Saucisses, de la Soupe de navets et d'autres plats du niveau des Marécages.",
+     "Aplanis le sol autour du crâne à la houe pour ne pas te battre avec de l'eau jusqu'aux genoux : les sangsues y mordent, et l'endurance ne se régénère pas quand tu nages.",
+     "Construis à proximité un petit abri couvert avec un lit, un feu et un portail, de préférence en hauteur."
+    ],
+    "attacks": [
+     "**Coup de poing :** un large balayage qui porte plus loin qu'il n'y paraît et inflige des dégâts contondants et de poison. Bloque-le ou pare-le avec un bouclier solide.",
+     "**Nuage de poison :** il se penche en arrière et crache un grand nuage qui reste en place. Sors-en tout de suite et attends qu'il se dissipe.",
+     "**Invocation :** il s'arrache un morceau du corps et le lance. Des squelettes et des blobs apparaissent là où il tombe. Tue-les vite avant qu'ils ne t'encerclent."
+    ],
+    "tips": [
+     "Bois l'Hydromel de résistance au poison **avant** de l'invoquer et renouvelle-le quand l'icône se met à clignoter. Il dure 10 minutes.",
+     "L'animation d'invocation est ta meilleure ouverture : il reste immobile plusieurs secondes pendant qu'il lance.",
+     "Parer son coup de poing ne le déséquilibre pas, mais te protège entièrement. Frappe deux ou trois fois ensuite, puis recule.",
+     "Les flèches de givre sont les seules flèches qui valent le coup contre lui. Si tu as déjà de l'obsidienne et des glandes gelées, elles permettent un combat à distance sans risque.",
+     "Utilise le pouvoir d'Eikthyr pour sortir vite du nuage de poison, ou celui de l'Aîné pour la régénération supplémentaire.",
+     "L'attaque de zone du Brise-cerf touche en même temps Masse-d'Os et les créatures qu'il invoque."
+    ],
+    "reward": [
+     "Masse-d'Os lâche le **Bréchet** et son trophée. Avec le Bréchet équipé, tu détectes les veines d'argent cachées en Montagne, les trésors enfouis des Prairies et les Tas de boue des Marécages.",
+     "Son Pouvoir de Déchu est le meilleur pouvoir défensif du jeu. Beaucoup de joueurs le gardent pour tous les combats de boss suivants."
+    ]
+   },
+   "moder": {
+    "lead": "Moder est la mère des dragons de la Montagne et le quatrième boss. Elle attaque depuis les airs comme au sol, et son souffle de glace gèle quiconque s'y trouve. Un bon arc et une protection contre le gel décident de ce combat.",
+    "power": "Vent toujours favorable en bateau, 300 de poids transportable en plus, déplacement 10 % plus rapide et 50 % de résistance à la glace.",
+    "find": [
+     "L'autel de Moder se trouve au sommet d'une montagne, en général sur un large plateau bien plat. Des pierres runiques rouges dans les ruines de pierre de la Montagne et dans les Cavernes gelées le marquent sur ta carte.",
+     "Pour l'invoquer, dépose **3 Œufs de dragon** sur l'autel. Les œufs se trouvent dans des nids en Montagne. Chacun pèse 200 et ne passe pas par les portails : tu les portes donc un par un, ou en un seul voyage à trois joueurs."
+    ],
+    "prep": [
+     "Porte l'armure de loup : le plastron et la cape te protègent du gel. Sans elle, il te faut de l'**Hydromel de résistance au gel** pendant toute l'expédition.",
+     "Prends le meilleur arc que tu as, idéalement le Croc de draugr, et 150 flèches ou plus. Moder est faible contre le feu, donc les **flèches enflammées** sont efficaces et pas chères. Les flèches d'obsidienne et les flèches empoisonnées marchent bien aussi. Les flèches de givre ne lui font rien.",
+     "Emporte une Épée en argent ou une autre arme de mêlée améliorée pour les phases au sol.",
+     "Prévois des Hydromels très revigorants et des hydromels d'endurance, et mange des plats qui donnent beaucoup de vie, comme la Soupe de serpent, les Saucisses et la Soupe de navets.",
+     "Nettoie le plateau de ses loups, dracs et golems avant de commencer, et installe un portail avec un petit abri sous le sommet."
+    ],
+    "attacks": [
+     "**Salve de glace (en vol) :** elle te survole et tire une ligne de projectiles de glace qui explosent en cristaux. Continue de courir sur le côté.",
+     "**Souffle de glace (au sol) :** un large cône de givre droit devant elle, qui te ralentit énormément. Passe sur son flanc dès qu'elle baisse la tête.",
+     "**Morsure et griffes :** à courte portée, elle mord et griffe. Les deux se bloquent avec un bon bouclier."
+    ],
+    "tips": [
+     "Tire dessus dès qu'elle est en vol ou en train de se poser. Sa trajectoire est lente et prévisible, la plupart des flèches font donc mouche.",
+     "Quand elle se pose, contourne-la par le flanc. Le souffle ne touche que ce qui est devant elle, et de côté tu peux attaquer librement.",
+     "Une fois touché par la glace, tu es lent et facile à toucher de nouveau. Si tu es gelé, bloque au lieu de courir.",
+     "Les cristaux de glace de sa salve sont destructibles, et ils offrent un petit abri de fortune en terrain découvert.",
+     "Le pouvoir de Masse-d'Os rend les phases de mêlée bien plus sûres. À l'arc, celui d'Eikthyr t'aide à rester en mouvement.",
+     "Monte les œufs avant le combat et laisse-les près de l'autel. Ils ne disparaissent pas."
+    ],
+    "reward": [
+     "Moder lâche **10 Larmes de dragon** et son trophée. Les larmes servent à construire la Table d'artisan, qui débloque le Moulin, le Haut fourneau et la Roue, et avec eux l'équipement des Plaines.",
+     "Après sa défaite, Haldor vend les Poches agrandies, une rangée d'inventaire en plus, et la Sorcière du marécage ajoute plusieurs objets à son étal.",
+     "Son Pouvoir de Déchu te donne un vent favorable à chaque traversée et beaucoup de poids transportable en plus. C'est le préféré de tous les marins et de tous les transporteurs de minerai."
+    ]
+   },
+   "yagluth": {
+    "lead": "Yagluth, le roi déchu des gobelins, est le cinquième boss. Seul le haut de son corps rampe à travers les Plaines, mais son feu et ses météores en font l'un des combats les plus mortels du jeu. Ici, la résistance au feu n'est pas une option.",
+    "power": "10 % de dégâts en plus, 50 % de résistance à la foudre et 25 niveaux d'Agriculture supplémentaires.",
+    "find": [
+     "L'autel de Yagluth se trouve dans les Plaines : un cercle d'énormes doigts de pierre qui sortent du sol. Des pierres runiques rouges près des cercles de pierres des Plaines le marquent sur ta carte. Elles sont rares, la carte t'épargne donc ici une longue recherche.",
+     "Pour l'invoquer, dépose **5 Totems gobelins** sur l'autel. Tu trouves un totem dans la plupart des villages gobelins, et les Berserkers gobelins en lâchent parfois un. Les totems passent par les portails."
+    ],
+    "prep": [
+     "Prépare du **Vin d'orge de résistance au feu** et emportes-en plusieurs par joueur. Il dure 10 minutes et doit rester actif pendant tout le combat.",
+     "Porte l'armure rembourrée améliorée au maximum. L'armure de loup est le strict minimum.",
+     "Prends une Épée en sombracier, le Porc-épic ou Argivre. Yagluth résiste fortement aux dégâts perforants : les lances, les atgeirs et la plupart des flèches sont donc de mauvais choix.",
+     "Si tu veux combattre à distance, utilise des flèches de givre et attends-toi à un long combat.",
+     "Prends des Hydromels très revigorants et des Hydromels de bonne endurance, et mange les meilleurs plats des Plaines : Tourte au Lox, Boudin, Friands au poisson.",
+     "Élimine d'abord tous les gobelins, lox et morstiques autour de l'autel, et pose un portail à distance sûre."
+    ],
+    "attacks": [
+     "**Souffle de feu :** il lève la tête et balaie un long rayon de feu qui te suit. Cours sur le côté ou passe derrière l'un des doigts de pierre.",
+     "**Coup de poing au sol :** son poing brille en bleu, puis il frappe le sol et provoque une grosse explosion. Éloigne-toi dès que tu vois la lueur.",
+     "**Météores :** sa main brille en orange et des météores pleuvent sur ta position pendant plusieurs secondes. Cours dans une seule direction jusqu'à ce que ça s'arrête."
+    ],
+    "tips": [
+     "Chaque attaque est annoncée par une lueur bien visible. Apprends les trois signaux et le combat devient tranquille : attaque, repère la lueur, déplace-toi, recommence.",
+     "Attaque par-derrière ou par le côté, et seulement deux ou trois coups à la fois. Ici, c'est la gourmandise qui tue.",
+     "Les doigts de pierre bloquent son souffle de feu, mais les météores passent par-dessus. Ne te repose pas derrière un pilier pendant la pluie de météores.",
+     "Quand tu brûles, tu paniques et tu gaspilles ton endurance. Avec le vin d'orge actif, les dégâts de feu sont à peu près divisés par deux et le combat pardonne beaucoup.",
+     "Active le pouvoir de Masse-d'Os quand tu entames la phase de mêlée. Renouvelle le vin d'orge en avance, pas quand il vient d'expirer.",
+     "Yagluth est lent. Si tu as besoin de te soigner ou de manger, éloigne-toi simplement de lui."
+    ],
+    "reward": [
+     "Yagluth lâche **3 Esprits déchirés** et son trophée. Un Esprit déchiré sert à construire la Fontaine aux feux-follets. Elle attire les feux-follets, dont tu as besoin pour la Lumière de feu-follet qui dissipe la brume des Terres brumeuses.",
+     "Après sa défaite, Haldor vend des œufs pour élever des poulets, et la Sorcière du marécage ajoute l'épice des Plaines.",
+     "Son Pouvoir de Déchu augmente tous tes dégâts d'un dixième. C'est un bon choix pour les Terres brumeuses et les boss suivants."
+    ]
+   },
+   "queen": {
+    "lead": "La Reine est la mère des fouineurs et le sixième boss. Elle vit au fond de la Citadelle infestée, dans les Terres brumeuses, et ne se bat jamais seule : sa progéniture éclot sans arrêt autour de toi. Une bonne préparation et le contrôle de ses rejetons décident du combat.",
+    "power": "L'Eitr se régénère deux fois plus vite, la discrétion ne coûte plus d'endurance et tu gagnes 50 % de résistance au poison.",
+    "find": [
+     "La Reine ne s'invoque pas. Elle attend à l'intérieur de la **Citadelle infestée**, un immense bâtiment scellé des Terres brumeuses. Des pierres runiques rouges dans les Mines infestées marquent la citadelle sur ta carte.",
+     "La porte ne s'ouvre qu'avec le **Brise-sceau**. Tu le fabriques à la Table de galdr avec **9 Fragments de brise-sceau**, que tu trouves dans les Mines infestées. Pour l'affronter à nouveau plus tard, dépose 3 Trophées de soldat fouineur sur l'autel à l'intérieur."
+    ],
+    "prep": [
+     "Porte l'armure en carapace améliorée pour la mêlée, ou la Robe d'Eitr tissé si tu combats à la magie.",
+     "Elle résiste aux dégâts perforants. Utilise des armes coupantes ou contondantes comme Marchebrume, Krom ou le Démolisseur. Les arcs et les lances font peu de dégâts.",
+     "La magie est très forte ici : le Bâton des braises nettoie sa progéniture, le Bâton de protection protège le groupe et l'Éveil des morts distrait les ennemis.",
+     "Bois de l'**Hydromel de résistance au poison** avant d'entrer, et prends des Hydromels extrêmement revigorants, des hydromels d'endurance et des hydromels d'Eitr.",
+     "Mange les meilleurs plats des Terres brumeuses. Pour les mages, au moins un aliment qui donne de l'Eitr est obligatoire.",
+     "Il n'y a pas de brume dans la citadelle, mais prends ta Lumière de feu-follet pour le trajet. Une Cape de plumes te permet de sauter sans danger depuis les étages.",
+     "Tu peux construire dans la citadelle. Une Table de fabrication, un portail juste devant la porte et quelques murs en pierre pour te mettre à couvert aident beaucoup."
+    ],
+    "attacks": [
+     "**Coups de griffes et ruée :** de larges balayages avec ses pattes avant et une charge en rampant. Esquive sur le côté ou bloque avec un bouclier solide.",
+     "**Morsure :** un bond droit devant, avec de lourds dégâts perforants et de poison. Ne reste pas devant sa tête.",
+     "**Frappe au sol :** elle se cabre et plante ses quatre bras dans le sol, touchant tout ce qui l'entoure. Recule quand elle se dresse.",
+     "**Crachat :** plusieurs projectiles de poison qui explosent et libèrent des Jeunes fouineurs.",
+     "**Appel :** elle hurle et invoque des fouineurs et des jeunes fouineurs.",
+     "**Enfouissement :** elle s'enfonce dans le sol et ressurgit ailleurs dans la salle."
+    ],
+    "tips": [
+     "Tue sa progéniture en permanence. Une douzaine de petits fouineurs font plus de dégâts que la Reine elle-même. Les attaques de zone comme celles du Démolisseur ou du Bâton des braises sont idéales.",
+     "Sers-toi des escaliers et des étages de la citadelle. Elle est rapide à découvert mais lente sur les rampes, ce qui te laisse le temps de te soigner et de récupérer de l'endurance.",
+     "Toutes ses attaques de mêlée te projettent en arrière. Ne reste pas dos aux murs ni au bord du vide.",
+     "En groupe, un joueur équipé d'un écu retient son attention pendant que les autres s'occupent des rejetons et attaquent par-derrière.",
+     "Le pouvoir de Masse-d'Os est excellent en mêlée. Pour la revanche, les mages prennent le pouvoir de la Reine elle-même, ou celui de Yagluth pour plus de dégâts.",
+     "Si tu meurs, ta pierre tombale reste dans la salle. Un portail juste devant la porte raccourcit le trajet pour récupérer tes affaires."
+    ],
+    "reward": [
+     "La Reine lâche **5 Carapaces majestueuses** et son trophée. La carapace sert à construire la Presse artisanale, nécessaire pour l'équipement et les navires qui t'emmènent vers les Terres de cendres.",
+     "Après sa défaite, Haldor vend les Poches approfondies, encore une rangée d'inventaire, et la Sorcière du marécage ajoute l'épice des Terres brumeuses.",
+     "Son Pouvoir de Déchu double la régénération de l'Eitr. Pour les builds magie, c'est le meilleur pouvoir du jeu."
+    ]
+   },
+   "fader": {
+    "lead": "Fader, le dragon mort-vivant des Terres de cendres, est le septième boss. Il n'a aucune faiblesse, deux fois plus de vie que la Reine, et il remplit son arène de feu vert. Ce combat exige le meilleur équipement des Terres de cendres et un mouvement constant.",
+    "power": "L'Adrénaline monte deux fois plus vite, tu es bien plus difficile à déséquilibrer et tu gagnes 50 % de résistance au feu.",
+    "find": [
+     "L'autel de Fader se trouve dans une grande arène ronde des Terres de cendres. Des pierres runiques rouges à l'intérieur des Forteresses calcinées le marquent sur ta carte.",
+     "Pour l'invoquer, il te faut **3 Cloches**. Chaque Cloche se forge à la Forge noire avec **3 Fragments de cloche**, et les fragments se trouvent dans les coffres des Forteresses calcinées. Enfonce les portes de la forteresse au Bélier, nettoie-la et pille la tour. Place les trois Cloches dans l'arène et active l'autel."
+    ],
+    "prep": [
+     "Porte l'armure en flametal améliorée au maximum, ou l'ensemble d'Ask si tu préfères une armure légère.",
+     "Fader est insensible au feu et à l'esprit, et il résiste aux dégâts perforants. Utilise des armes coupantes ou contondantes, idéalement avec des dégâts de glace ou de foudre.",
+     "Bois du **Vin d'orge de résistance au feu** et renouvelle-le pendant le combat.",
+     "Prends des Hydromels extrêmement revigorants et des Hydromels d'endurance latente, et mange les meilleurs plats des Terres de cendres dans tes trois emplacements.",
+     "Nettoie soigneusement les environs de l'arène. Les Calcinés, Morgens et Asksvins qui s'invitent rendent le combat chaotique.",
+     "Construis un portail et un petit abri en pierre à l'extérieur de l'arène. Les ennemis apparaissent sans arrêt dans les Terres de cendres, protège donc le portail avec des murs."
+    ],
+    "attacks": [
+     "**Morsure et griffes :** de larges attaques de mêlée, très lourdes, devant lui. Bloque avec un bouclier solide ou reste sur son flanc.",
+     "**Tourbillon :** il pivote sur place et frappe tout ce qui l'entoure. Recule quand il commence à tourner.",
+     "**Souffle de flammes :** une ligne de feu qui laisse le sol en flammes. Elle ne se bloque pas. Sors de la ligne en te décalant sur le côté.",
+     "**Fissure :** il frappe le sol et une faille court vers toi, d'où jaillissent des pointes, et qui laisse une flaque de feu vert.",
+     "**Mur de feu :** un anneau de flammes se referme autour de toi. Sors-en immédiatement.",
+     "**Météores :** il se cabre et des météores s'abattent sur toute l'arène.",
+     "**Invocation :** il crache des orbes qui se transforment en Guerriers calcinés et en Archers calcinés."
+    ],
+    "tips": [
+     "Reste sur son flanc ou derrière lui. Presque toutes ses attaques dangereuses partent vers l'avant.",
+     "Ne reste jamais dans le feu vert. Les flaques durent longtemps et réduisent peu à peu l'arène, attire-le donc vers une partie encore propre.",
+     "Bouge en permanence. La plupart de ses attaques de zone visent l'endroit où tu te trouves quand il les lance.",
+     "Tue vite les Calcinés invoqués, ou place-toi de façon que les attaques de Fader les touchent.",
+     "Le pouvoir de Masse-d'Os et un écu permettent de survivre à ses attaques de mêlée. N'essaie pas de bloquer le souffle ni la fissure.",
+     "En groupe, répartissez les rôles : un joueur retient son attention, un autre s'occupe des ennemis invoqués, les autres font les dégâts."
+    ],
+    "reward": [
+     "Fader lâche **5 Côtes calcinées** et son trophée. Les côtes sont nécessaires pour le Bûcher éternel et ouvrent la voie vers le dernier palier de fabrication avant le Grand nord.",
+     "Après sa défaite, la Sorcière du marécage vend l'épice des Terres de cendres.",
+     "Son Pouvoir de Déchu fait monter l'Adrénaline deux fois plus vite et te rend bien plus difficile à déséquilibrer. C'est un bon choix pour les builds de mêlée agressifs."
+    ]
+   }
+  }
+ },
+ "traders": {
+  "teaser": "Haldor, Hildir et la Sorcière du marécage : emplacements, marchandises et prix.",
+  "title": "Marchands de Valheim : emplacements, marchandises et prix",
+  "desc": "Tous les marchands de Valheim en un coup d'œil : où trouver Haldor, Hildir et la Sorcière du marécage, ce qu'ils vendent, combien ça coûte et quels objets de valeur tu peux revendre contre des piastres.",
+  "h1": "Les marchands de Valheim",
+  "intro": [
+   "Trois marchands vivent à Valheim, et chacun se cache à un endroit différent dans chaque monde. Haldor vend de l'équipement utile dans la Forêt noire, Hildir vend des vêtements dans les Prairies et te confie une quête, et la Sorcière du marécage vend des ingrédients de cuisine et de brassage dans les Marécages.",
+   "Les chercher sans aide peut prendre des dizaines d'heures. Saisis ta seed sur la carte et tu vois d'un coup tous les camps possibles. Tous les prix de ces pages viennent directement des données du jeu."
+  ],
+  "sellH": "Ce que tu peux vendre",
+  "sellP": [
+   "Les piastres sont la seule monnaie, et tu en obtiens en vendant des objets de valeur. Les trois marchands achètent les mêmes objets aux mêmes prix. Tu trouves des piastres, des rubis et de l'ambre dans les Chambres funéraires, les Grottes de troll, les Cryptes enfouies et les villages gobelins."
+  ],
+  "outro": [
+   "Le camp de chaque marchand est protégé. Les ennemis ne peuvent pas y entrer, ce qui en fait aussi un endroit sûr pour un portail."
+  ],
+  "pageTitle": "{trader} : emplacement, marchandises et prix",
+  "pageDesc": "Où trouver {trader} dans Valheim et ce qui est en vente : les {n} marchandises avec leurs prix, leurs conditions de déblocage et des astuces. Trouve le camp dans ton monde (biome : {biome}) grâce à la carte par seed.",
+  "showOnMap": "{trader} : afficher sur la carte",
+  "findH": "{trader} : où trouver le camp",
+  "waresH": "{trader} : marchandises en vente",
+  "tipsH": "Astuces",
+  "list": {
+   "haldor": {
+    "teaser": "équipement, pêche et plus de place dans l'inventaire",
+    "lead": "Haldor est un marchand dvergr qui campe dans la Forêt noire avec son lox Halstein. Il vend certains des objets les plus utiles du jeu, à commencer par la ceinture Megingjord, qui te permet de porter 150 de poids en plus.",
+    "find": [
+     "Le camp de Haldor se trouve toujours dans la Forêt noire. Le jeu prépare jusqu'à dix camps possibles par monde, en général à plus de 1 500 mètres du centre de la carte. Le premier dont tu t'approches devient le vrai camp, et tous les autres disparaissent.",
+     "Quand tu arrives à quelques centaines de mètres, une icône de sac apparaît sur ta carte. Le camp est entouré d'une bulle protectrice qui empêche les ennemis d'entrer. Impossible de construire à l'intérieur, mais un portail juste à l'extérieur de la bulle fait très bien l'affaire."
+    ],
+    "waresP": [
+     "Une partie de son étal n'est disponible qu'après avoir vaincu certains boss. Les prix sont en piastres."
+    ],
+    "tips": [
+     "Achète **Megingjord** en premier. 150 de poids transportable en plus, ça aide pour tout, du minage au retour en bateau avec le fer.",
+     "Le **Diadème de dverger** est une lampe frontale qui te laisse les mains libres. Très pratique dans les cryptes et les grottes, mais il occupe l'emplacement du casque.",
+     "Les **Poches agrandies** et les **Poches approfondies** ajoutent chacune une rangée permanente à ton inventaire. Elles coûtent cher mais valent chaque piastre.",
+     "La **Chair d'Ymir** est nécessaire pour la Masse de fer, Argivre et d'autres objets puissants. Les **Pierres de tonnerre** servent à construire l'Oblitérateur.",
+     "Un **Œuf** donne un poulet si tu le gardes au chaud. Deux cocottes suffisent pour produire tes propres œufs et ta viande de poulet, tu n'as donc besoin d'en acheter que deux.",
+     "La **Canne à pêche** ne fonctionne qu'avec un appât. L'appât simple que vend Haldor sert de base à tous les appâts spéciaux du jeu.",
+     "Mets de côté avant le voyage : avec environ 2 000 piastres, tu peux t'offrir la ceinture, le diadème et la canne à pêche en une seule visite."
+    ]
+   },
+   "hildir": {
+    "teaser": "vêtements, barbier et une quête en trois parties",
+    "lead": "Hildir est la sœur de Haldor. Elle vend des vêtements, des chapeaux et des articles de fête dans les Prairies. La plus grande partie de son stock a été volée, et elle te demande de lui rapporter trois coffres cachés dans trois donjons spéciaux.",
+    "find": [
+     "Le camp de Hildir se trouve dans les Prairies, mais loin du point d'apparition, en général à au moins 3 000 mètres du centre de la carte. Comme pour Haldor, il existe jusqu'à dix camps possibles, et le premier dont tu t'approches devient le vrai.",
+     "Une icône de chemise apparaît sur ta carte quand tu t'approches. Dans son camp se trouve une table de carte. En la lisant, tu marques sur ta carte le plus proche de ses donjons de quête."
+    ],
+    "waresP": [
+     "Au début, elle ne vend qu'une poignée d'objets. Chaque coffre que tu lui rapportes débloque une autre partie de son stock."
+    ],
+    "tips": [
+     "Le **Coffre en cuivre** se trouve dans un Tombeau bouillant de la Forêt noire, le **Coffre en argent** dans une Caverne hurlante de la Montagne et le **Coffre en bronze** dans une Tour scellée des Plaines. Chacun est gardé par un mini-boss.",
+     "Les coffres ne passent pas par les portails et ils sont lourds. Prévois le retour à pied, en charrette ou en bateau avant d'y entrer.",
+     "Les donjons de quête sont de plus en plus difficiles dans cet ordre. Brenna, dans le tombeau, inflige des dégâts de feu, Geirrhafa, dans la caverne, des dégâts de glace, et les deux frères gobelins Zil et Thungr, dans la tour, combattent ensemble.",
+     "Tous les donjons de quête figurent aussi sur la carte. Active les marqueurs de la quête de Hildir pour trouver les plus proches de son camp.",
+     "Le **Nécessaire de barbier** sert à construire un Barbier, où tu peux changer de coiffure et de barbe quand tu veux.",
+     "Ses vêtements sont surtout esthétiques, mais ils sont légers et ne te ralentissent pas. Les tenues **des moissons** sont très appréciées pour l'agriculture.",
+     "Le **Brasero** est un foyer décoratif, et les feux d'artifice ont besoin d'un Feu de joie pour être tirés."
+    ]
+   },
+   "bogwitch": {
+    "teaser": "ingrédients pour les festins, les hydromels et l'agriculture",
+    "lead": "La Sorcière du marécage vit dans une cabane de travers dans les Marécages, avec son géant Kvastur. Elle vend des ingrédients introuvables ailleurs : des épices pour les grands festins, de quoi brasser de nouveaux hydromels et des choses utiles pour ta ferme.",
+    "find": [
+     "Le camp de la Sorcière du marécage se trouve dans les Marécages. Là aussi, le jeu prépare jusqu'à dix camps possibles, et le premier dont tu t'approches reste dans ton monde.",
+     "Une icône de chaudron apparaît sur ta carte quand tu es à proximité. Son camp est protégé contre les ennemis, ce qui en fait un refuge bienvenu dans les Marécages. Prends quand même de l'Hydromel de résistance au poison pour le trajet."
+    ],
+    "waresP": [
+     "La plupart de ses épices ne sont disponibles qu'après avoir vaincu le boss du biome correspondant. Beaucoup d'objets se vendent par lots. Le tableau indique le prix par lot."
+    ],
+    "tips": [
+     "Les **épices** sont l'ingrédient clé des festins. Un festin posé sur une table nourrit tout le groupe avec l'un des meilleurs plats de son niveau, et il offre de nombreuses portions.",
+     "Le **Plateau de service** te permet de transporter un festin préparé et de le poser ailleurs, par exemple juste avant un combat de boss.",
+     "Le **Manche de faux** est nécessaire pour fabriquer la Faux, qui récolte des champs entiers d'un seul geste. C'est l'un des meilleurs achats si tu cultives beaucoup.",
+     "Les **Mèches de bougie** servent à fabriquer des bougies, et les **Graines de lierre** font pousser du lierre grimpant sur tes bâtiments.",
+     "Les Algues fraîches, le Tendon d'écureuil séché, les Coquilles d'œuf de dragon en poudre et les Cailloux odorants sont des ingrédients des hydromels récents, qui améliorent des compétences comme la nage et la course ou protègent de la foudre.",
+     "Les Amanites et les Bottes parfumées deviennent disponibles après Moder. Elles servent à l'Hydromel des berserkir et à un hydromel qui te débarrasse des effets négatifs.",
+     "Ses marchandises sont bon marché comparées à celles de Haldor. Quelques centaines de piastres suffisent pour une première visite."
+    ]
+   }
+  }
+ }
+}
