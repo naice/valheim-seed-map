@@ -44,7 +44,9 @@
   "language": "Idioma",
   "langTitle": "Elegir idioma",
   "donate": "Donar",
-  "donateTitle": "Apoyar el proyecto en Ko-fi"
+  "donateTitle": "Apoyar el proyecto en Ko-fi",
+  "pageTitle": "Valheim Map – Mapa interactivo de semillas con todos los lugares",
+  "metaDesc": "Mapa interactivo gratuito de Valheim: introduce una semilla y ve el mundo entero sin niebla – jefes, mercaderes (Haldor, Hildir, Bruja del pantano), mazmorras, criptas, pozos de alquitrán y más de 90 tipos de lugares. Funciona directamente en el navegador."
  },
  "cat": {
   "boss": "Jefes e inicio",

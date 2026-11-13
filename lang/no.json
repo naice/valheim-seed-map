@@ -44,7 +44,9 @@
   "language": "Språk",
   "langTitle": "Velg språk",
   "donate": "Doner",
-  "donateTitle": "Støtt prosjektet på Ko-fi"
+  "donateTitle": "Støtt prosjektet på Ko-fi",
+  "pageTitle": "Valheim Map – Interaktivt seed-kart med alle steder",
+  "metaDesc": "Gratis interaktivt Valheim-kart: skriv inn en seed og se hele verden uten tåke – bosser, handelsmenn (Haldor, Hildir, Myrheksa), dungeons, krypter, tjæregroper og over 90 andre stedstyper. Kjører rett i nettleseren."
  },
  "cat": {
   "boss": "Bosser og start",

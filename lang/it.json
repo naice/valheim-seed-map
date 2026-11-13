@@ -44,7 +44,9 @@
   "language": "Lingua",
   "langTitle": "Scegli la lingua",
   "donate": "Dona",
-  "donateTitle": "Sostieni il progetto su Ko-fi"
+  "donateTitle": "Sostieni il progetto su Ko-fi",
+  "pageTitle": "Valheim Map – Mappa interattiva dei seed con tutti i luoghi",
+  "metaDesc": "Mappa interattiva gratuita di Valheim: inserisci un seed e guarda tutto il mondo senza nebbia – boss, mercanti (Haldor, Hildir, Strega della palude), dungeon, cripte, pozze di catrame e oltre 90 altri tipi di luoghi. Funziona direttamente nel browser."
  },
  "cat": {
   "boss": "Boss e partenza",

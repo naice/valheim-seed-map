@@ -46,7 +46,9 @@ async function loadLang(code) {
     lang = code;
   } catch { return false; }
   document.documentElement.lang = locale();
-  document.title = t('title');
+  document.title = t('pageTitle');
+  for (const [sel, key] of [['meta[name="description"]', 'metaDesc'], ['meta[property="og:description"]', 'metaDesc'], ['meta[property="og:title"]', 'pageTitle']])
+    document.querySelector(sel)?.setAttribute('content', t(key));
   for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
   for (const a of ['placeholder', 'title', 'aria-label'])
     for (const el of document.querySelectorAll(`[data-i18n-${a}]`)) el.setAttribute(a, t(el.getAttribute('data-i18n-' + a)));

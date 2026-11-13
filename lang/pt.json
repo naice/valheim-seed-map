@@ -44,7 +44,9 @@
   "language": "Idioma",
   "langTitle": "Escolher idioma",
   "donate": "Doar",
-  "donateTitle": "Apoiar o projeto no Ko-fi"
+  "donateTitle": "Apoiar o projeto no Ko-fi",
+  "pageTitle": "Valheim Map – Mapa interativo de seeds com todos os locais",
+  "metaDesc": "Mapa interativo gratuito de Valheim: introduz uma seed e vê o mundo inteiro sem névoa – chefes, mercadores (Haldor, Hildir, Bruxa do pântano), masmorras, criptas, poços de alcatrão e mais de 90 outros tipos de locais. Funciona diretamente no navegador."
  },
  "cat": {
   "boss": "Chefes e início",

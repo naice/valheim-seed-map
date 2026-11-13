@@ -44,7 +44,9 @@
   "language": "Taal",
   "langTitle": "Taal kiezen",
   "donate": "Doneren",
-  "donateTitle": "Steun het project op Ko-fi"
+  "donateTitle": "Steun het project op Ko-fi",
+  "pageTitle": "Valheim Map – Interactieve seed-kaart met alle locaties",
+  "metaDesc": "Gratis interactieve Valheim-kaart: voer een seed in en bekijk de hele wereld zonder mist – bazen, handelaren (Haldor, Hildir, Moerasheks), kerkers, crypten, teerputten en meer dan 90 andere locatietypen. Werkt direct in de browser."
  },
  "cat": {
   "boss": "Bazen & start",

@@ -44,7 +44,9 @@
   "language": "Sprache",
   "langTitle": "Sprache wählen",
   "donate": "Spenden",
-  "donateTitle": "Das Projekt auf Ko-fi unterstützen"
+  "donateTitle": "Das Projekt auf Ko-fi unterstützen",
+  "pageTitle": "Valheim-Map – Interaktive Seed-Karte mit allen Orten",
+  "metaDesc": "Kostenlose interaktive Valheim-Karte: Seed eingeben und die ganze Welt ohne Nebel sehen – mit Bossen, Händlern (Haldor, Hildir, Moorhexe), Dungeons, Krypten, Teergruben und über 90 weiteren Ortstypen. Läuft direkt im Browser."
  },
  "cat": {
   "boss": "Bosse & Start",

@@ -44,7 +44,9 @@
   "language": "Langue",
   "langTitle": "Choisir la langue",
   "donate": "Faire un don",
-  "donateTitle": "Soutenir le projet sur Ko-fi"
+  "donateTitle": "Soutenir le projet sur Ko-fi",
+  "pageTitle": "Valheim Map – Carte interactive des seeds avec tous les lieux",
+  "metaDesc": "Carte interactive gratuite de Valheim : saisissez un seed et découvrez le monde entier sans brouillard – boss, marchands (Haldor, Hildir, Sorcière des marais), donjons, cryptes, fosses à goudron et plus de 90 autres types de lieux. Fonctionne directement dans le navigateur."
  },
  "cat": {
   "boss": "Boss et départ",

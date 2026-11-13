@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valheim-map.de/sitemap.xml

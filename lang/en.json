@@ -44,7 +44,9 @@
   "language": "Language",
   "langTitle": "Choose language",
   "donate": "Donate",
-  "donateTitle": "Support the project on Ko-fi"
+  "donateTitle": "Support the project on Ko-fi",
+  "pageTitle": "Valheim Map – Interactive Seed Map with All Locations",
+  "metaDesc": "Free interactive Valheim map: enter any world seed and see the whole world without fog – bosses, traders (Haldor, Hildir, Bog Witch), dungeons, crypts, tar pits and 90+ other location types. Runs entirely in your browser."
  },
  "cat": {
   "boss": "Bosses & Start",

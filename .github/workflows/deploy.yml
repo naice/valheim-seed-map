@@ -19,7 +19,7 @@ jobs:
       - name: Website zusammenstellen
         run: |
           mkdir -p _site
-          cp -r index.html favicon.ico css js data lang poi-icons _site/
+          cp -r index.html favicon.ico robots.txt sitemap.xml css js data lang poi-icons _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
