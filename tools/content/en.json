@@ -4,6 +4,7 @@
   "seeds": "Best seeds",
   "bosses": "Bosses",
   "traders": "Traders",
+  "items": "Items",
   "guides": "Guides & FAQ"
  },
  "common": {
@@ -564,6 +565,126 @@
      "Her wares are cheap compared with Haldor's. A few hundred coins are enough for a first visit."
     ]
    }
+  }
+ },
+ "items": {
+  "title": "Valheim items: where to find them, tools and recipes",
+  "desc": "All {n} Valheim items with biome, source, required tool, recipe and uses – read directly from the game files.",
+  "h1": "Valheim item list",
+  "teaser": "Sources, biomes, tools and recipes",
+  "searchPh": "Search item or source, e.g. wood, birch, troll …",
+  "noResult": "No item found.",
+  "count": "{n} items",
+  "catTitle": "{cat} in Valheim: sources, tools and recipes",
+  "catDesc": "{cat} in Valheim – {n} items with biome, source, required tool, recipe and uses.",
+  "allCats": "All categories",
+  "cats": {
+   "materials": "Materials",
+   "food": "Food & potions",
+   "weapons": "Weapons, tools & ammo",
+   "armor": "Armour, shields & accessories",
+   "trophies": "Trophies",
+   "misc": "Fish & miscellaneous"
+  },
+  "srcH": "How to get it",
+  "useH": "Used for",
+  "none": "No regular source known.",
+  "f": {
+   "weight": "Weight",
+   "stack": "Stack",
+   "teleport": "Teleportable",
+   "yes": "yes",
+   "no": "no",
+   "value": "Sell value",
+   "armor": "Armour",
+   "block": "Block power",
+   "damage": "Damage",
+   "health": "Health",
+   "stamina": "Stamina",
+   "eitr": "Eitr",
+   "duration": "Duration",
+   "minutes": "{n} min",
+   "chop": "Chop",
+   "pickaxe": "Pickaxe"
+  },
+  "s": {
+   "chop": "Chop down",
+   "mine": "Mine",
+   "pick": "Pick up",
+   "destroy": "Break",
+   "chest": "Chests",
+   "loot": "Loot",
+   "creature": "Dropped by",
+   "recipe": "Craft",
+   "smelt": "Process",
+   "cook": "Cook",
+   "ferment": "Ferment",
+   "trader": "Buy",
+   "grow": "Grow",
+   "produce": "Produced by",
+   "fish": "Fishing",
+   "fishdrop": "Bonus when catching"
+  },
+  "g": {
+   "shrub": "Bushes and shrubs",
+   "object": "Destructible objects",
+   "ground": "Lying on the ground or growing wild"
+  },
+  "t": {
+   "tool": "Tool",
+   "axe": "any axe",
+   "pickaxe": "any pickaxe",
+   "axepick": "axe or pickaxe",
+   "orBetter": "{tool} or better"
+  },
+  "x": {
+   "chance": "{n} % chance",
+   "level": "level {n}",
+   "byHand": "no crafting station needed",
+   "coins": "{n} coins",
+   "bred": "bred animals",
+   "boss": "Boss",
+   "bait": "Bait",
+   "from": "from",
+   "oneOf": "one of these ingredients is enough",
+   "fuel": "Fuel",
+   "seed": "Plant",
+   "perLevel": "per upgrade",
+   "more": "Show all {n}",
+   "on": "only on: {name}",
+   "night": "at night only"
+  },
+  "u": {
+   "recipe": "Ingredient for",
+   "piece": "Building material for",
+   "convert": "Is processed into",
+   "fuel": "Fuel for",
+   "feed": "Food for taming",
+   "summon": "Summons the boss",
+   "bait": "Bait for"
+  },
+  "intro": [
+   "Where does it drop, which biome do you need and which tool? This list covers **{n} items** – materials, food, weapons, armour and trophies. For each item you see where it comes from (trees, ore deposits, creatures, chests, traders), the tool you need, the recipe and what it is used for. All data is read directly from the game files (version {version})."
+  ],
+  "lists": {
+   "title": "My lists",
+   "add": "Add to list",
+   "fromRecipe": "List from recipe",
+   "view": "View lists",
+   "added": "Added to list “{list}”.",
+   "created": "List “{list}” created.",
+   "defaultName": "My list",
+   "newPh": "Name of the new list",
+   "create": "Create list",
+   "choose": "Choose list",
+   "del": "Delete list",
+   "confirmDel": "Really delete list “{list}”?",
+   "empty": "No list yet. Create one or click “Add to list” on an item – for recipes, “List from recipe” creates a list of all ingredients right away. Lists are stored in this browser only.",
+   "emptyList": "This list is still empty. Open an item and click “Add to list”.",
+   "progress": "{done} of {n} done",
+   "amount": "Amount",
+   "remove": "Remove",
+   "close": "Close"
   }
  }
 }

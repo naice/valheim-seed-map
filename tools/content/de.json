@@ -4,6 +4,7 @@
   "seeds": "Beste Seeds",
   "bosses": "Bosse",
   "traders": "Händler",
+  "items": "Gegenstände",
   "guides": "Guides & FAQ"
  },
  "common": {
@@ -564,6 +565,126 @@
      "Verglichen mit Haldors Waren sind ihre günstig. Für einen ersten Besuch reichen ein paar hundert Münzen."
     ]
    }
+  }
+ },
+ "items": {
+  "title": "Valheim-Gegenstände: Fundorte, Werkzeuge und Rezepte",
+  "desc": "Alle {n} Gegenstände in Valheim mit Biom, Fundort, benötigtem Werkzeug, Rezept und Verwendung – direkt aus den Spieldateien ausgelesen.",
+  "h1": "Valheim-Gegenstandsliste",
+  "teaser": "Fundorte, Biome, Werkzeuge und Rezepte",
+  "searchPh": "Gegenstand oder Quelle suchen, z. B. Holz, Birke, Troll …",
+  "noResult": "Kein Gegenstand gefunden.",
+  "count": "{n} Gegenstände",
+  "catTitle": "{cat} in Valheim: Fundorte, Werkzeuge und Rezepte",
+  "catDesc": "{cat} in Valheim – {n} Gegenstände mit Biom, Fundort, benötigtem Werkzeug, Rezept und Verwendung.",
+  "allCats": "Alle Kategorien",
+  "cats": {
+   "materials": "Materialien",
+   "food": "Nahrung & Tränke",
+   "weapons": "Waffen, Werkzeuge & Munition",
+   "armor": "Rüstungen, Schilde & Zubehör",
+   "trophies": "Trophäen",
+   "misc": "Fische & Sonstiges"
+  },
+  "srcH": "Herkunft",
+  "useH": "Verwendung",
+  "none": "Keine reguläre Quelle bekannt.",
+  "f": {
+   "weight": "Gewicht",
+   "stack": "Stapel",
+   "teleport": "Teleportierbar",
+   "yes": "ja",
+   "no": "nein",
+   "value": "Verkaufswert",
+   "armor": "Rüstung",
+   "block": "Blockkraft",
+   "damage": "Schaden",
+   "health": "Gesundheit",
+   "stamina": "Ausdauer",
+   "eitr": "Eitr",
+   "duration": "Dauer",
+   "minutes": "{n} min",
+   "chop": "Holzfällen",
+   "pickaxe": "Spitzhacke"
+  },
+  "s": {
+   "chop": "Fällen",
+   "mine": "Abbauen",
+   "pick": "Aufsammeln",
+   "destroy": "Zerschlagen",
+   "chest": "Truhen",
+   "loot": "Beute",
+   "creature": "Beute von",
+   "recipe": "Herstellen",
+   "smelt": "Verarbeiten",
+   "cook": "Garen",
+   "ferment": "Gären",
+   "trader": "Kaufen",
+   "grow": "Anbauen",
+   "produce": "Erzeugt von",
+   "fish": "Angeln",
+   "fishdrop": "Beigabe beim Fang von"
+  },
+  "g": {
+   "shrub": "Büsche und Sträucher",
+   "object": "Zerstörbare Objekte",
+   "ground": "Liegt am Boden bzw. wächst wild"
+  },
+  "t": {
+   "tool": "Werkzeug",
+   "axe": "beliebige Axt",
+   "pickaxe": "beliebige Spitzhacke",
+   "axepick": "Axt oder Spitzhacke",
+   "orBetter": "{tool} oder besser"
+  },
+  "x": {
+   "chance": "{n} % Chance",
+   "level": "Stufe {n}",
+   "byHand": "ohne Werkbank",
+   "coins": "{n} Münzen",
+   "bred": "Zucht",
+   "boss": "Boss",
+   "bait": "Köder",
+   "from": "aus",
+   "oneOf": "eine dieser Zutaten genügt",
+   "fuel": "Brennstoff",
+   "seed": "Pflanzen",
+   "perLevel": "je Aufwertung",
+   "more": "Alle {n} anzeigen",
+   "on": "nur auf: {name}",
+   "night": "nur nachts"
+  },
+  "u": {
+   "recipe": "Zutat für",
+   "piece": "Baumaterial für",
+   "convert": "Wird verarbeitet zu",
+   "fuel": "Brennstoff für",
+   "feed": "Futter zum Zähmen von",
+   "summon": "Beschwört den Boss",
+   "bait": "Köder für"
+  },
+  "intro": [
+   "Wo gibt es das, in welchem Biom und mit welchem Werkzeug? Diese Liste umfasst **{n} Gegenstände** – Materialien, Nahrung, Waffen, Rüstungen und Trophäen. Zu jedem Gegenstand steht, woher er kommt (Bäume, Erzvorkommen, Kreaturen, Truhen, Händler), welches Werkzeug du brauchst, das Rezept und wofür er verwendet wird. Alle Angaben sind direkt aus den Spieldateien ausgelesen (Version {version})."
+  ],
+  "lists": {
+   "title": "Meine Listen",
+   "add": "Auf die Liste",
+   "fromRecipe": "Liste aus Rezept",
+   "view": "Listen ansehen",
+   "added": "Zur Liste „{list}“ hinzugefügt.",
+   "created": "Liste „{list}“ angelegt.",
+   "defaultName": "Meine Liste",
+   "newPh": "Name der neuen Liste",
+   "create": "Liste anlegen",
+   "choose": "Liste auswählen",
+   "del": "Liste löschen",
+   "confirmDel": "Liste „{list}“ wirklich löschen?",
+   "empty": "Noch keine Liste. Lege eine an oder klicke bei einem Gegenstand auf „Auf die Liste“ – bei Rezepten erzeugt „Liste aus Rezept“ direkt eine Liste aller Zutaten. Die Listen werden nur in diesem Browser gespeichert.",
+   "emptyList": "Diese Liste ist noch leer. Öffne einen Gegenstand und klicke auf „Auf die Liste“.",
+   "progress": "{done} von {n} erledigt",
+   "amount": "Menge",
+   "remove": "Entfernen",
+   "close": "Schließen"
   }
  }
 }

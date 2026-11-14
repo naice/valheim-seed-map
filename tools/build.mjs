@@ -4,6 +4,7 @@
 //   /seeds/      beste Seeds                        /de/seeds/ …
 //   /bosses/     Übersicht + eine Seite je Boss     /de/bosses/eikthyr/ …
 //   /traders/    Übersicht + eine Seite je Händler  /de/traders/haldor/ …
+//   /items/      Gegenstände: Suche + eine Seite je Kategorie   /de/items/materials/ …
 //   /faq/        Erklärtext, Seed finden, FAQ       /de/faq/ …
 //
 // Quellen: tools/templates/*.html, tools/content/<sprache>.json (Texte), tools/data/*.json (Spieldaten),
@@ -13,6 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { classify } from '../js/locations.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(HERE, '..');
@@ -27,7 +29,9 @@ const KOFI ='https://ko-fi.com/emmuss';
 const json = (...p) => JSON.parse(fs.readFileSync(path.join(HERE, ...p), 'utf8'));
 const UI = Object.fromEntries(LANGS.map(l => [l, JSON.parse(fs.readFileSync(path.join(OUT, 'lang', l + '.json'), 'utf8'))]));
 const C = Object.fromEntries(LANGS.map(l => [l, json('content', l + '.json')]));
-const NAMES = json('data', 'names.json');        // Spieltexte: token -> { en, de, … }
+// Spieltexte: token -> { en, de, … }; item-names.json und items.json erzeugt tools/extract aus den Spieldateien
+const NAMES = { ...json('data', 'item-names.json'), ...json('data', 'names.json') };
+const ITEMS = json('data', 'items.json').items;  // Gegenstände mit Herkunft und Verwendung
 const TRADERS = json('data', 'traders.json');
 const BOSSES = json('data', 'bosses.json');
 const SEEDS = json('data', 'seeds.json');
@@ -52,7 +56,8 @@ function pick(obj, dotted) {
 function gameName(token, l) {
   const e = NAMES[token];
   if (!e) throw new Error('Spieltext fehlt: ' + token);
-  return e[l] || (l === 'pt' && e.pt_br) || e.en;
+  // Farbauszeichnung (<color=orange>…) und Zeilenumbrüche der Spieltexte entfernen
+  return (e[l] || (l === 'pt' && e.pt_br) || e.en).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 const icon = (prefab, root, cls = 'item-icon') =>
   ICONS.has(prefab) ? `<img class="${cls}" src="${root}poi-icons/items/${prefab}.png" alt="" width="32" height="32" loading="lazy">` : '';
@@ -117,6 +122,7 @@ const guideCards = (l, root) => {
 ${card(h + 'seeds/', c.nav.seeds, c.seeds.teaser, poi('mapicon_start'))}
 ${card(h + 'bosses/', c.nav.bosses, c.bosses.teaser, poi('mapicon_boss_colored'))}
 ${card(h + 'traders/', c.nav.traders, c.traders.teaser, poi('mapicon_trader'))}
+${card(h + 'items/', c.nav.items, c.items.teaser, `<img src="${root}poi-icons/items/Wood.png" alt="" width="40" height="40" loading="lazy">`)}
 </div>`;
 };
 const langLinks = (l, p, root) => LANGS.map(a =>
@@ -143,7 +149,7 @@ const NAV_FAQ = 'FAQ';                             // in allen neun Sprachen gle
 /** Hauptmenü – auf der Karte und auf allen Inhaltsseiten dasselbe. */
 function siteNav(l, root, active) {
   const c = C[l], h = root + langDir(l);
-  return [['', c.nav.map, 'map'], ['seeds/', c.nav.seeds, 'seeds'], ['bosses/', c.nav.bosses, 'bosses'], ['traders/', c.nav.traders, 'traders'], ['faq/', NAV_FAQ, 'faq']]
+  return [['', c.nav.map, 'map'], ['seeds/', c.nav.seeds, 'seeds'], ['bosses/', c.nav.bosses, 'bosses'], ['traders/', c.nav.traders, 'traders'], ['items/', c.nav.items, 'items'], ['faq/', NAV_FAQ, 'faq']]
     .map(([q, name, id]) => `<a href="${h}${q}"${id === active ? ' aria-current="page"' : ''}>${esc(name)}</a>`).join('\n        ');
 }
 
@@ -391,8 +397,199 @@ ${V.map(v => `    <tr><td>${icon(v.prefab, root)}${esc(gameName(v.name, l))}</td
 </table>`;
 }
 
+// --- Gegenstände: Übersicht mit Suche + eine Seite je Kategorie; jeder Gegenstand ist ein Abschnitt mit Anker
+const ITEM_CATS = ['materials', 'food', 'weapons', 'armor', 'trophies', 'misc'];
+const CAT_ICON = { materials: 'Wood', food: 'CookedMeat', weapons: 'SwordIron', armor: 'HelmetBronze', trophies: 'TrophyDeer', misc: 'Fish1' };
+const ITEM_FILTER = `<script>
+(function () {
+  var q = document.getElementById('itemSearch'), all = [].slice.call(document.querySelectorAll('[data-n]')), none = document.getElementById('noResult');
+  function run() {
+    var v = q.value.trim().toLowerCase(), n = 0;
+    all.forEach(function (e) { var ok = !v || e.getAttribute('data-n').indexOf(v) >= 0 || (e.getAttribute('data-s') || '').indexOf(v) >= 0; e.hidden = !ok; if (ok) n++; });
+    [].forEach.call(document.querySelectorAll('[data-group]'), function (g) { g.hidden = !g.querySelector('[data-n]:not([hidden])'); });
+    none.hidden = n > 0;
+  }
+  q.addEventListener('input', run);
+  if (q.value) run();
+})();
+</script>`;
+function itemPages(l) {
+  const c = C[l], T = c.items, k = c.common, p = 'items/';
+  const coll = new Intl.Collator(HREFLANG[l] || l);
+  const nm = (prefab) => gameName(ITEMS[prefab].n, l);
+  const sorted = (arr) => [...arr].sort((a, b) => coll.compare(nm(a), nm(b)));
+  const byCat = Object.fromEntries(ITEM_CATS.map(cat => [cat, sorted(Object.keys(ITEMS).filter(x => ITEMS[x].cat === cat))]));
+  const total = Object.keys(ITEMS).length;
+  // Suchbegriffe je Gegenstand: Name (data-n) und woher er stammt (data-s) – Objekte, Kreaturen, Orte, Händler
+  const srcKeys = (x) => {
+    const s = new Set();
+    for (const o of ITEMS[x].src) {
+      if (o.name && ['world', 'creature', 'grow', 'produce', 'spawn'].includes(o.k)) s.add(gameName(o.name, l));
+      if (o.on) s.add(gameName(o.on, l));
+      for (const loc of [...(o.k === 'loc' ? [o.loc] : []), ...(o.locs || [])]) { const lab = classify(loc).label; s.add(UI[l].poi[lab] || lab); }
+      if (o.k === 'trader') { const t = TRADERS.find(t => t.id === o.id); if (t) s.add(gameName(t.name, l)); }
+      if (o.k === 'fishdrop') for (const fi of o.fish) if (ITEMS[fi]) s.add(nm(fi));
+    }
+    const name = nm(x).toLowerCase();
+    return [...s].map(v => v.toLowerCase()).filter(v => v !== name).join('|');
+  };
+  const dataAttr = (x) => { const s = srcKeys(x); return `data-n="${esc(nm(x).toLowerCase())}"${s ? ` data-s="${esc(s)}"` : ''}`; };
+  // Listen und Detaildialog (js/items.js): Texte als JSON, das Skript ergänzt die Knöpfe
+  const itemScript = (root) => `<script type="application/json" id="itemsI18n">${JSON.stringify(T.lists).replace(/</g, '\\u003c')}</script>
+<script src="${root}js/items.js"></script>`;
+  const crumbList = [[c.nav.map, ''], [c.nav.items, p]];
+  const search = `<p class="item-search"><input id="itemSearch" type="search" placeholder="${esc(T.searchPh)}" aria-label="${esc(T.searchPh)}" autocomplete="off"></p>
+<p id="noResult" class="dim" hidden>${esc(T.noResult)}</p>`;
+
+  // Übersicht
+  let root = '../'.repeat(depth(l, p));
+  const index = `${bread(l, root, crumbList)}
+<h1>${esc(T.h1)}</h1>
+${ps(T.intro.map(x => fill(x, { n: nf(l, total), version: GAME_VERSION })))}
+<div class="cards">
+${ITEM_CATS.map(cat => `<a class="card" href="${cat}/">${icon(CAT_ICON[cat], root).replace('class="item-icon"', '').replace(/32/g, '40')}<span><strong>${esc(T.cats[cat])}</strong><small>${esc(fill(T.count, { n: byCat[cat].length }))}</small></span></a>`).join('\n')}
+</div>
+<section id="lists" class="lists" hidden></section>
+${search}
+${ITEM_CATS.map(cat => `<section data-group>
+<h2><a href="${cat}/">${esc(T.cats[cat])}</a></h2>
+<div class="item-grid">
+${byCat[cat].map(x => `<a href="${cat}/#${x}" ${dataAttr(x)}>${icon(x, root)}${esc(nm(x))}</a>`).join('\n')}
+</div>
+</section>`).join('\n')}
+<dialog id="itemDialog" class="item-dialog"><button type="button" class="item-dialog-close" aria-label="${esc(T.lists.close)}" title="${esc(T.lists.close)}">×</button><div class="item-dialog-body"></div></dialog>
+${ITEM_FILTER}
+${itemScript(root)}`;
+  contentPage(l, p, { title: T.title, desc: fill(T.desc, { n: total }), body: index, active: 'items', ld: [crumbs(l, crumbList)] });
+
+  // Kategorieseiten
+  for (const cat of ITEM_CATS) {
+    const q = p + cat + '/';
+    root = '../'.repeat(depth(l, q));
+    const h = root + langDir(l);
+    const link = (x, withIcon) => ITEMS[x] ? `<a href="${ITEMS[x].cat === cat ? '' : '../' + ITEMS[x].cat + '/'}#${x}">${withIcon ? icon(x, root, 'item-icon sm') : ''}${esc(nm(x))}</a>` : esc(x);
+    const dim = (parts) => { const a = parts.filter(Boolean); return a.length ? ` <span class="dim">· ${a.join(' · ')}</span>` : ''; };
+    const biomes = (b) => (b || []).map(x => esc(gameName('biome_' + x, l))).join(', ');
+    const amount = (min, max) => (min === max ? (min > 1 ? `${nf(l, min)} ×` : '') : `${nf(l, min)}–${nf(l, max)} ×`);
+    const pct = (ch) => { const v = ch * 100; return nf(l, v < 10 ? Math.max(Math.round(v * 10) / 10, 0.1) : Math.round(v)); };
+    const chance = (lo, hi = lo) => (lo >= 0.95 ? '' : esc(fill(T.x.chance, { n: pct(lo) === pct(hi) ? pct(lo) : pct(lo) + '–' + pct(hi) })));
+    const tool = (s) => !s.tool ? '' : esc(T.t.tool) + ': ' + esc(s.tier > 0 && s.toolItem && ITEMS[s.toolItem] ? fill(T.t.orBetter, { tool: nm(s.toolItem) }) : T.t[s.tool]);
+    const res = (arr, sep = ', ') => arr.map(([x, n]) => `${nf(l, n)} × ${link(x, true)}`).join(sep);
+    const row = (label, html, attr = '') => `    <li${attr}><b>${esc(label)}:</b> ${html}</li>`;
+    const many = (arr) => arr.length <= 14 ? arr.join(', ') : `${arr.slice(0, 10).join(', ')} … <details class="more"><summary>${esc(fill(T.x.more, { n: arr.length }))}</summary>${arr.slice(10).join(', ')}</details>`;
+    const names = (tokens) => [...new Set(tokens.map(t => gameName(t, l)))].sort(coll.compare).map(esc);
+    const bossOf = (token) => BOSSES.find(b => b.name === token);
+    const locLinks = (prefabs) => {
+      const g = new Map();
+      for (const x of prefabs) { const lab = classify(x).label; g.set(lab, [...(g.get(lab) || []), x]); }
+      return [...g].map(([lab, arr]) => `<a href="${mapLink(l, root, { show: arr.join(',') })}" title="${esc(k.showOnMap)}">${esc(UI[l].poi[lab] || lab)}</a>`);
+    };
+
+    const sources = (it) => {
+      const out = [], locs = new Map();
+      // Welt-Objekte zuerst: fällen, abbauen, aufsammeln, zerschlagen – benannte vor Sammelzeilen
+      const rank = (s) => (s.k === 'world' ? ['chop', 'mine', 'pick', 'destroy'].indexOf(s.m) * 2 + (s.name ? 0 : 1) : 9);
+      for (const s of [...it.src].sort((a, b) => rank(a) - rank(b))) {
+        if (s.k === 'world') {
+          const obj = s.name ? gameName(s.name, l) : T.g[s.g || (s.m === 'pick' ? 'ground' : 'object')];
+          out.push(row(T.s[s.m], esc(obj) + dim([biomes(s.b), tool(s), amount(s.min, s.max), chance(s.ch)])));
+        } else if (s.k === 'loc') {
+          const key = s.m + '|' + classify(s.loc).label;
+          const g = locs.get(key) || { m: s.m, prefabs: [], min: s.min, max: s.max, lo: s.ch, hi: s.ch };
+          g.prefabs.push(s.loc); g.min = Math.min(g.min, s.min); g.max = Math.max(g.max, s.max); g.lo = Math.min(g.lo, s.ch); g.hi = Math.max(g.hi, s.ch);
+          locs.set(key, g);
+        } else if (s.k === 'creature') {
+          const b = bossOf(s.name), n = esc(gameName(s.name, l));
+          const where = s.b && s.b.length ? biomes(s.b) : s.locs ? locLinks(s.locs).join(', ') : '';
+          out.push(row(T.s.creature, (b ? `<a href="${h}bosses/${b.id}/">${n}</a>` : n) + dim([s.boss && !b ? esc(T.x.boss) : '', where, s.bred ? esc(T.x.bred) : '', amount(s.min, s.max), chance(s.ch)])));
+        } else if (s.k === 'recipe') {
+          const st = s.st ? esc(gameName(s.st, l)) + (s.lvl > 1 ? ` (${esc(fill(T.x.level, { n: s.lvl }))})` : '') : esc(T.x.byHand);
+          out.push(row(T.s.recipe, `${s.n > 1 ? nf(l, s.n) + ' × ' : ''}${st} ${esc(T.x.from)} ${res(s.res, s.oneOf ? ' / ' : ', ')}`
+            + dim([s.oneOf ? esc(T.x.oneOf) : '', s.up && s.up.length ? esc(T.x.perLevel) + ': ' + res(s.up) : '']),
+            // Zutaten maschinenlesbar: daraus erzeugt js/items.js eine Liste (nicht bei „eine der Zutaten“)
+            s.oneOf || !s.res.length ? '' : ` data-recipe="${s.res.filter(([x]) => ITEMS[x]).map(([x, n]) => `${x}:${n}`).join(',')}"`));
+        } else if (s.k === 'convert') {
+          out.push(row(T.s[s.kind], `${esc(gameName(s.st, l))} ${esc(T.x.from)} ${link(s.from, true)}` + dim([s.fuel ? esc(T.x.fuel) + ': ' + link(s.fuel) : ''])));
+        } else if (s.k === 'trader') {
+          const t = TRADERS.find(o => o.id === s.id), u = s.key ? UNLOCK[s.key] : null;
+          if (!t || (s.key && !u)) throw new Error(`Händlerangabe unbekannt: ${s.id} ${s.key}`);
+          out.push(row(T.s.trader, `<a href="${h}traders/${t.id}/">${esc(gameName(t.name, l))}</a>` + dim([
+            esc(fill(T.x.coins, { n: nf(l, s.price) })) + (s.stack > 1 ? ` (× ${s.stack})` : ''),
+            u ? esc(u[0] === 'boss' ? fill(k.afterBoss, { boss: gameName(u[1], l) }) : fill(k.afterChest, { chest: gameName(u[1], l) })) : ''])));
+        } else if (s.k === 'grow') {
+          out.push(row(T.s.grow, esc(gameName(s.name, l)) + dim([s.seed && s.seed.length ? esc(T.x.seed) + ': ' + res(s.seed) : '', biomes(s.b), amount(s.min, s.max)])));
+        } else if (s.k === 'produce') {
+          out.push(row(T.s.produce, esc(gameName(s.name, l)) + dim([s.on ? esc(fill(T.x.on, { name: gameName(s.on, l) })) : '', biomes(s.b), s.locs ? locLinks(s.locs).join(', ') : '', s.night ? esc(T.x.night) : ''])));
+        } else if (s.k === 'fish') {
+          out.push(row(T.s.fish, [biomes(s.b), s.locs ? locLinks(s.locs).join(', ') : ''].filter(Boolean).join(' · ') + dim([s.baits && s.baits.length ? esc(T.x.bait) + ': ' + s.baits.map(x => link(x)).join(', ') : ''])));
+        } else if (s.k === 'fishdrop') {
+          out.push(row(T.s.fishdrop, sorted(s.fish).map(x => link(x)).join(', ') + dim([chance(s.ch)])));
+        } else throw new Error('Herkunftsart unbekannt: ' + s.k);
+      }
+      // Orte: je Methode eine Zeile, die Orte mit Sprung auf die Karte
+      for (const m of ['chest', 'pick', 'loot', 'destroy', 'mine', 'chop']) {
+        const gs = [...locs.values()].filter(g => g.m === m).sort((a, b) => b.hi - a.hi);
+        if (gs.length) out.push(row(T.s[m], many(gs.map(g => locLinks(g.prefabs)[0] + dim([amount(g.min, g.max), chance(g.lo, g.hi)])))));
+      }
+      return [...new Set(out)];                   // gleichnamige Objekte (z. B. zwei Baumvarianten) nur einmal
+    };
+    const uses = (u) => {
+      const out = [];
+      if (u.recipe) out.push(row(T.u.recipe, many(sorted(u.recipe.filter(x => ITEMS[x])).map(x => link(x)))));
+      if (u.piece) out.push(row(T.u.piece, many(names(u.piece))));
+      if (u.convert) out.push(row(T.u.convert, u.convert.map(x => `${link(x.to, true)} <span class="dim">(${esc(gameName(x.st, l))})</span>`).join(', ')));
+      if (u.fuel) out.push(row(T.u.fuel, names(u.fuel).join(', ')));
+      if (u.feed) out.push(row(T.u.feed, names(u.feed).join(', ')));
+      if (u.summon) out.push(row(T.u.summon, u.summon.map(x => { const b = bossOf(x.boss), n = esc(gameName(x.boss, l)); return (b ? `<a href="${h}bosses/${b.id}/">${n}</a>` : n) + (x.n > 1 ? ` <span class="dim">(${x.n} ×)</span>` : ''); }).join(', ')));
+      if (u.bait) out.push(row(T.u.bait, sorted(u.bait.filter(x => ITEMS[x])).map(x => link(x)).join(', ')));
+      return out;
+    };
+    const meta = (it) => {
+      const f = T.f, m = [`${esc(f.weight)} ${nf(l, it.w)}`];
+      if (it.stack > 1) m.push(`${esc(f.stack)} ${nf(l, it.stack)}`);
+      if (!it.tp) m.push(`<strong>${esc(f.teleport)}: ${esc(f.no)}</strong>`);
+      if (it.value) m.push(`${esc(f.value)} ${nf(l, it.value)}`);
+      if (it.armor) m.push(`${esc(f.armor)} ${nf(l, it.armor)}`);
+      if (it.block) m.push(`${esc(f.block)} ${nf(l, it.block)}`);
+      if (it.dmg) m.push(`${esc(f.damage)} ` + Object.entries(it.dmg).map(([d, v]) => `${nf(l, v)} ${esc(k.dmg[d] || f[d] || d)}`).join(' + '));
+      if (it.food) {
+        const fd = it.food;
+        if (fd.hp) m.push(`${esc(f.health)} ${nf(l, fd.hp)}`);
+        if (fd.stamina) m.push(`${esc(f.stamina)} ${nf(l, fd.stamina)}`);
+        if (fd.eitr) m.push(`${esc(f.eitr)} ${nf(l, fd.eitr)}`);
+        if (fd.time) m.push(`${esc(f.duration)} ${esc(fill(f.minutes, { n: nf(l, Math.round(fd.time / 60)) }))}`);
+      }
+      return m.join(' · ');
+    };
+    const sections = byCat[cat].map(x => {
+      const it = ITEMS[x], n = nm(x), src = sources(it), use = uses(it.use || {});
+      return `<section class="item" id="${x}" ${dataAttr(x)}>
+  <h2>${icon(x, root)}${esc(n)}</h2>
+  ${it.d && NAMES[it.d] ? `<p class="idesc">${esc(gameName(it.d, l))}</p>\n  ` : ''}<p class="imeta">${meta(it)}</p>
+  <h3>${esc(T.srcH)}</h3>
+  ${src.length ? `<ul>\n${src.join('\n')}\n  </ul>` : `<p class="dim">${esc(T.none)}</p>`}${use.length ? `
+  <h3>${esc(T.useH)}</h3>
+  <ul>
+${use.join('\n')}
+  </ul>` : ''}
+</section>`;
+    }).join('\n');
+    const name = T.cats[cat], cl = [...crumbList, [name, q]];
+    const body = `${bread(l, root, cl)}
+<h1>${esc(name)}</h1>
+<p class="lead">${esc(fill(T.catDesc, { cat: name, n: byCat[cat].length }))}</p>
+<nav class="item-cats">${ITEM_CATS.map(o => o === cat ? `<span aria-current="page">${esc(T.cats[o])}</span>` : `<a href="../${o}/">${esc(T.cats[o])}</a>`).join('\n')}
+<a href="../">${esc(T.allCats)}</a></nav>
+${search}
+${sections}
+${ITEM_FILTER}
+${itemScript(root)}`;
+    contentPage(l, q, { title: fill(T.catTitle, { cat: name }), desc: fill(T.catDesc, { cat: name, n: byCat[cat].length }), body, active: 'items', ld: [crumbs(l, cl)] });
+  }
+}
+
 // ------------------------------------------------------------------ Lauf
-for (const l of LANGS) { mapPage(l); faqPage(l); seedsPage(l); bossPages(l); traderPages(l); }
+for (const l of LANGS) { mapPage(l); faqPage(l); seedsPage(l); bossPages(l); traderPages(l); itemPages(l); }
 
 const today = new Date().toISOString().slice(0, 10);
 const paths = [...new Set(written.map(w => w[1]))];

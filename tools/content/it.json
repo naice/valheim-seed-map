@@ -4,6 +4,7 @@
   "seeds": "Migliori seed",
   "bosses": "Boss",
   "traders": "Mercanti",
+  "items": "Oggetti",
   "guides": "Guide e FAQ"
  },
  "common": {
@@ -564,6 +565,126 @@
      "Le sue merci costano poco rispetto a quelle di Haldor. Per una prima visita bastano poche centinaia di monete."
     ]
    }
+  }
+ },
+ "items": {
+  "title": "Oggetti di Valheim: dove trovarli, strumenti e ricette",
+  "desc": "Tutti i {n} oggetti di Valheim con bioma, provenienza, strumento necessario, ricetta e utilizzo – letti direttamente dai file di gioco.",
+  "h1": "Elenco degli oggetti di Valheim",
+  "teaser": "Provenienza, biomi, strumenti e ricette",
+  "searchPh": "Cerca oggetto o fonte, ad es. legno, betulla, troll …",
+  "noResult": "Nessun oggetto trovato.",
+  "count": "{n} oggetti",
+  "catTitle": "{cat} in Valheim: provenienza, strumenti e ricette",
+  "catDesc": "{cat} in Valheim – {n} oggetti con bioma, provenienza, strumento necessario, ricetta e utilizzo.",
+  "allCats": "Tutte le categorie",
+  "cats": {
+   "materials": "Materiali",
+   "food": "Cibo e pozioni",
+   "weapons": "Armi, strumenti e munizioni",
+   "armor": "Armature, scudi e accessori",
+   "trophies": "Trofei",
+   "misc": "Pesci e varie"
+  },
+  "srcH": "Come ottenerlo",
+  "useH": "Utilizzo",
+  "none": "Nessuna fonte regolare nota.",
+  "f": {
+   "weight": "Peso",
+   "stack": "Pila",
+   "teleport": "Teletrasportabile",
+   "yes": "sì",
+   "no": "no",
+   "value": "Valore di vendita",
+   "armor": "Armatura",
+   "block": "Potenza di parata",
+   "damage": "Danni",
+   "health": "Salute",
+   "stamina": "Vigore",
+   "eitr": "Eitr",
+   "duration": "Durata",
+   "minutes": "{n} min",
+   "chop": "Taglio",
+   "pickaxe": "Piccone"
+  },
+  "s": {
+   "chop": "Abbattere",
+   "mine": "Estrarre",
+   "pick": "Raccogliere",
+   "destroy": "Distruggere",
+   "chest": "Forzieri",
+   "loot": "Bottino",
+   "creature": "Lasciato da",
+   "recipe": "Fabbricare",
+   "smelt": "Lavorare",
+   "cook": "Cuocere",
+   "ferment": "Fermentare",
+   "trader": "Comprare",
+   "grow": "Coltivare",
+   "produce": "Prodotto da",
+   "fish": "Pesca",
+   "fishdrop": "Bonus alla cattura di"
+  },
+  "g": {
+   "shrub": "Cespugli e arbusti",
+   "object": "Oggetti distruttibili",
+   "ground": "A terra o allo stato selvatico"
+  },
+  "t": {
+   "tool": "Strumento",
+   "axe": "qualsiasi ascia",
+   "pickaxe": "qualsiasi piccone",
+   "axepick": "ascia o piccone",
+   "orBetter": "{tool} o migliore"
+  },
+  "x": {
+   "chance": "{n} % di probabilità",
+   "level": "livello {n}",
+   "byHand": "senza banco da lavoro",
+   "coins": "{n} monete",
+   "bred": "allevamento",
+   "boss": "Boss",
+   "bait": "Esca",
+   "from": "da",
+   "oneOf": "basta uno di questi ingredienti",
+   "fuel": "Combustibile",
+   "seed": "Piantare",
+   "perLevel": "per miglioramento",
+   "more": "Mostra tutti i {n}",
+   "on": "solo su: {name}",
+   "night": "solo di notte"
+  },
+  "u": {
+   "recipe": "Ingrediente per",
+   "piece": "Materiale da costruzione per",
+   "convert": "Viene trasformato in",
+   "fuel": "Combustibile per",
+   "feed": "Cibo per addomesticare",
+   "summon": "Evoca il boss",
+   "bait": "Esca per"
+  },
+  "intro": [
+   "Dove si trova, in quale bioma e con quale strumento? Questo elenco comprende **{n} oggetti** – materiali, cibo, armi, armature e trofei. Per ogni oggetto vedi da dove proviene (alberi, giacimenti, creature, forzieri, mercanti), lo strumento necessario, la ricetta e a cosa serve. Tutti i dati sono letti direttamente dai file di gioco (versione {version})."
+  ],
+  "lists": {
+   "title": "Le mie liste",
+   "add": "Aggiungi alla lista",
+   "fromRecipe": "Lista dalla ricetta",
+   "view": "Vedi le liste",
+   "added": "Aggiunto alla lista «{list}».",
+   "created": "Lista «{list}» creata.",
+   "defaultName": "La mia lista",
+   "newPh": "Nome della nuova lista",
+   "create": "Crea lista",
+   "choose": "Scegli lista",
+   "del": "Elimina lista",
+   "confirmDel": "Eliminare davvero la lista «{list}»?",
+   "empty": "Ancora nessuna lista. Creane una o clicca su «Aggiungi alla lista» in un oggetto – per le ricette, «Lista dalla ricetta» crea subito una lista di tutti gli ingredienti. Le liste vengono salvate solo in questo browser.",
+   "emptyList": "Questa lista è ancora vuota. Apri un oggetto e clicca su «Aggiungi alla lista».",
+   "progress": "{done} di {n} completati",
+   "amount": "Quantità",
+   "remove": "Rimuovi",
+   "close": "Chiudi"
   }
  }
 }

@@ -4,6 +4,7 @@
   "seeds": "Beste seeds",
   "bosses": "Bazen",
   "traders": "Handelaren",
+  "items": "Voorwerpen",
   "guides": "Gidsen & FAQ"
  },
  "common": {
@@ -564,6 +565,126 @@
      "Vergeleken met Haldor is haar koopwaar goedkoop. Een paar honderd munten zijn genoeg voor een eerste bezoek."
     ]
    }
+  }
+ },
+ "items": {
+  "title": "Valheim-voorwerpen: vindplaatsen, gereedschap en recepten",
+  "desc": "Alle {n} voorwerpen in Valheim met bioom, vindplaats, benodigd gereedschap, recept en gebruik – rechtstreeks uit de spelbestanden gelezen.",
+  "h1": "Voorwerpenlijst van Valheim",
+  "teaser": "Vindplaatsen, biomen, gereedschap en recepten",
+  "searchPh": "Zoek voorwerp of bron, bijv. hout, berk, trol …",
+  "noResult": "Geen voorwerp gevonden.",
+  "count": "{n} voorwerpen",
+  "catTitle": "{cat} in Valheim: vindplaatsen, gereedschap en recepten",
+  "catDesc": "{cat} in Valheim – {n} voorwerpen met bioom, vindplaats, benodigd gereedschap, recept en gebruik.",
+  "allCats": "Alle categorieën",
+  "cats": {
+   "materials": "Materialen",
+   "food": "Voedsel en drankjes",
+   "weapons": "Wapens, gereedschap en munitie",
+   "armor": "Uitrusting, schilden en accessoires",
+   "trophies": "Trofeeën",
+   "misc": "Vissen en overig"
+  },
+  "srcH": "Zo kom je eraan",
+  "useH": "Gebruik",
+  "none": "Geen reguliere bron bekend.",
+  "f": {
+   "weight": "Gewicht",
+   "stack": "Stapel",
+   "teleport": "Teleporteerbaar",
+   "yes": "ja",
+   "no": "nee",
+   "value": "Verkoopwaarde",
+   "armor": "Bepantsering",
+   "block": "Blokkeerkracht",
+   "damage": "Schade",
+   "health": "Gezondheid",
+   "stamina": "Uithoudingsvermogen",
+   "eitr": "Eitr",
+   "duration": "Duur",
+   "minutes": "{n} min",
+   "chop": "Hakken",
+   "pickaxe": "Houweel"
+  },
+  "s": {
+   "chop": "Omhakken",
+   "mine": "Delven",
+   "pick": "Oprapen",
+   "destroy": "Kapotslaan",
+   "chest": "Kisten",
+   "loot": "Buit",
+   "creature": "Buit van",
+   "recipe": "Maken",
+   "smelt": "Verwerken",
+   "cook": "Bereiden",
+   "ferment": "Fermenteren",
+   "trader": "Kopen",
+   "grow": "Kweken",
+   "produce": "Geproduceerd door",
+   "fish": "Vissen",
+   "fishdrop": "Bonus bij het vangen van"
+  },
+  "g": {
+   "shrub": "Struiken",
+   "object": "Vernietigbare objecten",
+   "ground": "Ligt op de grond of groeit in het wild"
+  },
+  "t": {
+   "tool": "Gereedschap",
+   "axe": "elke bijl",
+   "pickaxe": "elk houweel",
+   "axepick": "bijl of houweel",
+   "orBetter": "{tool} of beter"
+  },
+  "x": {
+   "chance": "{n} % kans",
+   "level": "niveau {n}",
+   "byHand": "zonder werkbank",
+   "coins": "{n} munten",
+   "bred": "fokken",
+   "boss": "Baas",
+   "bait": "Aas",
+   "from": "uit",
+   "oneOf": "één van deze ingrediënten volstaat",
+   "fuel": "Brandstof",
+   "seed": "Planten",
+   "perLevel": "per upgrade",
+   "more": "Toon alle {n}",
+   "on": "alleen op: {name}",
+   "night": "alleen 's nachts"
+  },
+  "u": {
+   "recipe": "Ingrediënt voor",
+   "piece": "Bouwmateriaal voor",
+   "convert": "Wordt verwerkt tot",
+   "fuel": "Brandstof voor",
+   "feed": "Voer om te temmen",
+   "summon": "Roept de baas op",
+   "bait": "Aas voor"
+  },
+  "intro": [
+   "Waar vind je het, in welk bioom en met welk gereedschap? Deze lijst bevat **{n} voorwerpen** – materialen, voedsel, wapens, uitrusting en trofeeën. Bij elk voorwerp zie je waar het vandaan komt (bomen, ertsaders, wezens, kisten, handelaren), welk gereedschap je nodig hebt, het recept en waarvoor het dient. Alle gegevens zijn rechtstreeks uit de spelbestanden gelezen (versie {version})."
+  ],
+  "lists": {
+   "title": "Mijn lijsten",
+   "add": "Op de lijst",
+   "fromRecipe": "Lijst van recept",
+   "view": "Lijsten bekijken",
+   "added": "Toegevoegd aan lijst ‘{list}’.",
+   "created": "Lijst ‘{list}’ aangemaakt.",
+   "defaultName": "Mijn lijst",
+   "newPh": "Naam van de nieuwe lijst",
+   "create": "Lijst aanmaken",
+   "choose": "Lijst kiezen",
+   "del": "Lijst verwijderen",
+   "confirmDel": "Lijst ‘{list}’ echt verwijderen?",
+   "empty": "Nog geen lijst. Maak er een aan of klik bij een voorwerp op ‘Op de lijst’ – bij recepten maakt ‘Lijst van recept’ direct een lijst van alle ingrediënten. De lijsten worden alleen in deze browser opgeslagen.",
+   "emptyList": "Deze lijst is nog leeg. Open een voorwerp en klik op ‘Op de lijst’.",
+   "progress": "{done} van {n} klaar",
+   "amount": "Aantal",
+   "remove": "Verwijderen",
+   "close": "Sluiten"
   }
  }
 }

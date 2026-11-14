@@ -4,6 +4,7 @@
   "seeds": "Beste seeds",
   "bosses": "Bosser",
   "traders": "Kremmere",
+  "items": "Gjenstander",
   "guides": "Guider og FAQ"
  },
  "common": {
@@ -564,6 +565,126 @@
      "Varene hennes er billige sammenlignet med Haldors. Noen hundre mynter holder til et første besøk."
     ]
    }
+  }
+ },
+ "items": {
+  "title": "Valheim-gjenstander: funnsteder, verktøy og oppskrifter",
+  "desc": "Alle {n} gjenstander i Valheim med biom, funnsted, nødvendig verktøy, oppskrift og bruk – lest direkte fra spillfilene.",
+  "h1": "Gjenstandsliste for Valheim",
+  "teaser": "Funnsteder, biomer, verktøy og oppskrifter",
+  "searchPh": "Søk etter gjenstand eller kilde, f.eks. tre, bjørk, troll …",
+  "noResult": "Ingen gjenstand funnet.",
+  "count": "{n} gjenstander",
+  "catTitle": "{cat} i Valheim: funnsteder, verktøy og oppskrifter",
+  "catDesc": "{cat} i Valheim – {n} gjenstander med biom, funnsted, nødvendig verktøy, oppskrift og bruk.",
+  "allCats": "Alle kategorier",
+  "cats": {
+   "materials": "Materialer",
+   "food": "Mat og drikker",
+   "weapons": "Våpen, verktøy og ammunisjon",
+   "armor": "Rustninger, skjold og tilbehør",
+   "trophies": "Trofeer",
+   "misc": "Fisk og diverse"
+  },
+  "srcH": "Slik får du den",
+  "useH": "Brukes til",
+  "none": "Ingen vanlig kilde kjent.",
+  "f": {
+   "weight": "Vekt",
+   "stack": "Stabel",
+   "teleport": "Kan teleporteres",
+   "yes": "ja",
+   "no": "nei",
+   "value": "Salgsverdi",
+   "armor": "Rustning",
+   "block": "Blokkeringskraft",
+   "damage": "Skade",
+   "health": "Helse",
+   "stamina": "Utholdenhet",
+   "eitr": "Eitr",
+   "duration": "Varighet",
+   "minutes": "{n} min",
+   "chop": "Hogst",
+   "pickaxe": "Hakke"
+  },
+  "s": {
+   "chop": "Hogg ned",
+   "mine": "Utvinn",
+   "pick": "Plukk opp",
+   "destroy": "Knus",
+   "chest": "Kister",
+   "loot": "Bytte",
+   "creature": "Slippes av",
+   "recipe": "Lag",
+   "smelt": "Bearbeid",
+   "cook": "Stek",
+   "ferment": "Gjær",
+   "trader": "Kjøp",
+   "grow": "Dyrk",
+   "produce": "Produseres av",
+   "fish": "Fiske",
+   "fishdrop": "Bonus ved fangst av"
+  },
+  "g": {
+   "shrub": "Busker og kratt",
+   "object": "Objekter som kan ødelegges",
+   "ground": "Ligger på bakken eller vokser vilt"
+  },
+  "t": {
+   "tool": "Verktøy",
+   "axe": "hvilken som helst øks",
+   "pickaxe": "hvilken som helst hakke",
+   "axepick": "øks eller hakke",
+   "orBetter": "{tool} eller bedre"
+  },
+  "x": {
+   "chance": "{n} % sjanse",
+   "level": "nivå {n}",
+   "byHand": "uten arbeidsbenk",
+   "coins": "{n} mynter",
+   "bred": "avl",
+   "boss": "Boss",
+   "bait": "Agn",
+   "from": "av",
+   "oneOf": "én av disse ingrediensene holder",
+   "fuel": "Brensel",
+   "seed": "Plant",
+   "perLevel": "per oppgradering",
+   "more": "Vis alle {n}",
+   "on": "bare på: {name}",
+   "night": "bare om natten"
+  },
+  "u": {
+   "recipe": "Ingrediens i",
+   "piece": "Byggemateriale til",
+   "convert": "Bearbeides til",
+   "fuel": "Brensel til",
+   "feed": "Fôr for å temme",
+   "summon": "Påkaller bossen",
+   "bait": "Agn for"
+  },
+  "intro": [
+   "Hvor finner du det, i hvilket biom og med hvilket verktøy? Denne listen dekker **{n} gjenstander** – materialer, mat, våpen, rustninger og trofeer. For hver gjenstand ser du hvor den kommer fra (trær, malmforekomster, skapninger, kister, handelsmenn), verktøyet du trenger, oppskriften og hva den brukes til. Alle data er lest direkte fra spillfilene (versjon {version})."
+  ],
+  "lists": {
+   "title": "Mine lister",
+   "add": "Legg til i listen",
+   "fromRecipe": "Liste fra oppskrift",
+   "view": "Vis lister",
+   "added": "Lagt til i listen «{list}».",
+   "created": "Listen «{list}» er opprettet.",
+   "defaultName": "Min liste",
+   "newPh": "Navn på den nye listen",
+   "create": "Opprett liste",
+   "choose": "Velg liste",
+   "del": "Slett liste",
+   "confirmDel": "Vil du virkelig slette listen «{list}»?",
+   "empty": "Ingen liste ennå. Opprett en, eller klikk på «Legg til i listen» ved en gjenstand – for oppskrifter lager «Liste fra oppskrift» en liste over alle ingrediensene med en gang. Listene lagres bare i denne nettleseren.",
+   "emptyList": "Denne listen er fortsatt tom. Åpne en gjenstand og klikk på «Legg til i listen».",
+   "progress": "{done} av {n} fullført",
+   "amount": "Antall",
+   "remove": "Fjern",
+   "close": "Lukk"
   }
  }
 }

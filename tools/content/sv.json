@@ -4,6 +4,7 @@
   "seeds": "Bästa seeds",
   "bosses": "Bossar",
   "traders": "Handlare",
+  "items": "Föremål",
   "guides": "Guider och FAQ"
  },
  "common": {
@@ -564,6 +565,126 @@
      "Hennes varor är billiga jämfört med Haldors. Några hundra mynt räcker till ett första besök."
     ]
    }
+  }
+ },
+ "items": {
+  "title": "Valheim-föremål: fyndplatser, verktyg och recept",
+  "desc": "Alla {n} föremål i Valheim med biom, fyndplats, verktyg som krävs, recept och användning – lästa direkt ur spelfilerna.",
+  "h1": "Föremålslista för Valheim",
+  "teaser": "Fyndplatser, biom, verktyg och recept",
+  "searchPh": "Sök föremål eller källa, t.ex. trä, björk, troll …",
+  "noResult": "Inget föremål hittades.",
+  "count": "{n} föremål",
+  "catTitle": "{cat} i Valheim: fyndplatser, verktyg och recept",
+  "catDesc": "{cat} i Valheim – {n} föremål med biom, fyndplats, verktyg som krävs, recept och användning.",
+  "allCats": "Alla kategorier",
+  "cats": {
+   "materials": "Material",
+   "food": "Mat och drycker",
+   "weapons": "Vapen, verktyg och ammunition",
+   "armor": "Rustningar, sköldar och tillbehör",
+   "trophies": "Troféer",
+   "misc": "Fisk och övrigt"
+  },
+  "srcH": "Så får du det",
+  "useH": "Används till",
+  "none": "Ingen vanlig källa känd.",
+  "f": {
+   "weight": "Vikt",
+   "stack": "Stapel",
+   "teleport": "Kan teleporteras",
+   "yes": "ja",
+   "no": "nej",
+   "value": "Försäljningsvärde",
+   "armor": "Rustning",
+   "block": "Blockeringskraft",
+   "damage": "Skada",
+   "health": "Hälsa",
+   "stamina": "Uthållighet",
+   "eitr": "Eitr",
+   "duration": "Varaktighet",
+   "minutes": "{n} min",
+   "chop": "Huggning",
+   "pickaxe": "Hacka"
+  },
+  "s": {
+   "chop": "Fäll",
+   "mine": "Bryt",
+   "pick": "Plocka upp",
+   "destroy": "Slå sönder",
+   "chest": "Kistor",
+   "loot": "Byte",
+   "creature": "Släpps av",
+   "recipe": "Tillverka",
+   "smelt": "Bearbeta",
+   "cook": "Tillaga",
+   "ferment": "Jäs",
+   "trader": "Köp",
+   "grow": "Odla",
+   "produce": "Produceras av",
+   "fish": "Fiske",
+   "fishdrop": "Bonus vid fångst av"
+  },
+  "g": {
+   "shrub": "Buskar och snår",
+   "object": "Förstörbara objekt",
+   "ground": "Ligger på marken eller växer vilt"
+  },
+  "t": {
+   "tool": "Verktyg",
+   "axe": "valfri yxa",
+   "pickaxe": "valfri hacka",
+   "axepick": "yxa eller hacka",
+   "orBetter": "{tool} eller bättre"
+  },
+  "x": {
+   "chance": "{n} % chans",
+   "level": "nivå {n}",
+   "byHand": "utan arbetsbänk",
+   "coins": "{n} mynt",
+   "bred": "avel",
+   "boss": "Boss",
+   "bait": "Bete",
+   "from": "av",
+   "oneOf": "en av dessa ingredienser räcker",
+   "fuel": "Bränsle",
+   "seed": "Plantera",
+   "perLevel": "per uppgradering",
+   "more": "Visa alla {n}",
+   "on": "endast på: {name}",
+   "night": "endast på natten"
+  },
+  "u": {
+   "recipe": "Ingrediens i",
+   "piece": "Byggmaterial till",
+   "convert": "Bearbetas till",
+   "fuel": "Bränsle till",
+   "feed": "Foder för att tämja",
+   "summon": "Frammanar bossen",
+   "bait": "Bete för"
+  },
+  "intro": [
+   "Var finns det, i vilket biom och med vilket verktyg? Listan omfattar **{n} föremål** – material, mat, vapen, rustningar och troféer. För varje föremål ser du var det kommer ifrån (träd, malmfyndigheter, varelser, kistor, handlare), vilket verktyg som krävs, receptet och vad det används till. Alla uppgifter är lästa direkt ur spelfilerna (version {version})."
+  ],
+  "lists": {
+   "title": "Mina listor",
+   "add": "Lägg till i listan",
+   "fromRecipe": "Lista från recept",
+   "view": "Visa listor",
+   "added": "Tillagt i listan ”{list}”.",
+   "created": "Listan ”{list}” har skapats.",
+   "defaultName": "Min lista",
+   "newPh": "Namn på den nya listan",
+   "create": "Skapa lista",
+   "choose": "Välj lista",
+   "del": "Ta bort lista",
+   "confirmDel": "Vill du verkligen ta bort listan ”{list}”?",
+   "empty": "Ingen lista ännu. Skapa en eller klicka på ”Lägg till i listan” vid ett föremål – för recept skapar ”Lista från recept” direkt en lista med alla ingredienser. Listorna sparas bara i den här webbläsaren.",
+   "emptyList": "Den här listan är fortfarande tom. Öppna ett föremål och klicka på ”Lägg till i listan”.",
+   "progress": "{done} av {n} klara",
+   "amount": "Antal",
+   "remove": "Ta bort",
+   "close": "Stäng"
   }
  }
 }
