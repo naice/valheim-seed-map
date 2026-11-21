@@ -827,13 +827,27 @@ function viewHash() {
 }
 function saveHashSoon() {
   clearTimeout(hashTimer);
-  hashTimer = setTimeout(() => history.replaceState(null, '', viewHash()), 400);
+  hashTimer = setTimeout(() => {
+    const h = viewHash();
+    history.replaceState(null, '', h);
+    try { localStorage.setItem(LAST_KEY, h); } catch { /* kein Speicher */ }
+  }, 400);
+}
+// Zuletzt angesehene Karte (Seed + Ausschnitt) – für Rückkehr von Unterseiten, deren Links keinen Hash tragen.
+const LAST_KEY = 'valheim-map.last';
+function lastView() {
+  try { return new URLSearchParams((localStorage.getItem(LAST_KEY) || '').slice(1)); } catch { return new URLSearchParams(); }
 }
 
 (async function init() {
-  const params = new URLSearchParams(location.hash.slice(1));
-  const seed = params.get('seed');
+  let params = new URLSearchParams(location.hash.slice(1));
   if (params.get('show')) focusPrefabs = new Set(params.get('show').split(','));
+  if (!params.get('seed')) {
+    // Kein Seed im Link: letzte Karte wiederherstellen (bei show=… nur den Seed, der Ausschnitt ergibt sich aus der Auswahl)
+    const last = lastView();
+    if (last.get('seed')) params = params.get('show') ? new URLSearchParams({ seed: last.get('seed') }) : last;
+  }
+  const seed = params.get('seed');
   const hasView = params.has('x') && params.has('z') && params.has('s');
   if (hasView) {
     view.cx = +params.get('x') || 0; view.cz = +params.get('z') || 0;
